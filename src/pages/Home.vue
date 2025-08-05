@@ -44,7 +44,6 @@ import Testimonials from '../partials/Testimonials.vue'
 import Faqs from '../partials/Faqs.vue'
 import Cta from '../partials/Cta.vue'
 import Footer from '../partials/Footer.vue'
-import Story from '../partials/Story.vue'
 import Citation from '../partials/Citation.vue'
 
 export default {
@@ -65,7 +64,6 @@ export default {
     Faqs,
     Cta,
     Footer,
-    Story,
     Citation
 },
 }

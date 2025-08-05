@@ -9,8 +9,11 @@
         <div class="sm:col-span-6 md:col-span-3 lg:col-span-6 max-sm:order-1 flex flex-col">
           <div class="mb-4">
             <!-- Logo -->
-            <router-link class="flex items-center justify-center bg-white w-8 h-8 rounded-sm shadow-xs shadow-zinc-950/20" to="/">
-              <img src="../images/logo.png" width="24" height="24" alt="Logo">
+            <router-link class="block group" to="/" aria-label="Cruip">
+              <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+                <path class="fill-indigo-500" d="M13.853 18.14 1 10.643 31 1l-.019.058z" />
+                <path class="fill-indigo-300" d="M13.853 18.14 30.981 1.058 21.357 31l-7.5-12.857z" />
+              </svg>
             </router-link>
           </div>
           <div class="grow text-sm text-zinc-500">&copy; Cruip.com. All rights reserved.</div>
