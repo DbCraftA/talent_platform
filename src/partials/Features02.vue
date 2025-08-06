@@ -13,10 +13,10 @@
           <!-- Category buttons -->
           <div class="pb-12 md:pb-20">
             <div class="flex flex-wrap justify-center -m-1.5">
-              <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '1' ? 'bg-blue-500 text-white' : 'bg-white text-gray-900 hover:bg-blue-50'" @click="category = '1'">Flexible Features</button>
-              <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '2' ? 'bg-blue-500 text-white' : 'bg-white text-gray-900 hover:bg-blue-50'" @click="category = '2'">Flexible Features</button>
-              <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '3' ? 'bg-blue-500 text-white' : 'bg-white text-gray-900 hover:bg-blue-50'" @click="category = '3'">Flexible Features</button>
-              <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '4' ? 'bg-blue-500 text-white' : 'bg-white text-gray-900 hover:bg-blue-50'" @click="category = '4'">Flexible Features</button>
+              <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '1' ? 'bg-indigo-500 text-white' : 'bg-white text-gray-900 hover:bg-indigo-50'" @click="category = '1'">Flexible Features</button>
+              <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '2' ? 'bg-indigo-500 text-white' : 'bg-white text-gray-900 hover:bg-indigo-50'" @click="category = '2'">Flexible Features</button>
+              <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '3' ? 'bg-indigo-500 text-white' : 'bg-white text-gray-900 hover:bg-indigo-50'" @click="category = '3'">Flexible Features</button>
+              <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '4' ? 'bg-indigo-500 text-white' : 'bg-white text-gray-900 hover:bg-indigo-50'" @click="category = '4'">Flexible Features</button>
             </div>
           </div>
 
@@ -31,7 +31,7 @@
                 <p class="text-lg text-gray-500 mb-8">Work is is changing faster than at any other time in history. This rapid change requires a new hiring model. A model that is fair, inclusive, and empowering. That's why we built this.</p>
                 <ul class="inline-flex flex-col space-y-6">
                   <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-blue-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -42,7 +42,7 @@
                     </div>
                   </li>
                   <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-blue-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -53,7 +53,7 @@
                     </div>
                   </li>
                   <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-blue-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -71,7 +71,7 @@
                 <p class="text-lg text-gray-500 mb-8">Work is is changing faster than at any other time in history. This rapid change requires a new hiring model. A model that is fair, inclusive, and empowering. That's why we built this.</p>
                 <ul class="inline-flex flex-col space-y-6">
                   <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-blue-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -82,7 +82,7 @@
                     </div>
                   </li>
                   <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-blue-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -100,7 +100,7 @@
                 <p class="text-lg text-gray-500 mb-8">Work is is changing faster than at any other time in history. This rapid change requires a new hiring model. A model that is fair, inclusive, and empowering. That's why we built this.</p>
                 <ul class="inline-flex flex-col space-y-6">
                   <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-blue-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -111,7 +111,7 @@
                     </div>
                   </li>
                   <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-blue-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -129,7 +129,7 @@
                 <p class="text-lg text-gray-500 mb-8">Work is is changing faster than at any other time in history. This rapid change requires a new hiring model. A model that is fair, inclusive, and empowering. That's why we built this.</p>
                 <ul class="inline-flex flex-col space-y-6">
                   <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-blue-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -140,7 +140,7 @@
                     </div>
                   </li>
                   <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-blue-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -151,7 +151,7 @@
                     </div>
                   </li>
                   <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-blue-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
