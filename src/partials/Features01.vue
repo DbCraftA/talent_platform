@@ -26,7 +26,7 @@
               <!-- Carousel items -->
               <div class="swiper-slide max-w-[446px] h-auto">
                 <!-- Image -->
-                <img class="w-full aspect-4/3 object-cover h-full" src="../images/carousel-02.jpg" width="446" height="335" alt="Carousel 01" />
+                <img class="w-full aspect-4/3 object-cover h-full" src="../images/carousel-04.jpg" width="446" height="335" alt="Carousel 01" />
               </div>
               <div class="swiper-slide max-w-[446px] h-auto">
                 <!-- Image -->
@@ -38,7 +38,7 @@
               </div>
               <div class="swiper-slide max-w-[446px] h-auto">
                 <!-- Image -->
-                <img class="w-full aspect-4/3 object-cover h-full" src="../images/carousel-04.jpg" width="446" height="335" alt="Carousel 04" />
+                <img class="w-full aspect-4/3 object-cover h-full" src="../images/carousel-02.jpg" width="446" height="335" alt="Carousel 04" />
               </div>
               <div class="swiper-slide max-w-[446px] h-auto">
                 <!-- Image -->

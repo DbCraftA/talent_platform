@@ -1,6 +1,6 @@
 <template>
   <section class="  bg-linear-to-tr from-white to-indigo-100 ">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto min-h-[1000px] px-4 sm:px-6">
       <div class="py-12 md:py-20">
 
         <!-- Section header -->
