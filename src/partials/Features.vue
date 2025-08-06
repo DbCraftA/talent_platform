@@ -44,11 +44,10 @@
           </p>
         </div>
 
-        <div class="flex justify-center pb-4 md:pb-12" data-aos="fade-up">
+        <div class="flex justify-center px-4 pb-4 md:pb-12" data-aos="fade-up">
           <img
-            class="max-w-none"
+            class="max-w-none w-70 md:w-lg"
             src="../images/hero-mac.png"
-            width="500"
             alt="Features"
           />
         </div>
