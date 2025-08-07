@@ -25,11 +25,11 @@
             Of the thousands of applications Toptal sees each month, typically fewer than 3% are accepted.</p>
 
           <div class="max-w-xs pt-10 mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <div>
-              <router-link class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" to="/request-demo">Request Demo</router-link>
+            <div >
+              <a class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" href="#0">Prospection</a>
             </div>
             <div>
-              <a class="btn text-zinc-600 bg-white hover:text-zinc-900 w-full shadow-sm" href="#0">Try for Free</a>
+              <a class="btn text-zinc-600 bg-white hover:text-zinc-900 w-full shadow-sm" href="#1">Accompagnement</a>
             </div>
           </div>
         </div>
@@ -49,6 +49,7 @@ import Stats from "./Stats.vue";
 
 export default  {
   name: 'Hero',
-  components: {Stats},
+  components: {Stats}
 }
+
 </script>

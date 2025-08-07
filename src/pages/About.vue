@@ -6,6 +6,7 @@ import Benefits from "../partials/Benefits.vue";
 import Clients from "../partials/Clients.vue";
 import Cta from "../partials/Cta.vue";
 import Footer from "./../partials/Footer.vue";
+import MethodeAccompagnement from "./../partials/MethodeAccompagnement.vue";
 </script>
 
 <template>
@@ -24,6 +25,7 @@ import Footer from "./../partials/Footer.vue";
       <Timeline />
       <Benefits />
       <Clients />
+      <MethodeAccompagnement />
       <Cta />
     </main>
 

@@ -16,7 +16,7 @@
               </svg>
             </router-link>
           </div>
-          <div class="grow text-sm text-zinc-500">&copy; Cruip.com. All rights reserved.</div>
+          <div class="grow text-sm text-zinc-500">&copy; ???.com. All rights reserved.</div>
           <!-- Social links -->
           <ul class="flex space-x-4 mt-4 mb-1">
             <li>
@@ -51,51 +51,18 @@
               <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">About us</a>
             </li>
             <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Diversity & Inclusion</a>
-            </li>
-            <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Blog</a>
-            </li>
-            <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Careers</a>
-            </li>
-            <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Financial statements</a>
+              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Notre methode</a>
             </li>
           </ul>
         </div>
 
-        <!-- 3rd block -->
-        <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
-          <h6 class="text-sm text-zinc-800 font-medium mb-2">Resources</h6>
-          <ul class="text-sm space-y-2">
-            <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Community</a>
-            </li>
-            <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Terms of service</a>
-            </li>
-            <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Collaboration features</a>
-            </li>
-          </ul>
-        </div>
 
         <!-- 4th block -->
         <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
           <h6 class="text-sm text-zinc-800 font-medium mb-2">Legals</h6>
           <ul class="text-sm space-y-2">
             <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Refund policy</a>
-            </li>
-            <li>
               <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Terms & Conditions</a>
-            </li>
-            <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Privacy policy</a>
-            </li>
-            <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Brand Kit</a>
             </li>
           </ul>
         </div>

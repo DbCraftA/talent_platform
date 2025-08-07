@@ -15,6 +15,7 @@
       <Citation/>
       <Features03 />
       <Features04 />
+      <BlogList/>
       <Features/>
       <Testimonials />
       <Faqs />
@@ -46,6 +47,7 @@ import Cta from '../partials/Cta.vue'
 import Footer from '../partials/Footer.vue'
 import Citation from '../partials/Citation.vue'
 import Features from '../partials/Features.vue'
+import BlogList from '../partials/BlogList.vue'
 
 export default {
   name: 'Home',
@@ -66,7 +68,8 @@ export default {
     Cta,
     Footer,
     Citation,
-    Features
+    Features,
+    BlogList
 },
 }
 </script>

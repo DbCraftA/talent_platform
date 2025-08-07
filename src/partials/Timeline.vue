@@ -1,8 +1,8 @@
 <template>
-  <section class=" bg-linear-to-tr from-indigo-100 to-white  ">
+  <section id="0" class=" bg-linear-to-tr from-indigo-100 to-white  ">
 
 
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div   class="mx-auto max-w-6xl px-4 sm:px-6  border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
       <div class="pb-12 md:pb-20">
         <!-- Section header -->
         <div class="mx-auto max-w-3xl pb-12 text-center md:pb-20">
