@@ -25,7 +25,7 @@
             <div class="px-4 pt-12 pb-8">
               <div class="max-w-md mx-auto w-full">
                 <div class="relative">
-                  <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-gray-200 dark:bg-gray-700/60" aria-hidden="true"></div>
+                  <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-gray-200 " aria-hidden="true"></div>
                   <ul class="relative flex justify-between w-full">
                     <li>
                       <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-violet-500 text-white" to="/onboarding-01">1</router-link>
@@ -37,7 +37,7 @@
                       <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-violet-500 text-white" to="/onboarding-03">3</router-link>
                     </li>
                     <li>
-                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-white dark:bg-gray-900 text-gray-500 dark:text-gray-400" to="/onboarding-04">4</router-link>
+                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-white text-gray-500 " to="/onboarding-04">4</router-link>
                     </li>
                   </ul>
                 </div>
@@ -48,7 +48,7 @@
           <div class="px-4 py-8">
             <div class="max-w-md mx-auto">
 
-              <h1 class="text-3xl text-gray-800 dark:text-gray-100 font-bold mb-6">Company information</h1>
+              <h1 class="text-3xl text-gray-800  font-bold mb-6">Company information</h1>
               <!-- Form -->
               <form>
                 <div class="space-y-4 mb-8">
@@ -85,7 +85,7 @@
                 </div>
                 <div class="flex items-center justify-between">
                   <router-link class="text-sm underline hover:no-underline" to="/onboarding-02">&lt;- Back</router-link>
-                  <router-link class="btn bg-gray-900 text-gray-100 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-white ml-auto" to="/onboarding-04">Next Step -&gt;</router-link>
+                  <router-link class="btn bg-gray-900 text-gray-100 hover:bg-gray-800   ml-auto" to="/onboarding-04">Next Step -&gt;</router-link>
                 </div>
               </form>
 

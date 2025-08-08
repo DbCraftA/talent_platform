@@ -25,7 +25,7 @@
             <div class="px-4 pt-12 pb-8">
               <div class="max-w-md mx-auto w-full">
                 <div class="relative">
-                  <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-gray-200 dark:bg-gray-700/60" aria-hidden="true"></div>
+                  <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-gray-200 " aria-hidden="true"></div>
                   <ul class="relative flex justify-between w-full">
                     <li>
                       <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-violet-500 text-white" to="/onboarding-01">1</router-link>
@@ -53,8 +53,8 @@
                   <circle class="text-green-500/20" cx="32" cy="32" r="32" />
                   <path class="text-green-700" d="M37.22 26.375a1 1 0 1 1 1.56 1.25l-8 10a1 1 0 0 1-1.487.082l-4-4a1 1 0 0 1 1.414-1.414l3.21 3.21 7.302-9.128Z" />
                 </svg>
-                <h1 class="text-3xl text-gray-800 dark:text-gray-100 font-bold mb-8">Nice to have you, Acme Inc. 🙌</h1>
-                <router-link class="btn bg-gray-900 text-gray-100 hover:bg-gray-800 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-white" to="/">Go To Dashboard -&gt;</router-link>
+                <h1 class="text-3xl text-gray-800 font-bold mb-8">Nice to have you, Acme Inc. 🙌</h1>
+                <router-link class="btn bg-gray-900 text-gray-100 hover:bg-gray-800 " to="/">Go To Dashboard -&gt;</router-link>
               </div>
 
             </div>
