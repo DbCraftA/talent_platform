@@ -43,7 +43,7 @@ const category = ref(1);
               <header>
                 <router-link
                   class="group relative mb-6 block overflow-hidden rounded-2xl border border-gray-800/80 before:absolute before:inset-0 before:-z-10 before:bg-linear-to-br before:from-gray-900 before:via-indigo-500/50 before:to-indigo-500 before:opacity-50"
-                  to="/blog-post"
+                  to="/clientfeedback-01"
                   tabindex="-1"
                 >
                   <img
@@ -83,10 +83,9 @@ const category = ref(1);
                 <h3 class="font-nacelle mb-2 text-lg font-semibold">
                   <router-link
                     class=""
-                    to="/blog-post"
+                    to="/clientfeedback-01"
                     >The ultimate guide to AI management in the age of new
-                    tools</router-link
-                  >
+                    tools</router-link >
                 </h3>
               </header>
               <footer class="flex items-center gap-3">
@@ -113,7 +112,7 @@ const category = ref(1);
               <header>
                 <router-link
                   class="group relative mb-6 block overflow-hidden rounded-2xl border border-gray-800/80 before:absolute before:inset-0 before:-z-10 before:bg-linear-to-br before:from-gray-900 before:via-indigo-500/50 before:to-indigo-500 before:opacity-50"
-                  to="/blog-post"
+                  to="/clientfeedback-02"
                   tabindex="-1"
                 >
                   <img
@@ -154,7 +153,7 @@ const category = ref(1);
                 <h3 class="font-nacelle mb-2 text-lg font-semibold">
                   <router-link
                     class=" "
-                    to="/blog-post"
+                    to="/clientfeedback-02"
                     >New AI releases for better, faster, more personalized
                     support</router-link
                   >
@@ -183,7 +182,7 @@ const category = ref(1);
               <header>
                 <router-link
                   class="group relative mb-6 block overflow-hidden rounded-2xl border border-gray-800/80 before:absolute before:inset-0 before:-z-10 before:bg-linear-to-br before:from-gray-900 before:via-indigo-500/50 before:to-indigo-500 before:opacity-50"
-                  to="/blog-post"
+                  to="/clientfeedback-03"
                   tabindex="-1"
                 >
                   <img
@@ -224,7 +223,7 @@ const category = ref(1);
                 <h3 class="font-nacelle mb-2 text-lg font-semibold">
                   <router-link
                     class=" "
-                    to="/blog-post"
+                    to="/clientfeedback-03"
                     >Unlocking customer strategic potential with AI</router-link
                   >
                 </h3>

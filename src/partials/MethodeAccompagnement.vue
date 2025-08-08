@@ -44,7 +44,7 @@
                   class="absolute right-6 ml-20 box-content h-2 w-2 -translate-x-8 transform rounded-full border-4 border-gray-950 bg-indigo-500"
                   aria-hidden="true"
                 ></div>
-                <h4 class="font-nacelle text-xl font-semibold  text-black">
+                <h4 class="font-nacelle text-xl font-semibold text-right text-black">
                   Open PRO was founded in Milan, Italy
                 </h4>
               </div>
@@ -83,7 +83,7 @@
                     class="absolute right-6 ml-20 box-content h-2 w-2 -translate-x-8 transform rounded-full border-4 border-gray-950 bg-indigo-500"
                     aria-hidden="true"
                 ></div>
-                <h4 class="font-nacelle text-xl font-semibold  text-black">
+                <h4 class="font-nacelle text-xl font-semibold text-right text-black">
                   Open PRO was founded in Milan, Italy
                 </h4>
               </div>

@@ -5,6 +5,13 @@ import ScheduleCall from './pages/ScheduleCall.vue'
 import ResetPassword from './pages/ResetPassword.vue'
 import PostJob from './pages/PostAJob.vue'
 import About from './pages/About.vue'
+import Onboarding01 from './pages/Onboarding01.vue'
+import Onboarding02 from './pages/Onboarding02.vue'
+import Onboarding03 from './pages/Onboarding03.vue'
+import Onboarding04 from './pages/Onboarding04.vue'
+import ClientFeedback01 from './pages/ClientFeedback01.vue'
+import ClientFeedback02 from './pages/ClientFeedback02.vue'
+import ClientFeedback03 from './pages/ClientFeedback03.vue'
 
 const routerHistory = createWebHistory()
 
@@ -39,7 +46,35 @@ const router = createRouter({
     {
       path: '/about',
       component: About
-    }
+    },
+    {
+      path: '/onboarding-01',
+      component: Onboarding01
+    },
+    {
+      path: '/onboarding-02',
+      component: Onboarding02
+    },
+    {
+      path: '/onboarding-03',
+      component: Onboarding03
+    },
+    {
+      path: '/onboarding-04',
+      component: Onboarding04
+    },
+    {
+      path: '/clientfeedback-01',
+      component: ClientFeedback01
+    },
+    {
+      path: '/clientfeedback-02',
+      component: ClientFeedback02
+    },
+    {
+      path: '/clientfeedback-03',
+      component: ClientFeedback03
+    },
   ]
 })
 
