@@ -37,7 +37,7 @@
                   1
                 </div>
                 <div
-                  class="absolute left-0 ml-20 h-full -translate-x-1/2 translate-y-3 transform self-start bg-gray-800 px-px"
+                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-9.5 transform self-start bg-gray-800 px-px"
                   aria-hidden="true"
                 ></div>
                 <div
@@ -76,7 +76,7 @@
                   2
                 </div>
                 <div
-                  class="absolute left-0 ml-20 h-full -translate-x-1/2 translate-y-3 transform self-start bg-gray-800 px-px"
+                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-9.5 transform self-start bg-gray-800 px-px"
                   aria-hidden="true"
                 ></div>
                 <div
@@ -115,7 +115,7 @@
                   3
                 </div>
                 <div
-                  class="absolute left-0 ml-20 h-full -translate-x-1/2 translate-y-3 transform self-start bg-gray-800 px-px"
+                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-5.5 transform self-start bg-gray-800 px-px"
                   aria-hidden="true"
                 ></div>
                 <div
