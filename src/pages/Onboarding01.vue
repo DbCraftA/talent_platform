@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-linear-to-br from-indigo-50/20 to-white dark:bg-gray-900">
+  <main class="bg-linear-to-br from-indigo-50/20 to-white ">
 
 
 
