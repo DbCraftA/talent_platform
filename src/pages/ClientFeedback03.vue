@@ -29,7 +29,7 @@
                   <div class="relative bg-gray-50 rounded-xl border border-gray-200 p-5">
 
                     <div class="text-center mb-6">
-                      <img class="inline-flex mb-2" src="../images/company-icon-08.svg" width="72" height="72" alt="Company 08" />
+                      <img class="inline-flex mb-2" src="../images/logo-02.png" width="72" height="72" alt="Company 08" />
                       <h2 class="text-lg font-bold text-gray-800">Medium Inc.</h2>
                     </div>
 
