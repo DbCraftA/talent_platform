@@ -48,10 +48,14 @@
           <h6 class="text-sm text-zinc-800 font-medium mb-2">Company</h6>
           <ul class="text-sm space-y-2">
             <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">About us</a>
+              <router-link class="block group" to="/a-propos" aria-label="Cruip">
+              <a class="text-zinc-500 hover:text-zinc-900 transition" href="/a-propos">A propos de ...</a>
+              </router-link>
             </li>
             <li>
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="#0">Notre methode</a>
+              <router-link class="block group" to="/methode" aria-label="Cruip">
+              <a class="text-zinc-500 hover:text-zinc-900 transition" href="/methode">Notre methode</a>
+              </router-link>
             </li>
           </ul>
         </div>

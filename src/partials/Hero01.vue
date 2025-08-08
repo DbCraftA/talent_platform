@@ -12,7 +12,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="pt-28 pb-8 md:pt-36 md:pb-16">
 
-        <!-- Hero content -->
+        <!-- HeroMethode content -->
         <div class="max-w-3xl text-center md:text-left">
 
           <!-- Copy -->

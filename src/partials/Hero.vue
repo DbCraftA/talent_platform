@@ -7,7 +7,7 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="pt-32 pb-12 md:pt-40 md:pb-20">
 
-        <!-- Hero content -->
+        <!-- HeroMethode content -->
         <div class="relative max-w-xl mx-auto md:max-w-none text-center md:text-left flex flex-col md:flex-row">
 
           <!-- Content -->

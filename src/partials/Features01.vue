@@ -51,13 +51,13 @@
           <div class="flex mt-12 space-x-3 justify-end">
             <button class="carousel-prev relative z-20 w-11 h-11 rounded-full flex items-center justify-center group bg-gray-900">
               <span class="sr-only">Previous</span>
-              <svg class="fill-blue-500 group-hover:fill-white transition duration-150 ease-in-out" width="13" height="12" viewBox="0 0 13 12" xmlns="http://www.w3.org/2000/svg">
+              <svg class="fill-indigo-500 group-hover:fill-white transition duration-150 ease-in-out" width="13" height="12" viewBox="0 0 13 12" xmlns="http://www.w3.org/2000/svg">
                 <path d="m3.914 5 3.5-3.5L6 .086 1.086 5H1v.086L.086 6 1 6.914V7h.086L6 11.914 7.414 10.5 3.914 7H13V5z" />
               </svg>
             </button>
             <button class="carousel-next relative z-20 w-11 h-11 rounded-full flex items-center justify-center group bg-gray-900">
               <span class="sr-only">Next</span>
-              <svg class="fill-blue-500 group-hover:fill-white transition duration-150 ease-in-out" width="13" height="12" viewBox="0 0 13 12" xmlns="http://www.w3.org/2000/svg">
+              <svg class="fill-indigo-500 group-hover:fill-white transition duration-150 ease-in-out" width="13" height="12" viewBox="0 0 13 12" xmlns="http://www.w3.org/2000/svg">
                 <path d="m9.086 5-3.5-3.5L7 .086 11.914 5H12v.086l.914.914-.914.914V7h-.086L7 11.914 5.586 10.5l3.5-3.5H0V5z" />
               </svg>
             </button>

@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from './pages/Home.vue'
 import SignIn from './pages/SignIn.vue'
-import ScheduleCall from './pages/ScheduleCall.vue'
+import About from './pages/about.vue'
 import ResetPassword from './pages/ResetPassword.vue'
 import PostJob from './pages/PostAJob.vue'
-import About from './pages/About.vue'
+import Methode from './pages/methode.vue'
 import Onboarding01 from './pages/Onboarding01.vue'
 import Onboarding02 from './pages/Onboarding02.vue'
 import Onboarding03 from './pages/Onboarding03.vue'
@@ -44,7 +44,11 @@ const router = createRouter({
       component: ResetPassword
     },
     {
-      path: '/about',
+      path: '/methode',
+      component: Methode
+    },
+    {
+      path: '/a-propos',
       component: About
     },
     {

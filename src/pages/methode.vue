@@ -1,6 +1,6 @@
 <script setup>
 import Header from "./../partials/Header.vue";
-import Hero from "../partials/HeroAbout.vue";
+import HeroMethode from "../partials/HeroMethode.vue";
 import Timeline from "../partials/Timeline.vue";
 import Benefits from "../partials/Benefits.vue";
 import Clients from "../partials/Clients.vue";
@@ -21,7 +21,7 @@ import MethodeAccompagnement from "./../partials/MethodeAccompagnement.vue";
 
 
       <!-- Page sections -->
-      <Hero />
+      <HeroMethode />
       <Timeline />
       <Benefits />
       <Clients />

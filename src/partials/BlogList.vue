@@ -7,7 +7,7 @@ const category = ref(1);
 <template>
   <section class="bg-linear-to-b from-indigo-100 to-white">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <!-- Hero content -->
+      <!-- HeroMethode content -->
       <div class="py-12 md:py-20">
         <!-- Section header -->
         <div class="pb-12 text-center">
