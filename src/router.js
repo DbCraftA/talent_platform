@@ -5,13 +5,16 @@ import About from './pages/about.vue'
 import ResetPassword from './pages/ResetPassword.vue'
 import PostJob from './pages/PostAJob.vue'
 import Methode from './pages/methode.vue'
-import Onboarding01 from './pages/Onboarding01.vue'
-import Onboarding02 from './pages/Onboarding02.vue'
-import Onboarding03 from './pages/Onboarding03.vue'
-import Onboarding04 from './pages/Onboarding04.vue'
+import Contact01 from './pages/contact01.vue'
+import Contact02Company from './pages/Contact02Company.vue'
+import Contact02Freelance from './pages/Contact02Freelance.vue'
+import Contact02Any from './pages/Contact02Any.vue'
+import ContactSubmitMessage from './pages/ContactSubmitMessage.vue'
 import ClientFeedback01 from './pages/ClientFeedback01.vue'
 import ClientFeedback02 from './pages/ClientFeedback02.vue'
 import ClientFeedback03 from './pages/ClientFeedback03.vue'
+import { useFormStore } from './stores/formContacterNous.js'
+import { pinia } from './main'
 
 const routerHistory = createWebHistory()
 
@@ -52,20 +55,24 @@ const router = createRouter({
       component: About
     },
     {
-      path: '/onboarding-01',
-      component: Onboarding01
+      path: '/c-01',
+      component: Contact01
     },
     {
-      path: '/onboarding-02',
-      component: Onboarding02
+      path: '/c-02-c',
+      component: Contact02Company
     },
     {
-      path: '/onboarding-03',
-      component: Onboarding03
+      path: '/c-02-f',
+      component: Contact02Freelance
     },
     {
-      path: '/onboarding-04',
-      component: Onboarding04
+      path: '/c-02-a',
+      component: Contact02Any
+    },
+    {
+      path: '/c-03',
+      component: ContactSubmitMessage
     },
     {
       path: '/clientfeedback-01',
@@ -81,5 +88,13 @@ const router = createRouter({
     },
   ]
 })
+
+router.beforeEach((to) => {
+
+  const form = useFormStore(pinia)
+
+
+})
+
 
 export default router

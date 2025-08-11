@@ -23,7 +23,7 @@
               <router-link class="font-cabinet-grotesk text-sm font-bold  hover:no-underline flex items-center" to="/methode">Notre methode</router-link>
             </li>
             <li class="ml-6">
-              <router-link class="btn-sm inline-flex items-center text-white bg-gray-900 hover:bg-gray-800 group" to="/onboarding-01">
+              <router-link class="btn-sm inline-flex items-center text-white bg-gray-900 hover:bg-gray-800 group" to="/c-01">
                 Nous contacter
                 <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                   <svg class="fill-indigo-500" xmlns="http://www.w3.org/2000/svg" width="16" height="8">
