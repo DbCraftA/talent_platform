@@ -47,39 +47,54 @@
           <div class="px-4 py-8">
             <div class="max-w-md mx-auto">
 
-              <h1 class="text-3xl text-gray-800  font-bold mb-6">Company information</h1>
+              <h1 class="text-3xl text-gray-800  font-bold mb-6">Vous êtes freelance</h1>
+              <div class="text-gray-500">Find the best talent from around the world on the most exclusive job board on the internet.</div>
+
               <!-- Form -->
               <form>
-                <div class="space-y-4 mb-8">
-                  <!-- Company Name -->
-                  <div>
-                    <label class="block text-sm font-medium mb-1" for="company-name">Company Name <span class="text-red-500">*</span></label>
-                    <input id="company-name" class="form-input w-full" v-model="form.raison" type="text" />
-                  </div>
-                  <!-- City and Postal Code -->
+                <div class="space-y-4 mb-8 pt-8">
+                  <!-- Nom & Prenom -->
                   <div class="flex space-x-4">
                     <div class="flex-1">
-                      <label class="block text-sm font-medium mb-1" for="city">City <span class="text-red-500">*</span></label>
-                      <input id="city" class="form-input w-full" v-model="form.ville"  type="text" />
+                      <label class="block text-sm font-medium mb-1" for="city">Nom <span class="text-red-500">*</span></label>
+                      <input id="city" class="form-input w-full" v-model="form.nom"  type="text" required autocomplete="off" />
                     </div>
                     <div class="flex-1">
-                      <label class="block text-sm font-medium mb-1" for="postal-code">Postal Code <span class="text-red-500">*</span></label>
-                      <input id="postal-code" class="form-input w-full" v-model="form.code_postal"  type="text" />
+                      <label class="block text-sm font-medium mb-1" for="postal-code">Prénom <span class="text-red-500">*</span></label>
+                      <input id="postal-code" class="form-input w-full" v-model="form.prenom"  type="text" />
                     </div>
                   </div>
-                  <!-- Street Address -->
+                  <!-- Email -->
                   <div>
-                    <label class="block text-sm font-medium mb-1" for="street">Street Address <span class="text-red-500">*</span></label>
-                    <input id="street" class="form-input w-full" v-model="form.adresse" type="text" />
+                    <label class="block text-sm font-medium mb-1" for="company-name">Email <span class="text-red-500">*</span></label>
+                    <input id="company-name" class="form-input w-full" v-model="form.email" type="text" required autocomplete="off" />
                   </div>
-                  <!-- Country -->
+                  <!-- Linkedin -->
                   <div>
-                    <label class="block text-sm font-medium mb-1" for="country">Country <span class="text-red-500">*</span></label>
-                    <select id="country" v-model="form.pays" class="form-select w-full">
-                      <option>USA</option>
-                      <option>Italy</option>
-                      <option>United Kingdom</option>
-                    </select>
+                    <label class="block text-sm font-medium mb-1" for="company-name">Linkedin</label>
+                    <input id="company-name" class="form-input w-full" v-model="form.linkedin" type="text" />
+                  </div>
+                  <!-- Domaine -->
+                  <div class="flex space-x-4">
+                    <div class="flex-1">
+                      <label class="block text-sm font-medium mb-1" for="country">Domaine <span class="text-red-500">*</span></label>
+                      <select id="country" v-model="form.domaine" class="form-select w-full" required autocomplete="off">
+                        <option>IA</option>
+                        <option>Cloud</option>
+                        <option>Autre</option>
+                      </select>
+                    </div>
+                      <div class="flex-2">
+                        <div>
+                        <label class="block text-sm font-medium mb-1" for="company-name">Profession</label>
+                        <input id="company-name" class="form-input w-full" v-model="form.profession" type="text" />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Champ libre -->
+                  <div>
+                    <label class="block text-sm font-medium mb-1" for="street">Parlez nous un peu de vous <span class="text-red-500">*</span></label>
+                    <textarea rows="5" id="street" class="border border-gray-200 rounded-sm w-full" v-model="form.champ_libre" type="text" />
                   </div>
                 </div>
                 <div class="flex items-center justify-between">

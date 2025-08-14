@@ -149,11 +149,12 @@
 
 <script setup>
 import { useFormStore } from '../stores/formContacterNous.js'
-import { computed } from 'vue'
+import {onMounted} from 'vue'
 
 const form = useFormStore()
 
-console.log(form)
-
+onMounted(() => {
+  form.resetForm()
+})
 
 </script>

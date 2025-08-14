@@ -3,26 +3,34 @@ import { defineStore } from 'pinia'
 export const useFormStore = defineStore('form', {
     state: () => ({
         type: 'company',
+        nom : '',
+        prenom : '',
         raison: '',
+        email: '',
+        linkedin: '',
         code_postal: '',
         adresse: '',
         ville: '',
-        pays: ''
+        pays: '',
+        profession: '',
+        domaine: '',
+        champ_libre: '',
     }),
     actions: {
         resetForm() {
-            this.code_postal = ''
-            this.raison = ''
-            this.adresse = ''
-            this.ville = ''
-            this.pays = ''
-            localStorage.removeItem('formData')
+                this.type = 'company',
+                this.nom  = '',
+                this.prenom  = '',
+                this.raison = '',
+                this.email = '',
+                this.linkedin = '',
+                this.code_postal = '',
+                this.adresse = '',
+                this.ville = '',
+                this.pays = '',
+                this.profession = '',
+                this.domaine = '',
+                this.champ_libre = ''
         },
-        loadFromStorage() {
-            const saved = localStorage.getItem('formData')
-            if (saved) {
-                Object.assign(this, JSON.parse(saved))
-            }
-        }
     }
 })
