@@ -223,7 +223,7 @@ import { useFormStore } from '../stores/formContacterNous.js'
 import { useRouter } from 'vue-router'
 import emailjs from '@emailjs/browser'
 import { ref } from 'vue'
-import { SERVICE_ID, TEMPLATE_ID, USER_ID } from '../utils/functions.js'
+import { SERVICE_ID, TEMPLATE_B2C_ID, USER_ID } from '../utils/constantes.js'
 
 const form = useFormStore()
 const router = useRouter()
@@ -235,7 +235,7 @@ const isLoading = ref(false)
 const sendEmail = () => {
   isLoading.value = true
   emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, emailField.value,  USER_ID)
+      .sendForm(SERVICE_ID, TEMPLATE_B2C_ID, emailField.value,  USER_ID)
      .then(
           () => {
             isLoading.value = false
