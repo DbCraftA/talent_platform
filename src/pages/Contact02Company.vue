@@ -51,7 +51,7 @@
               <div class="text-gray-500">Find the best talent from around the world on the most exclusive job board on the internet.</div>
 
               <!-- Form -->
-              <form>
+              <form ref="emailField" @submit.prevent="sendEmail" >
                 <div class="flex-1 py-8">
 
                   <!-- Form -->
@@ -60,65 +60,77 @@
 
                       <!-- Group #1 -->
                       <div class="py-6">
-                        <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">1.</span> Your company</div>
+                        <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">1.</span> Entreprise</div>
                         <div class="space-y-4">
-                          <div>
-                            <label class="block text-sm font-medium mb-1" for="name">Company Name <span class="text-red-500">*</span></label>
-                            <input id="name" class="form-input w-full" type="text" required placeholder="E.g., Acme Inc." />
+                          <div class="flex-1">
+                            <label class="block text-sm font-medium mb-1" for="city">Nom <span class="text-red-500">*</span></label>
+                            <input id="city" name="nom" class="form-input w-full" v-model="form.nom"  type="text" required autocomplete="off" />
                           </div>
                           <div>
-                            <label class="block text-sm font-medium mb-1" for="email">Contact Email <span class="text-red-500">*</span></label>
-                            <input id="email" class="form-input w-full" type="email" required />
+                            <label class="block text-sm font-medium mb-1" for="name">Nom de votre entreprise <span class="text-red-500">*</span></label>
+                            <input id="raison" name="nom" class="form-input w-full" v-model="form.raison"  type="text" required autocomplete="off" placeholder="E.g., Acme Inc." />
                           </div>
                           <div>
-                            <label class="block text-sm font-medium mb-1" for="file">Company Logo <span class="text-gray-500">(optional)</span></label>
-                            <div class="flex items-center">
-                              <div class="shrink-0 mr-4">
-                                <img class="object-cover w-16 h-16 rounded-full border border-gray-200" src="../images/upload.jpg" alt="Upload" />
-                              </div>
-                              <div>
-                                <input id="file" type="file" class="block w-full text-sm text-gray-500 file:mr-4 file:py-1.5 file:px-3 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-indigo-500 file:text-white hover:file:bg-indigo-600 transition duration-150 ease-in-out cursor-pointer" />
-                              </div>
-                            </div>
+                            <label class="block text-sm font-medium mb-1" for="email"> Email <span class="text-red-500">*</span></label>
+                            <input id="company-name" name="email" class="form-input w-full" v-model="form.email" type="email" required autocomplete="off" />
                           </div>
+                          <div>
+                            <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Combien de collaborateurs compte votre entreprise ? <span class="text-rose-500">*</span></label>
+                            <select id="commitment" name="taille" v-model="form.taille" class="form-select text-sm py-2 w-full" required>
+                              <option></option>
+                              <option>Moins de 10</option>
+                              <option>11 - 50</option>
+                              <option>51 - 200</option>
+                              <option>201 - 1000</option>
+                              <option>Supérieur à 1000</option>
+                            </select>
+                          </div>
+
                         </div>
                       </div>
 
                       <!-- Group #2 -->
                       <div class="py-6">
-                        <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">2.</span> The role</div>
+                        <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">2.</span> Le profil</div>
                         <div class="space-y-4">
                           <div>
-                            <label class="block text-sm font-medium mb-1" for="position">Position Name <span class="text-red-500">*</span></label>
-                            <input id="position" class="form-input w-full" type="text" required placeholder="E.g., Senior Software Engineer" />
-                          </div>
-                          <div>
-                            <label class="block text-sm text-gray-800 font-medium mb-1" for="role">Role <span class="text-rose-500">*</span></label>
-                            <select id="role" class="form-select text-sm py-2 w-full" required>
-                              <option>Programming</option>
-                              <option>Design</option>
-                              <option>Management / Finance</option>
-                              <option>Customer Support</option>
-                              <option>Sales / Marketing</option>
+                            <label class="block text-sm text-gray-800 font-medium mb-1" for="role">Quel profil recherchez-vous ?  <span class="text-rose-500">*</span></label>
+                            <select id="role" name="role" v-model="form.role"  class="form-select text-sm py-2 w-full" required>
+                              <option>Développeur logiciel</option>
+                              <option>Développeur Frontend</option>
+                              <option>Développeur Backend</option>
+                              <option>Développeur Full Stack</option>
+                              <option>Ingénieur DevOps</option>
+                              <option>Ingénieur Cloud</option>
+                              <option>Data Scientist</option>
+                              <option>Analyste de données</option>
+                              <option>Administrateur de bases de données</option>
+                              <option>Administrateur système</option>
+                              <option>Ingénieur réseau</option>
+                              <option>Spécialiste cybersécurité</option>
+                              <option>Chef de produit (Product Manager)</option>
+                              <option>Chef de projet informatique</option>
+                              <option>Analyste fonctionnel / Business Analyst</option>
+                              <option>Ingénieur QA / Test</option>
+                              <option>Ingénieur en Intelligence Artificielle / Machine Learning</option>
+                              <option>Architecte logiciel / Solutions</option>
+                              <option>Consultant IT</option>
                             </select>
                           </div>
                           <div>
-                            <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Commitment <span class="text-rose-500">*</span></label>
-                            <select id="commitment" class="form-select text-sm py-2 w-full" required>
-                              <option>Full-time</option>
-                              <option>Part-time</option>
-                              <option>Intership</option>
-                              <option>Contract / Freelance</option>
-                              <option>Co-founder</option>
+                            <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Quelle disponibilité attendez-vous du développeur ? <span class="text-rose-500">*</span></label>
+                            <select id="commitment"  name="temps" v-model="form.temps"  class="form-select text-sm py-2 w-full" required>
+                              <option>Temps plein</option>
+                              <option>Temps partiel</option>
+                              <option>Stage</option>
+                              <option>Contrat / Freelance</option>
+                              <option>Co-fondateur</option>
                             </select>
                           </div>
+
                           <div>
                             <label class="block text-sm text-gray-800 font-medium mb-1" for="description">Job Description <span class="text-rose-500">*</span></label>
                             <textarea id="description" class="form-textarea text-sm py-2 w-full" rows="4" required></textarea>
-                          </div>
-                          <div>
-                            <label class="block text-sm font-medium mb-1" for="salary">Salary <span class="text-gray-500">(optional)</span></label>
-                            <input id="salary" class="form-input w-full" type="text" />
                             <div class="text-xs text-gray-500 italic mt-2">Example: “$100,000 - $170,000 USD”</div>
                           </div>
                         </div>
@@ -126,43 +138,36 @@
 
                       <!-- Group #3 -->
                       <div class="py-6">
-                        <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">3.</span> Select add-ons and pay</div>
+                        <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">3.</span> Votre projet</div>
                         <div class="space-y-4">
-                          <button class="w-full text-left py-3 px-4 border rounded-sm" :class="stick ? 'border-indigo-500 ring-2 ring-indigo-200' : 'border-gray-200'" @click.prevent="stick = !stick">
-                            <div class="flex justify-between items-center">
-                              <div>
-                                <div class="text-sm text-gray-800 font-medium mb-1">Stick your post to stay on top (+$79)</div>
-                                <div class="text-sm text-gray-500 italic">4x more views</div>
-                              </div>
-                              <div class="shrink-0 rounded-full border border-gray-200 ml-3">
-                                <svg v-show="!stick" class="fill-indigo-500" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M21 15h-4v-4a1 1 0 0 0-2 0v4h-4a1 1 0 0 0 0 2h4v4a1 1 0 0 0 2 0v-4h4a1 1 0 0 0 0-2Z" />
-                                </svg>
-                                <svg v-show="stick" class="fill-teal-500" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="m20.28 12.28-6.292 6.294-2.293-2.293a1 1 0 0 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l7-7a1 1 0 0 0-1.414-1.414Z" />
-                                </svg>
-                              </div>
-                            </div>
-                          </button>
-                          <button class="w-full text-left py-3 px-4 border rounded-sm" :class="highlight ? 'border-indigo-500 ring-2 ring-indigo-200' : 'border-gray-200'" @click.prevent="highlight = !highlight">
-                            <div class="flex justify-between items-center">
-                              <div>
-                                <div class="text-sm text-gray-800 font-medium mb-1">Highlight your post in indigo (+$49)</div>
-                                <div class="text-sm text-gray-500 italic">2x more views</div>
-                              </div>
-                              <div class="shrink-0 rounded-full border border-gray-200 ml-3">
-                                <svg v-show="!highlight" class="fill-indigo-500" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="M21 15h-4v-4a1 1 0 0 0-2 0v4h-4a1 1 0 0 0 0 2h4v4a1 1 0 0 0 2 0v-4h4a1 1 0 0 0 0-2Z" />
-                                </svg>
-                                <svg v-show="highlight" class="fill-teal-500" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-                                  <path d="m20.28 12.28-6.292 6.294-2.293-2.293a1 1 0 0 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l7-7a1 1 0 0 0-1.414-1.414Z" />
-                                </svg>
-                              </div>
-                            </div>
-                          </button>
-                        </div>
-                        <div class="mt-6">
-                          <button class="btn w-full text-white bg-indigo-500 hover:bg-indigo-600 shadow-xs">Pay Now - $349</button>
+                          <div>
+                            <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Pour quel type de projet recrutez-vous ?  <span class="text-rose-500">*</span></label>
+                            <select id="motif"  name="motif" v-model="form.motif"  class="form-select text-sm py-2 w-full" required>
+                              <option>Nouvelle idée ou projet</option>
+                              <option>Un projet qui a besoin de nouvelles ressources </option>
+                              <option>Autre</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Quelle est la durée estimée de la collobaration ? </label>
+                            <select id="motif"  name="motif" v-model="form.motif"  class="form-select text-sm py-2 w-full" required>
+                              <option>1 mois</option>
+                              <option>3 mois</option>
+                              <option>6 mois</option>
+                              <option>Plus d'un an</option>
+                              <option>Je me déciderai plus tard</option>
+                            </select>
+                          </div>
+                          <div>
+                            <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Quelle est votre date idéale de démarrage ? </label>
+                            <select id="date_debut"  name="date_debut" v-model="form.date_debut"  class="form-select text-sm py-2 w-full" required>
+                              <option>Dès que possible</option>
+                              <option>Dans 1 mois</option>
+                              <option>Dans 3 mois</option>
+                              <option>Dans 3 mois</option>
+                              <option>Je me déciderai plus tard</option>
+                            </select>
+                          </div>
                         </div>
                         <div class="mt-4">
                           <div class="text-xs text-gray-500">By clicking pay you agree to our <a class="underline" href="#0">Terms of Service</a> and <a class="underline" href="#0">Privacy Policy</a>.</div>
@@ -175,14 +180,20 @@
                 </div>
                 <div class="flex items-center justify-between">
                   <router-link class="text-sm underline hover:no-underline" to="/c-01">Retour</router-link>
-                  <router-link class="btn-sm inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" to="/c-03">
-                    Suivant
+                  <button v-if="!isLoading" type="submit" class="btn-sm cursor-pointer inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" >
+                    Valider
                     <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
-                    <svg class="fill-indigo-500" xmlns="http://www.w3.org/2000/svg" width="16" height="8">
+                    <svg  class="fill-indigo-500" xmlns="http://www.w3.org/2000/svg" width="16" height="8">
                       <path d="m10.865.013.747.148c.243.065.481.143.716.235.495.18.97.42 1.415.716.265.192.571.343.858.55.096.064.192.135.288.209l.196.154.192.178c.09.08.175.168.254.262.189.21.33.466.414.747.076.275.073.568-.008.84-.09.27-.236.513-.427.708-.096.1-.198.191-.306.274l-.152.117-.116.074c-.369.252-.75.482-1.14.69-.577.315-1.153.585-1.701.932-.408.262-.803.549-1.182.86-.083.064-.16.136-.247.193a.918.918 0 0 1-.113.072.644.644 0 0 1-.118.016.708.708 0 0 1-.191.01.559.559 0 0 1-.246-.088l-.072-.054a1.481 1.481 0 0 1-.141-.107c-.128-.122-.1-.377.05-.726.036-.08.079-.156.128-.226l.316-.401c.164-.188.336-.372.514-.543.178-.17.356-.342.546-.493.19-.152.394-.265.59-.39.53-.329 1.05-.626 1.552-.93-.159.018-.32.034-.48.04-.511.036-1.026.044-1.546.048a43.432 43.432 0 0 1-2.31-.058l-.005-.02a78.728 78.728 0 0 0-2.292-.148c-.279-.016-.558.01-.837-.006L4.543 3.81l-.977-.046a19.357 19.357 0 0 1-.49-.029 12.6 12.6 0 0 0-1.303.013l-.828.055-.406.021H.335l-.18.008c-.145 0-.208-.15-.102-.356.16-.268.422-.46.723-.531.57-.117 1.144-.205 1.72-.264.287-.026.576-.048.865-.053.29-.004.578.01.865.042.69.065 1.408-.015 2.113-.015.776.003 1.549.02 2.324.04l1.428.039 1.087.039c.359.012.716.02 1.075.013.442-.008.879-.065 1.318-.112a3.672 3.672 0 0 0-.186-.166 9.045 9.045 0 0 0-1.06-.762 9.82 9.82 0 0 0-1.034-.537 5.9 5.9 0 0 1-1.284-.854c-.12-.115-.053-.199.12-.26a1.55 1.55 0 0 1 .738-.083Z" />
                     </svg>
                   </span>
-                  </router-link>
+                  </button>
+                  <button disabled v-else type="submit" class="btn-sm cursor-progress inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" >
+                    Valider
+                    <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                       <svg  class="fill-indigo-500 size-4 animate-spin " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                  </span>
+                  </button>
                 </div>
               </form>
 
@@ -272,16 +283,48 @@
   </main>
 </template>
 
+
 <script setup>
 import { useFormStore } from '../stores/formContacterNous.js'
-import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+import emailjs from '@emailjs/browser'
+import { ref } from 'vue'
+import { SERVICE_ID, TEMPLATE_ID, USER_ID } from '../utils/functions.js'
 
 const form = useFormStore()
+const router = useRouter()
 
-console.log(form)
+const emailField = ref(null)
+const isLoading = ref(false)
 
-const isValid = computed(() => {
-  return form.prenom.trim() !== '' && form.nom.trim() !== ''
-})
+const selected = ref('A')
+
+const options = ref([
+  { text: 'One', value: 'A' },
+  { text: 'Two', value: 'B' },
+  { text: 'Three', value: 'C' }
+])
+
+
+const sendEmail = () => {
+  isLoading.value = true
+  emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, emailField.value,  USER_ID)
+      .then(
+          () => {
+            isLoading.value = false
+            console.log('SUCCESS!');
+            form.resetForm()
+            router.push('/c-03')
+          },
+          (error) => {
+            isLoading.value = false
+            console.log('FAILED...', error.text);
+          },
+      );
+
+}
+
+
 
 </script>

@@ -51,7 +51,7 @@
               <div class="text-gray-500">Find the best talent from around the world on the most exclusive job board on the internet.</div>
 
               <!-- Form -->
-              <form>
+              <form ref="emailField" @submit.prevent="sendEmail"  >
                 <div class="space-y-4 mb-8 pt-8">
                   <!-- Nom & Prenom -->
                   <div class="flex space-x-4">
@@ -94,19 +94,25 @@
                   <!-- Champ libre -->
                   <div>
                     <label class="block text-sm font-medium mb-1" for="street">Parlez nous un peu de vous <span class="text-red-500">*</span></label>
-                    <textarea rows="5" id="street" class="border border-gray-200 rounded-sm w-full" v-model="form.champ_libre" type="text" />
+                    <textarea rows="5" id="street" class="border border-gray-200 rounded-sm w-full" v-model="form.champ_libre" type="text" required />
                   </div>
                 </div>
                 <div class="flex items-center justify-between">
                   <router-link class="text-sm underline hover:no-underline" to="/c-01">Retour</router-link>
-                  <router-link class="btn-sm inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" to="/c-03">
-                    Suivant
+                  <button v-if="!isLoading" type="submit" class="btn-sm cursor-pointer inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" >
+                    Valider
                     <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
-                    <svg class="fill-indigo-500" xmlns="http://www.w3.org/2000/svg" width="16" height="8">
+                    <svg  class="fill-indigo-500" xmlns="http://www.w3.org/2000/svg" width="16" height="8">
                       <path d="m10.865.013.747.148c.243.065.481.143.716.235.495.18.97.42 1.415.716.265.192.571.343.858.55.096.064.192.135.288.209l.196.154.192.178c.09.08.175.168.254.262.189.21.33.466.414.747.076.275.073.568-.008.84-.09.27-.236.513-.427.708-.096.1-.198.191-.306.274l-.152.117-.116.074c-.369.252-.75.482-1.14.69-.577.315-1.153.585-1.701.932-.408.262-.803.549-1.182.86-.083.064-.16.136-.247.193a.918.918 0 0 1-.113.072.644.644 0 0 1-.118.016.708.708 0 0 1-.191.01.559.559 0 0 1-.246-.088l-.072-.054a1.481 1.481 0 0 1-.141-.107c-.128-.122-.1-.377.05-.726.036-.08.079-.156.128-.226l.316-.401c.164-.188.336-.372.514-.543.178-.17.356-.342.546-.493.19-.152.394-.265.59-.39.53-.329 1.05-.626 1.552-.93-.159.018-.32.034-.48.04-.511.036-1.026.044-1.546.048a43.432 43.432 0 0 1-2.31-.058l-.005-.02a78.728 78.728 0 0 0-2.292-.148c-.279-.016-.558.01-.837-.006L4.543 3.81l-.977-.046a19.357 19.357 0 0 1-.49-.029 12.6 12.6 0 0 0-1.303.013l-.828.055-.406.021H.335l-.18.008c-.145 0-.208-.15-.102-.356.16-.268.422-.46.723-.531.57-.117 1.144-.205 1.72-.264.287-.026.576-.048.865-.053.29-.004.578.01.865.042.69.065 1.408-.015 2.113-.015.776.003 1.549.02 2.324.04l1.428.039 1.087.039c.359.012.716.02 1.075.013.442-.008.879-.065 1.318-.112a3.672 3.672 0 0 0-.186-.166 9.045 9.045 0 0 0-1.06-.762 9.82 9.82 0 0 0-1.034-.537 5.9 5.9 0 0 1-1.284-.854c-.12-.115-.053-.199.12-.26a1.55 1.55 0 0 1 .738-.083Z" />
                     </svg>
                   </span>
-                  </router-link>
+                  </button>
+                  <button disabled v-else type="submit" class="btn-sm cursor-progress inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" >
+                    Valider
+                    <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                       <svg  class="fill-indigo-500 size-4 animate-spin " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                  </span>
+                  </button>
                 </div>
               </form>
 
@@ -196,16 +202,40 @@
   </main>
 </template>
 
+
 <script setup>
 import { useFormStore } from '../stores/formContacterNous.js'
-import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+import emailjs from '@emailjs/browser'
+import { ref } from 'vue'
+import { SERVICE_ID, TEMPLATE_ID, USER_ID } from '../utils/functions.js'
 
 const form = useFormStore()
+const router = useRouter()
 
-console.log(form)
+const emailField = ref(null)
+const isLoading = ref(false)
 
-const isValid = computed(() => {
-  return form.prenom.trim() !== '' && form.nom.trim() !== ''
-})
+
+const sendEmail = () => {
+  isLoading.value = true
+  emailjs
+      .sendForm(SERVICE_ID, TEMPLATE_ID, emailField.value,  USER_ID)
+      .then(
+          () => {
+            isLoading.value = false
+            console.log('SUCCESS!');
+            form.resetForm()
+            router.push('/c-03')
+          },
+          (error) => {
+            isLoading.value = false
+            console.log('FAILED...', error.text);
+          },
+      );
+
+}
+
+
 
 </script>
