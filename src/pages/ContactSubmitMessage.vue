@@ -50,7 +50,8 @@
                   <circle class="text-green-500/20" cx="32" cy="32" r="32" />
                   <path class="text-green-700" d="M37.22 26.375a1 1 0 1 1 1.56 1.25l-8 10a1 1 0 0 1-1.487.082l-4-4a1 1 0 0 1 1.414-1.414l3.21 3.21 7.302-9.128Z" />
                 </svg>
-                <h1 class="text-3xl text-gray-800 font-bold mb-8">Merci de nous avoir contacter. Une personne de l'equipe vous recontactera dans les plus brefs delais 🙌</h1>
+                <h1 class="text-3xl text-gray-800 font-bold mb-8">  Merci pour votre confiance. Notre équipe reviendra vers vous dans les plus brefs délais.
+                  </h1>
                 <router-link class="btn-sm inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" to="/">
                   Retour à l'accueil
                   <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">

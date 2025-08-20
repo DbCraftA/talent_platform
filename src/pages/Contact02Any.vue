@@ -47,8 +47,8 @@
           <div class="px-4 py-8">
             <div class="max-w-md mx-auto">
 
-              <h1 class="text-3xl text-gray-800  font-bold mb-6">Divers</h1>
-              <div class="text-gray-500">Find the best talent from around the world on the most exclusive job board on the internet.
+              <h1 class="text-3xl text-gray-800  font-bold mb-6">Prendre contact</h1>
+              <div class="text-gray-500">Vous avez une question ou un projet à partager ? Remplissez ce formulaire et nous reviendrons vers vous rapidement
               </div>
 
               <!-- Form -->

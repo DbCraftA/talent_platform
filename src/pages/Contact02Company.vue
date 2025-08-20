@@ -72,8 +72,7 @@
                           </div>
                           <div>
                             <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Combien de collaborateurs compte votre entreprise ? <span class="text-rose-500">*</span></label>
-                            <select id="commitment" name="taille" v-model="form.taille_entreprise" class="form-select text-sm py-2 w-full" required>
-                              <option></option>
+                            <select id="taille_entreprise" name="taille_entreprise" v-model="form.taille_entreprise" class="form-select text-sm py-2 w-full" required>
                               <option>Moins de 10</option>
                               <option>11 - 50</option>
                               <option>51 - 200</option>
@@ -91,7 +90,7 @@
                         <div class="space-y-4">
                           <div>
                             <label class="block text-sm text-gray-800 font-medium mb-1" for="role">Quel profil recherchez-vous ?  <span class="text-rose-500">*</span></label>
-                            <select id="role" name="role" v-model="form.role"  class="form-select text-sm py-2 w-full" required>
+                            <select id="profession" name="profession" v-model="form.role"  class="form-select text-sm py-2 w-full" required>
                               <option>Développeur logiciel</option>
                               <option>Développeur Frontend</option>
                               <option>Développeur Backend</option>
@@ -115,7 +114,7 @@
                           </div>
                           <div>
                             <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Quelle disponibilité attendez-vous du développeur ? <span class="text-rose-500">*</span></label>
-                            <select id="commitment" name="temps" v-model="form.temps_par_semaine" class="form-select text-sm py-2 w-full" required>
+                            <select id="temps_par_semaine" name="temps_par_semaine" v-model="form.temps_par_semaine" class="form-select text-sm py-2 w-full" required>
                               <option>Temps plein</option>
                               <option>Temps partiel</option>
                               <option>Stage</option>
@@ -171,7 +170,7 @@
                           </div>
                         </div>
                         <div class="mt-4">
-                          <div class="text-xs text-gray-500">By clicking pay you agree to our <a class="underline" href="#0">Terms of Service</a> and <a class="underline" href="#0">Privacy Policy</a>.</div>
+                          <div class="text-xs text-gray-500">    J’accepte que mes informations soient utilisées pour être contacté concernant des missions.</div>
                         </div>
                       </div>
 

@@ -50,7 +50,7 @@
           <div class="px-4 py-8">
             <div class="max-w-md mx-auto">
 
-              <h1 class="text-3xl text-gray-800  font-bold mb-6">Tell us what’s your situation</h1>
+              <h1 class="text-3xl text-gray-800  font-bold mb-6">Parlez-nous un peu de vous</h1>
               <!-- Form -->
               <form>
                 <div class="space-y-3 mb-8">
@@ -62,7 +62,7 @@
                         <path class="text-violet-300" d="m11 12.588-9-5V18a1 1 0 0 0 .514.874L11 23.588v-11Z" />
                         <path class="text-violet-200" d="M13 12.588v11l8.486-4.714A1 1 0 0 0 22 18V7.589l-9 4.999Z" />
                       </svg>
-                      <span>J'ai une entreprise</span>
+                      <span>Je représente une entreprise</span>
                     </div>
                     <div class="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-500 border-gray-200  rounded-lg pointer-events-none" aria-hidden="true"></div>
                   </label>
@@ -73,7 +73,7 @@
                         <path class="text-violet-500" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
                         <path class="text-violet-300" d="m11 12.588-9-5V18a1 1 0 0 0 .514.874L11 23.588v-11Z" />
                       </svg>
-                      <span>Je suis freelance</span>
+                      <span>Je suis indépendant(e)</span>
                     </div>
                     <div class="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-500  rounded-lg pointer-events-none" aria-hidden="true"></div>
                   </label>
@@ -83,7 +83,7 @@
                       <svg class="w-6 h-6 shrink-0 fill-current mr-4" viewBox="0 0 24 24">
                         <path class="text-violet-500" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
                       </svg>
-                      <span>Je souhaite vous contactez</span>
+                      <span>Je souhaite simplement vous contacter</span>
                     </div>
                     <div class="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-500  rounded-lg pointer-events-none" aria-hidden="true"></div>
                   </label>
