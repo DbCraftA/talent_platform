@@ -28,7 +28,7 @@
           <!-- Button + Avatars -->
           <div class="sm:flex sm:items-center sm:justify-center md:justify-start space-y-6 sm:space-y-0 sm:space-x-5">
             <div>
-              <router-link class="btn text-white bg-indigo-500 hover:bg-indigo-600 shadow-xs" to="/schedule-call">Deposer une demande</router-link>
+              <router-link class="btn text-white bg-indigo-500 hover:bg-indigo-600 shadow-xs" to="/nous-contacter">Deposer une demande</router-link>
             </div>
             <div class="sm:flex sm:items-center sm:justify-center space-y-2 sm:space-y-0 sm:space-x-3">
               <div class="inline-flex -space-x-3 -ml-0.5">

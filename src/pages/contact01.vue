@@ -30,7 +30,7 @@
                   <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-gray-200 " aria-hidden="true"></div>
                   <ul class="relative flex justify-between w-full">
                     <li>
-                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" to="/c-01">1</router-link>
+                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500 text-white" to="/nous-contacter">1</router-link>
                     </li>
                     <li>
                       <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-white text-gray-500 " v-if="form.type === 'free'" to="/c-02-f">2</router-link>

@@ -28,7 +28,7 @@
                   <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-gray-200 " aria-hidden="true"></div>
                   <ul class="relative flex justify-between w-full">
                     <li>
-                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500  text-white" to="/c-01">1</router-link>
+                      <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500  text-white" to="/nous-contacter">1</router-link>
                     </li>
                     <li>
                       <router-link class="flex items-center justify-center w-6 h-6 rounded-full text-xs font-semibold bg-indigo-500  text-white " v-if="form.type === 'free'" to="/c-02-f">2</router-link>
@@ -176,7 +176,7 @@
 
                     </div>
                      <div class="flex items-center justify-between pt-5">
-                 <router-link class="text-sm underline hover:no-underline" to="/c-01">Retour</router-link>
+                 <router-link class="text-sm underline hover:no-underline" to="/nous-contacter">Retour</router-link>
                  <button v-if="!isLoading" type="submit" class="btn-sm cursor-pointer inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" >
                    Valider
                    <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">

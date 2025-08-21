@@ -17,14 +17,14 @@
           <p class="text-lg text-zinc-500 mb-8">Gray removes creative distances by connecting beginners, pros, and every team in between. Are you ready to start your journey?</p>
           <div class="max-w-xs mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <div>
-              <a class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" href="/request-demo">Request Demo</a>
+              <a class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" href="/nous-contacter">Nous contacter</a>
             </div>
             <div>
-              <a class="btn text-zinc-600 bg-white hover:text-zinc-900 w-full shadow-sm" href="#0">Try for Free</a>
+              <a class="btn text-zinc-600 bg-white hover:text-zinc-900 w-full shadow-sm" href="/methode">Notre methode</a>
             </div>
           </div>
         </div>
-        <!-- Clients -->
+        <!-- Clients
         <div class="text-center">
           <ul class="inline-flex flex-wrap items-center justify-center -m-2 [mask-image:linear-gradient(to_right,transparent_8px,--theme(--color-white/.7)_64px,--theme(--color-white)_50%,--theme(--color-white/.7)_calc(100%-64px),transparent_calc(100%-8px))]">
             <li class="m-2 p-4 relative rounded-lg border border-transparent [background:linear-gradient(var(--color-zinc-50),var(--color-zinc-50))_padding-box,linear-gradient(120deg,var(--color-zinc-300),var(--color-zinc-100),var(--color-zinc-300))_border-box]">
@@ -59,6 +59,7 @@
             </li>
           </ul>
         </div>
+         -->
       </div>
     </div>
   </section>

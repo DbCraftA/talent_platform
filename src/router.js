@@ -55,7 +55,7 @@ const router = createRouter({
       component: About
     },
     {
-      path: '/c-01',
+      path: '/nous-contacter',
       component: Contact01
     },
     {

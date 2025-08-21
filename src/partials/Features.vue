@@ -212,10 +212,10 @@
 
         <div class="max-w-xs pt-30 mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
           <div>
-            <router-link class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" to="/schedule-call">Nous contacter</router-link>
+            <router-link class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" to="/nous-contacter">Nous contacter</router-link>
           </div>
           <div>
-            <a class="btn text-zinc-600 bg-white hover:text-zinc-900 w-full shadow-sm" href="/about">Notre methode</a>
+            <a class="btn text-zinc-600 bg-white hover:text-zinc-900 w-full shadow-sm" href="/methode">Notre methode</a>
           </div>
         </div>
         </div>
