@@ -55,7 +55,7 @@
                 <div class="  mb-8 pt-8">
                   <div class="divide-y divide-gray-200">
                   <div class="py-6 space-y-4 mb-6">
-                    <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">1.</span> Votre entreprise</div>
+                    <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">1.</span> Vos informations</div>
 
                     <!-- Nom & Prenom -->
                   <div class="flex space-x-4">
@@ -141,8 +141,12 @@
                     <label class="block text-sm font-medium mb-1" for="street">Parlez nous un peu de vous et ce que vous cherchez <span class="text-red-500">*</span></label>
                     <textarea rows="5" id="street" name="champ_libre"  class="border border-gray-200 rounded-sm w-full" v-model="form.champ_libre" type="text" required />
                   </div>
+                    <div class="mt-4">
+                      <div class="text-xs text-gray-500">    J’accepte que mes informations soient utilisées pour être contacté concernant des missions.</div>
+                    </div>
                   </div>
                   </div>
+
                   </div>
                 <div class="flex items-center justify-between">
                   <router-link class="text-sm underline hover:no-underline" to="/c-01">Retour</router-link>
