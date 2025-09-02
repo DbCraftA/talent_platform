@@ -5,8 +5,8 @@ const tab = ref('1')
 </script>
 
 <template>
-  <section class="relative bg-linear-to-tr from-white to-indigo-100 ">
-    <div class="py-12 md:py-20">
+  <section class="relative bg-linear-to-tl from-indigo-100 to-white">
+    <div class="py-12 md:py-20 border-t  [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1]">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="max-w-3xl mx-auto text-center pb-12">
           <h2 class="font-inter-tight text-3xl md:text-4xl font-bold text-zinc-900 mb-4">Pourquoi nous choisir ? </h2>
@@ -21,12 +21,12 @@ const tab = ref('1')
               @click.prevent @click="tab = '1'"
             >
               <div class="flex items-center justify-between mb-1">
-                <div class="font-inter-tight font-semibold text-zinc-900">Qualification par des freelances seniors</div>
+                <div class="font-inter-tight font-semibold text-zinc-900">Approche pragmatique</div>
                 <svg :class="tab !== '1' ? 'hidden' : ''" class="fill-zinc-400 shrink-0 ml-2" xmlns="http://www.w3.org/2000/svg" width="10" height="10">
                   <path d="M8.667.186H2.675a.999.999 0 0 0 0 1.998h3.581L.971 7.469a.999.999 0 1 0 1.412 1.412l5.285-5.285v3.58a.999.999 0 1 0 1.998 0V1.186a.999.999 0 0 0-.999-.999Z" />
                 </svg>
               </div>
-              <div class="text-sm text-zinc-500">Vos besoins sont compris et traduits techniquement par des pairs du métier (data scientist, architecte Cloud…).</div>
+              <div class="text-sm text-zinc-500">Focus sur les solutions générant un ROI rapide</div>
             </button>
             <button
               :class="tab !== '2' ? 'bg-zinc-100 opacity-60 hover:opacity-100 transition' : '[background:linear-gradient(var(--color-white),var(--color-white))_padding-box,linear-gradient(120deg,var(--color-zinc-300),var(--color-zinc-100),var(--color-zinc-300))_border-box] shadow-xs rotate-1'"

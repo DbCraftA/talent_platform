@@ -13,8 +13,8 @@
       <div class="py-12 md:py-20">
   
         <!-- Section header -->
-        <div class="max-w-3xl pb-12 md:pb-16">
-          <h2 class="h2 font-cabinet-grotesk text-white">On ne vous propose que ce qu’on engagerait nous-mêmes</h2>
+        <div class="max-w-5xl pb-12 md:pb-16">
+          <h2 class="h2 font-cabinet-grotesk text-white">Chaque mission, chaque profil, nous vous proposons uniquement ce qui crée de la valeur concrète.</h2>
         </div>
   
         <!-- Carousel -->
@@ -26,11 +26,11 @@
               <!-- Carousel items -->
               <div class="swiper-slide max-w-[446px] h-auto">
                 <!-- Image -->
-                <img class="w-full aspect-4/3 object-cover h-full" src="../images/carousel-04.jpg" width="446" height="335" alt="Carousel 01" />
+                <img class="w-full aspect-4/3 object-cover h-full" src="../images/carousel-02.jpg" width="446" height="335" alt="Carousel 01" />
               </div>
               <div class="swiper-slide max-w-[446px] h-auto">
                 <!-- Image -->
-                <img class="w-full aspect-4/3 object-cover h-full" src="../images/kanhaiya-sharma-T.jpg" width="446" height="335" alt="Carousel 02" />
+                <img class="w-full aspect-4/3 object-cover h-full" src="../images/vitaly-gariev-Oexx7cEMKFA-unsplash.jpg" width="446" height="335" alt="Carousel 02" />
               </div>
               <div class="swiper-slide max-w-[446px] h-auto">
                 <!-- Image -->
@@ -38,11 +38,7 @@
               </div>
               <div class="swiper-slide max-w-[446px] h-auto">
                 <!-- Image -->
-                <img class="w-full aspect-4/3 object-cover h-full" src="../images/carousel-02.jpg" width="446" height="335" alt="Carousel 04" />
-              </div>
-              <div class="swiper-slide max-w-[446px] h-auto">
-                <!-- Image -->
-                <img class="w-full aspect-4/3 object-cover h-full" src="../images/carousel-05.jpg" width="446" height="335" alt="Carousel 05" />
+                <img class="w-full aspect-4/3 object-cover h-full" src="../images/carousel-04.jpg" width="446" height="335" alt="Carousel 04" />
               </div>
             </div>
           </div>
@@ -69,30 +65,30 @@
   
           <!-- #1 -->
           <div class="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
-            <img class="mb-3" src="../images/icon-01.svg" width="40" height="40" alt="Icon 01">
-            <h3 class="font-cabinet-grotesk font-bold text-lg text-white">Qualification du besoin</h3>
-            <div class="text-white text-opacity-80">Vos besoins sont compris et traduits techniquement par des pairs du métier (data scientist, architecte Cloud…).</div>
+            <img class="mb-3" src="../images/strategy.png" width="40" height="40" alt="Icon 01">
+            <h3 class="font-cabinet-grotesk font-bold text-lg text-white">Assessment & Stratégie</h3>
+            <div class="text-white text-opacity-80">Cadrer votre vision et transformer vos ambitions en feuille de route claire.</div>
           </div>
   
           <!-- #2 -->
           <div class="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up" data-aos-delay="100">
-            <img class="mb-3" src="../images/icon-04.svg" width="40" height="40" alt="Icon 04">
-            <h3 class="font-cabinet-grotesk font-bold text-lg text-white">Screening technique à 5 niveaux</h3>
-            <div class="text-white text-opacity-80">Tests, entretiens, évaluations de projets réels et soft skills.</div>
+            <img class="mb-3" src="../images/architecte.png" width="40" height="40" alt="Icon 04">
+            <h3 class="font-cabinet-grotesk font-bold text-lg text-white">Mise à disposition d’architectes</h3>
+            <div class="text-white text-opacity-80">Des talents validés par nos pairs, intégrés selon votre contexte.</div>
           </div>
   
           <!-- #3 -->
           <div class="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up" data-aos-delay="200">
-            <img class="mb-3" src="../images/icon-03.svg" width="40" height="40" alt="Icon 03">
-            <h3 class="font-cabinet-grotesk font-bold text-lg text-white">Spécialisation IA & Cloud</h3>
-            <div class="text-white text-opacity-80">Pas de généraliste : uniquement les expertises que vous cherchez.</div>
+            <img class="mb-3" src="../images/cloud.png" width="40" height="40" alt="Icon 03">
+            <h3 class="font-cabinet-grotesk font-bold text-lg text-white">Services Cloud</h3>
+            <div class="text-white text-opacity-80">Optimisez vos infrastructures avec des solutions Cloud performantes et scalables.</div>
           </div>
   
           <!-- #4 -->
           <div class="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up" data-aos-delay="300">
-            <img class="mb-3" src="../images/icon-02.svg" width="40" height="40" alt="Icon 02">
-            <h3 class="font-cabinet-grotesk font-bold text-lg text-white">Process rapide, transparent et accompagné</h3>
-            <div class="text-white text-opacity-80">100 % adapté aux environnements exigeants et agiles.</div>
+            <img class="mb-3" src="../images/ia.png" width="40" height="40" alt="Icon 02">
+            <h3 class="font-cabinet-grotesk font-bold text-lg text-white">Services IA</h3>
+            <div class="text-white text-opacity-80">Passez de l’idée à la valeur grâce à l’IA appliquée.</div>
           </div>
   
         </div>

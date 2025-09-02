@@ -167,10 +167,9 @@
             </div>
 
             <!-- Image -->
-            <div class="md:w-5/12 lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
-              <img class="mx-auto md:max-w-none" src="../images/features-01.png" width="540" height="405" alt="Features" />
-            </div>
-
+              <div class="md:w-5/12 lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
+                <img class="mx-auto md:max-w-none" src="../images/features-01.png" width="540" height="405" alt="Features" />
+              </div>
           </div>
 
         </div>
