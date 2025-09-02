@@ -14,7 +14,7 @@
   
         <!-- Section header -->
         <div class="max-w-5xl pb-12 md:pb-16">
-          <h2 class="h2 font-cabinet-grotesk text-white">Chaque mission, chaque profil, nous vous proposons uniquement ce qui crée de la valeur concrète.</h2>
+          <h2 class="h2 font-cabinet-grotesk text-white">Pour chaque mission, chaque profil, nous vous proposons uniquement ce qui crée de la valeur concrète.</h2>
         </div>
   
         <!-- Carousel -->

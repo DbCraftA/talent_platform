@@ -37,7 +37,7 @@
                 <img class="rounded-full border-2 border-indigo-50 box-content" src="../images/avatar-03.jpg" width="32" height="32" alt="Avatar 03" />
                 <img class="rounded-full border-2 border-indigo-50 box-content" src="../images/avatar-04.jpg" width="32" height="32" alt="Avatar 04" />
               </div>
-              <div class="text-sm text-gray-500 font-medium">Plus de <span class="text-indigo-500">1000</span> Freelances qualifiés</div>
+              <div class="text-sm text-gray-500 font-medium">Plus d'une <span class="text-indigo-500">100ne</span> de profils qualifiés</div>
             </div>
           </div>
           <!-- Stats -->
