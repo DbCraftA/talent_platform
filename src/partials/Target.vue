@@ -7,7 +7,7 @@
 
         <!-- Section header -->
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-          <p class="text-xl text-slate-500">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.</p>
+          <p class="text-xl text-slate-500">L’architecture logicielle, c’est avant tout la capacité à distinguer ce qui est essentiel pour la pérennité d’un système. Bien conçue, elle réduit la dette technique, accélère la livraison des fonctionnalités et améliore la qualité globale du produit.</p>
         </div>
 
         <!-- Section content -->
@@ -21,27 +21,27 @@
                   <svg class="h-4 w-4 shrink-0 fill-current text-blue-500 mr-3">
                     <path d="M15.722 4.008C14.408 1.214 10.954-.635 7.318.203 5.6.596 4.072 1.561 2.919 2.757A10.57 10.57 0 0 0 .484 6.93C.03 8.458-.173 10.035.18 11.764c.191.862.518 1.683 1.146 2.479a4.876 4.876 0 0 0 2.256 1.522c1.635.469 3.156.192 4.41-.439 1.242-.615 2.298-1.769 2.494-3.094.094-.656-.537-.657-.69-.18-.781 2.126-3.715 2.534-5.265 1.579-1.568-.922-1.185-3.068-.294-4.801.89-1.729 2.454-3.02 3.92-3.338.376-.098.714-.121 1.026-.098.324.018.658.074.98.188.65.2 1.23.591 1.618 1 .27.3.575.386 1.002.461.436.061.95.117 1.499.045.535-.073 1.06-.287 1.41-.807.345-.504.462-1.348.03-2.273" />
                   </svg>
-                  <div class="h2 font-playfair-display text-slate-800">79%</div>
+                  <div class="h4 font-playfair-display text-slate-800">Vision & cohérence</div>
                 </div>
-                <div class="text-slate-500 text-lg">Lorem ipsum is placeholder text used in the graphic, print, and publishing for previewing layouts.</div>
+                <div class="text-slate-500 text-lg"> Un architecte vous aide à décider ce qui compte vraiment, à sécuriser vos investissements et à transformer vos ambitions en solutions concrètes..</div>
               </li>
               <li>
                 <div class="flex items-center mb-4">
                   <svg class="h-4 w-4 shrink-0 fill-current text-rose-400 mr-3">
                     <path d="M15.722 4.008C14.408 1.214 10.954-.635 7.318.203 5.6.596 4.072 1.561 2.919 2.757A10.57 10.57 0 0 0 .484 6.93C.03 8.458-.173 10.035.18 11.764c.191.862.518 1.683 1.146 2.479a4.876 4.876 0 0 0 2.256 1.522c1.635.469 3.156.192 4.41-.439 1.242-.615 2.298-1.769 2.494-3.094.094-.656-.537-.657-.69-.18-.781 2.126-3.715 2.534-5.265 1.579-1.568-.922-1.185-3.068-.294-4.801.89-1.729 2.454-3.02 3.92-3.338.376-.098.714-.121 1.026-.098.324.018.658.074.98.188.65.2 1.23.591 1.618 1 .27.3.575.386 1.002.461.436.061.95.117 1.499.045.535-.073 1.06-.287 1.41-.807.345-.504.462-1.348.03-2.273" />
                   </svg>
-                  <div class="h2 font-playfair-display text-slate-800">1M+</div>
+                  <div class="h4 font-playfair-display text-slate-800">Réduction de la dette technique</div>
                 </div>
-                <div class="text-slate-500 text-lg">Lorem ipsum is placeholder text used in the graphic, print, and publishing for previewing layouts.</div>
+                <div class="text-slate-500 text-lg">En anticipant les risques et en encadrant les décisions clés, il limite la complexité et évite les surcoûts futurs.</div>
               </li>
               <li>
                 <div class="flex items-center mb-4">
                   <svg class="h-4 w-4 shrink-0 fill-current text-yellow-400 mr-3">
                     <path d="M15.722 4.008C14.408 1.214 10.954-.635 7.318.203 5.6.596 4.072 1.561 2.919 2.757A10.57 10.57 0 0 0 .484 6.93C.03 8.458-.173 10.035.18 11.764c.191.862.518 1.683 1.146 2.479a4.876 4.876 0 0 0 2.256 1.522c1.635.469 3.156.192 4.41-.439 1.242-.615 2.298-1.769 2.494-3.094.094-.656-.537-.657-.69-.18-.781 2.126-3.715 2.534-5.265 1.579-1.568-.922-1.185-3.068-.294-4.801.89-1.729 2.454-3.02 3.92-3.338.376-.098.714-.121 1.026-.098.324.018.658.074.98.188.65.2 1.23.591 1.618 1 .27.3.575.386 1.002.461.436.061.95.117 1.499.045.535-.073 1.06-.287 1.41-.807.345-.504.462-1.348.03-2.273" />
                   </svg>
-                  <div class="h2 font-playfair-display text-slate-800">500K</div>
+                  <div class="h4 font-playfair-display text-slate-800">Accélération de l’innovation</div>
                 </div>
-                <div class="text-slate-500 text-lg">Lorem ipsum is placeholder text used in the graphic, print, and publishing for previewing layouts.</div>
+                <div class="text-slate-500 text-lg">Avec une architecture claire et robuste, les équipes livrent plus vite, testent de nouvelles idées et réduisent leur time-to-market.</div>
               </li>
             </ul>
 
