@@ -112,17 +112,18 @@
               </div>
               <!-- Content #3 -->
               <div v-show="category === '3'">
-                <h3 class="h3 font-cabinet-grotesk mb-3">A model that is fair, inclusive, and empowering.</h3>
-                <p class="text-lg text-gray-500 mb-8">Work is is changing faster than at any other time in history. This rapid change requires a new hiring model. A model that is fair, inclusive, and empowering. That's why we built this.</p>
+                <h3 class="h3 font-cabinet-grotesk mb-3">Des packs prêts à l’emploi pour vos projets Cloud & IA.</h3>
+                <p class="text-lg text-gray-500 mb-8">Nous mettons à votre disposition des solutions packagées qui combinent expertise stratégique et accompagnement opérationnel.
+                  Nos packs couvrent vos besoins essentiels — du cadrage cloud à l’accélération de vos cas d’usage— pour vous offrir rapidité, visibilité et résultats concrets.</p>
                 <ul class="inline-flex flex-col space-y-6">
                   <li class="flex items-start">
                     <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
-                      <div class="font-cabinet-grotesk font-bold text-lg mb-1">Ensure Quick Turnarounds</div>
+                      <div class="font-cabinet-grotesk font-bold text-lg mb-1">Expertise Cloud</div>
                       <div class="text-gray-500">
-                        Work is is changing faster than at any other time in history. This rapid change requires a new hiring model.
+                        Un accompagnement complet pour poser les bases de votre transformation cloud : audit de votre infrastructure, définition d’une architecture cible et d’une roadmap claire, puis identification d’un expert cloud pour piloter la mise en œuvre. Vous bénéficiez d’une solution clé en main, avec un prix prévisible et des résultats garantis.
                       </div>
                     </div>
                   </li>
@@ -131,10 +132,9 @@
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
-                      <div class="font-cabinet-grotesk font-bold text-lg mb-1">Ensure Quick Turnarounds</div>
+                      <div class="font-cabinet-grotesk font-bold text-lg mb-1">Expertise Data & IA</div>
                       <div class="text-gray-500">
-                        Work is is changing faster than at any other time in history. This rapid change requires a new hiring model.
-                      </div>
+                        Une approche pragmatique pour passer de l’idée à la valeur : évaluation de vos cas d’usage IA, conception d’un POC rapide et mise en place d’une architecture Data & MLOps adaptée. L’objectif : accélérer vos projets IA et assurer un passage maîtrisé du POC à la production.                      </div>
                     </div>
                   </li>
                 </ul>

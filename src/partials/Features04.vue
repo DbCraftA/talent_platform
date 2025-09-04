@@ -15,9 +15,10 @@ const tab = ref('1')
           <!-- Content -->
           <div class="lg:max-w-none lg:min-w-[524px]">
             <div class="mb-8">
-              <div class="inline-flex text-sm font-medium text-zinc-400 px-4 py-0.5 border border-transparent [background:linear-gradient(var(--color-zinc-800),var(--color-zinc-800))_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box] rounded-full mb-4">Scale Your Team</div>
-              <h3 class="font-inter-tight text-3xl font-bold text-zinc-200 mb-4">Design-powered workflows for teams of any size</h3>
-              <p class="text-lg text-zinc-500">Gray can understand what you are designing, learn from your feedback to take your creativity further, and turn it instantly into beautiful images.</p>
+              <div class="inline-flex text-sm font-medium text-zinc-400 px-4 py-0.5 border border-transparent [background:linear-gradient(var(--color-zinc-800),var(--color-zinc-800))_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box] rounded-full mb-4">Nos packs Cloud & IA</div>
+              <h3 class="font-inter-tight text-3xl font-bold text-zinc-200 mb-4">Choisissez le pack qui accélère votre transformation Cloud & IA</h3>
+              <p class="text-lg text-zinc-500">Nos packs combinent expertise d’architectes et méthodologies éprouvées pour sécuriser vos projets.
+                Deux formules claires et actionnables, pensées pour vous donner de la visibilité sur les coûts, la roadmap et les résultats.</p>
             </div>
             <!-- Tabs buttons -->
             <div class="mb-8 md:mb-0 space-y-2">
@@ -26,12 +27,14 @@ const tab = ref('1')
                 class="text-left flex items-center px-6 py-4 rounded-sm border border-transparent"
                 @click.prevent="tab = '1'"
               >
-                <svg class="shrink-0 fill-zinc-400 mr-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-                  <path d="m7.951 14.537 6.296-7.196 1.506 1.318-7.704 8.804-3.756-3.756 1.414-1.414 2.244 2.244Zm11.296-7.196 1.506 1.318-7.704 8.804-1.756-1.756 1.414-1.414.244.244 6.296-7.196Z" />
-                </svg>
+
+
+                <img class="shrink-0 fill-zinc-400 mr-3"  src="../images/cloud.png" width="24" height="24" alt="Icon 03">
+
+
                 <div>
-                  <div class="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Make designs feel real</div>
-                  <div class="text-zinc-500">Save time and keep things consistent with reusable images, and 3D assets in shared libraries.</div>
+                  <div class="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Pack Cloud Foundation</div>
+                  <div class="text-zinc-500">Un audit de votre infrastructure et une architecture cible avec roadmap claire. Un expert cloud vous accompagne pour structurer et sécuriser la mise en œuvre, avec un prix prévisible et des résultats garantis.</div>
                 </div>
               </button>
               <button
@@ -39,25 +42,11 @@ const tab = ref('1')
                 class="text-left flex items-center px-6 py-4 rounded-sm border border-transparent"
                 @click.prevent="tab = '2'"
               >
-                <svg class="shrink-0 fill-zinc-400 mr-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-                  <path d="m16.997 19.056-1.78-.912A13.91 13.91 0 0 0 16.75 11.8c0-2.206-.526-4.38-1.533-6.344l1.78-.912A15.91 15.91 0 0 1 18.75 11.8c0 2.524-.602 5.01-1.753 7.256Zm-3.616-1.701-1.77-.93A9.944 9.944 0 0 0 12.75 11.8c0-1.611-.39-3.199-1.14-4.625l1.771-.93c.9 1.714 1.37 3.62 1.369 5.555 0 1.935-.47 3.841-1.369 5.555Zm-3.626-1.693-1.75-.968c.49-.885.746-1.881.745-2.895a5.97 5.97 0 0 0-.745-2.893l1.75-.968a7.968 7.968 0 0 1 .995 3.861 7.97 7.97 0 0 1-.995 3.863Zm-3.673-1.65-1.664-1.11c.217-.325.333-.709.332-1.103 0-.392-.115-.776-.332-1.102L6.082 9.59c.437.655.67 1.425.668 2.21a3.981 3.981 0 0 1-.668 2.212Z" />
-                </svg>
+                <img class="shrink-0 fill-zinc-400 mr-3" src="../images/ia.png" width="24" height="24" alt="Icon 02">
+
                 <div>
-                  <div class="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Bring creatives closer</div>
-                  <div class="text-zinc-500">Save time and keep things consistent with reusable images, and 3D assets in shared libraries.</div>
-                </div>
-              </button>
-              <button
-                :class="tab !== '3' ? '' : '[background:linear-gradient(#2E2E32,#2E2E32)_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box]'"
-                class="text-left flex items-center px-6 py-4 rounded-sm border border-transparent"
-                @click.prevent="tab = '3'"
-              >
-                <svg class="shrink-0 fill-zinc-400 mr-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-                  <path d="m11.293 5.293 1.414 1.414-8 8-1.414-1.414 8-8Zm7-1 1.414 1.414-8 8-1.414-1.414 8-8Zm0 6 1.414 1.414-8 8-1.414-1.414 8-8Z" />
-                </svg>
-                <div>
-                  <div class="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Scale and align your design team</div>
-                  <div class="text-zinc-500">Save time and keep things consistent with reusable images, and 3D assets in shared libraries.</div>
+                  <div class="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Pack Data & IA Accelerator</div>
+                  <div class="text-zinc-500">Évaluez vos cas d’usage IA, testez un POC rapide et déployez une architecture Data & MLOps adaptée. Vous accélérez vos projets IA et maîtrisez le passage du POC à la production.</div>
                 </div>
               </button>
             </div>
@@ -77,7 +66,8 @@ const tab = ref('1')
               >              
                 <div class="w-full" v-show="tab === '1'">
                   <div>
-                    <img class="lg:max-w-none mx-auto rounded-lg shadow-2xl" src="../images/boliviainteligente.jpg" width="900" height="620" alt="Carousel 01" />
+                    <img class="lg:max-w-none mx-auto rounded-lg shadow-2xl" src="../images/cloud-ia.png" width="830" height="300" alt="Carousel 03" />
+
                   </div>
                 </div>
               </transition>
@@ -92,22 +82,7 @@ const tab = ref('1')
               >              
                 <div class="w-full" v-show="tab === '2'">
                   <div>
-                    <img class="lg:max-w-none mx-auto rounded-lg shadow-2xl" src="../images/igor-omilaev-.jpg" width="1000" height="620" alt="Carousel 02" />
-                  </div>
-                </div>
-              </transition>
-              <!-- Item 3 -->
-              <transition
-                enter-active-class="transition ease-in-out duration-700 transform order-first"
-                enter-from-class="opacity-0 translate-x-8"
-                enter-to-class="opacity-100 translate-x-0"
-                leave-active-class="transition ease-in-out duration-300 transform absolute"
-                leave-from-class="opacity-100 translate-x-0"
-                leave-to-class="opacity-0 -translate-x-8"
-              >              
-                <div class="w-full" v-show="tab === '3'">
-                  <div>
-                    <img class="lg:max-w-none mx-auto rounded-lg shadow-2xl" src="../images/cloud-ia.png" width="830" height="300" alt="Carousel 03" />
+                    <img class="lg:max-w-none mx-auto rounded-lg shadow-2xl" src="../images/boliviainteligente.jpg" width="900" height="620" alt="Carousel 01" />
                   </div>
                 </div>
               </transition>
@@ -117,72 +92,172 @@ const tab = ref('1')
         </div>
       </div>
 
-      <!-- Features blocks -->
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 mt-24 lg:mt-32">
+      <!-- Features blocks item 1 -->
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 mt-24 lg:mt-32" v-show="tab === '1'">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
           <!-- Block #1 -->
           <div>
             <div class="flex items-center mb-1">
               <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                <path d="M15 9a1 1 0 0 1 0 2c-.441 0-1.243.92-1.89 1.716.319 1.005.529 1.284.89 1.284a1 1 0 0 1 0 2 2.524 2.524 0 0 1-2.339-1.545A3.841 3.841 0 0 1 9 16a1 1 0 0 1 0-2c.441 0 1.243-.92 1.89-1.716C10.57 11.279 10.361 11 10 11a1 1 0 0 1 0-2 2.524 2.524 0 0 1 2.339 1.545A3.841 3.841 0 0 1 15 9Zm-5-1H7.51l-.02.142C6.964 11.825 6.367 16 3 16a3 3 0 0 1-3-3 1 1 0 0 1 2 0 1 1 0 0 0 1 1c1.49 0 1.984-2.48 2.49-6H3a1 1 0 1 1 0-2h2.793c.52-3.1 1.4-6 4.207-6a3 3 0 0 1 3 3 1 1 0 0 1-2 0 1 1 0 0 0-1-1C8.808 2 8.257 3.579 7.825 6H10a1 1 0 0 1 0 2Z" />
+                <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7ZM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5Zm8.707 12.293a.999.999 0 1 1-1.414 1.414L11.9 13.314a8.019 8.019 0 0 0 1.414-1.414l2.393 2.393Z" />
               </svg>
-              <h3 class="font-inter-tight font-semibold text-zinc-200">Discussions</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Audit initial</h3>
             </div>
-            <p class="text-sm text-zinc-500">Keep workflows efficient with tools that give teams visibility throughout the process.</p>
+            <p class="text-sm text-zinc-500">Analyse de votre infrastructure existante pour identifier forces, faiblesses et opportunités.</p>
           </div>
           <!-- Block #2 -->
           <div>
             <div class="flex items-center mb-1">
-              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                <path d="M13 16c-.153 0-.306-.035-.447-.105l-3.851-1.926c-.231.02-.465.031-.702.031-4.411 0-8-3.14-8-7s3.589-7 8-7 8 3.14 8 7c0 1.723-.707 3.351-2 4.63V15a1.003 1.003 0 0 1-1 1Zm-4.108-4.054c.155 0 .308.036.447.105L12 13.382v-2.187c0-.288.125-.562.341-.752C13.411 9.506 14 8.284 14 7c0-2.757-2.691-5-6-5S2 4.243 2 7s2.691 5 6 5c.266 0 .526-.02.783-.048a1.01 1.01 0 0 1 .109-.006Z" />
+              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+                <!-- Cible (anneaux) -->
+                <path fill-rule="evenodd" d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0Zm0 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/>
+                <!-- Flèche (direction) -->
+                <path d="M10.85 5.15 14 2v3.5c0 .28-.22.5-.5.5H10l.85-.85Zm-.92.92-2.9 2.9c-.2.2-.46.31-.74.31H5.5a.5.5 0 0 1 0-1h.79l2.9-2.9a.75.75 0 0 1 1.06 0Z"/>
               </svg>
-              <h3 class="font-inter-tight font-semibold text-zinc-200">Team views</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Architecture cible</h3>
             </div>
-            <p class="text-sm text-zinc-500">Keep workflows efficient with tools that give teams visibility throughout the process.</p>
+            <p class="text-sm text-zinc-500">Conception d’un schéma clair et robuste aligné avec vos besoins métiers.</p>
           </div>
           <!-- Block #3 -->
           <div>
             <div class="flex items-center mb-1">
-              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="14" height="16">
-                <path d="M13 0H1C.4 0 0 .4 0 1v14c0 .6.4 1 1 1h8l5-5V1c0-.6-.4-1-1-1ZM2 2h10v8H8v4H2V2Z" />
+              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+                <!-- Socle / jalon -->
+                <path d="M2 13.5c0-.83.67-1.5 1.5-1.5h9c.83 0 1.5.67 1.5 1.5V15H2v-1.5Z"/>
+                <!-- Mât -->
+                <path d="M4 2c.55 0 1 .45 1 1v9H4V3c0-.55.45-1 1-1Z"/>
+                <!-- Drapeau -->
+                <path d="M5 3h5.6c.3 0 .4.37.16.53L9.3 5l1.46 1.47c.24.16.14.53-.16.53H5V3Z"/>
+                <!-- Deux petits jalons (progression) -->
+                <path d="M10.5 10.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8 9.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"/>
               </svg>
-              <h3 class="font-inter-tight font-semibold text-zinc-200">Powerful search</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Roadmap stratégique</h3>
             </div>
-            <p class="text-sm text-zinc-500">Keep workflows efficient with tools that give teams visibility throughout the process.</p>
+            <p class="text-sm text-zinc-500">Une trajectoire pragmatique et jalonnée pour guider votre migration Cloud.</p>
           </div>
           <!-- Block #4 -->
+          <div>
+            <div class="flex items-center mb-1">
+              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+                <path d="M2 14a1 1 0 0 1-1-1V3a1 1 0 1 1 2 0v9h11a1 1 0 1 1 0 2H2Z"/>
+                <path d="M6.5 11a.5.5 0 0 1-.5-.5V7.41l-1.3 1.3a1 1 0 0 1-1.4-1.42l3-3a1 1 0 0 1 1.4 0l3 3a1 1 0 0 1-1.4 1.42L9 7.41V10.5a.5.5 0 0 1-.5.5h-2Z"/>
+              </svg>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Business case & ROI</h3>
+            </div>
+            <p class="text-sm text-zinc-500">Projection des coûts et gains pour sécuriser vos décisions d’investissement.</p>
+          </div>
+          <!-- Block #5 -->
+          <div>
+            <div class="flex items-center mb-1">
+              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+                <!-- Tête -->
+                <circle cx="8" cy="5" r="3"/>
+                <!-- Corps -->
+                <path d="M2 14c0-2.5 3-4 6-4s6 1.5 6 4v1H2v-1Z"/>
+                <!-- Badge étoile -->
+                <path d="M12.5 3.5a.5.5 0 0 1 .92 0l.2.6.6.2a.5.5 0 0 1 0 .92l-.6.2-.2.6a.5.5 0 0 1-.92 0l-.2-.6-.6-.2a.5.5 0 0 1 0-.92l.6-.2.2-.6Z"/>
+              </svg>
+
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Expert dédié </h3>
+            </div>
+            <p class="text-sm text-zinc-500">Mise à disposition d’un architecte cloud pour piloter la mise en œuvre.</p>
+          </div>
+          <!-- Block #6 -->
+          <div>
+            <div class="flex items-center mb-1">
+              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+                <!-- Cercle / médaille -->
+                <circle cx="8" cy="8" r="7"/>
+                <!-- Check -->
+                <path d="M11.03 5.97a.75.75 0 0 1 0 1.06L7.75 10.3a.75.75 0 0 1-1.06 0L5 8.62a.75.75 0 0 1 1.06-1.06l1.16 1.16 2.75-2.75a.75.75 0 0 1 1.06 0Z" fill="white"/>
+              </svg>
+
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Résultats garantis</h3>
+            </div>
+            <p class="text-sm text-zinc-500">Un cadre complet, prix prévisible et résultats mesurables dès la phase projet.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Features blocks item 2 -->
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 mt-24 lg:mt-32" v-show="tab === '2'">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16">
+          <!-- Block #1 -->
           <div>
             <div class="flex items-center mb-1">
               <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                 <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7ZM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5Zm8.707 12.293a.999.999 0 1 1-1.414 1.414L11.9 13.314a8.019 8.019 0 0 0 1.414-1.414l2.393 2.393Z" />
               </svg>
-              <h3 class="font-inter-tight font-semibold text-zinc-200">Enhancing</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Évaluation des usages</h3>
             </div>
-            <p class="text-sm text-zinc-500">Keep workflows efficient with tools that give teams visibility throughout the process.</p>
+            <p class="text-sm text-zinc-500">Identification des cas d’application IA les plus pertinents pour votre contexte.</p>
+          </div>
+          <!-- Block #2 -->
+          <div>
+            <div class="flex items-center mb-1">
+              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <path d="M15 9a1 1 0 0 1 0 2c-.441 0-1.243.92-1.89 1.716.319 1.005.529 1.284.89 1.284a1 1 0 0 1 0 2 2.524 2.524 0 0 1-2.339-1.545A3.841 3.841 0 0 1 9 16a1 1 0 0 1 0-2c.441 0 1.243-.92 1.89-1.716C10.57 11.279 10.361 11 10 11a1 1 0 0 1 0-2 2.524 2.524 0 0 1 2.339 1.545A3.841 3.841 0 0 1 15 9Zm-5-1H7.51l-.02.142C6.964 11.825 6.367 16 3 16a3 3 0 0 1-3-3 1 1 0 0 1 2 0 1 1 0 0 0 1 1c1.49 0 1.984-2.48 2.49-6H3a1 1 0 1 1 0-2h2.793c.52-3.1 1.4-6 4.207-6a3 3 0 0 1 3 3 1 1 0 0 1-2 0 1 1 0 0 0-1-1C8.808 2 8.257 3.579 7.825 6H10a1 1 0 0 1 0 2Z" />
+              </svg>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">POC</h3>
+            </div>
+            <p class="text-sm text-zinc-500">Mise en place d’un prototype fonctionnel pour valider la faisabilité et l’impact.</p>
+          </div>
+          <!-- Block #3 -->
+          <div>
+            <div class="flex items-center mb-1">
+              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+                <!-- Points -->
+                <circle cx="3" cy="8" r="2"/>
+                <circle cx="13" cy="4" r="2"/>
+                <circle cx="13" cy="12" r="2"/>
+                <!-- Liens -->
+                <path d="M4.5 7 11 4.5M4.5 9 11 11.5" stroke="currentColor" stroke-width="1.2" fill="none"/>
+              </svg>
+
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Architecture Data & IA</h3>
+            </div>
+            <p class="text-sm text-zinc-500">Conception d’une base solide pour exploiter et gouverner vos données.</p>
+          </div>
+          <!-- Block #4 -->
+          <div>
+            <div class="flex items-center mb-1">
+              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+                <path d="M6.9 1.5h2.2l.4 1.3c.3.1.6.3.9.5l1.2-.5 1.6 1.6-.5 1.2c.2.3.4.6.5.9l1.3.4v2.2l-1.3.4c-.1.3-.3.6-.5.9l.5 1.2-1.6 1.6-1.2-.5c-.3.2-.6.4-.9.5l-.4 1.3H6.9l-.4-1.3a3.9 3.9 0 0 1-.9-.5l-1.2.5-1.6-1.6.5-1.2a3.9 3.9 0 0 1-.5-.9L1.5 9.1V6.9l1.3-.4c.1-.3.3-.6.5-.9l-.5-1.2L4.4 2.8l1.2.5c.3-.2.6-.4.9-.5l.4-1.3ZM8 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
+              </svg>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">MLOps & industrialisation</h3>
+            </div>
+            <p class="text-sm text-zinc-500">Mise en production fluide des modèles grâce à des pipelines robustes.</p>
           </div>
           <!-- Block #5 -->
           <div>
             <div class="flex items-center mb-1">
-              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                <path d="M14.6.085 8 2.885 1.4.085c-.5-.2-1.4-.1-1.4.9v11c0 .4.2.8.6.9l7 3c.3.1.5.1.8 0l7-3c.4-.2.6-.5.6-.9v-11c0-1-.9-1.1-1.4-.9ZM2 2.485l5 2.1v8.8l-5-2.1v-8.8Zm12 8.8-5 2.1v-8.7l5-2.1v8.7Z" />
+              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+                <!-- Tête -->
+                <circle cx="8" cy="5" r="3"/>
+                <!-- Corps -->
+                <path d="M2 14c0-2.5 3-4 6-4s6 1.5 6 4v1H2v-1Z"/>
+                <!-- Badge étoile -->
+                <path d="M12.5 3.5a.5.5 0 0 1 .92 0l.2.6.6.2a.5.5 0 0 1 0 .92l-.6.2-.2.6a.5.5 0 0 1-.92 0l-.2-.6-.6-.2a.5.5 0 0 1 0-.92l.6-.2.2-.6Z"/>
               </svg>
-              <h3 class="font-inter-tight font-semibold text-zinc-200">Powerful search</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Accompagnement expert</h3>
             </div>
-            <p class="text-sm text-zinc-500">Keep workflows efficient with tools that give teams visibility throughout the process.</p>
+            <p class="text-sm text-zinc-500">Des spécialistes IA et Data pour guider vos équipes à chaque étape.</p>
           </div>
           <!-- Block #6 -->
           <div>
             <div class="flex items-center mb-1">
-              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="14" height="16">
-                <path d="M13 14a1 1 0 0 1 0 2H1a1 1 0 0 1 0-2h12Zm-6.707-2.293-5-5a1 1 0 0 1 1.414-1.414L6 8.586V1a1 1 0 1 1 2 0v7.586l3.293-3.293a1 1 0 1 1 1.414 1.414l-5 5a1 1 0 0 1-1.414 0Z" />
+              <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
+                <!-- Axe -->
+                <path d="M2 14V2h2v10h10v2H2Z"/>
+                <!-- Flèche vers le haut -->
+                <path d="M6 10V6h4V4l4 4-4 4V10H6Z"/>
               </svg>
-              <h3 class="font-inter-tight font-semibold text-zinc-200">Team views</h3>
+
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Accélération mesurable</h3>
             </div>
-            <p class="text-sm text-zinc-500">Keep workflows efficient with tools that give teams visibility throughout the process.</p>
+            <p class="text-sm text-zinc-500">Un passage du POC à la production maîtrisé, avec valeur business rapide.</p>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 </template>

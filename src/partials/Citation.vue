@@ -1,6 +1,6 @@
 <template>
-  <section class="bg-linear-to-br from-white to-indigo-100 pt-20 sm:pt-20">
-    <div class="max-w-6xl mx-auto  sm:px-6 ">
+  <section class="bg-linear-to-br from-white to-indigo-100 pt-5">
+    <div class="max-w-6xl mx-auto  sm:px-6 pt-12 md:pt-20  border-t  [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] ">
       <div class="pb-8 ">
 
         <div class="relative">

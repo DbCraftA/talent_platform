@@ -3,11 +3,11 @@
 
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="py-12 md:py-20 border-t  [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] ">
+      <div class="pb-10 md:pb-20">
 
         <!-- Section header -->
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-          <p class="text-xl text-slate-500">L’architecture logicielle, c’est avant tout la capacité à distinguer ce qui est essentiel pour la pérennité d’un système. Bien conçue, elle réduit la dette technique, accélère la livraison des fonctionnalités et améliore la qualité globale du produit.</p>
+          <p class="text-xl text-slate-500">Nous croyons profondément que l’architecture logicielle est l’art de séparer l’essentiel du superflu. Lorsqu’elle est bien pensée, elle devient un levier puissant : moins de dette technique, plus de vitesse et une meilleure qualité pour chaque projet.</p>
         </div>
 
         <!-- Section content -->
