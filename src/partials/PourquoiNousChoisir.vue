@@ -13,7 +13,7 @@ const tab = ref('1')
           <p class="text-lg text-zinc-500">Si l’architecte est le garant de la vision et de la pérennité d’un système, encore faut-il trouver le bon profil.
             C’est pourquoi nous avons conçu un processus unique de sélection, alliant expertise technique, mise en situation réelle et reconnaissance par les pairs.</p>
         </div>
-        <div class="flex justify-center pb-4 md:pb-12">
+        <div class="flex justify-center  pb-12">
 
           <div class="text-center">
             <router-link class="btn inline-flex items-center text-black  border-1 border-indigo-500 bg-white hover:bg-gray-200 group" to="/methode">
