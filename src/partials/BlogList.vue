@@ -14,7 +14,7 @@ const category = ref(1);
           <h1
               class="font-nacelle  bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 text-3xl font-semibold  md:text-4xl"
           >
-            Nos reussites
+            Nos Réussites
           </h1>
           <div class="mx-auto max-w-3xl">
             <p class="text-xl text-gray-500">

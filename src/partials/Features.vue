@@ -29,18 +29,16 @@
           >
             <span
               class="inline-flex bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-indigo-500"
-              >Advanced Controls</span
+              >Nos différenciateurs</span
             >
           </div>
           <h2
             class="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 text-3xl font-semibold  md:text-4xl"
           >
-            Built for modern product teams
+            Une approche pensée pour générer de la valeur réelle
           </h2>
-          <p class="text-lg text-gray-500/65">
-            Open AI reads and understands your files, and with nothing more than
-            a single line of feedback, so you can go further than the speed of
-            thought.
+          <p class="text-xl text-gray-500/65">
+            Nous allions pragmatisme et expertise pour transformer vos enjeux en résultats concrets. Notre modèle flexible, centré sur vos besoins, vous garantit rapidité, sécurité et impact durable.
           </p>
         </div>
 
@@ -72,11 +70,10 @@
             <h3
               class="font-nacelle mb-1 text-[1rem] font-semibold "
             >
-              Project Milestones
+              Approche pragmatique
             </h3>
             <p class="text-gray-500/75">
-              Track progress across custom flows for your team. Find the right
-              balance for the user, privacy and security.
+              Des solutions concrètes et actionnables, conçues pour générer un ROI rapide et mesurable.
             </p>
           </article>
           <article>
@@ -92,11 +89,10 @@
             <h3
               class="font-nacelle mb-1 text-[1rem] font-semibold "
             >
-              Team Views
+              Modèle flexible
             </h3>
             <p class="text-gray-500/75">
-              Track progress across custom flows for your team. Find the right
-              balance for the user, privacy and security.
+              Des modalités adaptées à vos besoins et à vos budgets, sans compromis sur la qualité.
             </p>
           </article>
           <article>
@@ -117,11 +113,10 @@
             <h3
               class="font-nacelle mb-1 text-[1rem] font-semibold "
             >
-              Advanced Search
+              Transfert de connaissances
             </h3>
             <p class="text-gray-500/75">
-              Track progress across custom flows for your team. Find the right
-              balance for the user, privacy and security.
+              Nos experts forment vos équipes internes pour renforcer vos capacités en continu.
             </p>
           </article>
           <article>
@@ -149,11 +144,10 @@
             <h3
               class="font-nacelle mb-1 text-[1rem] font-semibold "
             >
-              Strategic Initiatives
+              Solutions clé en main
             </h3>
             <p class="text-gray-500/75">
-              Track progress across custom flows for your team. Find the right
-              balance for the user, privacy and security.
+              De la stratégie à l’implémentation technique, nous vous accompagnons de bout en bout.
             </p>
           </article>
           <article>
@@ -174,11 +168,10 @@
             <h3
               class="font-nacelle mb-1 text-[1rem] font-semibold "
             >
-              Flexible Workflows
+              Réduction des risques
             </h3>
             <p class="text-gray-500/75">
-              Track progress across custom flows for your team. Find the right
-              balance for the user, privacy and security.
+              Une architecture robuste et des choix technologiques qui sécurisent vos projets.
             </p>
           </article>
           <article>
@@ -199,11 +192,10 @@
             <h3
               class="font-nacelle mb-1 text-[1rem] font-semibold "
             >
-              Unified Timeline
+              Accélération du time-to-market
             </h3>
             <p class="text-gray-500/75">
-              Track progress across custom flows for your team. Find the right
-              balance for the user, privacy and security.
+              Des méthodes éprouvées qui vous permettent de livrer plus vite, avec plus de confiance.
             </p>
           </article>
         </div>
@@ -212,10 +204,10 @@
 
         <div class="max-w-xs pt-30 mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
           <div>
-            <router-link class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" to="/nous-contacter">Nous contacter</router-link>
+            <router-link class="btn text-zinc-100   bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" to="/nous-contacter">Nous contacter</router-link>
           </div>
           <div>
-            <a class="btn text-zinc-600 bg-white hover:text-zinc-900 w-full shadow-sm" href="/methode">Notre methode</a>
+            <a class="btn text-zinc-600 bg-white border-1 border-indigo-500 hover:text-zinc-900 w-full shadow-sm" href="/methode">Notre méthode</a>
           </div>
         </div>
         </div>

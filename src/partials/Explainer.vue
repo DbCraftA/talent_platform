@@ -79,7 +79,7 @@
 
         <!-- CTA -->
         <div class="text-center">
-          <router-link class="btn inline-flex items-center text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter">
+          <router-link class="btn inline-flex border-1 border-indigo-500 items-center text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter">
             Nous contacter
             <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
               <svg class="fill-indigo-500" xmlns="http://www.w3.org/2000/svg" width="16" height="8">

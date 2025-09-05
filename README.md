@@ -2,6 +2,8 @@
 
 Vue.js landing page template designed by Cruip.
 
+https://unsplash.com/fr/@silverkblack
+
 ## Project setup
 ```
 npm install

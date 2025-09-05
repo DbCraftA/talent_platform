@@ -28,7 +28,7 @@
               <!-- Content #1 -->
               <div v-show="category === '1'">
                 <h3 class="h3 font-cabinet-grotesk mb-3">La technologie au service du business , pas l’inverse.</h3>
-                <p class="text-lg text-gray-500 mb-8">Là où beaucoup de cabinets privilégient la complexité technologique, nous plaçons le business au cœur de notre approche.
+                <p class="text-lg text-gray-500 mb-8">Plutôt que de mettre l’accent sur la complexité technologique, nous choisissons de placer le business au cœur de notre approche. Chaque décision technique est guidée par sa capacité à générer de la valeur et à soutenir vos objectifs.
                  </p>
                 <ul class="inline-flex flex-col space-y-6">
                   <li class="flex items-start">
@@ -39,7 +39,7 @@
                       <div class="font-cabinet-grotesk font-bold text-lg mb-1">Identification des cas d'usage à fort ROI avant toute
                         considération technique</div>
                       <div class="text-gray-500">
-                        Work is is changing faster than at any other time in history. This rapid change requires a new hiring model.
+                        Nous commençons systématiquement par analyser et sélectionner les cas d’usage qui apportent le plus de valeur ajoutée à l’entreprise, afin de garantir un impact concret et mesurable.
                       </div>
                     </div>
                   </li>
@@ -51,7 +51,7 @@
                       <div class="font-cabinet-grotesk font-bold text-lg mb-1">Capacité à traduire des concepts techniques en langage
                         business</div>
                       <div class="text-gray-500">
-                        Work is is changing faster than at any other time in history. This rapid change requires a new hiring model.
+                        Nos équipes traduisent les notions technologiques complexes en un langage clair et compréhensible, facilitant ainsi la prise de décision et l’alignement avec les objectifs stratégiques.
                       </div>
                     </div>
                   </li>
@@ -63,7 +63,7 @@
                       <div class="font-cabinet-grotesk font-bold text-lg mb-1">Solutions dimensionnées aux besoins réels et non
                         surdimensionnées</div>
                       <div class="text-gray-500">
-                        Work is is changing faster than at any other time in history. This rapid change requires a new hiring model.
+                        Nous concevons des solutions adaptées à la taille et aux enjeux spécifiques de chaque client, en évitant toute complexité ou surcoût superflu.
                       </div>
                     </div>
                   </li>
@@ -72,8 +72,9 @@
               <!-- Content #2 -->
               <div v-show="category === '2'">
                 <h3 class="h3 font-cabinet-grotesk mb-3">Des freelances validés par des experts du domaine.</h3>
-                <p class="text-lg text-gray-500 mb-8">Nous croyons que seuls ceux qui connaissent réellement les enjeux du terrain peuvent évaluer efficacement un profil.
-                  C’est pourquoi chaque freelance est validé par un expert du même domaine technique.</p>
+                <p class="text-lg text-gray-500 mb-8">Des architectes logiciels validés par des experts du domaine. Nous pensons que seuls ceux qui maîtrisent réellement les enjeux du métier peuvent évaluer efficacement un profil.
+                  C’est pourquoi chaque architecte logiciel est validé par un expert du même domaine technique.
+                </p>
                 <ul class="inline-flex flex-col space-y-6">
                   <li class="flex items-start">
                     <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -81,8 +82,7 @@
                     </svg>
                     <div>
                       <div class="font-cabinet-grotesk font-bold text-lg mb-1">Évaluations menées par des praticiens (pas des recruteurs)</div>
-                      <div class="text-gray-500">
-                        Work is is changing faster than at any other time in history. This rapid change requires a new hiring model.
+                      <div class="text-gray-500">Le secteur évolue plus rapidement que jamais. Cette transformation exige un nouveau modèle d’évaluation et de sélection.
                       </div>
                     </div>
                   </li>
@@ -93,7 +93,7 @@
                     <div>
                       <div class="font-cabinet-grotesk font-bold text-lg mb-1">Grilles métiers spécifiques à chaque spécialité (ML, Data, DevOps, Cloud...)</div>
                       <div class="text-gray-500">
-                        Work is is changing faster than at any other time in history. This rapid change requires a new hiring model.
+                        Chaque domaine possède ses propres exigences, c’est pourquoi nous utilisons des référentiels adaptés à chaque spécialité.
                       </div>
                     </div>
                   </li>
@@ -104,7 +104,7 @@
                     <div>
                       <div class="font-cabinet-grotesk font-bold text-lg mb-1">Entretiens approfondis sur des cas concrets et récents</div>
                       <div class="text-gray-500">
-                        Work is is changing faster than at any other time in history. This rapid change requires a new hiring model.
+                        Nous évaluons les architectes logiciels à travers des mises en situation réelles, reflétant les défis actuels du secteur.
                       </div>
                     </div>
                   </li>
