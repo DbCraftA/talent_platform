@@ -3,10 +3,7 @@
 
     <div class="py-12 md:py-20">
 
-      <!-- Section header -->
-      <div class="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-        <h2 class="h4 font-cabinet-grotesk text-gray-100">Trusting by leading brands, including:</h2>
-      </div>
+
 
       <!-- Carousel built with Swiper.js [https://swiperjs.com/] -->
       <!-- * Custom styles in src/css/additional-styles/theme.scss -->
