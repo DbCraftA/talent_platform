@@ -19,11 +19,11 @@
                  choisir
               </span> ?
           </h1>
-          <p class="text-lg text-gray-500">Nous croyons que la vraie valeur vient de la capacité à relier expertise technique et impact business. </p>
-          <p class="text-lg text-gray-500">Nos architectes identifient ce qui est essentiel, conçoivent des solutions pérennes et accélèrent vos projets Cloud & IA avec une approche pragmatique,
+          <p class="text-lg text-gray-500">Nous croyons que la vraie valeur vient de la capacité à relier expertise technique et impact business.
+          Nos architectes identifient ce qui est essentiel, conçoivent des solutions pérennes et accélèrent vos projets Cloud & IA avec une approche pragmatique,
             flexible et orientée résultats.</p>
 
-          <div class="max-w-xs pt-10 mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <div class="max-w-xs pt-20 mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <div >
               <a class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" href="#0">Prospection</a>
             </div>
