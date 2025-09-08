@@ -4,30 +4,30 @@ import Counter from './Counter.vue'
 
 const stats = ref([
   {
-    number: 476,
-    suffix: 'K',
-    text: 'Assets packed with power beyond your imagination.',
+    number: 95,
+    suffix: '%',
+    text: 'Des missions lancées trouvent un profil adapté en moins de 10 jours..',
   },
   {
-    number: 1.44,
-    suffix: 'K',
-    text: 'Assets packed with power beyond your imagination.',
+    number: 150,
+    suffix: '+',
+    text: 'Architectes et experts techniques déjà qualifiés dans notre réseau.',
   },
   {
-    number: 1.5,
-    suffix: 'M+',
-    text: 'Assets packed with power beyond your imagination.',
+    number: 3,
+    suffix: 'x',
+    text: 'Un time-to-market réduit par rapport à une approche classique.',
   },
   {
-    number: 192,
-    suffix: 'K',
-    text: 'Assets packed with power beyond your imagination.',
+    number: 100,
+    suffix: '%',
+    text: 'des talents évalués passent par un screening rigoureux.',
   },
 ])
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto px-10 py-10 sm:py-20">
+  <div class="max-w-6xl mx-auto px-10 py-20">
     <div class="max-w-sm mx-auto grid gap-12 sm:grid-cols-2 md:grid-cols-4 md:-mx-5 md:gap-0 items-start md:max-w-none">
 
       <template v-for="stat in stats">

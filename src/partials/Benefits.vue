@@ -9,12 +9,10 @@
           <h2
             class="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 text-3xl font-semibold text-black md:text-4xl"
           >
-            Seeking ambitious problem solvers
+            Rejoignez notre réseau d’architectes
           </h2>
           <p class="text-lg text-gray-500">
-            At Open Pro, it's our mission to improve the quality of every thing.
-            Helping our customers create incredible products and services is the
-            end goal—but everything starts with our team.
+            Nous collaborons avec des architectes freelances pour concevoir et déployer des solutions innovantes et performantes. Si vous cherchez des missions stimulantes et adaptées à votre expertise, c’est le moment de nous rejoindre.
           </p>
         </div>
 
@@ -36,7 +34,7 @@
                   d="m14.707 7.707-6.485 6.485-2.929-2.93L6.707 9.85l1.515 1.515 5.071-5.071 1.414 1.414Z"
                 />
               </svg>
-              <span>Work Life Balance</span>
+              <span>Missions variées et stimulantes</span>
             </li>
             <li class="flex items-center">
               <svg
@@ -51,7 +49,7 @@
                   d="m14.707 7.707-6.485 6.485-2.929-2.93L6.707 9.85l1.515 1.515 5.071-5.071 1.414 1.414Z"
                 />
               </svg>
-              <span>Competitive Salary And Equity</span>
+              <span>Rémunération compétitive</span>
             </li>
             <li class="flex items-center">
               <svg
@@ -66,7 +64,7 @@
                   d="m14.707 7.707-6.485 6.485-2.929-2.93L6.707 9.85l1.515 1.515 5.071-5.071 1.414 1.414Z"
                 />
               </svg>
-              <span>5 Weeks Paid Vacation</span>
+              <span>Flexibilité et autonomie</span>
             </li>
             <li class="flex items-center">
               <svg
@@ -81,7 +79,7 @@
                   d="m14.707 7.707-6.485 6.485-2.929-2.93L6.707 9.85l1.515 1.515 5.071-5.071 1.414 1.414Z"
                 />
               </svg>
-              <span>Generous Gear Credit</span>
+              <span>Opportunités de développement et réseautage</span>
             </li>
           </ul>
         </div>

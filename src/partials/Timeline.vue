@@ -2,18 +2,17 @@
   <section id="0" class=" bg-linear-to-tr from-indigo-100 to-white  ">
 
 
-    <div   class="mx-auto max-w-6xl px-4 sm:px-6  border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
+    <div   class="mx-auto max-w-6xl px-4 sm:px-6  border-t  [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] py-12">
       <div class="pb-12 md:pb-20">
         <!-- Section header -->
         <div class="mx-auto max-w-3xl pb-12 text-center md:pb-20">
           <h2
             class="font-nacelle  animate-[gradient_6s_linear_infinite] text-black/80 bg-[length:200%_auto]  pb-4 text-3xl font-semibold  md:text-4xl"
           >
-            Enovat Screening Process
+            Notre procéssus de sélection
           </h2>
           <p class="text-lg text-gray-500" >
-            Each applicant to the Toptal network must pass a screening process designed to measure subject matter expertise, professionalism, and communication skills. The full screening process takes between 3-8 weeks to complete.
-          </p>
+            Chaque expert que nous proposons passe par un processus de sélection rigoureux combinant tests techniques, validation des références et mise en situation. Objectif : garantir une expertise de haut niveau et une parfaite adéquation avec vos besoins.          </p>
         </div>
 
         <!-- Items -->
@@ -28,7 +27,7 @@
               <div
                 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
               >
-                The seed
+                Canaux ciblés
               </div>
               <div class="mb-2 flex items-center">
                 <div
@@ -45,14 +44,11 @@
                   aria-hidden="true"
                 ></div>
                 <h4 class="font-nacelle text-xl font-semibold text-black">
-                  Open PRO was founded in Milan, Italy
+                  Sourcing proactif
                 </h4>
               </div>
               <p class="text-[1rem] text-gray-500/75">
-                Pretium lectus quam id leo. Urna et pharetra pharetra massa
-                massa. Adipiscing enim eu neque aliquam vestibulum morbi blandit
-                cursus risus.
-              </p>
+                Nous identifions les talents via contributions open-source, LinkedIn Recruiter, conférences techniques, écoles et programmes de cooptation — y compris les talents “passifs”.              </p>
             </div>
           </div>
 
@@ -67,7 +63,7 @@
               <div
                 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
               >
-                New features
+                Filtre d’excellence
               </div>
               <div class="mb-2 flex items-center">
                 <div
@@ -84,13 +80,11 @@
                   aria-hidden="true"
                 ></div>
                 <h4 class="font-nacelle text-xl font-semibold text-black">
-                  Launched the first Open PRO Advanced plan
+                  Validation initiale
                 </h4>
               </div>
               <p class="text-[1rem] text-gray-500/75">
-                Pretium lectus quam id leo. Urna et pharetra pharetra massa
-                massa. Adipiscing enim eu neque aliquam vestibulum morbi blandit
-                cursus risus.
+                Vérification du CV/portfolio, certifications & références, plus un screening court adapté.
               </p>
             </div>
           </div>
@@ -106,7 +100,7 @@
               <div
                 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
               >
-                Pivoting
+                Évaluation en conditions réelles
               </div>
               <div class="mb-2 flex items-center">
                 <div
@@ -123,14 +117,11 @@
                   aria-hidden="true"
                 ></div>
                 <h4 class="font-nacelle text-xl font-semibold text-black">
-                  Transitioned to a SaaS business model
+                  Mise en situation
                 </h4>
               </div>
               <p class="text-[1rem] text-gray-500/75">
-                Pretium lectus quam id leo. Urna et pharetra pharetra massa
-                massa. Adipiscing enim eu neque aliquam vestibulum morbi blandit
-                cursus risus.
-              </p>
+                Évaluation des candidats sur des cas inspirés de vraies problématiques clients, afin de juger à la fois la démarche, la rigueur technique et la capacité à proposer des solutions pragmatiques.              </p>
             </div>
           </div>
 
@@ -145,7 +136,7 @@
               <div
                 class="inline-flex bg-linear-to-r  bg-clip-text pb-2 text-indigo-500"
               >
-                Huge milestone
+                Intégration & impact
               </div>
               <div class="mb-2 flex items-center">
                 <div
@@ -158,13 +149,11 @@
                   aria-hidden="true"
                 ></div>
                 <h4 class="font-nacelle text-xl font-semibold text-black">
-                  1 million happy customers
+                  Onboarding opérationnel
                 </h4>
               </div>
               <p class="text-[1rem] text-gray-500/75">
-                Pretium lectus quam id leo. Urna et pharetra pharetra massa
-                massa. Adipiscing enim eu neque aliquam vestibulum morbi blandit
-                cursus risus.
+                Formation aux standards client et aux outils collaboratifs, transfert de méthodologies et accompagnement personnalisé pour garantir une montée en puissance rapide et durable.
               </p>
             </div>
           </div>

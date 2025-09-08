@@ -9,10 +9,10 @@
           <h2
             class="font-nacelle  animate-[gradient_6s_linear_infinite] text-black/80 bg-[length:200%_auto]  pb-4 text-3xl font-semibold  md:text-4xl"
           >
-            Notre methode d'accompagnement
+            Notre méthode d'accompagnement
           </h2>
           <p class="text-lg text-gray-500" >
-            Each applicant to the Toptal network must pass a screening process designed to measure subject matter expertise, professionalism, and communication skills. The full screening process takes between 3-8 weeks to complete.
+            Chaque client a des besoins uniques. Selon le contexte, nous intervenons soit en accompagnement stratégique pour cadrer et orienter le projet, soit en mise à disposition rapide des meilleurs profils experts. Notre méthode garantit agilité et pertinence à chaque étape.
           </p>
         </div>
 
@@ -28,7 +28,7 @@
               <div
                 class="text-right bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
               >
-                The seed
+                Diagnostic initial
               </div>
               <div class="mb-2 flex flex-row-reverse items-center  ">
                 <div
@@ -45,13 +45,11 @@
                   aria-hidden="true"
                 ></div>
                 <h4 class="font-nacelle text-xl font-semibold text-right text-black">
-                  Open PRO was founded in Milan, Italy
+                  Analyse du besoin
                 </h4>
               </div>
               <p class="text-[1rem] text-gray-500/75 text-right">
-                Pretium lectus quam id leo. Urna et pharetra pharetra massa
-                massa. Adipiscing enim eu neque aliquam vestibulum morbi blandit
-                cursus risus.
+                Nous définissons avec vous les enjeux du projet : objectifs business, périmètre technique, compétences nécessaires et mode d’accompagnement le plus adapté.
               </p>
             </div>
           </div>
@@ -67,7 +65,7 @@
               <div
                   class="text-right bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
               >
-                The seed
+                Conseil ou profils experts
               </div>
               <div class="mb-2 flex flex-row-reverse items-center  ">
                 <div
@@ -84,13 +82,11 @@
                     aria-hidden="true"
                 ></div>
                 <h4 class="font-nacelle text-xl font-semibold text-right text-black">
-                  Open PRO was founded in Milan, Italy
+                  Deux voies possibles
                 </h4>
               </div>
               <p class="text-[1rem] text-gray-500/75 text-right">
-                Pretium lectus quam id leo. Urna et pharetra pharetra massa
-                massa. Adipiscing enim eu neque aliquam vestibulum morbi blandit
-                cursus risus.
+                Deux approches possibles : un accompagnement stratégique pour le cadrage, la définition d’architectures cibles, ou la mise à disposition d’experts sélectionnés adaptés à vos priorités opérationnelles.
               </p>
             </div>
           </div>
@@ -106,7 +102,7 @@
               <div
                   class="text-right bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
               >
-                The seed
+                Sélection sur mesure
               </div>
               <div class="mb-2 flex flex-row-reverse items-center  ">
                 <div
@@ -123,13 +119,11 @@
                     aria-hidden="true"
                 ></div>
                 <h4 class="font-nacelle text-xl font-semibold text-right  text-black">
-                  Open PRO was founded in Milan, Italy
+                  Validation et engagement
                 </h4>
               </div>
               <p class="text-[1rem] text-gray-500/75 text-right">
-                Pretium lectus quam id leo. Urna et pharetra pharetra massa
-                massa. Adipiscing enim eu neque aliquam vestibulum morbi blandit
-                cursus risus.
+                Nous validons avec vous les meilleures options (conseil ou experts) et vous présentent une shortlist de 2–3 solutions parfaitement alignées avec vos besoins..
               </p>
             </div>
           </div>
@@ -145,7 +139,7 @@
               <div
                   class="text-right bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
               >
-                The seed
+                Un accompagnement continu
               </div>
               <div class="mb-2 flex flex-row-reverse items-center  ">
                 <div
@@ -159,13 +153,11 @@
                     aria-hidden="true"
                 ></div>
                 <h4 class="font-nacelle text-xl font-semibold text-right text-black">
-                  Open PRO was founded in Milan, Italy
+                  Intégration & suivi
                 </h4>
               </div>
               <p class="text-[1rem] text-gray-500/75 text-right">
-                Pretium lectus quam id leo. Urna et pharetra pharetra massa
-                massa. Adipiscing enim eu neque aliquam vestibulum morbi blandit
-                cursus risus.
+                Que ce soit via une mission stratégique ou via un expert intégré à vos équipes, nous assurons le suivi et l’ajustement pour maximiser l’impact et garantir la réussite.
               </p>
             </div>
           </div>
