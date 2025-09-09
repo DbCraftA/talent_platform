@@ -26,7 +26,7 @@
           <p class="text-lg text-gray-500">Faites progresser vos compétences et vos projets grâce à une équipe de passionnés !</p>
           <p class="text-lg text-gray-500 mb-8">Nous relions la vision business au delivery opérationnel, en rendant l’expertise pointue plus rapide, flexible et accessible.</p>
           <!-- Button + Avatars -->
-          <div class="sm:flex sm:items-center sm:justify-center md:justify-start space-y-6 sm:space-y-0 sm:space-x-5">
+          <div class="sm:flex sm:items-center sm:justify-center md:justify-start pt-5 space-y-6 sm:space-y-0 sm:space-x-5">
             <div>
               <router-link class="btn text-white bg-indigo-500 hover:bg-indigo-600 shadow-xs" to="/nous-contacter">Nous contacter</router-link>
             </div>
@@ -40,7 +40,7 @@
               <div class="text-sm text-gray-500 font-medium">Plus d'une <span class="text-indigo-500">100ne</span> de profils qualifiés</div>
             </div>
           </div>
-          <!-- Stats -->
+          <!-- Stats
           <div class="sm:flex sm:items-center sm:justify-center md:justify-start space-y-6 sm:space-y-0 sm:space-x-5 pt-15" data-aos="fade-right" data-aos-delay="400">
             <div>
               <div class="font-cabinet-grotesk text-2xl font-extrabold">3x</div>
@@ -57,7 +57,10 @@
               <div class="text-gray-500">Suivi</div>
             </div>
           </div>
+          Stats -->
+
         </div>
+        <Stats />
 
       </div>
     </div>
@@ -65,7 +68,10 @@
 </template>
 
 <script>
+import StatsMethode from "./StatsLandingPage.vue";
+
 export default  {
   name: 'Hero',
+  components: {Stats: StatsMethode},
 }
 </script>

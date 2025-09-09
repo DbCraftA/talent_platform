@@ -29,7 +29,7 @@
                 <router-link class="btn text-gray-600 bg-white hover:bg-blue-100 hover:text-blue-600 w-full shadow-xs" to="/signin">Sign In</router-link>
               </div>
             </div>
-            <!-- Stats -->
+            <!-- StatsMethode -->
             <div class="inline-flex items-center space-x-4 md:space-x-6" data-aos="fade-right" data-aos-delay="400">
               <div>
                 <div class="font-cabinet-grotesk text-2xl font-extrabold">27M</div>

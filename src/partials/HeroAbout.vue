@@ -26,7 +26,7 @@
 
         </div>
 
-        <!-- Stats -->
+        <!-- StatsMethode -->
         <Stats />
 
 
@@ -37,11 +37,11 @@
 </template>
 
 <script>
-import Stats from "./Stats.vue";
+import StatsMethode from "./StatsMethode.vue";
 
 export default  {
   name: 'Hero',
-  components: {Stats}
+  components: {Stats: StatsMethode}
 }
 
 </script>

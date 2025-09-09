@@ -4,6 +4,10 @@
     <!-- Bg -->
     <div class="absolute inset-0 bg-linear-to-br from-indigo-100 to-white pointer-events-none -z-10" aria-hidden="true"></div>
 
+    <!-- Illustration -->
+    <div class="hidden md:block absolute left-1/2 -translate-x-1/2 pointer-events-none -z-10" aria-hidden="true">
+      <img src="../images/hero-illustration.svg" class="max-w-none" width="1440" height="749" alt="Hero Illustration" />
+    </div>
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="pt-28 pb-8 md:pt-36 ">
@@ -33,7 +37,7 @@
           </div>
         </div>
 
-        <!-- Stats -->
+        <!-- StatsMethode -->
         <Stats />
 
 
@@ -44,11 +48,11 @@
 </template>
 
 <script>
-import Stats from "./Stats.vue";
+import StatsMethode from "./StatsMethode.vue";
 
 export default  {
   name: 'Hero',
-  components: {Stats}
+  components: {Stats: StatsMethode}
 }
 
 </script>

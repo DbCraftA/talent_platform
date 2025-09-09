@@ -4,11 +4,6 @@ import Counter from './Counter.vue'
 
 const stats = ref([
   {
-    number: 95,
-    suffix: '%',
-    text: 'Des missions lancées trouvent un profil adapté en moins de 10 jours..',
-  },
-  {
     number: 150,
     suffix: '+',
     text: 'Architectes et experts techniques déjà qualifiés dans notre réseau.',
@@ -27,11 +22,11 @@ const stats = ref([
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto px-10 pt-20 pb-10">
+  <div class="max-w-6xl mx-auto pt-15 pb-10">
     <div class="max-w-sm mx-auto grid gap-12 sm:grid-cols-2 md:grid-cols-4 md:-mx-5 md:gap-0 items-start md:max-w-none">
 
       <template v-for="stat in stats">
-        <div class="relative text-center md:px-5 after:hidden md:after:block after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-8 after:border-l after:border-zinc-300 after:border-dashed last:after:hidden">
+        <div class="relative md:px-5 after:hidden md:after:block after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-8 after:border-l after:border-zinc-300 after:border-dashed last:after:hidden">
           <h4 class="font-inter-tight text-2xl md:text-3xl font-bold tabular-nums mb-2"><Counter :number="stat.number" />{{ stat.suffix }}</h4>
           <p class="text-sm text-zinc-500">{{ stat.text }}</p>
         </div>
