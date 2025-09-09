@@ -28,14 +28,14 @@
           <!-- Button + Avatars -->
           <div class="sm:flex sm:items-center sm:justify-center md:justify-start pt-5 space-y-6 sm:space-y-0 sm:space-x-5">
             <div>
-              <router-link class="btn text-white bg-indigo-500 hover:bg-indigo-600 shadow-xs" to="/nous-contacter">Nous contacter</router-link>
+              <router-link class="btn text-white bg-indigo-500 border-1 border-black  hover:bg-indigo-600 shadow-xs" to="/nous-contacter">Nous contacter</router-link>
             </div>
             <div class="sm:flex sm:items-center sm:justify-center space-y-2 sm:space-y-0 sm:space-x-3">
               <div class="inline-flex -space-x-3 -ml-0.5">
-                <img class="rounded-full border-2 border-indigo-50 box-content" src="../images/avatar-01.jpg" width="32" height="32" alt="Avatar 01" />
-                <img class="rounded-full border-2 border-indigo-50 box-content" src="../images/avatar-02.jpg" width="32" height="32" alt="Avatar 02" />
-                <img class="rounded-full border-2 border-indigo-50 box-content" src="../images/avatar-03.jpg" width="32" height="32" alt="Avatar 03" />
-                <img class="rounded-full border-2 border-indigo-50 box-content" src="../images/avatar-04.jpg" width="32" height="32" alt="Avatar 04" />
+                <img class="rounded-full border-2  box-content" src="../images/avatar-01.jpg" width="32" height="32" alt="Avatar 01" />
+                <img class="rounded-full border-2  box-content" src="../images/avatar-02.jpg" width="32" height="32" alt="Avatar 02" />
+                <img class="rounded-full border-2 box-content" src="../images/avatar-03.jpg" width="32" height="32" alt="Avatar 03" />
+                <img class="rounded-full border-2  box-content" src="../images/avatar-06.jpg" width="32" height="32" alt="Avatar 04" />
               </div>
               <div class="text-sm text-gray-500 font-medium">Plus d'une <span class="text-indigo-500">100ne</span> de profils qualifiés</div>
             </div>
