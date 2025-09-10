@@ -45,16 +45,16 @@
 
         <!-- 2nd block -->
         <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
-          <h6 class="text-sm text-zinc-800 font-medium mb-2">Company</h6>
+          <h6 class="text-sm text-zinc-800 font-medium mb-2">Entreprise</h6>
           <ul class="text-sm space-y-2">
             <li>
               <router-link class="block group" to="/a-propos" aria-label="Cruip">
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="/a-propos">A propos de ...</a>
+              <a class="text-zinc-500 hover:text-zinc-900 transition" href="/a-propos">A propos de nous</a>
               </router-link>
             </li>
             <li>
               <router-link class="block group" to="/methode" aria-label="Cruip">
-              <a class="text-zinc-500 hover:text-zinc-900 transition" href="/methode">Notre methode</a>
+              <a class="text-zinc-500 hover:text-zinc-900 transition" href="/methode">Notre méthode</a>
               </router-link>
             </li>
           </ul>
