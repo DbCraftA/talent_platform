@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from './pages/Home.vue'
 import SignIn from './pages/SignIn.vue'
-import About from './pages/about.vue'
+import About from './pages/About.vue'
 import ResetPassword from './pages/ResetPassword.vue'
 import PostJob from './pages/PostAJob.vue'
 import Methode from './pages/Methode.vue'

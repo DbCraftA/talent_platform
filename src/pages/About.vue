@@ -1,11 +1,11 @@
 <script setup>
 import Header from "./../partials/Header.vue";
 import HeroAbout from "../partials/HeroAbout.vue";
-import Timeline from "../partials/Timeline.vue";
-import Benefits from "../partials/Benefits.vue";
-import Clients from "../partials/Clients.vue";
-import Cta from "../partials/Cta.vue";
+import CitationAbout from "../partials/CitationAbout.vue";
 import Footer from "./../partials/Footer.vue";
+import TargetAbout from "../partials/TargetAbout.vue";
+import NotreMission from "../partials/NotreMission.vue";
+import CtaAbout from "../partials/CtaAbout.vue";
 </script>
 
 <template>
@@ -21,9 +21,10 @@ import Footer from "./../partials/Footer.vue";
 
       <!-- Page sections -->
       <HeroAbout />
-      <Timeline />
-      <Benefits />
-      <Cta />
+      <CitationAbout/>
+      <TargetAbout/>
+      <NotreMission />
+      <CtaAbout />
     </main>
 
     <!-- Site footer -->
