@@ -194,36 +194,36 @@
           </div>
         </div>
 
-        <!-- Single testimonial -->
-        <div class="mx-auto max-w-3xl">
-          <div class="pt-12 md:pt-16">
-            <div class="text-center">
-              <img
-                class="mb-3 inline-flex rounded-full"
-                src="../images/world-user-01.jpg"
-                width="40"
-                height="40"
-                alt="Large testimonial"
-              />
-              <p
-                class="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-3 text-xl font-semibold text-gray-500"
-              >
-                “I am grateful to Open PRO for encouraging me to expand my
-                horizons and strive for greater achievements, both in my career
-                and in my education.”
-              </p>
-              <div class="text-sm font-medium text-gray-400">
-                <span>Mary Pullgat</span>
-                <span class="text-gray-700"> - </span>
-                <span
-                  class="text-gray-400"
-
-                  >Software Engineer</span
+          <!-- Single testimonial -->
+          <div class="mx-auto max-w-3xl">
+            <div class="pt-12 md:pt-16">
+              <div class="text-center">
+                <img
+                  class="mb-3 inline-flex rounded-full"
+                  src="../images/world-user-01.jpg"
+                  width="40"
+                  height="40"
+                  alt="Large testimonial"
+                />
+                <p
+                  class="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-3 text-xl font-semibold text-gray-500"
                 >
+                  “I am grateful to Open PRO for encouraging me to expand my
+                  horizons and strive for greater achievements, both in my career
+                  and in my education.”
+                </p>
+                <div class="text-sm font-medium text-gray-400">
+                  <span>Mary Pullgat</span>
+                  <span class="text-gray-700"> - </span>
+                  <span
+                    class="text-gray-400"
+
+                    >Software Engineer</span
+                  >
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </section>

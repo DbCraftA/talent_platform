@@ -5,8 +5,8 @@ const category = ref(1);
 </script>
 
 <template>
-  <section class="bg-linear-to-b from-indigo-100 to-white">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+  <section class="bg-linear-to-b  from-white to-indigo-100">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 border-t [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] ">
       <!-- HeroMethode content -->
       <div class="py-12 md:py-20">
         <!-- Section header -->

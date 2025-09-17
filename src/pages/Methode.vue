@@ -7,6 +7,7 @@ import Clients from "../partials/Clients.vue";
 import Cta from "../partials/Cta.vue";
 import Footer from "./../partials/Footer.vue";
 import MethodeAccompagnement from "./../partials/MethodeAccompagnement.vue";
+import TargetAbout from "../partials/TargetAbout.vue";
 </script>
 
 <template>

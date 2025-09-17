@@ -42,7 +42,7 @@
               </div>
             </div>
           </div>
-  
+
           <!-- Arrows -->
           <div class="flex mt-12 space-x-3 justify-end">
             <button class="carousel-prev relative z-20 w-11 h-11 rounded-full flex items-center justify-center group bg-gray-900">

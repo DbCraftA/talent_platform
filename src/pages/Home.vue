@@ -8,17 +8,16 @@
     <main class="grow">
 
       <Hero01 />
-      <NosOffres />
-      <Explainer />
-      <Clients />
+      <Pricing />
       <Features02 />
       <Citation/>
       <Target/>
       <PourquoiNousChoisir />
+      <Testimonials />
+      <Explainer />
+      <Features/>
       <Features04 />
       <BlogList/>
-      <Features/>
-      <Testimonials />
       <Faqs />
       <Cta />
 
