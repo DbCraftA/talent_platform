@@ -16,10 +16,10 @@
           chaque étape.
         </p>
       </div>
-      <div class="grid grid-cols-12 gap-x-3 items-start">
+      <div class="grid grid-cols-12 gap-x-3 items-start ">
         <!-- SVG timeline (gauche) -->
-        <div class="col-span-12 md:col-span-4 flex justify-center" data-aos-id-methode>
-          <div class="w-85 relative">
+        <div class="col-span-12 md:col-span-4 flex justify-center invisible sm:visible" data-aos-id-methode>
+          <div class="w-0 relative sm:w-85">
             <svg viewBox="0 0 200 820" preserveAspectRatio="xMidYMid meet" class="w-full h-auto">
               <!-- vertical line top to fork -->
               <path d="M100 20 L100 180" stroke="#111827" stroke-width="1" fill="none"      data-aos="fade-up"  data-aos-anchor="[data-aos-id-methode]" />

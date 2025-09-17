@@ -172,30 +172,29 @@
           </p>
         </div>
 
-        <div class="max-w-sm mx-auto grid sm:grid-cols-2 sm:max-w-3xl lg:grid-cols-4 lg:max-w-none pt-10 items-start">
+        <div class="max-w-sm mx-auto grid text-center sm:text-left sm:grid-cols-2 sm:max-w-3xl lg:grid-cols-4 lg:max-w-none pt-10 items-start">
 
           <!-- #1 -->
           <div class="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
-            <img class="mb-3" src="../images/group.png" width="40" height="40" alt="Icon 04">
-
+            <img class="mb-3 mx-auto sm:mx-0 " src="../images/group.png" width="40" height="40" alt="Icon 04">
             <div class=" text-opacity-80">Des experts parfaitement alignés avec vos besoins techniques et votre culture d'entreprise.</div>
           </div>
 
           <!-- #2 -->
           <div class="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up" data-aos-delay="100">
-            <img class="mb-3" src="../images/water-pipe.png" width="40" height="40" alt="Icon 04">
+            <img class="mb-3 mx-auto sm:mx-0" src="../images/water-pipe.png" width="40" height="40" alt="Icon 04">
             <div class=" text-opacity-80">Une intégration rapide et efficace dans vos équipes et projets.</div>
           </div>
 
           <!-- #3 -->
           <div class="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up" data-aos-delay="200">
-            <img class="mb-3" src="../images/bar-chart.png" width="40" height="40" alt="Icon 03">
+            <img class="mb-3 mx-auto sm:mx-0" src="../images/bar-chart.png" width="40" height="40" alt="Icon 03">
             <div class=" text-opacity-80">Une performance constante et mesurable tout au long de la mission.</div>
           </div>
 
           <!-- #4 -->
           <div class="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up" data-aos-delay="300">
-            <img class="mb-3" src="../images/flexibility.png" width="40" height="40" alt="Icon 02">
+            <img class="mb mx-auto sm:mx-0" src="../images/flexibility.png" width="40" height="40" alt="Icon 02">
             <div class=" text-opacity-80">Une flexibilité pour s'adapter à l'évolution de vos besoins .</div>
           </div>
 
