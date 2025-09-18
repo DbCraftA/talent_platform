@@ -4,13 +4,10 @@
       <div class="flex items-center justify-between h-16 md:h-20">
 
         <!-- Site branding -->
-        <div class="shrink-0 mr-4">
+        <div class="  ">
           <!-- Logo -->
-          <router-link class="block group" to="/" aria-label="Cruip">
-            <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-              <path class="fill-indigo-500" d="M13.853 18.14 1 10.643 31 1l-.019.058z" />
-              <path class="fill-indigo-300" d="M13.853 18.14 30.981 1.058 21.357 31l-7.5-12.857z" />
-            </svg>
+          <router-link  to="/" aria-label="Cruip">
+            <img src="../images/logo-test.png" class="max-w-none" width="50" height="50" alt="Hero Illustration" />
           </router-link>
         </div>
 
