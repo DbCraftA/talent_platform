@@ -40,6 +40,7 @@ import Features02 from '../partials/Features02.vue'
 import PourquoiNousChoisir from '../partials/PourquoiNousChoisir.vue'
 import Features04 from '../partials/Features04.vue'
 import Pricing from '../partials/Pricing.vue'
+import Testimonials from '../partials/Testimonials.vue'
 import Faqs from '../partials/Faqs.vue'
 import Cta from '../partials/Cta.vue'
 import Footer from '../partials/Footer.vue'
@@ -67,6 +68,7 @@ export default {
     Citation,
     Features,
     BlogList,
+    Testimonials,
     Target
 },
 }
