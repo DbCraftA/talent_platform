@@ -16,8 +16,8 @@
             <div class="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
               <div class="  ">
                 <!-- Logo -->
-                <router-link  to="/" aria-label="Cruip">
-                  <img src="../images/logo-test.png" class="max-w-none" width="50" height="50" alt="Hero Illustration" />
+                <router-link  to="/" aria-label="Enovat">
+                  <img src="../images/logo-test.png" class="max-w-none" width="40" height="40" alt="Hero Illustration" />
                 </router-link>
               </div>
             </div>
