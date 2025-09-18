@@ -12,7 +12,7 @@
         </div>
 
         <!-- Carousel -->
-        <div class="pt-10 px-5">
+        <div class="pt-10 px-6">
           <!-- Carousel built with Swiper.js [https://swiperjs.com/] -->
           <!-- * Custom styles in src/css/additional-styles/theme.scss -->
           <div class="carousel swiper-container max-w-sm ">
@@ -20,9 +20,9 @@
               <!-- Carousel items -->
               <div class="swiper-slide max-w-[446px] ">
                 <!-- Table 3 : Strategy -->
-                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6 rounded-sm  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6 rounded-xl shadow-2xl  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="100">
                   <div class="">
-                    <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
+                    <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xl  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
                       <img class="mb-3" src="../images/strategy.png" width="40" height="40" alt="Icon 01">
                       <h3 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-3">Assessment & Stratégie : vision et feuille de route </h3>
                       <div class="text-gray-500 mb-6"> Cadrez votre vision et transformez la en plan d’action concret.</div>
@@ -58,9 +58,9 @@
               </div>
               <div class="swiper-slide max-w-[446px] ">
                 <!-- Table 3 : Architectes -->
-                <div class="relative flex flex-col min-h-[540px] sm:min-h-[460px] h-full p-10 sm:p-6  rounded-sm  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative flex flex-col min-h-[540px] sm:min-h-[460px] h-full p-10 sm:p-6  rounded-xl shadow-2xl  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="300">
                   <div class="">
-                    <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
+                    <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xl  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
                       <img class="mb-3" src="../images/architecte.png" width="40" height="40" alt="Icon 01">
                       <h3 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-3">Mise à disposition d’architectes </h3>
                       <div class="text-gray-500 mb-6">Accédez à des talents d'exception, validés par nos pairs et intégrés selon votre contexte.</div>
@@ -96,9 +96,9 @@
               </div>
               <div class="swiper-slide max-w-[446px] ">
                 <!-- Table 3 : Cloud -->
-                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6  rounded-sm  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="500">
+                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6  rounded-xl shadow-2xl  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="500">
                   <div class="">
-                    <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
+                    <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xl  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
                       <img class="mb-3" src="../images/cloud.png" width="40" height="40" alt="Icon 01">
                       <h3 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-3">Services Cloud : Performance et scalabilité </h3>
                       <div class="text-gray-500 mb-6">    Optimisez  vos infrastructures avec des solutions cloud performantes et évolutives.</div>
@@ -128,9 +128,9 @@
               </div>
               <div class="swiper-slide max-w-[446px] ">
                 <!-- Table 4 : IA -->
-                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6  rounded-sm  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="700">
+                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6  rounded-xl shadow-2xl  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="700">
                   <div class="">
-                    <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
+                    <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xm  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
                       <img class="mb-3" src="../images/ia.png" width="40" height="40" alt="Icon 01">
                       <h3 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-3"> Service IA: de l’idée à la Valeur</h3>
                       <div class="text-gray-500 mb-6">Transformez vos concepts en solutions opérationnelles grâce à l'IA appliquée.</div>
