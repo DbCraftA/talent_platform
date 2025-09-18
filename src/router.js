@@ -1,9 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from './pages/Home.vue'
-import SignIn from './pages/SignIn.vue'
 import About from './pages/About.vue'
-import ResetPassword from './pages/ResetPassword.vue'
-import PostJob from './pages/PostAJob.vue'
 import Methode from './pages/Methode.vue'
 import Contact01 from './pages/contact01.vue'
 import Contact02Company from './pages/Contact02Company.vue'
@@ -33,18 +30,6 @@ const router = createRouter({
     {
       path: '/',
       component: Home
-    },
-    {
-      path: '/signin',
-      component: SignIn
-    },
-    {
-      path: '/schedule-call',
-      component: PostJob
-    },    
-    {
-      path: '/reset-password',
-      component: ResetPassword
     },
     {
       path: '/methode',

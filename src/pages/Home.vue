@@ -39,9 +39,7 @@ import Features01 from '../partials/Features01.vue'
 import Features02 from '../partials/Features02.vue'
 import PourquoiNousChoisir from '../partials/PourquoiNousChoisir.vue'
 import Features04 from '../partials/Features04.vue'
-import Services from '../partials/Services.vue'
 import Pricing from '../partials/Pricing.vue'
-import Testimonials from '../partials/Testimonials.vue'
 import Faqs from '../partials/Faqs.vue'
 import Cta from '../partials/Cta.vue'
 import Footer from '../partials/Footer.vue'
@@ -62,9 +60,7 @@ export default {
     Features02,
     PourquoiNousChoisir,
     Features04,
-    Services,
     Pricing,
-    Testimonials,
     Faqs,
     Cta,
     Footer,
