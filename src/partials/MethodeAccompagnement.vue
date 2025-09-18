@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-linear-to-b from-indigo-200 to-white pb-10 pt-20">
+  <section id="section2" class="bg-linear-to-b from-indigo-200 to-white pb-10 pt-20">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <!-- Section header -->
       <div class="mx-auto max-w-3xl pb-12 text-center md:pb-20">

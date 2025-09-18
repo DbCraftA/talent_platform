@@ -1,5 +1,5 @@
 <template>
-  <section id="0" class=" bg-linear-to-tr from-indigo-100 to-white  ">
+  <section id="section1" class=" bg-linear-to-tr from-indigo-100 to-white  ">
 
 
     <div   class="mx-auto max-w-6xl px-4 sm:px-6 py-10  border-t  [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] ">

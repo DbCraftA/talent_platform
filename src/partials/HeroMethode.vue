@@ -29,16 +29,16 @@
 
           <div class="max-w-xs pt-20 mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <div >
-              <a class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" href="#0">Prospection</a>
+              <button class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" @click="scrollTo('section1')" >Prospection</button>
             </div>
             <div>
-              <a class="btn text-zinc-600 bg-white hover:text-zinc-900 w-full shadow-sm" href="#1">Accompagnement</a>
+              <a class="btn text-zinc-600 bg-white hover:text-zinc-900 w-full shadow-sm" @click="scrollTo('section2')" >Accompagnement</a>
             </div>
           </div>
         </div>
 
         <!-- StatsMethode -->
-        <Stats />
+        <StatsMethode />
 
 
 
@@ -47,12 +47,16 @@
   </section>
 </template>
 
-<script>
+<script setup>
 import StatsMethode from "./StatsMethode.vue";
 
-export default  {
-  name: 'Hero',
-  components: {Stats: StatsMethode}
+
+
+function scrollTo(id) {
+  const el = document.getElementById(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' }) // défilement fluide
+  }
 }
 
 </script>
