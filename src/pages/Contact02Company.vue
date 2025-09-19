@@ -124,43 +124,39 @@
                             <div class="space-y-4">
                               <div>
                                 <label class="block text-sm text-gray-800 font-medium mb-1" for="role">Quel profil recherchez-vous ?  <span class="text-rose-500">*</span></label>
-                                <select id="profession" name="profession" v-model="form.role"  class="form-select text-sm py-2 w-full" required>
-                                  <option>Développeur logiciel</option>
-                                  <option>Développeur Frontend</option>
-                                  <option>Développeur Backend</option>
-                                  <option>Développeur Full Stack</option>
-                                  <option>Ingénieur DevOps</option>
-                                  <option>Ingénieur Cloud</option>
-                                  <option>Data Scientist</option>
-                                  <option>Analyste de données</option>
-                                  <option>Administrateur de bases de données</option>
-                                  <option>Administrateur système</option>
-                                  <option>Ingénieur réseau</option>
-                                  <option>Spécialiste cybersécurité</option>
-                                  <option>Chef de produit (Product Manager)</option>
-                                  <option>Chef de projet informatique</option>
-                                  <option>Analyste fonctionnel / Business Analyst</option>
-                                  <option>Ingénieur QA / Test</option>
-                                  <option>Ingénieur en Intelligence Artificielle / Machine Learning</option>
-                                  <option>Architecte logiciel / Solutions</option>
-                                  <option>Consultant IT</option>
+                                <select id="role" name="role" v-model="form.role"  class="form-select text-sm py-2 w-full" :required="tab === '1'">
+                                  <option>Architecte d’Entreprise</option>
+                                  <option>Architecte Applicatif</option>
+                                  <option>Architecte Logiciel</option>
+                                  <option>Architecte Cloud</option>
+                                  <option>Architecte Infrastructure</option>
+                                  <option>Architecte Réseau & Sécurité</option>
+                                  <option>Architecte Data</option>
+                                  <option>Architecte Intelligence Artificielle</option>
+                                  <option>Architecte DevOps</option>
+                                  <option>Architecte Solutions</option>
+                                  <option>Architecte Technique</option>
+                                  <option>Architecte Intégration</option>
+                                  <option>Architecte SI (Systèmes d’Information)</option>
+                                  <option>Autre</option>
                                 </select>
                               </div>
                               <div>
-                                <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Quelle disponibilité attendez-vous du développeur ? <span class="text-rose-500">*</span></label>
-                                <select id="temps_par_semaine" name="temps_par_semaine" v-model="form.temps_par_semaine" class="form-select text-sm py-2 w-full" required>
+                                <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Quelle disponibilité attendez-vous du profil ? <span class="text-rose-500">*</span></label>
+                                <select id="temps_par_semaine" name="temps_par_semaine" v-model="form.temps_par_semaine" class="form-select text-sm py-2 w-full" :required="tab === '1'">
                                   <option>Temps plein</option>
                                   <option>Temps partiel</option>
                                   <option>Stage</option>
                                   <option>Contrat / Freelance</option>
+                                  <option>CDI</option>
                                   <option>Co-fondateur</option>
                                 </select>
                               </div>
 
                               <div>
                                 <label class="block text-sm text-gray-800 font-medium mb-1" for="description">Description du poste<span class="text-rose-500">*</span></label>
-                                <textarea id="description_poste"  name="description_poste" v-model="form.description_poste"  class="form-textarea text-sm py-2 w-full" rows="4" required></textarea>
-                                <div class="text-xs text-gray-500 italic mt-2">Exemple: “Architecte cloud aws / DevOps Sre”</div>
+                                <textarea id="description_poste"  name="description_poste" v-model="form.description_poste"  class="form-textarea text-sm py-2 w-full" rows="4" :required="tab === '1'"></textarea>
+                                <div class="text-xs text-gray-500 italic mt-2">Exemple: “Architecte cloud aws ”</div>
                               </div>
                             </div>
                           </div>
@@ -171,7 +167,7 @@
                             <div class="space-y-4">
                               <div>
                                 <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Pour quel type de projet recrutez-vous ?  <span class="text-rose-500">*</span></label>
-                                <select id="motif"  name="motif_projet" v-model="form.motif_projet"  class="form-select text-sm py-2 w-full" required>
+                                <select id="motif_projet"  name="motif_projet" v-model="form.motif_projet"  class="form-select text-sm py-2 w-full" :required="tab === '1'">
                                   <option>Nouvelle idée ou projet</option>
                                   <option>Un projet qui a besoin de nouvelles ressources </option>
                                   <option>Autre</option>
@@ -179,17 +175,16 @@
                               </div>
                               <div>
                                 <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Quelle est la durée estimée de la collobaration ? </label>
-                                <select id="duree"  name="duree_mission" v-model="form.duree_mission"  class="form-select text-sm py-2 w-full" required>
-                                  <option>1 mois</option>
-                                  <option>3 mois</option>
-                                  <option>6 mois</option>
-                                  <option>Plus d'un an</option>
-                                  <option>Je me déciderai plus tard</option>
+                                <select id="duree"  name="duree_mission" v-model="form.duree_mission"  class="form-select text-sm py-2 w-full" :required="tab === '1'">
+                                  <option>Court terme (1 à 2 mois)</option>
+                                  <option>Moyen terme (3 à 6 mois)</option>
+                                  <option>Long terme (6 mois et +)</option>
+                                  <option>Je ne sais pas encore</option>
                                 </select>
                               </div>
                               <div>
                                 <label class="block text-sm text-gray-800 font-medium mb-1" for="commitment">Quelle est votre date idéale de démarrage ? </label>
-                                <select id="date_debut"  name="date_debut" v-model="form.date_debut"  class="form-select text-sm py-2 w-full" required>
+                                <select id="date_debut"  name="date_debut" v-model="form.date_debut"  class="form-select text-sm py-2 w-full" :required="tab === '1'">
                                   <option>Dès que possible</option>
                                   <option>Dans 1 mois</option>
                                   <option>Dans 3 mois</option>
@@ -225,8 +220,8 @@
                             <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">2.</span> Votre besoin d’accompagnement</div>
                             <div class="space-y-4">
                               <div>
-                                <label class="block text-sm text-gray-800 font-medium mb-1" for="type_accompagnement">Quel type d’accompagnement recherchez-vous ? <span class="text-rose-500">*</span></label>
-                                <select id="type_accompagnement" name="type_accompagnement" v-model="form.type_accompagnement" class="form-select text-sm py-2 w-full" required>
+                                <label class="block text-sm text-gray-800 font-medium mb-1" >Quel type d’accompagnement recherchez-vous ? <span class="text-rose-500">*</span></label>
+                                <select id="motif_projet" name="motif_projet" v-model="form.motif_projet" class="form-select text-sm py-2 w-full" :required="tab === '2'">
                                   <option>Accompagnement stratégique (vision, roadmap, alignement business/tech)</option>
                                   <option>Assessment technique (audit d’architecture, évaluation IA & Cloud, dette technique)</option>
                                   <option>Renforcement d’équipe (mise à disposition de profils experts)</option>
@@ -235,7 +230,7 @@
                               </div>
                               <div>
                                 <label class="block text-sm text-gray-800 font-medium mb-1" for="priorite">Quelle est votre priorité principale ? <span class="text-rose-500">*</span></label>
-                                <select id="priorite" name="priorite" v-model="form.priorite" class="form-select text-sm py-2 w-full" required>
+                                <select id="priorite" name="priorite" v-model="form.priorite" class="form-select text-sm py-2 w-full" :required="tab === '2'" >
                                   <option>Réduire la dette technique</option>
                                   <option>Accélérer l’innovation</option>
                                   <option>Améliorer la performance opérationnelle</option>
@@ -246,7 +241,7 @@
                               </div>
                               <div>
                                 <label class="block text-sm text-gray-800 font-medium mb-1" for="description_besoin">Décrivez votre besoin ou votre défi actuel<span class="text-rose-500">*</span></label>
-                                <textarea id="description_besoin" name="description_besoin" v-model="form.description_besoin" class="form-textarea text-sm py-2 w-full" rows="4" required></textarea>
+                                <textarea rows="5" id="description_besoin" name="description_besoin" class="border border-gray-200 rounded-sm w-full" v-model="form.description_besoin" type="text" :required="tab === '2'">Exemple : “Nous voulons évaluer notre architecture cloud et définir une roadmap IA adaptée à notre activité.”</textarea>
                                 <div class="text-xs text-gray-500 italic mt-2">Exemple : “Nous voulons évaluer notre architecture cloud et définir une roadmap IA adaptée à notre activité.”</div>
                               </div>
                             </div>
@@ -258,7 +253,7 @@
                             <div class="space-y-4">
                               <div>
                                 <label class="block text-sm text-gray-800 font-medium mb-1" for="contexte">Quel est le contexte de votre projet ? <span class="text-rose-500">*</span></label>
-                                <select id="contexte" name="contexte" v-model="form.contexte" class="form-select text-sm py-2 w-full" required>
+                                <select id="contexte" name="contexte" v-model="form.contexte" class="form-select text-sm py-2 w-full" :required="tab === '2'">
                                   <option>Nouvelle initiative stratégique</option>
                                   <option>Refonte ou optimisation d’un système existant</option>
                                   <option>Exploration et cadrage IA / Cloud</option>
@@ -267,7 +262,7 @@
                               </div>
                               <div>
                                 <label class="block text-sm text-gray-800 font-medium mb-1" for="duree">Quelle durée de mission envisagez-vous ?</label>
-                                <select id="duree" name="duree" v-model="form.duree" class="form-select text-sm py-2 w-full" required>
+                                <select id="duree" name="duree" v-model="form.duree_mission" class="form-select text-sm py-2 w-full" :required="tab === '2'">
                                   <option>Court terme (1 à 2 mois)</option>
                                   <option>Moyen terme (3 à 6 mois)</option>
                                   <option>Long terme (6 mois et +)</option>
@@ -276,7 +271,7 @@
                               </div>
                               <div>
                                 <label class="block text-sm text-gray-800 font-medium mb-1" for="date_debut">Quelle est votre date idéale de démarrage ?</label>
-                                <select id="date_debut" name="date_debut" v-model="form.date_debut" class="form-select text-sm py-2 w-full" required>
+                                <select id="date_debut" name="date_debut" v-model="form.date_debut" class="form-select text-sm py-2 w-full" :required="tab === '2'">
                                   <option>Dès que possible</option>
                                   <option>Dans 1 mois</option>
                                   <option>Dans 3 mois</option>

@@ -21,6 +21,9 @@ export const useFormStore = defineStore('form', {
         experience: '',
         tjm: '',
         location: '',
+        contexte: '',
+        description_besoin: '',
+        priorite: '',
     }),
     actions: {
         resetForm() {
@@ -43,6 +46,9 @@ export const useFormStore = defineStore('form', {
                 this.experience = ''
                 this.tjm = ''
                 this.location = ''
+                this.contexte = ''
+                this.description_besoin = ''
+                this.priorite = ''
         },
     }
 })
