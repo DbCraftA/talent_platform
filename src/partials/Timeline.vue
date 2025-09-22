@@ -159,7 +159,7 @@
           </div>
         </div>
 
-        <div class="mx-auto max-w-3xl pt-20 text-center ">
+        <div class="mx-auto max-w-3xl pt-30 text-center ">
           <div
               class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
           >
@@ -172,7 +172,7 @@
           </p>
         </div>
 
-        <div class="max-w-sm mx-auto grid text-center sm:text-left sm:grid-cols-2 sm:max-w-3xl lg:grid-cols-4 lg:max-w-none pt-10 items-start">
+        <div class="max-w-sm mx-auto grid text-center sm:text-left sm:grid-cols-2 sm:max-w-3xl lg:grid-cols-4 lg:max-w-none pt-20 items-start">
 
           <!-- #1 -->
           <div class="relative p-5 before:opacity-0 hover:before:opacity-20 before:absolute before:inset-0 before:rounded-sm before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">

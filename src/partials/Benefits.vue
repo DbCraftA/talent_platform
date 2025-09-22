@@ -206,7 +206,7 @@
                   alt="Large testimonial"
                 />
                 <p
-                  class="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-3 text-xl font-semibold text-gray-500"
+                  class=" font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-3 text-xl font-semibold text-gray-500"
                 >
                   En tant qu’architecte, j’ai toujours cherché des missions qui stimulent autant l’expertise que l’envie d’apporter de la valeur. Notre engagement est simple : offrir aux architectes des opportunités enrichissantes et aux clients des profils pertinents, dans un esprit d’exigence et de respect mutuel.
                 </p>
