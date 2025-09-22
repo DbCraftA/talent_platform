@@ -187,7 +187,7 @@ const category = ref(1);
                 >
                   <img
                     class="aspect-101/64 w-full object-cover   transition ease-out group-hover:scale-[1.02] group-hover:opacity-100 group-hover:grayscale-[20%]"
-                    src="../images/service-07.jpg"
+                    src="../images/carlos-muza-hpjSkU2UYSU-unsplash.jpg"
                     width="347"
                     height="220"
                     alt="Article 03"
@@ -213,7 +213,7 @@ const category = ref(1);
                         <h3
                             class="font-nacelle mb-1 text-[1rem] font-semibold "
                         >
-                          IA
+                          CLOUD
                         </h3>
                       </footer>
 
@@ -224,18 +224,18 @@ const category = ref(1);
                   <router-link
                     class=" "
                     to="/clientfeedback-03"
-                    >Unlocking customer strategic potential with AI</router-link
+                    >Transformer la donnée en atout stratégique : modernisation d’un système énergétique vers le cloud</router-link
                   >
                 </h3>
               </header>
               <footer class="flex items-center gap-3">
                 <div class="text-sm font-medium ">
-                  <span>Liam Geramy</span>
+                  <span>Secteur</span>
                   <span class="text-gray-700"> - </span>
                   <a
                     class="text-indigo-500"
                     href="#0"
-                    >Managing Editor</a
+                    >Energie</a
                   >
                 </div>
               </footer>

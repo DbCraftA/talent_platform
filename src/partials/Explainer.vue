@@ -4,7 +4,7 @@
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 ">
 
-      <div class="py-12 ">
+      <div class="py-12 md:py-20">
 
         <!-- Section header -->
         <div class="max-w-3/4xl mx-auto text-center pb-12 md:pb-16">

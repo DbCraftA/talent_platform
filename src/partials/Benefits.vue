@@ -200,25 +200,23 @@
               <div class="text-center">
                 <img
                   class="mb-3 inline-flex rounded-full"
-                  src="../images/world-user-01.jpg"
-                  width="40"
-                  height="40"
+                  src="../images/me.jpeg"
+                  width="80"
+                  height="80"
                   alt="Large testimonial"
                 />
                 <p
                   class="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-3 text-xl font-semibold text-gray-500"
                 >
-                  “I am grateful to Open PRO for encouraging me to expand my
-                  horizons and strive for greater achievements, both in my career
-                  and in my education.”
+                  En tant qu’architecte, j’ai toujours cherché des missions qui stimulent autant l’expertise que l’envie d’apporter de la valeur. Notre engagement est simple : offrir aux architectes des opportunités enrichissantes et aux clients des profils pertinents, dans un esprit d’exigence et de respect mutuel.
                 </p>
                 <div class="text-sm font-medium text-gray-400">
-                  <span>Mary Pullgat</span>
+                  <span>Soufiane Benzaouia</span>
                   <span class="text-gray-700"> - </span>
                   <span
                     class="text-gray-400"
 
-                    >Software Engineer</span
+                    >Architecte Data et Cloud</span
                   >
                 </div>
               </div>
