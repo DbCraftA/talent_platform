@@ -20,105 +20,93 @@
               <!-- Carousel items -->
               <div class="swiper-slide max-w-[446px] ">
                 <!-- Table 3 : Strategy -->
-                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6 rounded-xl shadow-2xl  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6 rounded-xl shadow-2xl  [background:linear-gradient(#323237,#323237)_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box]" data-aos="fade-up" data-aos-delay="100">
                   <div class="">
                     <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xl  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
                       <img class="mb-3" src="../images/strategy.png" width="40" height="40" alt="Icon 01">
-                      <h3 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-3">Assessment & Stratégie : vision et feuille de route </h3>
-                      <div class="text-gray-500 mb-6"> Cadrez votre vision et transformez la en plan d’action concret.</div>
+                      <h3 class="inline-flex bg-linear-to-r text-zinc-200 bg-clip-text pb-3">Assessment & Stratégie : vision et feuille de route </h3>
+                      <div class="text-zinc-500 mb-6"> Cadrez votre vision et transformez la en plan d’action concret.</div>
                     </div>
                   </div>
-                  <ul class="text-gray-500 space-y-3 grow">
+                  <ul class="text-zinc-500 space-y-3 grow">
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Analyse approfondie de votre maturité technologique</span>
                     </li>
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Identification des opportunités d'innovation à fort impact</span>
                     </li>
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Élaboration de roadmaps technologiques alignées sur vos objectifs business</span>
-                    </li>
-                    <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Accompagnement dans la gestion du changement et la transformation digitale</span>
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="swiper-slide max-w-[446px] ">
                 <!-- Table 3 : Architectes -->
-                <div class="relative flex flex-col min-h-[540px] sm:min-h-[460px] h-full p-10 sm:p-6  rounded-xl shadow-2xl  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative flex flex-col min-h-[540px] sm:min-h-[460px] h-full p-10 sm:p-6  rounded-xl shadow-2xl  [background:linear-gradient(#323237,#323237)_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box]" data-aos="fade-up" data-aos-delay="300">
                   <div class="">
                     <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xl  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
                       <img class="mb-3" src="../images/architecte.png" width="40" height="40" alt="Icon 01">
-                      <h3 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-3">Mise à disposition d’architectes </h3>
-                      <div class="text-gray-500 mb-6">Accédez à des talents d'exception, validés par nos pairs et intégrés selon votre contexte.</div>
+                      <h3 class="inline-flex bg-linear-to-r text-zinc-200 bg-clip-text pb-3">Mise à disposition d’architectes </h3>
+                      <div class="text-zinc-500 mb-6">Accédez à des talents d'exception, validés par nos pairs et intégrés selon votre contexte.</div>
                     </div>
                   </div>
-                  <ul class="text-gray-500 space-y-3 grow">
+                  <ul class="text-zinc-500 space-y-3 grow">
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Architectes solutions et techniques hautement qualifiés</span>
                     </li>
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Experts métier comprenant vos enjeux sectoriels</span>
                     </li>
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Profils hybrides capables de faire le lien entre business et technologie</span>
-                    </li>
-                    <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Intégration rapide et adaptée à votre culture d'entreprise</span>
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="swiper-slide max-w-[446px] ">
                 <!-- Table 3 : Cloud -->
-                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6  rounded-xl shadow-2xl  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="500">
+                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6  rounded-xl shadow-2xl [background:linear-gradient(#323237,#323237)_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box]" data-aos="fade-up" data-aos-delay="500">
                   <div class="">
                     <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xl  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
                       <img class="mb-3" src="../images/cloud.png" width="40" height="40" alt="Icon 01">
-                      <h3 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-3">Services Cloud : Performance et scalabilité </h3>
-                      <div class="text-gray-500 mb-6">    Optimisez  vos infrastructures avec des solutions cloud performantes et évolutives.</div>
+                      <h3 class="inline-flex bg-linear-to-r text-zinc-200 bg-clip-text pb-3">Services Cloud : Performance et scalabilité </h3>
+                      <div class="text-zinc-500 mb-6">    Optimisez  vos infrastructures avec des solutions cloud performantes et évolutives.</div>
                     </div>
                   </div>
-                  <ul class="text-gray-500 space-y-3 grow">
+                  <ul class="text-zinc-500 space-y-3 grow">
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Audit et optimisation de vos environnements existants</span>
                     </li>
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Architecture de solutions cloud natives sécurisées</span>
                     </li>
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Réduction des coûts opérationnels tout en augmentant la scalabilité</span>
@@ -128,29 +116,29 @@
               </div>
               <div class="swiper-slide max-w-[446px] ">
                 <!-- Table 4 : IA -->
-                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6  rounded-xl shadow-2xl  bg-linear-to-br from-indigo-200 to-white" data-aos="fade-up" data-aos-delay="700">
+                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6  rounded-xl shadow-2xl  [background:linear-gradient(#323237,#323237)_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box]" data-aos="fade-up" data-aos-delay="700">
                   <div class="">
                     <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xm  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
                       <img class="mb-3" src="../images/ia.png" width="40" height="40" alt="Icon 01">
-                      <h3 class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-3"> Service IA: de l’idée à la Valeur</h3>
-                      <div class="text-gray-500 mb-6">Transformez vos concepts en solutions opérationnelles grâce à l'IA appliquée.</div>
+                      <h3 class="inline-flex bg-linear-to-r text-zinc-200 bg-clip-text pb-3"> Service IA: de l’idée à la Valeur</h3>
+                      <div class="text-zinc-500 mb-6">Transformez vos concepts en solutions opérationnelles grâce à l'IA appliquée.</div>
                     </div>
                   </div>
-                  <ul class="text-gray-500 space-y-3 grow">
+                  <ul class="text-zinc-500 space-y-3 grow">
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Identifier les cas d’usage à fort potentiel pour votre activité</span>
                     </li>
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Déployer des solutions IA qui génèrent des résultats mesurables</span>
                     </li>
                     <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-indigo-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
                       <span>Former vos équipes à l’adoption des technologies d’IA </span>
