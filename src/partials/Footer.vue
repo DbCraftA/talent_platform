@@ -10,11 +10,11 @@
           <div class="mb-1" >
             <!-- Logo -->
             <router-link  to="/" aria-label="Cruip">
-              <img src="../images/logo-test.png" class="max-w-none" width="40" height="40" alt="Hero Illustration" />
+              <img src="../images/logo-test-2.png" class="max-w-none" width="100" height="40" alt="Hero Illustration" />
             </router-link>
           </div>
-          <div class="grow text-sm text-zinc-500">&copy; ???.com. All rights reserved.</div>
-          <!-- Social links -->
+          <div class="grow text-sm text-zinc-500">&copy; Enovat All rights reserved.</div>
+          <!-- Social links
           <ul class="flex space-x-4 mt-4 mb-1">
             <li>
               <a class="flex justify-center items-center text-zinc-700 hover:text-zinc-900 transition" href="#0" aria-label="Twitter">
@@ -38,6 +38,7 @@
               </a>
             </li>
           </ul>
+          -->
         </div>
 
         <!-- 2nd block -->

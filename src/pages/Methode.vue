@@ -6,7 +6,7 @@ import Benefits from "../partials/Benefits.vue";
 import Clients from "../partials/Clients.vue";
 import Cta from "../partials/Cta.vue";
 import Footer from "./../partials/Footer.vue";
-import MethodeAccompagnement from "./../partials/MethodeAccompagnement.vue";
+import MethodeAccompagnement1 from "./../partials/MethodeAccompagnement1.vue";
 import TargetAbout from "../partials/TargetAbout.vue";
 </script>
 
@@ -26,7 +26,7 @@ import TargetAbout from "../partials/TargetAbout.vue";
       <Timeline />
       <Benefits />
       <Clients />
-      <MethodeAccompagnement />
+      <MethodeAccompagnement1 />
       <Cta />
     </main>
 

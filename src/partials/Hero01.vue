@@ -13,7 +13,7 @@
       <div class="pt-28 pb-8 md:pt-36 md:pb-16">
 
         <!-- HeroMethode content -->
-        <div class="max-w-5xl text-center md:text-left">
+        <div class="max-w-6xl text-center ">
 
           <!-- Copy -->
           <h1 class="h1 font-cabinet-grotesk mb-6" data-aos="fade-right" data-aos-delay="100">L’expertise stratégique au service de vos
@@ -24,16 +24,14 @@
                  ambitions.
               </span>
           </h1>
-          <div class="max-w-4xl">
-            <p class="text-lg text-justify text-gray-500 mb-2 sm:text-justify">
+          <div class="max-w-6xl">
+            <p class="text-lg text-center text-gray-500 mb-2 ">
               Dans un monde où la technologie évolue sans cesse,  creusant le fossé entre <strong>vision stratégique</strong> et <strong>réalité technique</strong>. Nous intervenons pour <strong>transformer</strong> cette distance en véritable <strong>levier de réussite</strong>. Que vous soyez en phase <strong>d'exploration, de transformation ou d'optimisation,</strong> notre équipe passionnée vous accompagne pour faire de vos projets des succès durables et impactants.
             </p>
           </div>
           <!-- Button + Avatars -->
-          <div class="sm:flex sm:items-center sm:justify-center md:justify-start pt-5 space-y-6 sm:space-y-0 sm:space-x-5">
-            <div>
-              <router-link class="btn text-white bg-indigo-500   hover:bg-indigo-600 shadow-xs" to="/nous-contacter">Nous contacter</router-link>
-            </div>
+          <div class=" pt-10 ">
+
             <div class="sm:flex sm:items-center sm:justify-center space-y-2 sm:space-y-0 sm:space-x-3">
               <div class="inline-flex -space-x-3 -ml-0.5">
                 <img class="rounded-full border-2  box-content" src="../images/world-user-02.jpg" width="32" height="32" alt="Avatar 01" />

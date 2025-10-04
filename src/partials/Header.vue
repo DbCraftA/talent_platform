@@ -6,8 +6,8 @@
         <!-- Site branding -->
         <div class="  ">
           <!-- Logo -->
-          <router-link  to="/" aria-label="Cruip">
-            <img src="../images/logo-test.png" class="max-w-none" width="40" height="40" alt="Hero Illustration" />
+          <router-link  to="/" aria-label="Enovat">
+            <img src="../images/logo-test-2.png" class="max-w-none" width="80" height="40" alt="Hero Illustration" />
           </router-link>
         </div>
 
@@ -17,7 +17,7 @@
           <!-- Desktop sign in links -->
           <ul class="flex grow justify-end flex-wrap items-center">
             <li>
-              <router-link class="font-cabinet-grotesk text-sm font-bold  hover:no-underline flex items-center" to="/methode">Notre méthode</router-link>
+              <router-link class="font-cabinet-grotesk text-sm font-bold  hover:no-underline  items-center hidden sm:flex" to="/methode">Notre méthode</router-link>
             </li>
             <li class="ml-6">
               <router-link class="btn-sm inline-flex items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter">
