@@ -17,7 +17,7 @@
               <div class="  ">
                 <!-- Logo -->
                 <router-link  to="/" aria-label="Enovat">
-                  <img src="../images/logo-test-2.png" class="max-w-none" width="80" height="40" alt="Hero Illustration" />
+                  <img src="../images/logo.png" class="max-w-none" width="80" height="40" alt="Hero Illustration" />
                 </router-link>
               </div>
             </div>
