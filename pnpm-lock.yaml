@@ -45,6 +45,9 @@ importers:
       vite:
         specifier: ^6.0.3
         version: 6.0.11(jiti@2.4.2)(lightningcss@1.29.1)
+      vite-plugin-sitemap:
+        specifier: ^0.8.2
+        version: 0.8.2
 
 packages:
 
@@ -650,6 +653,9 @@ packages:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
 
+  vite-plugin-sitemap@0.8.2:
+    resolution: {integrity: sha512-bqIw6NVOXg6je81lzX8Lm0vjf8/QSAp8di8fYQzZ3ZdVicOm8+6idBGALJiy1R1FiXNIK8rgORO6HBqXyHW+iQ==}
+
   vite@6.0.11:
     resolution: {integrity: sha512-4VL9mQPKoHy4+FE0NnRE/kbY51TOfaknxAjt3fJbGJxhIpBZiqVzlZDEesWWsuREXHwNdAoOFZ9MkPEVXczHwg==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
@@ -1193,6 +1199,8 @@ snapshots:
   tailwindcss@4.0.3: {}
 
   tapable@2.2.1: {}
+
+  vite-plugin-sitemap@0.8.2: {}
 
   vite@6.0.11(jiti@2.4.2)(lightningcss@1.29.1):
     dependencies:

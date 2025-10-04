@@ -1,8 +1,11 @@
-# Talent Vue
+# Enovat
 
 Vue.js landing page template designed by Cruip.
 
 https://unsplash.com/fr/@silverkblack
+
+
+pnpm install --no-frozen-lockfile
 
 ## Project setup
 ```
