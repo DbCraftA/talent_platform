@@ -37,7 +37,7 @@
                 1
               </div>
               <div
-                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-5 transform self-start bg-gray-800 px-px"
+                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-6  max-[376px]:translate-y-9.5  transform self-start bg-gray-800 px-px"
                   aria-hidden="true"
               ></div>
               <div
@@ -79,7 +79,7 @@
                 2
               </div>
               <div
-                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-5.5 transform self-start bg-gray-800 px-px"
+                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-6 max-[321px]:translate-y-9.5 max-[376px]:translate-y-10 transform self-start bg-gray-800 px-px"
                   aria-hidden="true"
               ></div>
               <div
@@ -143,7 +143,7 @@
                 3
               </div>
               <div
-                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-2 transform self-start bg-gray-800 px-px"
+                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-8 max-[321px]:translate-y-13 transform self-start bg-gray-800 px-px"
                   aria-hidden="true"
               ></div>
               <div
@@ -222,8 +222,7 @@
 </template>
 
 <script setup lang="ts">
-// Aucun code JS nécessaire pour la structure statique.
-// Si tu veux rendre les textes dynamiques, on peut exposer des props ici.
+
 </script>
 
 <style scoped>

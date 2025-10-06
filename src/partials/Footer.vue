@@ -53,7 +53,7 @@
           <ul class="text-sm space-y-2">
             <li>
               <router-link class="block group" to="/a-propos" aria-label="Cruip">
-                <a class="text-zinc-500 hover:text-zinc-900 transition" href="/a-propos">A propos de nous</a>
+                <a class="text-zinc-500 hover:text-zinc-900 transition" href="/a-propos">À propos de nous</a>
               </router-link>
             </li>
             <li>
