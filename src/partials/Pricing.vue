@@ -7,8 +7,9 @@
       <div class="pt-12 ">
 
         <!-- Section header -->
-        <div class="max-w-4xl mx-auto text-center pb-8 text-white">
-          <h2 class="h2 font-cabinet-grotesk">Expertise Ciblée, Valeur maximisée</h2>
+        <div class="max-w-4xl mx-auto text-center pb-2 ">
+          <h2 class="h2 font-cabinet-grotesk text-white mb-4">Découvrez nos offres clés</h2>
+          <p class="text-lg text-zinc-500">Des offres conçues pour apporter rapidement de la valeur, du cadrage stratégique jusqu’à l’exécution opérationnelle.</p>
         </div>
 
         <!-- Carousel -->
@@ -24,7 +25,7 @@
                   <div class="">
                     <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xl  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
                       <img class="mb-3" src="../images/strategy.png" width="40" height="40" alt="Icon 01">
-                      <h3 class="inline-flex bg-linear-to-r text-zinc-200 bg-clip-text pb-3">Assessment & Stratégie : vision et feuille de route </h3>
+                      <h3 class="inline-flex bg-linear-to-r text-zinc-200 bg-clip-text pb-3">Assessment & Stratégie</h3>
                       <div class="text-zinc-500 mb-6"> Cadrez votre vision et transformez la en plan d’action concret.</div>
                     </div>
                   </div>
@@ -88,8 +89,10 @@
                   <div class="">
                     <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xl  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
                       <img class="mb-3" src="../images/cloud.png" width="40" height="40" alt="Icon 01">
-                      <h3 class="inline-flex bg-linear-to-r text-zinc-200 bg-clip-text pb-3">Services Cloud : Performance et scalabilité </h3>
-                      <div class="text-zinc-500 mb-6">    Optimisez  vos infrastructures avec des solutions cloud performantes et évolutives.</div>
+                      <h3 class="inline-flex bg-linear-to-r text-zinc-200 bg-clip-text pb-3">Packs Cloud & IA</h3>
+                      <div class="text-zinc-500 mb-6">
+                        Alliez performance, scalabilité grâce à une architecture cloud optimisée et des solutions IA à forte valeur métier.
+                      </div>
                     </div>
                   </div>
                   <ul class="text-zinc-500 space-y-3 grow">
@@ -109,39 +112,7 @@
                       <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                       </svg>
-                      <span>Réduction des coûts opérationnels tout en augmentant la scalabilité</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="swiper-slide max-w-[446px] ">
-                <!-- Table 4 : IA -->
-                <div class="relative flex flex-col h-full min-h-[540px] sm:min-h-[460px] p-10 sm:p-6  rounded-xl shadow-2xl  [background:linear-gradient(#323237,#323237)_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box]" data-aos="fade-up" data-aos-delay="700">
-                  <div class="">
-                    <div class="relative before:opacity-0  before:absolute before:inset-0 before:rounded-xm  before:bg-linear-to-tr before:from-white before:to-white/25 before:shadow-xl before:transition-all before:duration-150 before:ease-in-out" data-aos="fade-up">
-                      <img class="mb-3" src="../images/ia.png" width="40" height="40" alt="Icon 01">
-                      <h3 class="inline-flex bg-linear-to-r text-zinc-200 bg-clip-text pb-3"> Service IA: de l’idée à la Valeur</h3>
-                      <div class="text-zinc-500 mb-6">Transformez vos concepts en solutions opérationnelles grâce à l'IA appliquée.</div>
-                    </div>
-                  </div>
-                  <ul class="text-zinc-500 space-y-3 grow">
-                    <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Identifier les cas d’usage à fort potentiel pour votre activité</span>
-                    </li>
-                    <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Déployer des solutions IA qui génèrent des résultats mesurables</span>
-                    </li>
-                    <li class="flex items-center">
-                      <svg class="w-3 h-3 fill-current text-zinc-200 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                      </svg>
-                      <span>Former vos équipes à l’adoption des technologies d’IA </span>
+                      <span>Identifier et Déployer des solutions IA qui génèrent des résultats mesurables</span>
                     </li>
                   </ul>
                 </div>
@@ -150,7 +121,7 @@
           </div>
 
           <!-- Arrows -->
-          <div class="flex mt-12 space-x-3 justify-end">
+          <div class="flex mt-12 space-x-3 justify-end  min-[1260px]:hidden  ">
             <button class="carousel-prev relative z-20 w-11 h-11 rounded-full flex items-center justify-center group bg-gray-900">
               <span class="sr-only">Previous</span>
               <svg class="fill-indigo-500 group-hover:fill-white transition duration-150 ease-in-out" width="13" height="12" viewBox="0 0 13 12" xmlns="http://www.w3.org/2000/svg">

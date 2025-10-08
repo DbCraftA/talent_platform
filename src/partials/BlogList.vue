@@ -164,7 +164,7 @@ const category = ref(1);
                   <a
                       class="text-indigo-500"
                       href="#0"
-                  >Banque & Fianance</a
+                  >Banque & Finance</a
                   >
                 </div>
               </footer>

@@ -41,7 +41,7 @@
                   </svg>
                   <div class="h4 font-playfair-display text-slate-800">Accélération de l’innovation</div>
                 </div>
-                <div class="text-slate-500 text-lg">Avec une architecture claire et robuste, les équipes livrent plus vite, testent de nouvelles idées et réduisent leur time-to-market.</div>
+                <div class="text-slate-500 text-lg">Avec une architecture claire et robuste, les équipes livrent plus vite, testent de nouvelles idées et réduisent leurs time-to-market.</div>
               </li>
             </ul>
 

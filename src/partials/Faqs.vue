@@ -24,13 +24,13 @@
               <!-- Item -->
               <div class="space-y-2">
                 <h4 class="text-xl font-cabinet-grotesk font-bold">Quelle est la différence entre vos packs Cloud et IA ?</h4>
-                <p class="text-gray-500">Le pack <strong>Cloud Foundation</strong> couvre audit, architecture cible et roadmap pour sécuriser votre migration Cloud. Le pack <strong>IA Accelerator</strong> est conçu pour identifier vos cas d’usage IA, réaliser un POC rapide et industrialiser vos modèles. Deux approches complémentaires selon vos priorités.</p>
+                <p class="text-gray-500">Le pack <strong>Cloud Foundation</strong> couvre audit, architecture cible et roadmap pour sécuriser votre migration Cloud. Le pack <strong>IA Accelerator</strong> est conçu pour identifier vos cas d’usage IA, réaliser un POC rapide et industrialiser vos modèles.</p>
               </div>
 
               <!-- Item -->
               <div class="space-y-2">
                 <h4 class="text-xl font-cabinet-grotesk font-bold">Comment sélectionnez-vous vos architectes et freelances ?</h4>
-                <p class="text-gray-500">Nous allons bien au-delà des CV : analyse des contributions open-source, conférences techniques, évaluations croisées entre pairs et simulations de projets. Ce processus garantit des profils à la fois compétents, pragmatiques et capables d’innovation.</p>
+                <p class="text-gray-500">Nous allons bien au-delà des CV : analyse des contributions open-source, conférences techniques, évaluations croisées entre pairs et simulations de projets. Ce processus garantit des profils à la fois compétents, pragmatiques et capable d’innover.</p>
               </div>
 
             </div>
@@ -53,7 +53,7 @@
               <!-- Item -->
               <div class="space-y-2">
                 <h4 class="text-xl font-cabinet-grotesk font-bold">Quels bénéfices concrets pour mon entreprise ?</h4>
-                <p class="text-gray-500">Notre accompagnement réduit vos risques technologiques, accélère votre time-to-market, optimise vos investissements IT et vous donne accès à des expertises de haut niveau, avec agilité et flexibilité.</p>
+                <p class="text-gray-500">Notre accompagnement réduit vos risques technologiques, accélère votre time-to-market, optimise vos investissements IT et vous donne accès à des experts de haut niveau, agile et flexible.</p>
               </div>
 
             </div>
