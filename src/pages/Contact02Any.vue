@@ -184,7 +184,7 @@
                       <blockquote class="font-bold m-0 pb-1">
                         <p>La shortlist ciblée proposée nous a permis de gagner plusieurs semaines sur un projet critique, tout en réduisant considérablement les risques techniques.</p>
                       </blockquote>
-                      <figcaption class="text-sm font-medium">Abdelaali Sadki | Head of Platforms for GCC</figcaption>
+                      <figcaption class="text-sm font-medium">Abdelaali Sadki | Head of Platforms</figcaption>
                     </figure>
                   </div>
                 </div>

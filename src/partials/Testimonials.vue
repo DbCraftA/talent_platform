@@ -16,7 +16,7 @@ const testimonials01 = [
   {
     image: TestimonialImg02,
     name: 'Abdelaali Sadki',
-    user: 'Head of Platforms for GCC',
+    user: 'Head of Platforms',
     link: 'https://www.linkedin.com/in/abdelaali-sadki/',
     content: 'La shortlist ciblée proposée nous a permis de gagner plusieurs semaines sur un projet critique, tout en réduisant considérablement les risques techniques.',
   },
@@ -40,7 +40,7 @@ const testimonials02 = [
   {
     image: TestimonialImg02,
     name: 'Abdelaali Sadki',
-    user: 'Head of Platforms for GCC',
+    user: 'Head of Platforms',
     link: 'https://www.linkedin.com/in/abdelaali-sadki/',
     content: 'La shortlist ciblée proposée nous a permis de gagner plusieurs semaines sur un projet critique, tout en réduisant considérablement les risques techniques.',
   },
