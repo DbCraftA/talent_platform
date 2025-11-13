@@ -1,6 +1,6 @@
 <template>
   <section class="  bg-linear-to-tr from-white to-indigo-100 ">
-    <div class="max-w-6xl mx-auto min-h-[1000px] px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto min-h-[1100px] px-4 sm:px-6">
       <div class="py-12 md:py-20">
 
         <!-- Section header -->
@@ -169,10 +169,113 @@
               </div>
             </div>
 
-            <!-- Image -->
+            <!-- Image
               <div class="md:w-5/12 lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
                 <img class="mx-auto md:max-w-none" src="../images/features-01.png" width="540" height="405" alt="Features" />
               </div>
+              -->
+            <div class="md:w-5/12 lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
+              <div class="relative py-40 pt-60 -mt-12">
+
+                <!-- Particles animation -->
+                <Particles class="absolute inset-0 -z-10" :quantity="8" :staticity="30" />
+
+                <div class="flex items-center justify-center">
+                  <div class="relative w-48 h-48 flex justify-center items-center">
+                    <!-- Halo effect -->
+                    <svg class="absolute  left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 will-change-transform pointer-events-none blur-md" width="480" height="480" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+                      <defs>
+                        <linearGradient id="pulse-a" x1="50%" x2="50%" y1="100%" y2="0%">
+                          <stop offset="0%" stop-color="var(--color-indigo-300)" />
+                          <stop offset="76.382%" stop-color="var(--color-indigo-300)" />
+                          <stop offset="100%" stop-color="var(--color-indigo-300)" />
+                        </linearGradient>
+                      </defs>
+                      <g fill-rule="evenodd">
+                        <path class="pulse" fill="url(#pulse-a)" fill-rule="evenodd" d="M240,0 C372.5484,0 480,107.4516 480,240 C480,372.5484 372.5484,480 240,480 C107.4516,480 0,372.5484 0,240 C0,107.4516 107.4516,0 240,0 Z M240,88.8 C156.4944,88.8 88.8,156.4944 88.8,240 C88.8,323.5056 156.4944,391.2 240,391.2 C323.5056,391.2 391.2,323.5056 391.2,240 C391.2,156.4944 323.5056,88.8 240,88.8 Z"></path>
+                        <path class="pulse pulse-1" fill="url(#pulse-a)" fill-rule="evenodd" d="M240,0 C372.5484,0 480,107.4516 480,240 C480,372.5484 372.5484,480 240,480 C107.4516,480 0,372.5484 0,240 C0,107.4516 107.4516,0 240,0 Z M240,88.8 C156.4944,88.8 88.8,156.4944 88.8,240 C88.8,323.5056 156.4944,391.2 240,391.2 C323.5056,391.2 391.2,323.5056 391.2,240 C391.2,156.4944 323.5056,88.8 240,88.8 Z"></path>
+                        <path class="pulse pulse-2" fill="url(#pulse-a)" fill-rule="evenodd" d="M240,0 C372.5484,0 480,107.4516 480,240 C480,372.5484 372.5484,480 240,480 C107.4516,480 0,372.5484 0,240 C0,107.4516 107.4516,0 240,0 Z M240,88.8 C156.4944,88.8 88.8,156.4944 88.8,240 C88.8,323.5056 156.4944,391.2 240,391.2 C323.5056,391.2 391.2,323.5056 391.2,240 C391.2,156.4944 323.5056,88.8 240,88.8 Z"></path>
+                      </g>
+                    </svg>
+                    <!-- Grid -->
+                    <div class="absolute  left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none w-[500px] h-[500px] rounded-full overflow-hidden [mask-image:_radial-gradient(black,_transparent_60%)]">
+                      <div class="h-[200%] animate-endless">
+                        <div class="absolute inset-0 [background:repeating-linear-gradient(transparent,transparent_48px,var(--color-white)_48px,var(--color-white)_49px)] blur-[2px] opacity-20"></div>
+                        <div class="absolute inset-0 [background:repeating-linear-gradient(transparent,transparent_48px,var(--color-indigo-500)_48px,var(--color-indigo-500)_49px)]"></div>
+                        <div class="absolute inset-0 [background:repeating-linear-gradient(90deg,transparent,transparent_48px,var(--color-white)_48px,var(--color-white)_49px)] blur-[2px] opacity-20"></div>
+                        <div class="absolute inset-0 [background:repeating-linear-gradient(90deg,transparent,transparent_48px,var(--color-indigo-500)_48px,var(--color-indigo-500)_49px)]"></div>
+                      </div>
+                    </div>
+                    <!-- Icons -->
+                    <transition
+                        enter-active-class="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 order-first"
+                        enter-from-class="opacity-0 -rotate-[60deg]"
+                        enter-to-class="opacity-100 rotate-0"
+                        leave-active-class="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 absolute"
+                        leave-from-class="opacity-100 rotate-0"
+                        leave-to-class="opacity-0 rotate-[60deg]"
+                    >
+                      <div class="absolute" v-show="category === '1'">
+                        <div class="relative flex items-center justify-center w-16 h-16 border border-transparent rounded-2xl shadow-2xl -rotate-[14deg] [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-2xl">
+
+                          <img class="shrink-0 " src="../images/img_2.png" width="36" height="14" alt="Icon 02">
+
+                        </div>
+                      </div>
+                    </transition>
+                    <transition
+                        enter-active-class="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 order-first"
+                        enter-from-class="opacity-0 -rotate-[60deg]"
+                        enter-to-class="opacity-100 rotate-0"
+                        leave-active-class="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 absolute"
+                        leave-from-class="opacity-100 rotate-0"
+                        leave-to-class="opacity-0 rotate-[60deg]"
+                    >
+                      <div class="absolute" v-show="category === '2'">
+                        <div class="relative flex items-center justify-center w-16 h-16 border border-transparent rounded-2xl shadow-2xl -rotate-[14deg] [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-2xl">
+
+                          <img class=" " src="../images/img_1.png" width="36" height="14" alt="Icon 02">
+
+                        </div>
+                      </div>
+                    </transition>
+                    <transition
+                        enter-active-class="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 order-first"
+                        enter-from-class="opacity-0 -rotate-[60deg]"
+                        enter-to-class="opacity-100 rotate-0"
+                        leave-active-class="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 absolute"
+                        leave-from-class="opacity-100 rotate-0"
+                        leave-to-class="opacity-0 rotate-[60deg]"
+                    >
+                      <div class="absolute" v-show="category === '3'">
+                        <div class="relative flex items-center justify-center w-16 h-16 border border-transparent rounded-2xl shadow-2xl -rotate-[14deg] [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-2xl">
+                          <img class="shrink-0 " src="../images/ia.png" width="36" height="14" alt="Icon 02">
+
+                        </div>
+                      </div>
+
+                    </transition>
+                    <transition
+                        enter-active-class="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 order-first"
+                        enter-from-class="opacity-0 -rotate-[60deg]"
+                        enter-to-class="opacity-100 rotate-0"
+                        leave-active-class="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 absolute"
+                        leave-from-class="opacity-100 rotate-0"
+                        leave-to-class="opacity-0 rotate-[60deg]"
+                    >
+                      <div class="absolute" v-show="category === '4'">
+                        <div class="relative flex items-center justify-center w-16 h-16 border border-transparent rounded-2xl shadow-2xl -rotate-[14deg] [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-2xl">
+                          <svg class="relative fill-slate-200" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+                            <path d="M18 14h-2V8h2c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4v2H8V4c0-2.2-1.8-4-4-4S0 1.8 0 4s1.8 4 4 4h2v6H4c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4v-2h6v2c0 2.2 1.8 4 4 4s4-1.8 4-4-1.8-4-4-4ZM16 4c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2h-2V4ZM2 4c0-1.1.9-2 2-2s2 .9 2 2v2H4c-1.1 0-2-.9-2-2Zm4 14c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2h2v2ZM8 8h6v6H8V8Zm10 12c-1.1 0-2-.9-2-2v-2h2c1.1 0 2 .9 2 2s-.9 2-2 2Z" />
+                          </svg>
+                        </div>
+                      </div>
+
+                    </transition>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -183,11 +286,24 @@
 </template>
 
 <script>
+import { ref } from 'vue'
+import Particles from './Particles.vue'
 export default {
   name: 'Features02',
+  components: {
+    Particles
+  },
   data: function () {
     return {
       category: '1'
+    }
+  },
+  setup() {
+
+    const tab = ref('1')
+
+    return {
+      tab,
     }
   },
 }

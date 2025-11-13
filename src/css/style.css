@@ -58,6 +58,10 @@
 
   --animate-infinite-scroll: infinite-scroll 60s linear infinite;
   --animate-infinite-scroll-inverse: infinite-scroll-inverse 60s linear infinite;
+  --animate-endless: endless 20s linear infinite;
+  --animate-shine: shine 5s linear 500ms infinite;
+  --animate-float: float 2s ease-in-out infinite;
+
 
   @keyframes infinite-scroll {
     from {
@@ -73,6 +77,45 @@
     }
     to {
       transform: translateX(0);
+    }
+  }
+  @keyframes endless {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-245px);
+    }
+  }
+  @keyframes shine {
+    0% {
+      top: 0;
+      transform: translateY(-100%) scaleY(10);
+      opacity: 0;
+    }
+    2% {
+      opacity: 0.5;
+    }
+    40% {
+      top: 100%;
+      transform: translateY(0) scaleY(200);
+      opacity: 0;
+    }
+    100% {
+      top: 100%;
+      transform: translateY(0) scaleY(1);
+      opacity: 0;
+    }
+  }
+  @keyframes float {
+    0% {
+      transform: translateY(3%);
+    }
+    50% {
+      transform: translateY(-3%);
+    }
+    100% {
+      transform: translateY(3%);
     }
   }
 }
