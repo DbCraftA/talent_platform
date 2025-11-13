@@ -217,8 +217,9 @@
                     >
                       <div class="absolute" v-show="category === '1'">
                         <div class="relative flex items-center justify-center w-16 h-16 border border-transparent rounded-2xl shadow-2xl -rotate-[14deg] [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-2xl">
-
-                          <img class="shrink-0 " src="../images/img_2.png" width="36" height="14" alt="Icon 02">
+                          <svg class="relative fill-slate-200" xmlns="http://www.w3.org/2000/svg" width="26" height="14">
+                            <path fill-rule="nonzero" d="m10 5.414-8 8L.586 12 10 2.586l6 6 8-8L25.414 2 16 11.414z" />
+                          </svg>
 
                         </div>
                       </div>
@@ -234,7 +235,7 @@
                       <div class="absolute" v-show="category === '2'">
                         <div class="relative flex items-center justify-center w-16 h-16 border border-transparent rounded-2xl shadow-2xl -rotate-[14deg] [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-2xl">
 
-                          <img class=" " src="../images/img_1.png" width="36" height="14" alt="Icon 02">
+                          <img class=" " src="../images/expert.png" width="36" height="14" alt="Icon 02">
 
                         </div>
                       </div>
