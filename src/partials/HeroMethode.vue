@@ -9,7 +9,7 @@
       <img src="../images/hero-illustration.svg" class="max-w-none" width="1440" height="749" alt="Hero Illustration" />
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
       <div class="pt-28 pb-8 md:pt-36 ">
 
         <!-- HeroMethode content -->
@@ -23,11 +23,11 @@
                  choisir
               </span> ?
           </h1>
-          <p class="text-lg text-gray-500">Nous croyons que la vraie valeur vient de la capacité à relier expertise technique et impact business.
-          Nos architectes identifient ce qui est essentiel, conçoivent des solutions pérennes et accélèrent vos projets Cloud & IA avec une approche pragmatique,
+          <p class="text-lg text-gray-500 pt-5">Nous croyons que la vraie valeur vient de la capacité à relier <strong>expertise technique</strong> et <strong>impact business.</strong>
+            Nos architectes identifient ce qui est essentiel, conçoivent des solutions pérennes et accélèrent vos projets Cloud & IA avec une approche pragmatique,
             flexible et orientée résultats.</p>
 
-          <div class="max-w-xs pt-20 mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <div class="max-w-xs pt-15 mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <div >
               <button class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 w-full shadow-sm" @click="scrollTo('section1')" >Prospection</button>
             </div>

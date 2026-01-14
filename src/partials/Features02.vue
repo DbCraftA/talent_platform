@@ -174,15 +174,48 @@
                 <img class="mx-auto md:max-w-none" src="../images/features-01.png" width="540" height="405" alt="Features" />
               </div>
               -->
+            <div class="pl-5 pt-25  xl:pl-30" data-aos="zoom-y-out">
+              <div class="text-center">
+                <div
+                    class="inline-flex relative rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:bg-linear-to-b before:from-blue-200 before:to-sky-700/50 before:blur-3xl before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] after:absolute after:inset-0 after:rounded-[inherit] after:[background:radial-gradient(closest-side,var(--color-blue-500),transparent)]">
+                  <img class="bg-gray-100/80 rounded-full" src="../images/planet.png" width="400" height="400" alt="Planet" />
+                  <div class="pointer-events-none" aria-hidden="true">
+                    <img class="absolute z-10 -top-20 -right-64 max-w-none" src="../images/planet-overlay.svg" width="789"
+                         height="755" alt="Planet decoration" />
+                    <div>
+
+                      <img
+                          class="absolute z-10 top-16 left-10 opacity-80 transition-opacity  rounded-full max-sm:scale-75! duration-500 animate-[float_4s_ease-in-out_infinite_both]"
+                          src="../images/world-user-04.jpg"
+                          width="45"
+                          height="45"
+                          alt="User 01"
+                          data-aos="fade-up"
+                      />
+                      <img
+                          class="absolute rounded-full z-10 top-25 left-56 opacity-80 transition-opacity duration-500 animate-[float_4s_ease-in-out_infinite_1s_both]"
+                          src="../images/world-user-03.jpg" width="50" height="50" alt="Tag 02" />
+                      <img
+                          class="absolute rounded-full  z-10 bottom-26 -left-5 opacity-90 transition-opacity duration-500 animate-[float_4s_ease-in-out_infinite_2s_both]"
+                          src="../images/world-user-07.jpg"  width="50" height="50" alt="Tag 03" />
+                      <img
+                          class="absolute rounded-full z-10  top-36 left-20 opacity-80 transition-opacity duration-500 animate-[float_4s_ease-in-out_infinite_3s_both]"
+                          src="../images/world-user-05.jpg" width="50" height="50" alt="Tag 04" />
+                      <img
+                          class="absolute rounded-full z-10 bottom-32 left-64 opacity-80 transition-opacity duration-500 animate-[float_4s_ease-in-out_infinite_3s_both]"
+                          src="../images/world-user-08.jpg" width="50" height="50" alt="Tag 04" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Animation Moving
             <div class="md:w-5/12 lg:w-1/2 max-[700px]:hidden" data-aos="fade-up" data-aos-delay="100">
               <div class="relative py-40 pt-60 -mt-12">
 
-                <!-- Particles animation -->
                 <Particles class="absolute inset-0 -z-10" :quantity="8" :staticity="30" />
-
                 <div class="flex items-center justify-center">
                   <div class="relative w-48 h-48 flex justify-center items-center">
-                    <!-- Halo effect -->
                     <svg class="absolute  left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 will-change-transform pointer-events-none blur-md" width="480" height="480" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
                       <defs>
                         <linearGradient id="pulse-a" x1="50%" x2="50%" y1="100%" y2="0%">
@@ -197,7 +230,6 @@
                         <path class="pulse pulse-2" fill="url(#pulse-a)" fill-rule="evenodd" d="M240,0 C372.5484,0 480,107.4516 480,240 C480,372.5484 372.5484,480 240,480 C107.4516,480 0,372.5484 0,240 C0,107.4516 107.4516,0 240,0 Z M240,88.8 C156.4944,88.8 88.8,156.4944 88.8,240 C88.8,323.5056 156.4944,391.2 240,391.2 C323.5056,391.2 391.2,323.5056 391.2,240 C391.2,156.4944 323.5056,88.8 240,88.8 Z"></path>
                       </g>
                     </svg>
-                    <!-- Grid -->
                     <div class="absolute  left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none w-[500px] h-[500px] rounded-full overflow-hidden [mask-image:_radial-gradient(black,_transparent_60%)]">
                       <div class="h-[200%] animate-endless">
                         <div class="absolute inset-0 [background:repeating-linear-gradient(transparent,transparent_48px,var(--color-white)_48px,var(--color-white)_49px)] blur-[2px] opacity-20"></div>
@@ -206,7 +238,6 @@
                         <div class="absolute inset-0 [background:repeating-linear-gradient(90deg,transparent,transparent_48px,var(--color-indigo-500)_48px,var(--color-indigo-500)_49px)]"></div>
                       </div>
                     </div>
-                    <!-- Icons -->
                     <transition
                         enter-active-class="transition ease-[cubic-bezier(0.68,-0.3,0.32,1)] duration-700 order-first"
                         enter-from-class="opacity-0 -rotate-[60deg]"
@@ -220,7 +251,6 @@
                           <svg class="relative fill-slate-200" xmlns="http://www.w3.org/2000/svg" width="26" height="14">
                             <path fill-rule="nonzero" d="m10 5.414-8 8L.586 12 10 2.586l6 6 8-8L25.414 2 16 11.414z" />
                           </svg>
-
                         </div>
                       </div>
                     </transition>
@@ -277,6 +307,7 @@
                 </div>
               </div>
             </div>
+            -->
           </div>
 
         </div>

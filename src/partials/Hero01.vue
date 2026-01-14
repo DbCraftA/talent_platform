@@ -9,7 +9,7 @@
       <img src="../images/hero-illustration.svg" class="max-w-none" width="1440" height="749" alt="Hero Illustration" />
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
       <div class="pt-28 pb-8 md:pt-36 md:pb-16">
 
         <!-- HeroMethode content -->
@@ -24,7 +24,7 @@
                  ambitions.
               </span>
           </h1>
-          <div class="max-w-6xl">
+          <div class="max-w-6xl pt-5">
             <p class="text-lg text-center text-gray-500 mb-2 ">
               Dans un monde où la technologie évolue sans cesse,  creusant le fossé entre <strong>vision stratégique</strong> et <strong>réalité technique</strong>. Nous intervenons pour <strong>transformer</strong> cette distance en véritable <strong>levier de réussite</strong>. Que vous soyez en phase <strong>d'exploration, de transformation ou d'optimisation,</strong> notre équipe passionnée vous accompagne pour faire de vos projets des succès durables et impactants.
             </p>
