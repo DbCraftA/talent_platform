@@ -174,7 +174,7 @@
                 <img class="mx-auto md:max-w-none" src="../images/features-01.png" width="540" height="405" alt="Features" />
               </div>
               -->
-            <div class="pl-5 pt-25  xl:pl-30" data-aos="zoom-y-out">
+            <div class="pl-5 sm:pt-25  xl:pl-30" data-aos="zoom-y-out">
               <div class="text-center">
                 <div
                     class="inline-flex relative rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:bg-linear-to-b before:from-blue-200 before:to-sky-700/50 before:blur-3xl before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] after:absolute after:inset-0 after:rounded-[inherit] after:[background:radial-gradient(closest-side,var(--color-blue-500),transparent)]">
