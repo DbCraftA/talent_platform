@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [
       vue(),
     Sitemap({
-      hostname: 'https://enovat.fr',  // Remplace par ton domaine
+      hostname: 'https://wenovat.com',  // Remplace par ton domaine
       // Optionnel : routes dynamiques si tu en as
       dynamicRoutes: ["/methode", "/nous-contacter" , "/a-propos"
         // Exemples : '/methode', '/articles/quelque-chose'

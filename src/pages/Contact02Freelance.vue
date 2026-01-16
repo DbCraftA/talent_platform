@@ -14,8 +14,8 @@
             <div class="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
               <div class="  ">
                 <!-- Logo -->
-                <router-link  to="/" aria-label="Enovat">
-                  <img src="../images/logo.png" class="max-w-none" width="80" height="40" alt="Hero Illustration" />
+                <router-link  to="/" aria-label="Wenovat">
+                  <img src="../images/logo.png" class="max-w-none" width="120" height="60"  alt="Hero Illustration" />
                 </router-link>
               </div>
             </div>
@@ -47,7 +47,7 @@
             <div class="max-w-md mx-auto">
 
               <h1 class="text-3xl text-gray-800  font-bold mb-6">Présentez-vous en quelques mots</h1>
-              <div class="text-gray-500"> Merci de faire confiance à Enovat pour votre recherche de mission ! Quelques questions rapides pour mieux cerner vos compétences et vos attentes.</div>
+              <div class="text-gray-500"> Merci de faire confiance à Wenovat pour votre recherche de mission ! Quelques questions rapides pour mieux cerner vos compétences et vos attentes.</div>
 
               <!-- Form -->
               <form ref="emailField" @submit.prevent="sendEmail"  >

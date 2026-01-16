@@ -6,8 +6,8 @@
         <!-- Site branding -->
         <div class="  ">
           <!-- Logo -->
-          <router-link  to="/" aria-label="Enovat">
-            <img src="../images/logo.png" class="max-w-none" width="80" height="40" alt="Hero Illustration" />
+          <router-link  to="/" aria-label="Wenovat">
+            <img src="../images/logo.png" class="max-w-none" width="120" height="60" alt="Hero Illustration" />
           </router-link>
         </div>
 

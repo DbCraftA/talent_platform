@@ -13,7 +13,7 @@
               <img src="../images/logo.png" class="max-w-none" width="100" height="40" alt="Hero Illustration" />
             </router-link>
           </div>
-          <div class="grow text-sm text-zinc-500">&copy; Enovat All rights reserved.</div>
+          <div class="grow text-sm text-zinc-500">&copy; Wenovat All rights reserved.</div>
           <!-- Social links
           <ul class="flex space-x-4 mt-4 mb-1">
             <li>
