@@ -43,7 +43,14 @@
 
         <!-- 2nd block -->
         <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
-
+          <h6 class="text-sm text-zinc-800 font-medium mb-2">Légal</h6>
+          <ul class="text-sm space-y-2">
+            <li>
+              <router-link class="block group" to="/mentions" aria-label="Cruip">
+                <a class="text-zinc-500 hover:text-zinc-900 transition" href="/mentions">Mentions légales</a>
+              </router-link>
+            </li>
+          </ul>
         </div>
 
 

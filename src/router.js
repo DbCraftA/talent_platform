@@ -12,6 +12,7 @@ import ClientFeedback02 from './pages/ClientFeedback02.vue'
 import ClientFeedback03 from './pages/ClientFeedback03.vue'
 import { useFormStore } from './stores/formContacterNous.js'
 import { pinia } from './main'
+import MentionsLegal from "./pages/MentionsLegal.vue";
 
 const routerHistory = createWebHistory()
 
@@ -70,6 +71,10 @@ const router = createRouter({
     {
       path: '/clientfeedback-03',
       component: ClientFeedback03
+    },
+    {
+      path: '/mentions',
+      component: MentionsLegal
     },
   ]
 })
