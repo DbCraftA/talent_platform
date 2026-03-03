@@ -32,7 +32,7 @@
               </div>
 
               <!-- Item -->
-              <div class="space-y-2">
+              <div class="space-y-6">
                 <h4 class="text-xl font-cabinet-grotesk font-bold">PROPRIÉTÉ INTELLECTUELLE</h4>
                 <p class="text-gray-500">
                   Wenovat détient l’ensemble des droits de propriété intellectuelle relatifs au site, à sa structure et à son contenu (textes, images, graphismes, logos, marques, vidéos, bases de données, etc.), sauf mention contraire.                </p>
@@ -63,9 +63,7 @@
               <div class="space-y-2">
                 <h4 class="text-xl font-cabinet-grotesk font-bold">EDITEUR</h4>
                 <p class="text-gray-500">
-                  Wenovat est édité et exploité par la société Wenovat, dont le siège social est situé 110 rue de Fontenay, CS 20010, 94303 Vincennes Cedex.                </p>
-                <p class="text-gray-500">
-                  Wenovat ...              </p>
+                  WENOVAT CONSULTING, au capital social de 1 000 €, dont le siège social est situé au 110 RUE DE FONTENAY CS 20010, 94300 VINCENNES France, immatriculée sous le numéro 101426682. </p>
                 <p class="text-gray-500">
                   Adresse email : contact@wenovat.com
                 </p>
