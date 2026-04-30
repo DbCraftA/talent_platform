@@ -6,7 +6,7 @@ def build_css() -> str:
     :root{
       --page-w:1080px;
       --page-h:1350px;
-      --m:74px;
+      --m:100px;
       --safe-top:86px;
       --safe-bottom:120px;
       --g:18px;
@@ -43,6 +43,7 @@ def build_css() -> str:
       display:flex;
       flex-direction:column;
       justify-content:flex-start;
+      min-height:969px;position:relative;
     }
     .page::before{
       content:"";position:absolute;inset:0;pointer-events:none;opacity:.026;
@@ -118,7 +119,6 @@ def build_css() -> str:
     .slide-1 .title{margin-top:36px;font-size:64px;line-height:.98}
     .slide-1 .subtitle{margin-top:14px;font-size:24px;line-height:1.18}
     .slide-1 .meta{margin-top:14px;font-size:16px}
-    .slide-1 .inline-footer-like{margin-top:20px}
 
     .slide-2 .section-kicker{margin-top:18px}
     .slide-2 .section-title{margin-top:20px;font-size:52px}
@@ -134,8 +134,8 @@ def build_css() -> str:
     .slide-3 .visual-story-wrap{margin-top:10px}
     .slide-3 .visual-story-image{height:700px;width:min(100%,900px)}
     .slide-3 .visual-story-paragraph{font-size:20px;line-height:1.25;max-height:170px;overflow:hidden}
-    .slide-3 .inline-footer-like{margin-top:14px}
-    .inline-footer-like{grid-column:1/span 12;margin-top:40px}
+
+    .inline-footer-like{position:absolute;left:var(--m);right:var(--m);bottom:calc(30px);z-index:1;}
     .inline-footer-line{border-top:1px solid var(--gray-1)}
     .inline-footer{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g);font-size:12px;color:var(--gray-3);padding-top:12px}
     .f1{grid-column:1/span 4}.f2{grid-column:5/span 5}.f3{grid-column:10/span 3;text-align:right}

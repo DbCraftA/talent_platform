@@ -89,11 +89,6 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
         <br/>
         <div class=\"subtitle\">{escape(slide['subtitle'])}</div>
         <div class=\"meta\">{escape(payload['episode'])} · {escape(slide['meta'])}</div>
-             <br/>
-        {_inline_footer_like(topic, slide_no)}
-         
-        {_image_block(root, slide.get('image', ''))}
-       
         """
     elif index == 1:
         cards = "".join(
@@ -114,7 +109,6 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
         <div class=\"section-title section-title-concept\">{escape(slide['section_title'])}</div>
         <div class=\"copy{' with-inline-image' if inline_image else ''}\">{escape(slide['copy'])}</div>
         <div class=\"card-list\">{cards}</div>
-        {_inline_footer_like(topic, slide_no)}
         """
     elif index == 2:
         visual_uri = _img(root, slide.get("image", ""))
@@ -130,12 +124,8 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
         <div class=\"section-kicker\">{escape(slide['section_kicker'])}</div>
         <div class=\"section-title section-title-now\">{escape(slide['section_title'])}</div>
         <div class=\"visual-story-wrap\">
-        <div class=\"visual-story-image\">{visual_img} </div>
-        <div class=\"visual-story-paragraph\">{paragraph} </div>
-          
-          
+          <div class=\"visual-story-image\">{f"<img src='{visual_uri}' alt='visual'/>" if visual_uri else ''}{paragraph}</div>
         </div>
-        {_inline_footer_like(topic, slide_no)}
         """
     elif index == 3:
         definitions = "".join(
@@ -153,7 +143,6 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
           <div class=\"definitions-intro\">{escape(slide.get('intro', ''))}</div>
           {definitions}
         </div>
-        {_inline_footer_like(topic, slide_no)}
         """
     elif index in (4, 5):
         matrix = "".join(
@@ -168,7 +157,6 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
         <div class=\"section-kicker\">{escape(slide['section_kicker'])}</div>
         <div class=\"section-title\">{escape(slide['section_title'])}</div>
         <div class=\"matrix\">{matrix}</div>
-        {_inline_footer_like(topic, slide_no)}
         """
     else:
         markers = []
@@ -220,7 +208,6 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
             <div class=\"simple-legend\">{legend_items}</div>
           </div>
         </div>
-        {_inline_footer_like(topic, slide_no)}
         """
 
     return f"""
@@ -232,7 +219,9 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
       <style>{build_css()}</style>
     </head>
     <body>
-      <section class='page slide-{slide_no}'><div class='content-frame'><div class='grid'>{body}</div></div></section>
+      <section class='page slide-{slide_no}'><div class='content-frame'><div class='grid'>{body}</div>        
+{_inline_footer_like(topic, slide_no)}
+</div></section>
     </body>
     </html>
     """
