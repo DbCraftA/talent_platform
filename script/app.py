@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import json
+import uuid
 from pathlib import Path
 
 import streamlit as st
 import streamlit.components.v1 as components
 
 from carousel.export_png import export_html_to_pdf, export_html_to_png
-from carousel.schema import clone_data, default_data, discover_fallback_images
+from carousel.schema import DEFAULT_TEMPLATE_TYPES, clone_data, default_data, discover_fallback_images
 from carousel.templates import render_slide
 
 
@@ -25,10 +26,40 @@ def _init_state() -> None:
         st.session_state.current_slide = 0
 
 
+TEMPLATE_OPTIONS = {
+    "cover": "Cover",
+    "concept_cards": "Concept cards",
+    "visual_story": "Visual story",
+    "timeline": "Timeline",
+    "definitions": "Definitions",
+    "matrix_why": "Matrix why",
+    "matrix_difficulty": "Matrix difficulty",
+    "radar_verdict": "Radar verdict",
+}
+
+
+def _new_slide_for_template(template_type: str) -> dict:
+    seed = default_data(ROOT)
+    mapping = {
+        "cover": 0,
+        "concept_cards": 1,
+        "visual_story": 2,
+        "timeline": 3,
+        "definitions": 4,
+        "matrix_why": 5,
+        "matrix_difficulty": 6,
+        "radar_verdict": 7,
+    }
+    idx = mapping.get(template_type, 0)
+    slide = clone_data(seed)["slides"][idx]
+    slide["template_type"] = template_type
+    return slide
+
+
 def _persist_upload(upload, name: str) -> str:
     UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
     ext = Path(upload.name).suffix.lower() or ".png"
-    target = UPLOAD_DIR / f"{name}{ext}"
+    target = UPLOAD_DIR / f"{name}_{uuid.uuid4().hex[:10]}{ext}"
     target.write_bytes(upload.getbuffer())
     return str(target.relative_to(ROOT))
 
@@ -52,11 +83,35 @@ def _edit_slide(slide_index: int) -> None:
     slide = data["slides"][slide_index]
     fallback_images = [""] + discover_fallback_images(ROOT)
 
-    st.subheader(f"Édition slide {slide_index + 1}/7")
+    total_slides = len(data.get("slides", []))
+    st.subheader(f"Édition slide {slide_index + 1}/{total_slides}")
+
+    current_type = slide.get("template_type", DEFAULT_TEMPLATE_TYPES[min(slide_index, len(DEFAULT_TEMPLATE_TYPES)-1)])
+    type_keys = list(TEMPLATE_OPTIONS.keys())
+    selected_type = st.selectbox(
+        "Template",
+        options=type_keys,
+        index=type_keys.index(current_type) if current_type in type_keys else 0,
+        format_func=lambda x: TEMPLATE_OPTIONS[x],
+        key=f"template_type_{slide_index}",
+    )
+    if slide.get("template_type") != selected_type:
+        replacement = _new_slide_for_template(selected_type)
+        replacement["image"] = slide.get("image", replacement.get("image", ""))
+        st.session_state.data["slides"][slide_index] = replacement
+        slide = st.session_state.data["slides"][slide_index]
+    slide["template_type"] = selected_type
+
+    current_image = slide.get("image", "")
+    if current_image:
+        default_image_mode = "Choisir une image du projet" if current_image in fallback_images else "Uploader une image"
+    else:
+        default_image_mode = "Aucune"
 
     image_mode = st.radio(
         "Image",
         ["Aucune", "Choisir une image du projet", "Uploader une image"],
+        index=["Aucune", "Choisir une image du projet", "Uploader une image"].index(default_image_mode),
         horizontal=True,
         key=f"img_mode_{slide_index}",
     )
@@ -74,7 +129,7 @@ def _edit_slide(slide_index: int) -> None:
     else:
         slide["image"] = ""
 
-    if slide_index == 0:
+    if selected_type == "cover":
         data["brand"] = st.text_input("Marque", data["brand"])
         data["series"] = st.text_input("Série", data["series"])
         data["episode"] = st.text_input("Épisode", data["episode"])
@@ -83,7 +138,7 @@ def _edit_slide(slide_index: int) -> None:
         slide["title_lines"] = _text_area_list("Titre (1 ligne = 1 ligne de titre)", slide["title_lines"], "title_lines")
         slide["subtitle"] = st.text_area("Sous-titre", slide["subtitle"], height=120)
         slide["meta"] = st.text_area("Meta", slide["meta"], height=90)
-    elif slide_index == 1:
+    elif selected_type == "concept_cards":
         slide["section_kicker"] = st.text_input("Section kicker", slide["section_kicker"])
         slide["section_title"] = st.text_input("Section title", slide["section_title"])
         slide["copy"] = st.text_area("Copy", slide["copy"], height=140)
@@ -102,17 +157,32 @@ def _edit_slide(slide_index: int) -> None:
             with st.expander(f"Card {i+1}", expanded=i == 0):
                 card["title"] = st.text_input("Titre", card["title"], key=f"card_t_1_{i}")
                 card["body"] = st.text_area("Corps", card["body"], key=f"card_b_1_{i}")
-    elif slide_index == 2:
+    elif selected_type == "visual_story":
         slide["section_kicker"] = st.text_input("Section kicker", slide["section_kicker"])
         slide["section_title"] = st.text_input("Section title", slide["section_title"])
         slide["caption"] = st.text_input("Légende image", slide.get("caption", ""))
         slide["show_paragraph"] = st.checkbox(
             "Afficher paragraphe optionnel",
             value=slide.get("show_paragraph", True),
-            key="show_paragraph_s3",
+            key=f"show_paragraph_s3_{slide_index}",
         )
         slide["paragraph"] = st.text_area("Paragraphe optionnel", slide.get("paragraph", ""), height=160)
-    elif slide_index == 3:
+    elif selected_type == "timeline":
+        slide["section_kicker"] = st.text_input("Section kicker", slide.get("section_kicker", ""))
+        slide["section_title"] = st.text_input("Section title", slide.get("section_title", ""))
+        items = slide.get("timeline_items", [])
+        count = st.slider("Nombre d'items timeline", 1, 6, len(items) if items else 3, key=f"timeline_count_{slide_index}")
+        slide["timeline_items"] = _resize_list_of_dicts(
+            items,
+            count,
+            {"date": "DATE", "title": "Titre", "body": "Texte"},
+        )
+        for i, item in enumerate(slide["timeline_items"]):
+            with st.expander(f"Timeline item {i+1}", expanded=i == 0):
+                item["date"] = st.text_input("Date", item.get("date", ""), key=f"timeline_date_{slide_index}_{i}")
+                item["title"] = st.text_input("Titre", item.get("title", ""), key=f"timeline_title_{slide_index}_{i}")
+                item["body"] = st.text_area("Corps", item.get("body", ""), key=f"timeline_body_{slide_index}_{i}")
+    elif selected_type == "definitions":
         slide["section_kicker"] = st.text_input("Section kicker", slide["section_kicker"])
         slide["section_title"] = st.text_input("Section title", slide["section_title"])
         slide["intro"] = st.text_area("Intro", slide.get("intro", ""), height=110)
@@ -127,7 +197,7 @@ def _edit_slide(slide_index: int) -> None:
             with st.expander(f"Définition {i+1}", expanded=i == 0):
                 item["term"] = st.text_input("Terme", item["term"], key=f"def_t_{i}")
                 item["definition"] = st.text_area("Définition", item["definition"], key=f"def_d_{i}")
-    elif slide_index in (4, 5):
+    elif selected_type in ("matrix_why", "matrix_difficulty"):
         slide["section_kicker"] = st.text_input("Section kicker", slide["section_kicker"])
         slide["section_title"] = st.text_input("Section title", slide["section_title"])
         for i, box in enumerate(slide["matrix"]):
@@ -188,7 +258,8 @@ def _render_preview() -> None:
 def _export_all() -> None:
     TMP_DIR.mkdir(parents=True, exist_ok=True)
     html_files: list[Path] = []
-    for i in range(7):
+    total_slides = len(st.session_state.data.get("slides", []))
+    for i in range(total_slides):
         p = TMP_DIR / f"slide_{i+1:02d}.html"
         p.write_text(render_slide(ROOT, st.session_state.data, i), encoding="utf-8")
         html_files.append(p)
@@ -202,7 +273,8 @@ def _export_all() -> None:
 def _export_pdf() -> None:
     TMP_DIR.mkdir(parents=True, exist_ok=True)
     html_files: list[Path] = []
-    for i in range(7):
+    total_slides = len(st.session_state.data.get("slides", []))
+    for i in range(total_slides):
         p = TMP_DIR / f"slide_{i+1:02d}.html"
         p.write_text(render_slide(ROOT, st.session_state.data, i), encoding="utf-8")
         html_files.append(p)
@@ -219,17 +291,37 @@ def main() -> None:
     st.set_page_config(page_title="Wenovat Carousel Builder", layout="wide")
     _init_state()
 
-    st.title("Générateur de carrousel LinkedIn (7 slides)")
+    st.title("Générateur de carrousel LinkedIn")
 
     with st.sidebar:
         st.header("Navigation")
-        st.session_state.current_slide = st.slider("Slide", 0, 6, st.session_state.current_slide)
+        slides = st.session_state.data.get("slides", [])
+        if not slides:
+            st.session_state.data["slides"] = [_new_slide_for_template("cover")]
+            slides = st.session_state.data["slides"]
+
+        max_idx = len(slides) - 1
+        st.session_state.current_slide = min(st.session_state.current_slide, max_idx)
+        st.session_state.current_slide = st.slider("Slide", 0, max_idx, st.session_state.current_slide)
 
         col_a, col_b = st.columns(2)
         if col_a.button("← Précédent"):
             st.session_state.current_slide = max(0, st.session_state.current_slide - 1)
         if col_b.button("Suivant →"):
-            st.session_state.current_slide = min(6, st.session_state.current_slide + 1)
+            st.session_state.current_slide = min(max_idx, st.session_state.current_slide + 1)
+
+        st.divider()
+        st.caption("Pages")
+        col_add, col_remove = st.columns(2)
+        with col_add:
+            add_type = st.selectbox("Nouveau template", options=list(TEMPLATE_OPTIONS.keys()), format_func=lambda x: TEMPLATE_OPTIONS[x], key="new_template_type")
+            if st.button("Ajouter page"):
+                st.session_state.data["slides"].append(_new_slide_for_template(add_type))
+                st.session_state.current_slide = len(st.session_state.data["slides"]) - 1
+        with col_remove:
+            if st.button("Supprimer page", disabled=len(st.session_state.data["slides"]) <= 1):
+                st.session_state.data["slides"].pop(st.session_state.current_slide)
+                st.session_state.current_slide = max(0, min(st.session_state.current_slide, len(st.session_state.data["slides"]) - 1))
 
         st.divider()
         if st.button("Réinitialiser contenu"):
@@ -247,8 +339,8 @@ def main() -> None:
             st.success("Contenu importé")
 
         st.divider()
-        st.caption("Exports 1080x1350")
-        if st.button("Exporter les 7 slides en PNG"):
+        st.caption("Exports")
+        if st.button("Exporter les slides en PNG"):
             _export_all()
         if st.button("Exporter en PDF"):
             _export_pdf()

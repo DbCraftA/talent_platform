@@ -4,6 +4,18 @@ from copy import deepcopy
 from pathlib import Path
 
 
+DEFAULT_TEMPLATE_TYPES = [
+    "cover",
+    "concept_cards",
+    "visual_story",
+    "timeline",
+    "definitions",
+    "matrix_why",
+    "matrix_difficulty",
+    "radar_verdict",
+]
+
+
 def discover_fallback_images(root: Path) -> list[str]:
     images_dir = root / "src" / "images"
     if not images_dir.exists():
@@ -30,6 +42,7 @@ def default_data(root: Path) -> dict:
         "topic": "Cryptographie quantique",
         "slides": [
             {
+                "template_type": "cover",
                 "kicker": "Concept Enlightenment for architects, CTOs and tech leaders",
                 "title_lines": [
                     "Faut-il vraiment",
@@ -42,6 +55,7 @@ def default_data(root: Path) -> dict:
                 "image": fallback_1,
             },
             {
+                "template_type": "concept_cards",
                 "section_kicker": "Le concept",
                 "section_title": "Le sujet en 20 secondes",
                 "copy": "Le vrai risque n’est pas que le quantique casse tout demain. Le sujet est surtout architectural.",
@@ -54,6 +68,7 @@ def default_data(root: Path) -> dict:
                 "image": fallback_2,
             },
             {
+                "template_type": "visual_story",
                 "section_kicker": "Pourquoi maintenant",
                 "section_title": "Un signal visuel simple",
                 "image": fallback_2,
@@ -62,6 +77,30 @@ def default_data(root: Path) -> dict:
                 "show_paragraph": True,
             },
             {
+                "template_type": "timeline",
+                "section_kicker": "Pourquoi maintenant",
+                "section_title": "Pourquoi le sujet revient",
+                "timeline_items": [
+                    {
+                        "date": "AOÛT 2024",
+                        "title": "Le NIST finalise les premiers standards",
+                        "body": "Le sujet quitte en partie le terrain de la recherche pure. Il existe désormais des références concrètes pour préparer la transition.",
+                    },
+                    {
+                        "date": "MARS 2025",
+                        "title": "Le NCSC publie une trajectoire de migration",
+                        "body": "La logique change : les organisations sont invitées à se préparer maintenant, même si les déploiements seront progressifs.",
+                    },
+                    {
+                        "date": "DÈS AUJOURD’HUI",
+                        "title": "Le risque store now, decrypt later compte déjà",
+                        "body": "Certaines données sensibles peuvent être captées aujourd’hui puis exposées plus tard si leur horizon de confidentialité est long.",
+                    },
+                ],
+                "image": "",
+            },
+            {
+                "template_type": "definitions",
                 "section_kicker": "Définitions",
                 "section_title": "Définitions clés",
                 "intro": "Version épurée pour aligner rapidement les équipes sur le vocabulaire du sujet.",
@@ -73,6 +112,7 @@ def default_data(root: Path) -> dict:
                 "image": "",
             },
             {
+                "template_type": "matrix_why",
                 "section_kicker": "Pourquoi c’est utile",
                 "section_title": "Pourquoi s’y intéresser",
                 "matrix": [
@@ -84,6 +124,7 @@ def default_data(root: Path) -> dict:
                 "image": "",
             },
             {
+                "template_type": "matrix_difficulty",
                 "section_kicker": "Complexité",
                 "section_title": "Pourquoi c’est difficile",
                 "matrix": [
@@ -95,6 +136,7 @@ def default_data(root: Path) -> dict:
                 "image": "",
             },
             {
+                "template_type": "radar_verdict",
                 "section_kicker": "Verdict",
                 "section_title": "La bonne lecture du sujet",
                 "radar_text": "Oui pour la préparation. Non pour la panique.",
@@ -120,4 +162,11 @@ def default_data(root: Path) -> dict:
 
 
 def clone_data(data: dict) -> dict:
-    return deepcopy(data)
+    cloned = deepcopy(data)
+    slides = cloned.get("slides", [])
+
+    for i, slide in enumerate(slides):
+        if "template_type" not in slide:
+            slide["template_type"] = DEFAULT_TEMPLATE_TYPES[i] if i < len(DEFAULT_TEMPLATE_TYPES) else "cover"
+
+    return cloned

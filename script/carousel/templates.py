@@ -16,25 +16,25 @@ def _img(root: Path, relative_or_abs: str) -> str:
     return path.resolve().as_uri() if path.exists() else ""
 
 
-def _footer(topic: str, section: str, slide_no: int) -> str:
+def _footer(topic: str, section: str, slide_no: int, total_slides: int) -> str:
     return f"""
     <div class=\"footer-line\"></div>
     <div class=\"footer\">
       <div class=\"f1\">Wenovat Radar</div>
       <div class=\"f2\">{escape(section)}</div>
-      <div class=\"f3\">{slide_no} / 7</div>
+      <div class=\"f3\">{slide_no} / {total_slides}</div>
     </div>
     """
 
 
-def _inline_footer_like(section: str, slide_no: int) -> str:
+def _inline_footer_like(section: str, slide_no: int, total_slides: int) -> str:
     return f"""
     <div class=\"inline-footer-like\">
       <div class=\"inline-footer-line\"></div>
       <div class=\"inline-footer\">
         <div class=\"f1\">Wenovat Radar</div>
         <div class=\"f2\">{escape(section)}</div>
-        <div class=\"f3\">{slide_no} / 7</div>
+        <div class=\"f3\">{slide_no} / {total_slides}</div>
       </div>
     </div>
     """
@@ -75,140 +75,119 @@ def _compute_marker(section: str, angle_deg: float) -> tuple[float, float]:
 
 def render_slide(root: Path, payload: dict, index: int) -> str:
     slide = payload["slides"][index]
-    brand = escape(payload["brand"])
-    series = escape(payload["series"])
-    topic = escape(payload["topic"])
+    brand = escape(payload.get("brand", ""))
+    series = escape(payload.get("series", ""))
+    topic = escape(payload.get("topic", ""))
     slide_no = index + 1
+    total_slides = len(payload.get("slides", [])) or 1
+    default_types = [
+        "cover",
+        "concept_cards",
+        "visual_story",
+        "timeline",
+        "definitions",
+        "matrix_why",
+        "matrix_difficulty",
+        "radar_verdict",
+    ]
+    template_type = slide.get("template_type") or (default_types[index] if index < len(default_types) else "cover")
 
-    if index == 0:
-        title = "".join([f"<span class='line'>{escape(x)}</span>" for x in slide["title_lines"]])
+    if template_type == "cover":
+        title_lines = slide.get("title_lines") or [slide.get("section_title", "Titre")]
+        title = "".join([f"<span class='line'>{escape(x)}</span>" for x in title_lines])
         body = f"""
-        <div class=\"logo\">{brand}<span class=\"dot\">.</span></div>
-        <div class=\"series\">{series}<br/>{escape(slide['kicker'])}</div>
-        <div class=\"title\">{title}</div>
+        <div class="logo">{brand}<span class="dot">.</span></div>
+        <div class="series">{series}<br/>{escape(slide.get('kicker', ''))}</div>
+        <div class="title">{title}</div>
         <br/>
-        <div class=\"subtitle\">{escape(slide['subtitle'])}</div>
-        <div class=\"meta\">{escape(payload['episode'])} · {escape(slide['meta'])}</div>
+        <div class="subtitle">{escape(slide.get('subtitle', ''))}</div>
+        <div class="meta">{escape(payload.get('episode', ''))} · {escape(slide.get('meta', ''))}</div>
         """
-    elif index == 1:
-        cards = "".join(
-            [
-                f"""
-                <div class=\"card\"><div class=\"num\">{i+1}</div><div><h3>{escape(c['title'])}</h3><div class=\"card-desc\" >{escape(c['body'])}</div></div></div>
-                """
-                for i, c in enumerate(slide["cards"])
-            ]
-        )
-        inline_image = ""
-        if slide.get("show_inline_image", True):
-            inline_image = _inline_copy_image(root, slide.get("image", ""))
+    elif template_type == "concept_cards":
+        cards = "".join([
+            f"<div class='card'><div class='num'>{i+1}</div><div><h3>{escape(c.get('title',''))}</h3><div class='card-desc'>{escape(c.get('body',''))}</div></div></div>"
+            for i, c in enumerate(slide.get("cards", []))
+        ])
+        inline_image = _inline_copy_image(root, slide.get("image", "")) if slide.get("show_inline_image", True) else ""
         body = f"""
-        <div class=\"logo\">{brand}<span class=\"dot\">.</span></div>
-        <div class=\"series\">{series}</div>
-        <div class=\"section-kicker\">{escape(slide['section_kicker'])}</div>
-        <div class=\"section-title section-title-concept\">{escape(slide['section_title'])}</div>
-        <div class=\"copy{' with-inline-image' if inline_image else ''}\">{escape(slide['copy'])}</div>
-        <div class=\"card-list\">{cards}</div>
+        <div class="logo">{brand}<span class="dot">.</span></div>
+        <div class="series">{series}</div>
+        <div class="section-kicker">{escape(slide.get('section_kicker',''))}</div>
+        <div class="section-title section-title-concept">{escape(slide.get('section_title',''))}</div>
+        <div class="copy{' with-inline-image' if inline_image else ''}">{escape(slide.get('copy',''))}</div>
+        {inline_image}
+        <div class="card-list">{cards}</div>
         """
-    elif index == 2:
+    elif template_type == "visual_story":
         visual_uri = _img(root, slide.get("image", ""))
-        visual_img = f"<div class='visual-story-image'><img src='{visual_uri}' alt='visual'/></div>" if visual_uri else ""
-        paragraph = (
-            f"<div class='visual-story-paragraph'>{escape(slide.get('paragraph', ''))}</div>"
-            if slide.get("show_paragraph", True) and slide.get("paragraph", "").strip()
-            else ""
-        )
+        paragraph = f"<div class='visual-story-paragraph'>{escape(slide.get('paragraph', ''))}</div>" if slide.get("show_paragraph", True) and slide.get("paragraph", "").strip() else ""
         body = f"""
-        <div class=\"logo\">{brand}<span class=\"dot\">.</span></div>
-        <div class=\"series\">{series}</div>
-        <div class=\"section-kicker\">{escape(slide['section_kicker'])}</div>
-        <div class=\"section-title section-title-now\">{escape(slide['section_title'])}</div>
-        <div class=\"visual-story-wrap\">
-          <div class=\"visual-story-image\">{f"<img src='{visual_uri}' alt='visual'/>" if visual_uri else ''}</div>
+        <div class="logo">{brand}<span class="dot">.</span></div>
+        <div class="series">{series}</div>
+        <div class="section-kicker">{escape(slide.get('section_kicker',''))}</div>
+        <div class="section-title section-title-now">{escape(slide.get('section_title',''))}</div>
+        <div class="visual-story-wrap">
+          <div class="visual-story-image">{f"<img src='{visual_uri}' alt='visual'/>" if visual_uri else ''}</div>
           {paragraph}
         </div>
         """
-    elif index == 3:
-        definitions = "".join(
-            [
-                f"<div class='def-item'><div class='def-term'>{escape(item['term'])}</div><div class='def-body'>{escape(item['definition'])}</div></div>"
-                for item in slide.get("definitions", [])
-            ]
-        )
+    elif template_type == "timeline":
+        timeline_items = slide.get("timeline_items", [])[:3]
+        timeline_items_next = slide.get("timeline_items", [])[3:6]
+        blocks = "".join([
+            f"<div class='time-block'><div class='time-date'>{escape(item.get('date',''))}</div><div class='time-title'>{escape(item.get('title',''))}</div><div class='time-body'>{escape(item.get('body',''))}</div></div>"
+            for item in timeline_items
+        ])
+        blocks_next = "".join([
+            f"<div class='time-block'><div class='time-date'>{escape(item.get('date', ''))}</div><div class='time-title'>{escape(item.get('title', ''))}</div><div class='time-body'>{escape(item.get('body', ''))}</div></div>"
+            for item in timeline_items_next
+        ])
         body = f"""
-        <div class=\"logo\">{brand}<span class=\"dot\">.</span></div>
-        <div class=\"series\">{series}</div>
-        <div class=\"section-kicker\">{escape(slide['section_kicker'])}</div>
-        <div class=\"section-title\">{escape(slide['section_title'])}</div>
-        <div class=\"definitions-wrap\">
-          <div class=\"definitions-intro\">{escape(slide.get('intro', ''))}</div>
-          {definitions}
-        </div>
+        <div class="logo">{brand}<span class="dot">.</span></div>
+        <div class="series">{series}</div>
+        <div class="section-kicker">{escape(slide.get('section_kicker',''))}</div>
+        <div class="section-title">{escape(slide.get('section_title',''))}</div>
+        <div class="timeline">{blocks}</div>
+        <div class="timeline">{blocks}</div>
         """
-    elif index in (4, 5):
-        matrix = "".join(
-            [
-                f"<div class='box'><div class='small'>{escape(x['small'])}</div><div class='big'>{escape(x['big'])}</div><div class=\"card-desc\" >{escape(x['body'])}</div></div>"
-                for x in slide["matrix"]
-            ]
-        )
+    elif template_type == "definitions":
+        definitions = "".join([f"<div class='def-item'><div class='def-term'>{escape(item.get('term',''))}</div><div class='def-body'>{escape(item.get('definition',''))}</div></div>" for item in slide.get("definitions", [])])
         body = f"""
-        <div class=\"logo\">{brand}<span class=\"dot\">.</span></div>
-        <div class=\"series\">{series}</div>
-        <div class=\"section-kicker\">{escape(slide['section_kicker'])}</div>
-        <div class=\"section-title\">{escape(slide['section_title'])}</div>
-        <div class=\"matrix\">{matrix}</div>
+        <div class="logo">{brand}<span class="dot">.</span></div>
+        <div class="series">{series}</div>
+        <div class="section-kicker">{escape(slide.get('section_kicker',''))}</div>
+        <div class="section-title">{escape(slide.get('section_title',''))}</div>
+        <div class="definitions-wrap"><div class="definitions-intro">{escape(slide.get('intro', ''))}</div>{definitions}</div>
+        """
+    elif template_type in ("matrix_why", "matrix_difficulty"):
+        matrix = "".join([f"<div class='box'><div class='small'>{escape(x.get('small',''))}</div><div class='big'>{escape(x.get('big',''))}</div><div class='card-desc'>{escape(x.get('body',''))}</div></div>" for x in slide.get("matrix", [])])
+        body = f"""
+        <div class="logo">{brand}<span class="dot">.</span></div>
+        <div class="series">{series}</div>
+        <div class="section-kicker">{escape(slide.get('section_kicker',''))}</div>
+        <div class="section-title">{escape(slide.get('section_title',''))}</div>
+        <div class="matrix">{matrix}</div>
         """
     else:
         markers = []
         for marker in slide.get("client_markers", []):
             x, y = _compute_marker(marker.get("section", "trial"), marker.get("angle_deg", 30))
             color = escape(marker.get("color", "#2f2a7a"))
-            markers.append(
-                f"<circle cx='{x:.1f}' cy='{y:.1f}' r='7' fill='white' stroke='{color}' stroke-width='3'/>"
-            )
+            markers.append(f"<circle cx='{x:.1f}' cy='{y:.1f}' r='7' fill='white' stroke='{color}' stroke-width='3'/>")
         points = "".join(markers)
-        legend_items = "".join(
-            [
-                f"<div class='simple-legend-item'><span class='dot' style='background:{escape(m.get('color', '#2f2a7a'))}'></span>{escape(m.get('type', 'Client'))}</div>"
-                for m in slide.get("client_markers", [])
-            ]
-        )
+        legend_items = "".join([f"<div class='simple-legend-item'><span class='dot' style='background:{escape(m.get('color', '#2f2a7a'))}'></span>{escape(m.get('type', 'Client'))}</div>" for m in slide.get("client_markers", [])])
         body = f"""
-        <div class=\"logo\">{brand}<span class=\"dot\">.</span></div>
-        <div class=\"series\">{series}</div>
-        <div class=\"section-kicker\">{escape(slide['section_kicker'])}</div>
-        <div class=\"section-title\">{escape(slide['section_title'])}</div>
-        <div class=\"radar-wrap\">
-          <div>
-            <div class=\"radar-text\"><strong>{escape(slide['radar_text'])}</strong></div>
-            <div class=\"bodycopy\" style=\"margin-top:22px;\">{escape(slide['radar_body'])}</div>
-          </div>
-          <div>
-            <svg class=\"radar-quarter\" viewBox=\"0 0 640 640\" width=\"100%\" height=\"100%\" aria-label=\"Radar quart de cercle\">
-              <g>
-                <path d=\"M0 560 A560 560 0 0 1 560 0\" fill=\"none\" stroke=\"#8E8E8E\" stroke-width=\"2\"/>
-                <path d=\"M140 560 A420 420 0 0 1 560 140\" fill=\"none\" stroke=\"#8E8E8E\" stroke-width=\"2\"/>
-                <path d=\"M280 560 A280 280 0 0 1 560 280\" fill=\"none\" stroke=\"#8E8E8E\" stroke-width=\"2\"/>
-                <path d=\"M420 560 A140 140 0 0 1 560 420\" fill=\"none\" stroke=\"#8E8E8E\" stroke-width=\"2\"/>
-                <line x1=\"0\" y1=\"560\" x2=\"560\" y2=\"560\" stroke=\"#8E8E8E\" stroke-width=\"2\"/>
-                <line x1=\"560\" y1=\"560\" x2=\"560\" y2=\"0\" stroke=\"#8E8E8E\" stroke-width=\"2\"/>
-
-                <text x=\"20\" y=\"596\" font-size=\"22\" fill=\"#26242A\" font-weight=\"600\">Caution</text>
-                <text x=\"166\" y=\"596\" font-size=\"22\" fill=\"#26242A\" font-weight=\"600\">Assess</text>
-                <text x=\"315\" y=\"596\" font-size=\"22\" fill=\"#26242A\" font-weight=\"600\">Trial</text>
-                <text x=\"545\" y=\"596\" font-size=\"22\" fill=\"#26242A\" font-weight=\"600\" text-anchor=\"end\">Adopt</text>
-                <text x=\"20\" y=\"620\" font-size=\"12\" fill=\"#6B7280\">Peu prioritaire</text>
-                <text x=\"166\" y=\"620\" font-size=\"12\" fill=\"#6B7280\">Cadrer et préparer</text>
-                <text x=\"315\" y=\"620\" font-size=\"12\" fill=\"#6B7280\">Tester en réel</text>
-                <text x=\"545\" y=\"620\" font-size=\"12\" fill=\"#6B7280\" text-anchor=\"end\">Déployer à l'échelle</text>
-
-                <g transform=\"translate(0,560) scale(3.2,-3.2)\">{points}</g>
-              </g>
-            </svg>
-            <div class=\"simple-legend\">{legend_items}</div>
-          </div>
+        <div class="logo">{brand}<span class="dot">.</span></div>
+        <div class="series">{series}</div>
+        <div class="section-kicker">{escape(slide.get('section_kicker',''))}</div>
+        <div class="section-title">{escape(slide.get('section_title',''))}</div>
+        <div class="radar-wrap"><div><div class="radar-text"><strong>{escape(slide.get('radar_text',''))}</strong></div>
+        <div class="bodycopy" style="margin-top:22px;">{escape(slide.get('radar_body',''))}</div>
         </div>
+        <div><svg class="radar-quarter" viewBox="0 0 640 640" width="100%" height="100%" aria-label="Radar quart de cercle"><g><path d="M0 560 A560 560 0 0 1 560 0" fill="none" stroke="#8E8E8E" stroke-width="2"/><path d="M140 560 A420 420 0 0 1 560 140" fill="none" stroke="#8E8E8E" stroke-width="2"/><path d="M280 560 A280 280 0 0 1 560 280" fill="none" stroke="#8E8E8E" stroke-width="2"/><path d="M420 560 A140 140 0 0 1 560 420" fill="none" stroke="#8E8E8E" stroke-width="2"/><line x1="0" y1="560" x2="560" y2="560" stroke="#8E8E8E" stroke-width="2"/><line x1="560" y1="560" x2="560" y2="0" stroke="#8E8E8E" stroke-width="2"/><g transform="translate(0,560) scale(3.2,-3.2)">{points}</g></g></svg>
+        <div class="simple-legend">{legend_items}
+        </div>
+        </div></div>
         """
 
     return f"""
@@ -220,9 +199,7 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
       <style>{build_css()}</style>
     </head>
     <body>
-      <section class='page slide-{slide_no}'><div class='content-frame'><div class='grid'>{body}</div>        
-{_inline_footer_like(topic, slide_no)}
-</div></section>
+      <section class='page slide-{slide_no}'><div class='content-frame'><div class='grid'>{body}</div>{_inline_footer_like(topic, slide_no, total_slides)}</div></section>
     </body>
     </html>
     """

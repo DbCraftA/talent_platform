@@ -72,15 +72,15 @@ def build_css() -> str:
     .num{font-size:42px;line-height:.9;font-weight:700;color:var(--accent);font-family:var(--font-display)}
     .card h3{margin:3px 0 8px;font-size:22px;line-height:1.05;letter-spacing:-.02em}
     .card p{margin:0;font-size:15px;line-height:1.4;color:var(--gray-2)}
-    .timeline{grid-column:1/span 12;margin-top:18px;display:grid;grid-template-columns:repeat(var(--timeline-cols,3),1fr);column-gap:var(--g)}
-    .time-block{padding-top:18px;border-top:2px solid var(--accent)}
+    .timeline{grid-column:1/span 12;margin-top:15px;display:grid;grid-template-columns:repeat(var(--timeline-cols,3),1fr);column-gap:var(--g)}
+    .time-block{padding-top:15px;border-top:2px solid var(--accent)}
     .time-date{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:16px}
-    .time-title{font-size:28px;font-weight:700;line-height:1.04;margin-bottom:12px}
+    .time-title{font-size:24px;font-weight:700;line-height:1.04;margin-bottom:12px}
     .time-body{font-size:18px;line-height:1.42;color:var(--gray-2)}
-    .visual-story-wrap{grid-column:1/span 12;margin-top:14px;display:grid;grid-template-columns:1fr;gap:0;align-items:center;justify-items:center}
-    .visual-story-image{width:800px;height:500px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
-    .visual-story-image img{width:100%;height:100%;object-fit:contain;object-position:center center}
-    .visual-story-paragraph{position:absolute;left:40px;right:18px;bottom:40px;margin:0;font-size:22px;line-height:1.3;}
+    .visual-story-wrap{grid-column:1/span 12;margin-top:14px;display:grid;grid-template-columns:1fr;gap:0;}
+    .visual-story-image{width:800px;height:500px;overflow:hidden;position:relative;display:flex;}
+    .visual-story-image img{width:min(100%,750px);height:min(100%,450px);object-fit:contain;object-position:center center}
+    .visual-story-paragraph{position:absolute;left:40px;right:18px;bottom:30px;margin:0;font-size:22px;line-height:1.3;}
     .definitions-wrap{grid-column:1/span 12;margin-top:16px;display:grid;grid-template-columns:1fr;gap:10px}
     .definitions-intro{font-size:30px;color:var(--gray-2);font-weight:500;line-height:1;margin-bottom:8px;max-width:860px}
     .def-item{display:grid;grid-template-columns:3fr 9fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--gray-1)}
