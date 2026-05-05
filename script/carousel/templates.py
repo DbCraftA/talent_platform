@@ -94,7 +94,7 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
         cards = "".join(
             [
                 f"""
-                <div class=\"card\"><div class=\"num\">{i+1}</div><div><h3>{escape(c['title'])}</h3><p>{escape(c['body'])}</p></div></div>
+                <div class=\"card\"><div class=\"num\">{i+1}</div><div><h3>{escape(c['title'])}</h3><div class=\"card-desc\" >{escape(c['body'])}</div></div></div>
                 """
                 for i, c in enumerate(slide["cards"])
             ]
@@ -124,7 +124,8 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
         <div class=\"section-kicker\">{escape(slide['section_kicker'])}</div>
         <div class=\"section-title section-title-now\">{escape(slide['section_title'])}</div>
         <div class=\"visual-story-wrap\">
-          <div class=\"visual-story-image\">{f"<img src='{visual_uri}' alt='visual'/>" if visual_uri else ''}{paragraph}</div>
+          <div class=\"visual-story-image\">{f"<img src='{visual_uri}' alt='visual'/>" if visual_uri else ''}</div>
+          {paragraph}
         </div>
         """
     elif index == 3:
@@ -147,7 +148,7 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
     elif index in (4, 5):
         matrix = "".join(
             [
-                f"<div class='box'><div class='small'>{escape(x['small'])}</div><div class='big'>{escape(x['big'])}</div><p>{escape(x['body'])}</p></div>"
+                f"<div class='box'><div class='small'>{escape(x['small'])}</div><div class='big'>{escape(x['big'])}</div><div class=\"card-desc\" >{escape(x['body'])}</div></div>"
                 for x in slide["matrix"]
             ]
         )

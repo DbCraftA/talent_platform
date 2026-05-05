@@ -18,17 +18,21 @@ async def _render_one(html_path: Path, output_path: Path) -> None:
         page = await browser.new_page(viewport={"width": 1080, "height": 1350})
         await page.goto(html_path.resolve().as_uri())
         await page.wait_for_timeout(250)
-        page_container = page.locator(".page")
+        page_container = page.locator(".content-frame")
         if await page_container.count() > 0:
             box = await page_container.bounding_box()
             if box:
+                clip_x = max(0, box["x"])
+                clip_y = max(0, box["y"])
+                clip_w = max(1, box["width"])
+                clip_h = max(1, box["height"])
                 await page.screenshot(
                     path=str(output_path),
                     clip={
-                        "x": box["x"],
-                        "y": box["y"],
-                        "width": 1080,
-                        "height": 1350,
+                        "x": clip_x,
+                        "y": clip_y,
+                        "width": clip_w,
+                        "height": clip_h,
                     },
                 )
             else:
@@ -49,7 +53,9 @@ async def _render_png_files(html_files: list[Path], output_dir: Path) -> list[Pa
 
 
 def _normalize_pngs(png_files: list[Path]) -> None:
-    target_ratio = 1080 / 1350
+    target_width_out = 850
+    target_height_out = 850
+    target_ratio = target_width_out / target_height_out
     for png in png_files:
         with Image.open(png) as img:
             width, height = img.size
@@ -72,7 +78,7 @@ def _normalize_pngs(png_files: list[Path]) -> None:
                 right = width
 
             cropped = img.crop((left, top, right, bottom))
-            resized = cropped.resize((1080, 1350), Image.Resampling.LANCZOS)
+            resized = cropped.resize((target_width_out, target_height_out), Image.Resampling.LANCZOS)
             resized.save(png)
 
 
