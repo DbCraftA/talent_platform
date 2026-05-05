@@ -31,6 +31,7 @@ TEMPLATE_OPTIONS = {
     "concept_cards": "Concept cards",
     "visual_story": "Visual story",
     "timeline": "Timeline",
+    "compare_table": "Compare table",
     "definitions": "Definitions",
     "matrix_why": "Matrix why",
     "matrix_difficulty": "Matrix difficulty",
@@ -45,10 +46,11 @@ def _new_slide_for_template(template_type: str) -> dict:
         "concept_cards": 1,
         "visual_story": 2,
         "timeline": 3,
-        "definitions": 4,
-        "matrix_why": 5,
-        "matrix_difficulty": 6,
-        "radar_verdict": 7,
+        "compare_table": 4,
+        "definitions": 5,
+        "matrix_why": 6,
+        "matrix_difficulty": 7,
+        "radar_verdict": 8,
     }
     idx = mapping.get(template_type, 0)
     slide = clone_data(seed)["slides"][idx]
@@ -182,6 +184,51 @@ def _edit_slide(slide_index: int) -> None:
                 item["date"] = st.text_input("Date", item.get("date", ""), key=f"timeline_date_{slide_index}_{i}")
                 item["title"] = st.text_input("Titre", item.get("title", ""), key=f"timeline_title_{slide_index}_{i}")
                 item["body"] = st.text_area("Corps", item.get("body", ""), key=f"timeline_body_{slide_index}_{i}")
+    elif selected_type == "compare_table":
+        slide["section_kicker"] = st.text_input("Section kicker", slide.get("section_kicker", ""))
+        slide["section_title"] = st.text_input("Titre", slide.get("section_title", ""))
+        slide["subtitle"] = st.text_area("Sous-titre", slide.get("subtitle", ""), height=100)
+
+        cols = st.slider("Nombre de colonnes", 2, 5, int(slide.get("table_columns", 3)), key=f"ct_cols_{slide_index}")
+        rows = st.slider("Nombre de lignes", 1, 4, int(slide.get("table_rows", 4)), key=f"ct_rows_{slide_index}")
+        slide["table_columns"] = cols
+        slide["table_rows"] = rows
+
+        headers = slide.get("table_headers", [])
+        while len(headers) < cols:
+            headers.append(f"Colonne {len(headers)+1}")
+        headers = headers[:cols]
+        slide["table_headers"] = headers
+
+        cells = slide.get("table_cells", [])
+        while len(cells) < rows:
+            cells.append([""] * cols)
+        cells = cells[:rows]
+        for r in range(rows):
+            row_vals = cells[r] if r < len(cells) else []
+            while len(row_vals) < cols:
+                row_vals.append("")
+            cells[r] = row_vals[:cols]
+        slide["table_cells"] = cells
+
+        st.markdown("**En-têtes**")
+        for c in range(cols):
+            slide["table_headers"][c] = st.text_input(
+                f"Header {c+1}",
+                slide["table_headers"][c],
+                key=f"ct_header_{slide_index}_{c}",
+            )
+
+        st.markdown("**Cellules**")
+        for r in range(rows):
+            with st.expander(f"Ligne {r+1}", expanded=r == 0):
+                for c in range(cols):
+                    slide["table_cells"][r][c] = st.text_area(
+                        f"R{r+1} C{c+1}",
+                        slide["table_cells"][r][c],
+                        key=f"ct_cell_{slide_index}_{r}_{c}",
+                        height=80,
+                    )
     elif selected_type == "definitions":
         slide["section_kicker"] = st.text_input("Section kicker", slide["section_kicker"])
         slide["section_title"] = st.text_input("Section title", slide["section_title"])

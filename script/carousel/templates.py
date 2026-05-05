@@ -148,7 +148,34 @@ def render_slide(root: Path, payload: dict, index: int) -> str:
         <div class="section-kicker">{escape(slide.get('section_kicker',''))}</div>
         <div class="section-title">{escape(slide.get('section_title',''))}</div>
         <div class="timeline">{blocks}</div>
-        <div class="timeline">{blocks}</div>
+        <div class="timeline">{blocks_next}</div>
+        """
+    elif template_type == "compare_table":
+        headers = slide.get("table_headers", [])
+        rows = slide.get("table_cells", [])
+        cols = max(2, int(slide.get("table_columns", len(headers) if headers else 3)))
+        while len(headers) < cols:
+            headers.append(f"Colonne {len(headers)+1}")
+        headers = headers[:cols]
+
+        grid_cols = "2.1fr " + " ".join(["1.65fr" for _ in range(max(0, cols - 1))])
+
+        cells_html = "".join([f"<div class='cell head'><div class='label'>{escape(h)}</div></div>" for h in headers])
+        for row in rows:
+            row_vals = row if isinstance(row, list) else []
+            while len(row_vals) < cols:
+                row_vals.append("")
+            for c in range(cols):
+                val = row_vals[c]
+                cells_html += f"<div class='cell'><div class='main'>{escape(val)}</div></div>"
+
+        body = f"""
+        <div class="logo">{brand}<span class="dot">.</span></div>
+        <div class="series">{series}<br/>Comparative view</div>
+        <div class="section-kicker">{escape(slide.get('section_kicker',''))}</div>
+        <div class="title">{escape(slide.get('section_title',''))}</div>
+        <div class="subtitle">{escape(slide.get('subtitle',''))}</div>
+        <div class="compare-wrap" style="grid-template-columns:{grid_cols};">{cells_html}</div>
         """
     elif template_type == "definitions":
         definitions = "".join([f"<div class='def-item'><div class='def-term'>{escape(item.get('term',''))}</div><div class='def-body'>{escape(item.get('definition',''))}</div></div>" for item in slide.get("definitions", [])])

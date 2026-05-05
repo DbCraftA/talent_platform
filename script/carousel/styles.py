@@ -54,7 +54,7 @@ def build_css() -> str:
     .logo{grid-column:1/span 5;font-size:22px;font-weight:700;letter-spacing:-.03em;font-family:var(--font-display)}
     .logo .dot{color:var(--accent);font-size:30px;}
     .series{grid-column:9/span 4;justify-self:end;font-size:11px;letter-spacing:.14em;color:var(--gray-2);font-weight:700;text-transform:uppercase;text-align:right}
-    .title{grid-column:1/span 12;margin-top:44px;font-size:70px;line-height:.96;font-weight:700;letter-spacing:-.035em;font-family:var(--font-display)}
+    .title{grid-column:1/span 12;margin-top:44px;font-size:40px;line-height:.96;font-weight:700;letter-spacing:-.035em;font-family:var(--font-display)}
     .title .line{display:block}
     .subtitle{grid-column:1/span 12;margin-top:18px;font-size:35px;line-height:1.16;color:var(--gray-2)}
     .meta{grid-column:1/span 12;margin-top:20px;font-size:25px;color:var(--gray-2);line-height:1.42}
@@ -77,6 +77,12 @@ def build_css() -> str:
     .time-date{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:16px}
     .time-title{font-size:24px;font-weight:700;line-height:1.04;margin-bottom:12px}
     .time-body{font-size:18px;line-height:1.42;color:var(--gray-2)}
+    .compare-wrap{grid-column:1/span 12;margin-top:24px;display:grid;border-top:1px solid var(--gray-1);border-left:1px solid var(--gray-1);background:rgba(255,255,255,.45)}
+    .cell{min-height:90px;padding:14px;border-right:1px solid var(--gray-1);border-bottom:1px solid var(--gray-1);display:flex;flex-direction:column;justify-content:flex-start}
+    .cell.head{min-height:96px;background:rgba(255,255,255,.62)}
+    .cell .label{font-size:18px;letter-spacing:.14em;color:var(--gray-2);font-weight:700;text-transform:uppercase;margin-bottom:8px}
+    .cell .main{font-size:20px;line-height:1.1;font-weight:700;letter-spacing:-.02em;color:var(--text)}
+    .cell .muted{margin-top:8px;font-size:14px;line-height:1.35;color:var(--gray-2)}
     .visual-story-wrap{grid-column:1/span 12;margin-top:14px;display:grid;grid-template-columns:1fr;gap:0;}
     .visual-story-image{width:800px;height:500px;overflow:hidden;position:relative;display:flex;}
     .visual-story-image img{width:min(100%,750px);height:min(100%,450px);object-fit:contain;object-position:center center}
