@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import asyncio
-import base64
 import struct
 from pathlib import Path
 
@@ -96,59 +95,14 @@ async def _render_pdf_direct(html_files: list[Path], output_path: Path) -> None:
 
 
 async def _render_pdf_from_pngs(png_files: list[Path], output_path: Path) -> None:
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(
-            headless=True,
-            args=["--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage"],
-        )
-        page = await browser.new_page(viewport={"width": 1080, "height": 1350})
+    if not png_files:
+        raise RuntimeError("Aucune image PNG à convertir en PDF")
 
-        def _png_size(path: Path) -> tuple[int, int]:
-            raw = path.read_bytes()
-            if len(raw) < 24 or raw[:8] != b"\x89PNG\r\n\x1a\n":
-                return (1080, 1350)
-            width, height = struct.unpack(">II", raw[16:24])
-            return int(width), int(height)
-
-        page_w, page_h = _png_size(png_files[0]) if png_files else (1080, 1350)
-
-        blocks: list[str] = []
-        for png in png_files:
-            b64 = base64.b64encode(png.read_bytes()).decode("ascii")
-            blocks.append(
-                f'<div class="pdf-page"><img src="data:image/png;base64,{b64}" alt="slide" /></div>'
-            )
-        img_blocks = "\n".join(blocks)
-
-        merged_html = f"""
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      @page {{ size: {page_w}px {page_h}px; margin: 0; }}
-      html, body {{ margin: 0; padding: 0; background: #ffffff; }}
-      .pdf-page {{ width: {page_w}px; height: {page_h}px; page-break-after: always; break-after: page; }}
-      .pdf-page:last-child {{ page-break-after: auto; break-after: auto; }}
-      .pdf-page img {{ width: 100%; height: 100%; display: block; object-fit: fill; }}
-    </style>
-  </head>
-  <body>
-    {img_blocks}
-  </body>
-</html>
-"""
-
-        await page.set_content(merged_html, wait_until="networkidle")
-        await page.pdf(
-            path=str(output_path),
-            width=f"{page_w}px",
-            height=f"{page_h}px",
-            margin={"top": "0", "right": "0", "bottom": "0", "left": "0"},
-            print_background=True,
-        )
-        await browser.close()
+    images = [Image.open(p).convert("RGB") for p in png_files]
+    first, rest = images[0], images[1:]
+    first.save(str(output_path), "PDF", resolution=300.0, save_all=True, append_images=rest)
+    for im in images:
+        im.close()
 
 
 def export_html_to_png(html_files: list[Path], output_dir: Path) -> list[Path]:
