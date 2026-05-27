@@ -68,7 +68,7 @@ def build_css() -> str:
     .copy.with-inline-image{margin-bottom:22px}
     .inline-copy-image{grid-column:1/span 6;height:320px;border-radius:14px;overflow:hidden;border:1px solid rgba(11,15,20,.08);background:#fff}
     .inline-copy-image img{width:100%;height:100%;object-fit:cover}
-    .card{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:0 0 22px;margin:0 0 22px;border-bottom:1px solid var(--gray-1)}
+    .card{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:0 0 22px;margin:0 0 22px;border-bottom:1px solid var(--gray-1);}
     .num{font-size:42px;line-height:.9;font-weight:700;color:var(--accent);font-family:var(--font-display)}
     .card h3{margin:3px 0 8px;font-size:22px;line-height:1.05;letter-spacing:-.02em}
     .card p{margin:0;font-size:15px;line-height:1.4;color:var(--gray-2)}
@@ -111,10 +111,21 @@ def build_css() -> str:
     .dual-client .name{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
     .dual-client ul{margin:8px 0 0;padding-left:16px}
     .dual-client li{font-size:13px;line-height:1.35;color:var(--gray-2);margin-bottom:6px}
-    .simple-legend{margin-top:10px;border-top:1px solid var(--gray-1);padding-top:10px;display:flex;gap:18px;flex-wrap:wrap}
-    .simple-legend-item{font-size:13px;color:var(--gray-2);display:flex;align-items:center;gap:8px}
-    .simple-legend-item .dot{display:inline-block;width:10px;height:10px;border-radius:50%}
-    .radar-quarter{width:100%;height:100%;min-height:450px}
+    .simple-legend{margin-top:8px;border-top:1px solid var(--gray-1);padding-top:8px;display:flex;gap:12px;flex-wrap:wrap}
+    .simple-legend-item{font-size:12px;color:var(--gray-2);display:flex;align-items:center;gap:6px}
+    .simple-legend-item .dot{display:inline-block;width:8px;height:8px;border-radius:50%}
+    .radar-quarter{width:100%;height:100%;min-height:340px;margin-bottom:-14px;display:block}
+    .radar-stage-bar{margin-top:-40px;border-top:1px solid var(--gray-1);padding-top:2px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;position:relative;z-index:2}
+    .radar-stage-item{display:flex;flex-direction:column;gap:0;min-width:0}
+    .radar-stage-title{font-size:20px;line-height:1.05;font-weight:700;color:var(--text);letter-spacing:-.005em}
+    .radar-stage-title-revert{font-size:20px;line-height:1.05;font-weight:700;color:var(--text);letter-spacing:-.005em;margin-right:50px;}
+    .radar-stage-subtitle{font-size:10px;line-height:1.1;color:var(--gray-2);font-weight:600;white-space:normal;overflow:visible;text-overflow:clip}
+    .radar-stage-item:last-child{align-items:flex-end;text-align:right}
+    .radar-stage-subtitle-revert{font-size:10px;line-height:1.1;color:var(--gray-2);font-weight:600;white-space:normal;overflow:visible;text-overflow:clip;text-align:right;display:block;max-width:92px;margin-right:50px;}
+    .promo-copy{grid-column:1/span 10;margin-top:28px;font-size:26px;line-height:1.35;color:var(--gray-2);font-weight:600;max-width:760px}
+    .promo-cta-wrap{grid-column:1/span 12;margin-top:34px;display:flex;gap:16px;flex-wrap:wrap}
+    .promo-cta{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;background:var(--accent);color:#fff !important;text-decoration:none;font-size:16px;font-weight:700;letter-spacing:.01em;border:1px solid transparent}
+    .promo-cta-secondary{background:transparent;color:var(--text) !important;border-color:var(--gray-2)}
     .legend{margin-top:10px;border-top:1px solid var(--gray-1);padding-top:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
     .card-desc{font-size:20px;color:var(--gray-2);font-weight:600}
     .legend .item{font-size:12px;color:var(--gray-2)}

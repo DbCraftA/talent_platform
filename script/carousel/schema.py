@@ -14,6 +14,8 @@ DEFAULT_TEMPLATE_TYPES = [
     "matrix_why",
     "matrix_difficulty",
     "radar_verdict",
+    "text",
+    "promo_wenovat",
 ]
 
 
@@ -39,12 +41,12 @@ def default_data(root: Path) -> dict:
     return {
         "brand": "Wenovat",
         "series": "WENOVAT RADAR",
+        "kicker": "Cryptographie quantique",
         "episode": "Épisode 01 · Security",
-        "topic": "Cryptographie quantique",
+        "topic": "© 2026 Wenovat. Tous droits réservés.",
         "slides": [
             {
                 "template_type": "cover",
-                "kicker": "Concept Enlightenment for architects, CTOs and tech leaders",
                 "title_lines": [
                     "Faut-il vraiment",
                     "s’inquiéter des risques",
@@ -172,6 +174,27 @@ def default_data(root: Path) -> dict:
                         "color": "#2b8f9e",
                     },
                 ],
+                "image": "",
+            },
+            {
+                "template_type": "text",
+                "section_kicker": "À retenir",
+                "title_lines": [
+                    "Un message clé",
+                    "clair et actionnable",
+                ],
+                "subtitle": "Bloc de texte additionnel pour contextualiser la recommandation.",
+                "image": "",
+            },
+            {
+                "template_type": "promo_wenovat",
+                "section_kicker": "Restons connectés",
+                "section_title": "Wenovat",
+                "promo_copy": "Nous aidons les organisations à transformer leurs enjeux tech en décisions actionnables.",
+                "cta_site_label": "Visiter le site",
+                "cta_site_url": "https://wenovat.example",
+                "cta_linkedin_label": "Suivre sur LinkedIn",
+                "cta_linkedin_url": "https://linkedin.com/company/wenovat",
                 "image": "",
             },
         ],

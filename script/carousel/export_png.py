@@ -6,6 +6,8 @@ from pathlib import Path
 
 from playwright.async_api import async_playwright
 from PIL import Image
+from pypdf import PdfReader, PdfWriter
+from pypdf import Transformation
 
 
 async def _render_one(html_path: Path, output_path: Path) -> None:
@@ -129,3 +131,43 @@ def export_html_to_pdf(html_files: list[Path], output_path: Path) -> Path:
             "python -m playwright install chromium"
         ) from exc
     return output_path
+
+
+def append_fixed_promo_page(base_pdf_path: Path, promo_pdf_path: Path) -> Path:
+    if not base_pdf_path.exists():
+        raise RuntimeError(f"PDF de base introuvable: {base_pdf_path}")
+    if not promo_pdf_path.exists():
+        raise FileNotFoundError(f"PDF promo fixe introuvable: {promo_pdf_path}")
+
+    reader_base = PdfReader(str(base_pdf_path))
+    reader_promo = PdfReader(str(promo_pdf_path))
+    writer = PdfWriter()
+
+    for page in reader_base.pages:
+        writer.add_page(page)
+
+    # Normalize promo page size to match the existing PDF page box.
+    # Base PDF pages are created from PNG with Pillow and often have a smaller
+    # PDF point-size than the HTML/PDF page produced by Playwright.
+    base_ref = reader_base.pages[0]
+    base_w = float(base_ref.mediabox.width)
+    base_h = float(base_ref.mediabox.height)
+
+    for promo_src in reader_promo.pages:
+        promo_w = float(promo_src.mediabox.width)
+        promo_h = float(promo_src.mediabox.height)
+
+        scale = min(base_w / promo_w, base_h / promo_h) if promo_w > 0 and promo_h > 0 else 1.0
+        tx = (base_w - (promo_w * scale)) / 2.0
+        ty = (base_h - (promo_h * scale)) / 2.0
+
+        canvas = writer.add_blank_page(width=base_w, height=base_h)
+        canvas.merge_transformed_page(
+            promo_src,
+            Transformation().scale(scale).translate(tx, ty),
+        )
+
+    with base_pdf_path.open("wb") as f:
+        writer.write(f)
+
+    return base_pdf_path

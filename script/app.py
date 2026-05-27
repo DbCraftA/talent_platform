@@ -7,7 +7,7 @@ from pathlib import Path
 import streamlit as st
 import streamlit.components.v1 as components
 
-from carousel.export_png import export_html_to_pdf, export_html_to_png
+from carousel.export_png import append_fixed_promo_page, export_html_to_pdf, export_html_to_png
 from carousel.schema import DEFAULT_TEMPLATE_TYPES, clone_data, default_data, discover_fallback_images
 from carousel.templates import render_slide
 
@@ -17,6 +17,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 TMP_DIR = SCRIPT_DIR / ".tmp"
 OUTPUT_DIR = SCRIPT_DIR / "output"
 UPLOAD_DIR = SCRIPT_DIR / "uploads"
+ASSETS_DIR = SCRIPT_DIR / "assets"
 
 
 def _init_state() -> None:
@@ -36,6 +37,8 @@ TEMPLATE_OPTIONS = {
     "matrix_why": "Matrix why",
     "matrix_difficulty": "Matrix difficulty",
     "radar_verdict": "Radar verdict",
+    "text": "Text",
+    "promo_wenovat": "Promo Wenovat",
 }
 
 
@@ -51,6 +54,8 @@ def _new_slide_for_template(template_type: str) -> dict:
         "matrix_why": 6,
         "matrix_difficulty": 7,
         "radar_verdict": 8,
+        "text": 9,
+        "promo_wenovat": 10,
     }
     idx = mapping.get(template_type, 0)
     slide = clone_data(seed)["slides"][idx]
@@ -134,12 +139,11 @@ def _edit_slide(slide_index: int) -> None:
     if selected_type == "cover":
         data["brand"] = st.text_input("Marque", data["brand"])
         data["series"] = st.text_input("Série", data["series"])
+        data["kicker"] = st.text_input("Kicker global", data.get("kicker", ""))
         data["episode"] = st.text_input("Épisode", data["episode"])
         data["topic"] = st.text_input("Topic", data["topic"])
-        slide["kicker"] = st.text_input("Kicker", slide["kicker"])
         slide["title_lines"] = _text_area_list("Titre (1 ligne = 1 ligne de titre)", slide["title_lines"], "title_lines")
         slide["subtitle"] = st.text_area("Sous-titre", slide["subtitle"], height=120)
-        slide["meta"] = st.text_area("Meta", slide["meta"], height=90)
     elif selected_type == "concept_cards":
         slide["section_kicker"] = st.text_input("Section kicker", slide["section_kicker"])
         slide["section_title"] = st.text_input("Section title", slide["section_title"])
@@ -159,6 +163,10 @@ def _edit_slide(slide_index: int) -> None:
             with st.expander(f"Card {i+1}", expanded=i == 0):
                 card["title"] = st.text_input("Titre", card["title"], key=f"card_t_1_{i}")
                 card["body"] = st.text_area("Corps", card["body"], key=f"card_b_1_{i}")
+    elif selected_type == "text":
+        slide["section_kicker"] = st.text_input("Section kicker", slide.get("section_kicker", ""))
+        slide["title_lines"] = _text_area_list("Titre (1 ligne = 1 ligne de titre)", slide.get("title_lines", []), f"text_title_lines_{slide_index}")
+        slide["subtitle"] = st.text_area("Bloc texte", slide.get("subtitle", ""), height=120)
     elif selected_type == "visual_story":
         slide["section_kicker"] = st.text_input("Section kicker", slide["section_kicker"])
         slide["section_title"] = st.text_input("Section title", slide["section_title"])
@@ -253,48 +261,57 @@ def _edit_slide(slide_index: int) -> None:
                 box["big"] = st.text_input("Grand titre", box["big"], key=f"mx_b_{slide_index}_{i}")
                 box["body"] = st.text_area("Corps", box["body"], key=f"mx_p_{slide_index}_{i}")
     else:
-        slide["section_kicker"] = st.text_input("Section kicker", slide["section_kicker"])
-        slide["section_title"] = st.text_input("Section title", slide["section_title"])
-        slide["radar_text"] = st.text_input("Texte radar", slide["radar_text"])
-        slide["radar_body"] = st.text_area("Corps radar", slide["radar_body"], height=120)
-        markers = slide.get("client_markers", [])
-        markers = _resize_list_of_dicts(
-            markers,
-            2,
-            {
-                "type": "client",
-                "section": "trial",
-                "angle_deg": 30,
-                "color": "#2f2a7a",
-            },
-        )
-        markers[0]["type"] = st.text_input(
-            "Type client #1",
-            markers[0].get("type", "forte contrainte réglementaire"),
-            key="marker_type_0",
-        )
-        markers[0]["section"] = st.selectbox(
-            "Section radar #1",
-            ["adopt", "trial", "assess", "hold"],
-            index=["adopt", "trial", "assess", "hold"].index(markers[0].get("section", "trial")) if markers[0].get("section", "trial") in ["adopt", "trial", "assess", "hold"] else 1,
-            key="marker_section_0",
-        )
-        markers[0]["angle_deg"] = st.slider("Angle #1", 0, 359, int(markers[0].get("angle_deg", 28)), key="marker_angle_0")
-        markers[1]["type"] = st.text_input(
-            "Type client #2",
-            markers[1].get("type", "faible contrainte réglementaire"),
-            key="marker_type_1",
-        )
-        markers[1]["section"] = st.selectbox(
-            "Section radar #2",
-            ["adopt", "trial", "assess", "hold"],
-            index=["adopt", "trial", "assess", "hold"].index(markers[1].get("section", "assess")) if markers[1].get("section", "assess") in ["adopt", "trial", "assess", "hold"] else 2,
-            key="marker_section_1",
-        )
-        markers[1]["angle_deg"] = st.slider("Angle #2", 0, 359, int(markers[1].get("angle_deg", 138)), key="marker_angle_1")
-        markers[0]["color"] = st.color_picker("Couleur #1", markers[0].get("color", "#163a50"), key="marker_color_0")
-        markers[1]["color"] = st.color_picker("Couleur #2", markers[1].get("color", "#2b8f9e"), key="marker_color_1")
-        slide["client_markers"] = markers
+        if selected_type == "radar_verdict":
+            slide["section_kicker"] = st.text_input("Section kicker", slide["section_kicker"])
+            slide["section_title"] = st.text_input("Section title", slide["section_title"])
+            slide["radar_text"] = st.text_input("Texte radar", slide["radar_text"])
+            slide["radar_body"] = st.text_area("Corps radar", slide["radar_body"], height=120)
+            markers = slide.get("client_markers", [])
+            markers = _resize_list_of_dicts(
+                markers,
+                2,
+                {
+                    "type": "client",
+                    "section": "trial",
+                    "angle_deg": 30,
+                    "color": "#2f2a7a",
+                },
+            )
+            markers[0]["type"] = st.text_input(
+                "Type client #1",
+                markers[0].get("type", "forte contrainte réglementaire"),
+                key="marker_type_0",
+            )
+            markers[0]["section"] = st.selectbox(
+                "Section radar #1",
+                ["adopt", "trial", "assess", "hold"],
+                index=["adopt", "trial", "assess", "hold"].index(markers[0].get("section", "trial")) if markers[0].get("section", "trial") in ["adopt", "trial", "assess", "hold"] else 1,
+                key="marker_section_0",
+            )
+            markers[0]["angle_deg"] = st.slider("Angle #1", 0, 359, int(markers[0].get("angle_deg", 28)), key="marker_angle_0")
+            markers[1]["type"] = st.text_input(
+                "Type client #2",
+                markers[1].get("type", "faible contrainte réglementaire"),
+                key="marker_type_1",
+            )
+            markers[1]["section"] = st.selectbox(
+                "Section radar #2",
+                ["adopt", "trial", "assess", "hold"],
+                index=["adopt", "trial", "assess", "hold"].index(markers[1].get("section", "assess")) if markers[1].get("section", "assess") in ["adopt", "trial", "assess", "hold"] else 2,
+                key="marker_section_1",
+            )
+            markers[1]["angle_deg"] = st.slider("Angle #2", 0, 359, int(markers[1].get("angle_deg", 138)), key="marker_angle_1")
+            markers[0]["color"] = st.color_picker("Couleur #1", markers[0].get("color", "#163a50"), key="marker_color_0")
+            markers[1]["color"] = st.color_picker("Couleur #2", markers[1].get("color", "#2b8f9e"), key="marker_color_1")
+            slide["client_markers"] = markers
+        else:
+            slide["section_kicker"] = st.text_input("Section kicker", slide.get("section_kicker", ""))
+            slide["section_title"] = st.text_input("Titre", slide.get("section_title", "Wenovat"))
+            slide["promo_copy"] = st.text_area("Phrase valeur", slide.get("promo_copy", ""), height=100)
+            slide["cta_site_label"] = st.text_input("Label bouton site", slide.get("cta_site_label", "Visiter le site"))
+            slide["cta_site_url"] = st.text_input("URL site", slide.get("cta_site_url", "https://wenovat.example"))
+            slide["cta_linkedin_label"] = st.text_input("Label bouton LinkedIn", slide.get("cta_linkedin_label", "Suivre sur LinkedIn"))
+            slide["cta_linkedin_url"] = st.text_input("URL LinkedIn", slide.get("cta_linkedin_url", "https://linkedin.com/company/wenovat"))
 
 
 def _render_preview() -> None:
@@ -327,6 +344,11 @@ def _export_pdf() -> None:
         html_files.append(p)
     try:
         pdf_path = export_html_to_pdf(html_files, OUTPUT_DIR / "carousel.pdf")
+        promo_pdf_fixed = ASSETS_DIR / "promo_wenovat_fixed.pdf"
+        if promo_pdf_fixed.exists():
+            append_fixed_promo_page(pdf_path, promo_pdf_fixed)
+        else:
+            st.warning(f"Page promo fixe absente: {promo_pdf_fixed}. Export PDF sans append promo.")
         st.session_state.exported_pdf_bytes = pdf_path.read_bytes()
         st.session_state.exported_pdf_name = pdf_path.name
         st.success(f"Export PDF terminé: {pdf_path}")
@@ -363,8 +385,9 @@ def main() -> None:
         with col_add:
             add_type = st.selectbox("Nouveau template", options=list(TEMPLATE_OPTIONS.keys()), format_func=lambda x: TEMPLATE_OPTIONS[x], key="new_template_type")
             if st.button("Ajouter page"):
-                st.session_state.data["slides"].append(_new_slide_for_template(add_type))
-                st.session_state.current_slide = len(st.session_state.data["slides"]) - 1
+                insert_at = st.session_state.current_slide + 1
+                st.session_state.data["slides"].insert(insert_at, _new_slide_for_template(add_type))
+                st.session_state.current_slide = insert_at
         with col_remove:
             if st.button("Supprimer page", disabled=len(st.session_state.data["slides"]) <= 1):
                 st.session_state.data["slides"].pop(st.session_state.current_slide)
@@ -382,8 +405,19 @@ def main() -> None:
         )
         uploaded_json = st.file_uploader("Importer JSON", type=["json"])
         if uploaded_json:
-            st.session_state.data = clone_data(json.loads(uploaded_json.read().decode("utf-8")))
-            st.success("Contenu importé")
+            try:
+                imported_payload = json.loads(uploaded_json.read().decode("utf-8"))
+                if not isinstance(imported_payload, dict):
+                    raise ValueError("Le JSON doit être un objet.")
+                slides = imported_payload.get("slides")
+                if not isinstance(slides, list) or len(slides) == 0:
+                    raise ValueError("Le JSON doit contenir une clé 'slides' avec au moins une slide.")
+
+                st.session_state.data = clone_data(imported_payload)
+                st.session_state.current_slide = 0
+                st.success("Contenu importé. Retour à la première slide.")
+            except Exception as exc:
+                st.error(f"Import JSON invalide: {exc}")
 
         st.divider()
         st.caption("Exports")
