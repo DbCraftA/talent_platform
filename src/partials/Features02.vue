@@ -21,7 +21,7 @@
           </div>
 
           <!-- Section content -->
-          <div class="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
+          <div class="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0 text-center md:text-left">
 
             <!-- Content -->
             <div class="md:w-7/12 lg:w-1/2 order-1 md:order-none" data-aos="fade-up">
@@ -31,8 +31,8 @@
                 <p class="text-lg text-gray-500 mb-8">Plutôt que de mettre l’accent sur la complexité technologique, nous choisissons de placer le business au cœur de notre approche. Chaque décision technique est guidée par sa capacité à générer de la valeur et à soutenir vos objectifs.
                  </p>
                 <ul class="inline-flex flex-col space-y-6">
-                  <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                  <li class="flex flex-col md:flex-row items-center md:items-start">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mb-3 md:mb-0 md:mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -43,8 +43,8 @@
                       </div>
                     </div>
                   </li>
-                  <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                  <li class="flex flex-col md:flex-row items-center md:items-start">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mb-3 md:mb-0 md:mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -55,8 +55,8 @@
                       </div>
                     </div>
                   </li>
-                  <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                  <li class="flex flex-col md:flex-row items-center md:items-start">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mb-3 md:mb-0 md:mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -76,8 +76,8 @@
                   C’est pourquoi chaque architecte logiciel est validé par un expert du même domaine technique.
                 </p>
                 <ul class="inline-flex flex-col space-y-6">
-                  <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                  <li class="flex flex-col md:flex-row items-center md:items-start">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mb-3 md:mb-0 md:mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -86,8 +86,8 @@
                       </div>
                     </div>
                   </li>
-                  <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                  <li class="flex flex-col md:flex-row items-center md:items-start">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mb-3 md:mb-0 md:mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -97,8 +97,8 @@
                       </div>
                     </div>
                   </li>
-                  <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                  <li class="flex flex-col md:flex-row items-center md:items-start">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mb-3 md:mb-0 md:mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -116,8 +116,8 @@
                 <p class="text-lg text-gray-500 mb-8">Nous mettons à votre disposition des solutions packagées qui combinent expertise stratégique et accompagnement opérationnel.
                   Nos packs couvrent vos besoins essentiels — du cadrage cloud à l’accélération de vos cas d’usage— pour vous offrir rapidité, visibilité et résultats concrets.</p>
                 <ul class="inline-flex flex-col space-y-6">
-                  <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                  <li class="flex flex-col md:flex-row items-center md:items-start">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mb-3 md:mb-0 md:mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -127,8 +127,8 @@
                       </div>
                     </div>
                   </li>
-                  <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                  <li class="flex flex-col md:flex-row items-center md:items-start">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mb-3 md:mb-0 md:mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -144,8 +144,8 @@
                 <h3 class="h3 font-cabinet-grotesk mb-3">La rigueur d’un grand groupe et l’agilité d’une scale-up.</h3>
                 <p class="text-lg text-gray-500 mb-8">Nous combinons la rigueur et la vision des meilleurs cabinets de conseil avec la rapidité et la flexibilité d’une startup. Une approche hybride qui vous garantit à la fois solidité stratégique et efficacité opérationnelle.</p>
                 <ul class="inline-flex flex-col space-y-6">
-                  <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                  <li class="flex flex-col md:flex-row items-center md:items-start">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mb-3 md:mb-0 md:mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -155,8 +155,8 @@
                       </div>
                     </div>
                   </li>
-                  <li class="flex items-start">
-                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                  <li class="flex flex-col md:flex-row items-center md:items-start">
+                    <svg class="w-3 h-3 fill-current text-indigo-500 mt-1.5 mb-3 md:mb-0 md:mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
@@ -174,40 +174,9 @@
                 <img class="mx-auto md:max-w-none" src="../images/features-01.png" width="540" height="405" alt="Features" />
               </div>
               -->
-            <div class="pl-5 sm:pt-25  xl:pl-30" data-aos="zoom-y-out">
-              <div class="text-center">
-                <div
-                    class="inline-flex relative rounded-full before:absolute before:inset-0 before:-z-10 before:scale-[.85] before:bg-linear-to-b before:from-blue-200 before:to-sky-700/50 before:blur-3xl before:animate-[pulse_4s_cubic-bezier(.4,0,.6,1)_infinite] after:absolute after:inset-0 after:rounded-[inherit] after:[background:radial-gradient(closest-side,var(--color-blue-500),transparent)]">
-                  <img class="bg-gray-100/80 rounded-full" src="../images/planet.png" width="400" height="400" alt="Planet" />
-                  <div class="pointer-events-none" aria-hidden="true">
-                    <img class="absolute z-10 -top-20 -right-64 max-w-none" src="../images/planet-overlay.svg" width="789"
-                         height="755" alt="Planet decoration" />
-                    <div>
-
-                      <img
-                          class="absolute z-10 top-16 left-10 opacity-80 transition-opacity  rounded-full max-sm:scale-75! duration-500 animate-[float_4s_ease-in-out_infinite_both]"
-                          src="../images/world-user-04.jpg"
-                          width="45"
-                          height="45"
-                          alt="User 01"
-                          data-aos="fade-up"
-                      />
-                      <img
-                          class="absolute rounded-full z-10 top-25 left-56 opacity-80 transition-opacity duration-500 animate-[float_4s_ease-in-out_infinite_1s_both]"
-                          src="../images/world-user-03.jpg" width="50" height="50" alt="Tag 02" />
-                      <img
-                          class="absolute rounded-full  z-10 bottom-26 -left-5 opacity-90 transition-opacity duration-500 animate-[float_4s_ease-in-out_infinite_2s_both]"
-                          src="../images/world-user-07.jpg"  width="50" height="50" alt="Tag 03" />
-                      <img
-                          class="absolute rounded-full z-10  top-36 left-20 opacity-80 transition-opacity duration-500 animate-[float_4s_ease-in-out_infinite_3s_both]"
-                          src="../images/world-user-05.jpg" width="50" height="50" alt="Tag 04" />
-                      <img
-                          class="absolute rounded-full z-10 bottom-32 left-64 opacity-80 transition-opacity duration-500 animate-[float_4s_ease-in-out_infinite_3s_both]"
-                          src="../images/world-user-08.jpg" width="50" height="50" alt="Tag 04" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <!-- Image -->
+            <div class="hidden md:block md:w-5/12 lg:w-1/2 mt-40" data-aos="fade-left">
+              <img class="mx-auto md:max-w-none rounded-xl shadow-2xl " src="../images/danae-paparis-zKLWYGSeHZI-unsplash.jpg" width="540" height="540" alt="Target" />
             </div>
             <!-- Animation Moving
             <div class="md:w-5/12 lg:w-1/2 max-[700px]:hidden" data-aos="fade-up" data-aos-delay="100">
@@ -219,7 +188,7 @@
                     <svg class="absolute  left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 will-change-transform pointer-events-none blur-md" width="480" height="480" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
                       <defs>
                         <linearGradient id="pulse-a" x1="50%" x2="50%" y1="100%" y2="0%">
-                          <stop offset="0%" stop-color="var(--color-indigo-300)" />
+                          <stop offset=x"0%" stop-color="var(--color-indigo-300)" />
                           <stop offset="76.382%" stop-color="var(--color-indigo-300)" />
                           <stop offset="100%" stop-color="var(--color-indigo-300)" />
                         </linearGradient>
