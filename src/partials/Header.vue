@@ -1,26 +1,24 @@
 <template>
   <header class="absolute w-full z-30">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="flex items-center justify-between h-16 md:h-20">
+      <div class="relative flex items-center justify-between h-16 md:h-20">
 
         <!-- Site branding -->
-        <div class="  ">
+        <div>
           <!-- Logo -->
-          <router-link  to="/" aria-label="Wenovat">
-            <img src="../images/logo.png" class="max-w-none" width="120" height="60" alt="Hero Illustration" />
+          <router-link to="/" aria-label="Wenovat" @click="mobileMenuOpen = false">
+            <img src="../images/logo.png" class="max-w-none" width="120" height="60" alt="Wenovat" />
           </router-link>
         </div>
 
         <!-- Desktop navigation -->
-        <nav class="flex grow">
-
-          <!-- Desktop sign in links -->
+        <nav class="hidden md:flex grow">
           <ul class="flex grow justify-end flex-wrap items-center">
             <li>
-              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline  items-center max-[425px]:hidden sm:flex" to="/methode">Notre méthode</router-link>
+              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/methode">Notre méthode</router-link>
             </li>
             <li class="ml-6">
-              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center max-[640px]:hidden sm:flex" to="/rejoindre-la-communaute">Rejoindre la communauté</router-link>
+              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/rejoindre-la-communaute">Rejoindre la communauté</router-link>
             </li>
             <li class="ml-6">
               <router-link class="btn-sm inline-flex items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter">
@@ -33,16 +31,62 @@
               </router-link>
             </li>
           </ul>
-
         </nav>
+
+        <!-- Mobile menu button -->
+        <button
+          class="md:hidden inline-flex min-w-28 items-center justify-center gap-2 rounded-full border border-indigo-500 bg-white/80 px-5 py-1.5 text-sm font-cabinet-grotesk font-bold text-gray-900 shadow-sm backdrop-blur hover:bg-white"
+          type="button"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="mobile-menu"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+        >
+          <svg class="h-4 w-4 fill-current" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M2 4h12v1.5H2V4Zm0 3.25h12v1.5H2v-1.5ZM2 10.5h12V12H2v-1.5Z" />
+          </svg>
+          <span>{{ mobileMenuOpen ? 'Fermer' : 'Menu' }}</span>
+
+        </button>
+
+        <!-- Mobile navigation -->
+        <transition
+          enter-active-class="transition ease-out duration-150"
+          enter-from-class="opacity-0 -translate-y-2"
+          enter-to-class="opacity-100 translate-y-0"
+          leave-active-class="transition ease-in duration-100"
+          leave-from-class="opacity-100 translate-y-0"
+          leave-to-class="opacity-0 -translate-y-2"
+        >
+          <nav
+            v-show="mobileMenuOpen"
+            id="mobile-menu"
+            class="md:hidden absolute top-full left-0 right-0 mt-2 rounded-2xl border border-indigo-100 bg-white/95 p-3 shadow-xl backdrop-blur"
+          >
+            <ul class="space-y-1">
+              <li>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/methode" @click="mobileMenuOpen = false">Notre méthode</router-link>
+              </li>
+              <li>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/rejoindre-la-communaute" @click="mobileMenuOpen = false">Rejoindre la communauté</router-link>
+              </li>
+              <li>
+                <router-link class="block rounded-xl  px-4 py-3 font-cabinet-grotesk items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter">
+                  Nous contacter
+                  <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+
+                </span>
+                </router-link>              </li>
+            </ul>
+          </nav>
+        </transition>
 
       </div>
     </div>
   </header>
 </template>
 
-<script>
-export default {
-  name: 'Header',
-}
+<script setup>
+import { ref } from 'vue'
+
+const mobileMenuOpen = ref(false)
 </script>
