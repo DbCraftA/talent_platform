@@ -5,7 +5,7 @@
 
         <!-- Section header -->
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-16">
-          <h2 class="h2 font-cabinet-grotesk">Notre mission : connecter expertise tech et performance business.</h2>
+          <h2 class="h2 font-cabinet-grotesk">Une communauté exigeante pour transformer l’expertise en impact business.</h2>
         </div>
 
         <div>
@@ -14,7 +14,7 @@
           <div class="pb-12 md:pb-20">
             <div class="flex flex-wrap justify-center -m-1.5">
               <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '1' ? 'bg-indigo-500 text-white' : 'bg-white text-gray-900 hover:bg-indigo-50'" @click="category = '1'">La technologie au service du business</button>
-              <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '2' ? 'bg-indigo-500 text-white' : 'bg-white text-gray-900 hover:bg-indigo-50'" @click="category = '2'">Experts validés par des pairs</button>
+              <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '2' ? 'bg-indigo-500 text-white' : 'bg-white text-gray-900 hover:bg-indigo-50'" @click="category = '2'">Architectes sélectionnés par leurs pairs</button>
               <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '3' ? 'bg-indigo-500 text-white' : 'bg-white text-gray-900 hover:bg-indigo-50'" @click="category = '3'">Focus IA & Cloud</button>
               <button class="btn-sm m-1.5 h-8 shadow-sm" :class="category === '4' ? 'bg-indigo-500 text-white' : 'bg-white text-gray-900 hover:bg-indigo-50'" @click="category = '4'">Rigeur et agilité</button>
             </div>
@@ -71,9 +71,8 @@
               </div>
               <!-- Content #2 -->
               <div v-show="category === '2'">
-                <h3 class="h3 font-cabinet-grotesk mb-3">Des freelances validés par des experts du domaine.</h3>
-                <p class="text-lg text-gray-500 mb-8">Des architectes logiciels validés par des experts du domaine. Nous pensons que seuls ceux qui maîtrisent réellement les enjeux du métier peuvent évaluer efficacement un profil.
-                  C’est pourquoi chaque architecte logiciel est validé par un expert du même domaine technique.
+                <h3 class="h3 font-cabinet-grotesk mb-3">Des architectes sélectionnés par des pairs du même domaine.</h3>
+                <p class="text-lg text-gray-500 mb-8">Chaque expert rejoint Wenovat pour son expérience terrain, sa capacité à collaborer avec ses pairs et son exigence dans la résolution de problèmes Cloud, Data et IA complexes.
                 </p>
                 <ul class="inline-flex flex-col space-y-6">
                   <li class="flex flex-col md:flex-row items-center md:items-start">
@@ -81,8 +80,8 @@
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
-                      <div class="font-cabinet-grotesk font-bold text-lg mb-1">Évaluations menées par des praticiens (pas des recruteurs)</div>
-                      <div class="text-gray-500">Le secteur évolue plus rapidement que jamais. Cette transformation exige un nouveau modèle d’évaluation et de sélection.
+                      <div class="font-cabinet-grotesk font-bold text-lg mb-1">Évaluations menées par des praticiens, pas par mots-clés</div>
+                      <div class="text-gray-500">Nos échanges sont conduits par des experts capables d’évaluer la profondeur technique, le recul architectural et la capacité à agir dans des contextes réels.
                       </div>
                     </div>
                   </li>
@@ -91,9 +90,9 @@
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
                     <div>
-                      <div class="font-cabinet-grotesk font-bold text-lg mb-1">Grilles métiers spécifiques à chaque spécialité (ML, Data, DevOps, Cloud...)</div>
+                      <div class="font-cabinet-grotesk font-bold text-lg mb-1">Référentiels adaptés à chaque spécialité Cloud, Data, IA ou DevOps</div>
                       <div class="text-gray-500">
-                        Chaque domaine possède ses propres exigences, c’est pourquoi nous utilisons des référentiels adaptés à chaque spécialité.
+                        Chaque domaine possède ses propres exigences ; notre communauté les challenge et les fait évoluer à partir des retours terrain.
                       </div>
                     </div>
                   </li>
@@ -104,7 +103,7 @@
                     <div>
                       <div class="font-cabinet-grotesk font-bold text-lg mb-1">Entretiens approfondis sur des cas concrets et récents</div>
                       <div class="text-gray-500">
-                        Nous évaluons les architectes logiciels à travers des mises en situation réelles, reflétant les défis actuels du secteur.
+                        Nous privilégions les situations vécues, les arbitrages d’architecture et la capacité à partager une vision claire avec les équipes métier et technique.
                       </div>
                     </div>
                   </li>

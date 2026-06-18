@@ -29,8 +29,8 @@
 
               <!-- Item -->
               <div class="space-y-2">
-                <h4 class="text-xl font-cabinet-grotesk font-bold">Comment sélectionnez-vous vos architectes et freelances ?</h4>
-                <p class="text-gray-500">Nous allons bien au-delà des CV : analyse des contributions open-source, conférences techniques, évaluations croisées entre pairs et simulations de projets. Ce processus garantit des profils à la fois compétents, pragmatiques et capable d’innover.</p>
+                <h4 class="text-xl font-cabinet-grotesk font-bold">Comment rejoint-on la communauté Wenovat ?</h4>
+                <p class="text-gray-500">Chaque expert est évalué sur son expérience terrain, sa capacité à résoudre des situations complexes et son alignement avec l’esprit Wenovat : exigence, partage entre pairs, pragmatisme et sens de la valeur client.</p>
               </div>
 
             </div>
@@ -46,8 +46,8 @@
 
               <!-- Item -->
               <div class="space-y-2">
-                <h4 class="text-xl font-cabinet-grotesk font-bold">Proposez-vous uniquement du conseil stratégique ?</h4>
-                <p class="text-gray-500">Nous avons une approche hybride : soit nous intervenons en mode conseil stratégique, soit nous mettons à disposition des experts adaptés à vos besoins. Vous choisissez le niveau d’accompagnement qui vous correspond.</p>
+                <h4 class="text-xl font-cabinet-grotesk font-bold">Les packs Cloud & IA sont-ils standardisés ou adaptés ?</h4>
+                <p class="text-gray-500">Ils donnent un cadre clair et actionnable, mais restent adaptés au contexte de chaque entreprise. Les architectes Wenovat s’appuient sur ces packs pour accélérer le cadrage tout en gardant une approche pragmatique.</p>
               </div>
 
               <!-- Item -->

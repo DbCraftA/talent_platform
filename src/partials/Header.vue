@@ -20,6 +20,9 @@
               <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline  items-center max-[425px]:hidden sm:flex" to="/methode">Notre méthode</router-link>
             </li>
             <li class="ml-6">
+              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center max-[640px]:hidden sm:flex" to="/rejoindre-la-communaute">Rejoindre la communauté</router-link>
+            </li>
+            <li class="ml-6">
               <router-link class="btn-sm inline-flex items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter">
                 Nous contacter
                 <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">

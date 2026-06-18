@@ -15,9 +15,9 @@ const tab = ref('1')
           <!-- Content -->
           <div class="lg:max-w-none lg:min-w-[524px]">
             <div class="mb-8">
-              <div class="inline-flex text-sm font-medium text-zinc-400 px-4 py-0.5 border border-transparent [background:linear-gradient(var(--color-zinc-800),var(--color-zinc-800))_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box] rounded-full mb-4">Nos packs Cloud & IA</div>
-              <h3 class="font-inter-tight text-3xl font-bold text-zinc-200 mb-4">Choisissez le pack qui accélère votre transformation Cloud & IA</h3>
-              <p class="text-lg text-zinc-500">Nos packs combinent expertise d’architectes et méthodologies éprouvées pour sécuriser vos projets.
+              <div class="inline-flex text-sm font-medium text-zinc-400 px-4 py-0.5 border border-transparent [background:linear-gradient(var(--color-zinc-800),var(--color-zinc-800))_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box] rounded-full mb-4">Packs Cloud & IA du collectif Wenovat</div>
+              <h3 class="font-inter-tight text-3xl font-bold text-zinc-200 mb-4">Des packs Cloud & IA conçus par des architectes qui accompagnent le terrain</h3>
+              <p class="text-lg text-zinc-500">Chaque pack formalise des pratiques éprouvées par le collectif Wenovat pour cadrer, sécuriser et accélérer vos projets Cloud, Data et IA.
                 Deux formules claires et actionnables, pensées pour vous donner de la visibilité sur les coûts, la roadmap et les résultats.</p>
             </div>
             <!-- Tabs buttons -->

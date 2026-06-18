@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from './pages/Home.vue'
 import About from './pages/About.vue'
 import Methode from './pages/Methode.vue'
+import JoinCommunity from './pages/JoinCommunity.vue'
 import Contact01 from './pages/contact01.vue'
 import Contact02Company from './pages/Contact02Company.vue'
 import Contact02Freelance from './pages/Contact02Freelance.vue'
@@ -35,6 +36,10 @@ const router = createRouter({
     {
       path: '/methode',
       component: Methode
+    },
+    {
+      path: '/rejoindre-la-communaute',
+      component: JoinCommunity
     },
     {
       path: '/a-propos',

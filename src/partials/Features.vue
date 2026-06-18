@@ -35,10 +35,10 @@
           <h2
             class="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 text-3xl font-semibold  md:text-4xl"
           >
-            Une approche pensée pour générer de la valeur réelle
+            Une approche portée par le terrain et l’intelligence collective
           </h2>
           <p class="text-xl text-gray-500/65">
-            Nous allions pragmatisme et expertise pour transformer vos enjeux en résultats concrets. Notre modèle flexible, centré sur vos besoins, vous garantit rapidité, sécurité et impact durable.
+            Nous combinons expertise terrain, regards croisés entre pairs et accompagnement pragmatique pour transformer vos enjeux Cloud, Data et IA en résultats concrets.
           </p>
         </div>
 
@@ -89,10 +89,10 @@
             <h3
               class="font-nacelle mb-1 text-[1rem] font-semibold "
             >
-              Modèle flexible
+              Communauté qualifiée
             </h3>
             <p class="text-gray-500/75">
-              Des modalités adaptées à vos besoins et à vos budgets, sans compromis sur la qualité.
+              Un collectif d’architectes et d’experts sélectionnés, mobilisés selon vos enjeux réels et challengés par leurs pairs.
             </p>
           </article>
           <article>
