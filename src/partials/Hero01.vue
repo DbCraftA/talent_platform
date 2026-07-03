@@ -2,7 +2,7 @@
   <section class="relative overflow-hidden">
 
     <!-- Bg -->
-    <div class="absolute inset-0 bg-linear-to-b from-indigo-100 to-white pointer-events-none -z-10" aria-hidden="true"></div>
+    <div class="absolute inset-0 bg-linear-to-bl from-indigo-100 to-white pointer-events-none -z-10" aria-hidden="true"></div>
 
     <!-- Illustration -->
     <div class="hidden md:block absolute left-1/2 -translate-x-1/2 pointer-events-none -z-10" aria-hidden="true">

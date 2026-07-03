@@ -3,7 +3,7 @@
     <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12 md:py-20 border-t [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1]">
       <div class="mx-auto max-w-3xl pb-12 text-center md:pb-20">
         <h2 class="font-nacelle text-black/80 pb-4 text-3xl font-semibold md:text-4xl">
-          Un processus simple, exigeant et humain
+          Un processus simple, transparent et humain
         </h2>
         <p class="text-lg text-gray-500">
           L’objectif n’est pas d’empiler des profils, mais de construire une communauté de confiance avec des architectes qui partagent le même niveau d’exigence.
@@ -52,11 +52,6 @@ const steps = [
     eyebrow: 'Communauté',
     title: 'Intégration au collectif',
     description: 'Une fois sélectionné, vous rejoignez un collectif qui partage veille, opportunités, méthodes et retours d’expérience.',
-  },
-  {
-    eyebrow: 'Impact',
-    title: 'Opportunités qualifiées',
-    description: 'Nous vous sollicitons uniquement sur des besoins cohérents avec votre expertise, votre disponibilité et vos ambitions.',
-  },
+  }
 ]
 </script>

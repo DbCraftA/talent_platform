@@ -8,7 +8,7 @@
     <main class="grow">
 
       <Hero01 />
-      <Pricing />
+      <OffersHighlights />
       <Features02 />
       <Citation/>
       <Target/>
@@ -39,7 +39,7 @@ import Features01 from '../partials/Features01.vue'
 import Features02 from '../partials/Features02.vue'
 import PourquoiNousChoisir from '../partials/PourquoiNousChoisir.vue'
 import Features04 from '../partials/Features04.vue'
-import Pricing from '../partials/Pricing.vue'
+import OffersHighlights from '../partials/OffersHighlights.vue'
 import Testimonials from '../partials/Testimonials.vue'
 import Faqs from '../partials/Faqs.vue'
 import Cta from '../partials/Cta.vue'
@@ -61,7 +61,7 @@ export default {
     Features02,
     PourquoiNousChoisir,
     Features04,
-    Pricing,
+    OffersHighlights,
     Faqs,
     Cta,
     Footer,

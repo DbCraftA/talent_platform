@@ -21,6 +21,9 @@
               <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/rejoindre-la-communaute">Rejoindre la communauté</router-link>
             </li>
             <li class="ml-6">
+              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/blog">Blog</router-link>
+            </li>
+            <li class="ml-6">
               <router-link class="btn-sm inline-flex items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter">
                 Nous contacter
                 <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
@@ -68,6 +71,9 @@
               </li>
               <li>
                 <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/rejoindre-la-communaute" @click="mobileMenuOpen = false">Rejoindre la communauté</router-link>
+              </li>
+              <li>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/blog" @click="mobileMenuOpen = false">Blog</router-link>
               </li>
               <li>
                 <router-link class="block rounded-xl  px-4 py-3 font-cabinet-grotesk items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter">
