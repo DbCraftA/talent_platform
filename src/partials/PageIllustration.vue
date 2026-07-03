@@ -11,7 +11,7 @@ const props = defineProps({
   >
     <img
       class="max-w-none"
-      src="../images/page-illustration.svg"
+      src=""
       width="846"
       height="594"
       alt="Page illustration"
@@ -24,7 +24,7 @@ const props = defineProps({
   >
     <img
       class="max-w-none"
-      src="../images/blurred-shape-gray.svg"
+      src=""
       width="760"
       height="668"
       alt="Blurred shape"
