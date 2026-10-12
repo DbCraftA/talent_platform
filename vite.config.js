@@ -6,6 +6,28 @@ export default defineConfig({
   define: {
     'process.env': process.env
   },
+  server: {
+    proxy: {
+      '/api/inference': {
+        target: 'https://ocubaw95nd.execute-api.eu-west-3.amazonaws.com',
+        changeOrigin: true,
+        headers: {
+          'X-API-Key': process.env.VITE_INFERENCE_API_KEY || 'SfvZUTOaNt5m4bJTZxaU1aw6x8HaEa1D2L4eHXZY',
+          'x-api-key': process.env.VITE_INFERENCE_API_KEY || 'SfvZUTOaNt5m4bJTZxaU1aw6x8HaEa1D2L4eHXZY',
+        },
+        rewrite: () => '/dev/inference',
+      },
+      '/api/study': {
+        target: 'https://ocubaw95nd.execute-api.eu-west-3.amazonaws.com',
+        changeOrigin: true,
+        headers: {
+          'X-API-Key': process.env.VITE_INFERENCE_API_KEY || 'SfvZUTOaNt5m4bJTZxaU1aw6x8HaEa1D2L4eHXZY',
+          'x-api-key': process.env.VITE_INFERENCE_API_KEY || 'SfvZUTOaNt5m4bJTZxaU1aw6x8HaEa1D2L4eHXZY',
+        },
+        rewrite: () => '/dev/study',
+      },
+    },
+  },
   plugins: [
       vue(),
     Sitemap({

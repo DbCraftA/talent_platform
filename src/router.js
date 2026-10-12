@@ -12,6 +12,8 @@ import ContactSubmitMessage from './pages/ContactSubmitMessage.vue'
 import ClientFeedback01 from './pages/ClientFeedback01.vue'
 import ClientFeedback02 from './pages/ClientFeedback02.vue'
 import ClientFeedback03 from './pages/ClientFeedback03.vue'
+import AiInfrastructureEstimator from './pages/AiInfrastructureEstimator.vue'
+import AiInfrastructureSimulator from './pages/AiInfrastructureSimulator.vue'
 import { useFormStore } from './stores/formContacterNous.js'
 import { pinia } from './main'
 import MentionsLegal from "./pages/MentionsLegal.vue";
@@ -85,6 +87,14 @@ const router = createRouter({
     {
       path: '/mentions',
       component: MentionsLegal
+    },
+    {
+      path: '/ai-infrastructure',
+      component: AiInfrastructureEstimator
+    },
+    {
+      path: '/ai-infrastructure/simulateur',
+      component: AiInfrastructureSimulator
     },
   ]
 })

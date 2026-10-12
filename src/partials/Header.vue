@@ -20,6 +20,34 @@
             <li class="ml-6">
               <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/rejoindre-la-communaute">Rejoindre la communauté</router-link>
             </li>
+            <li class="ml-6 relative group">
+              <button class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex gap-1 h-10" type="button">
+                Offres
+                <svg class="h-3 w-3 fill-current" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 8.825 1.175 4 2.05 3.125 6 7.075l3.95-3.95.875.875L6 8.825Z" /></svg>
+              </button>
+              <div class="invisible absolute left-1/2 top-full z-40 w-72 -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
+                <div class="rounded-2xl border border-indigo-100 bg-white p-3 shadow-xl">
+                <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/ai-infrastructure">
+                  <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">AI Infrastructure Assessment</span>
+                  <span class="mt-1 block text-xs text-gray-500">Cadrer API, Cloud GPU et On-Prem.</span>
+                </router-link>
+                </div>
+              </div>
+            </li>
+            <li class="ml-6 relative group">
+              <button class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex gap-1 h-10" type="button">
+                Tools
+                <svg class="h-3 w-3 fill-current" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 8.825 1.175 4 2.05 3.125 6 7.075l3.95-3.95.875.875L6 8.825Z" /></svg>
+              </button>
+              <div class="invisible absolute left-1/2 top-full z-40 w-72 -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
+                <div class="rounded-2xl border border-indigo-100 bg-white p-3 shadow-xl">
+                <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/ai-infrastructure/simulateur">
+                  <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">Calculateur infrastructure IA</span>
+                  <span class="mt-1 block text-xs text-gray-500">Estimer coût, mémoire et seuils GPU.</span>
+                </router-link>
+                </div>
+              </div>
+            </li>
             <li class="ml-6">
               <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/blog">Blog</router-link>
             </li>
@@ -72,11 +100,19 @@
               <li>
                 <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/rejoindre-la-communaute" @click="mobileMenuOpen = false">Rejoindre la communauté</router-link>
               </li>
+              <li class="px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wide text-gray-400">Offres</li>
+              <li>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/ai-infrastructure" @click="mobileMenuOpen = false">AI Infrastructure Assessment</router-link>
+              </li>
+              <li class="px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wide text-gray-400">Tools</li>
+              <li>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/ai-infrastructure/simulateur" @click="mobileMenuOpen = false">Calculateur infrastructure IA</router-link>
+              </li>
               <li>
                 <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/blog" @click="mobileMenuOpen = false">Blog</router-link>
               </li>
               <li>
-                <router-link class="block rounded-xl  px-4 py-3 font-cabinet-grotesk items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter">
+                <router-link class="block rounded-xl  px-4 py-3 font-cabinet-grotesk items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter" @click="mobileMenuOpen = false">
                   Nous contacter
                   <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
 
