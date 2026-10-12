@@ -6,20 +6,6 @@ export default defineConfig({
   define: {
     'process.env': process.env
   },
-  server: {
-    proxy: {
-      '/api/inference': {
-        target: 'https://ocubaw95nd.execute-api.eu-west-3.amazonaws.com',
-        changeOrigin: true,
-        rewrite: () => '/dev/inference',
-      },
-      '/api/study': {
-        target: 'https://ocubaw95nd.execute-api.eu-west-3.amazonaws.com',
-        changeOrigin: true,
-        rewrite: () => '/dev/study',
-      },
-    },
-  },
   plugins: [
       vue(),
     Sitemap({
