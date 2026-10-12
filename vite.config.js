@@ -10,6 +10,7 @@ export default defineConfig({
       vue(),
     Sitemap({
       hostname: 'https://wenovat.com',  // Remplace par ton domaine
+      generateRobotsTxt: false,
       // Optionnel : routes dynamiques si tu en as
       dynamicRoutes: ["/methode", "/nous-contacter" , "/a-propos"
         // Exemples : '/methode', '/articles/quelque-chose'
