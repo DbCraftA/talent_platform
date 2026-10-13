@@ -12,50 +12,50 @@
 
           <div class="px-4 py-8">
             <div class="max-w-md mx-auto">
-              <h1 class="text-3xl text-gray-800 font-bold mb-3">Simulateur infrastructure IA</h1>
-              <p class="text-gray-500 mb-8">Renseignez votre workload. Les critères avancés sont optionnels : laissez-les vides si vous ne savez pas.</p>
+              <h1 class="text-3xl text-gray-800 font-bold mb-3">Pré-assessment d’infrastructure</h1>
+              <p class="text-gray-500 mb-8">Décrivez votre contexte et vos contraintes. Les paramètres avancés sont optionnels : une estimation suffit pour obtenir un premier cadre de décision.</p>
 
               <form class="mb-12 space-y-8" @submit.prevent="analyzeWorkload">
                 <section>
-                  <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">1.</span> Votre workload</div>
+                  <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">1.</span> Votre contexte</div>
                   <div class="space-y-4">
-                    <FieldSelect id="useCase" label="Type de use case" v-model="form.useCase" :options="useCaseOptions" required />
-                    <FieldSelect id="modelProfileId" label="Modèle / classe de modèle" v-model="form.modelProfileId" :options="modelOptions" required />
+                    <FieldSelect id="useCase" label="Quel usage souhaitez-vous cadrer ?" v-model="form.useCase" :options="useCaseOptions" required />
+                    <FieldSelect id="modelProfileId" label="Quel ordre de grandeur de modèle envisagez-vous ?" v-model="form.modelProfileId" :options="modelOptions" required help="Si le modèle n’est pas encore arrêté, sélectionnez simplement la classe la plus proche." />
                   </div>
                 </section>
 
                 <section>
                   <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">2.</span> Votre usage</div>
                   <div class="space-y-4">
-                    <FieldInput id="requestsPerDay" label="Requêtes par jour" v-model="form.requestsPerDay" required :min="1" help="Obligatoire. Minimum 1 requête par jour." />
-                    <FieldInput id="avgInputTokens" label="Input tokens moyens" v-model="form.avgInputTokens" required :min="1" help="Obligatoire. Minimum 1 token." />
-                    <FieldInput id="avgOutputTokens" label="Output tokens moyens" v-model="form.avgOutputTokens" required :min="1" help="Obligatoire. Minimum 1 token." />
-                    <FieldSelect id="peakFactor" label="Profil de trafic" v-model="form.peakFactor" :options="peakOptions" required />
+                    <FieldInput id="requestsPerDay" label="Quel volume d’activité prévoyez-vous ?" v-model="form.requestsPerDay" required :min="1" :help="requestsPerDayHelp" />
+                    <FieldInput id="avgInputTokens" label="Quelle quantité d’information est envoyée au modèle ?" v-model="form.avgInputTokens" required :min="1" help="Prompt, historique et contexte éventuel. Valeur moyenne en nombre de tokens." />
+                    <FieldInput id="avgOutputTokens" label="Quelle longueur de réponse attendez-vous ?" v-model="form.avgOutputTokens" required :min="1" help="Nombre approximatif de tokens générés par interaction." />
+                    <FieldSelect id="peakFactor" label="Comment la charge évolue-t-elle dans la journée ?" v-model="form.peakFactor" :options="peakOptions" required />
                   </div>
                 </section>
 
                 <section>
                   <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">3.</span> Vos contraintes</div>
                   <div class="space-y-4">
-                    <FieldSelect id="dataSensitivity" label="Sensibilité des données" v-model="form.dataSensitivity" :options="sensitivityOptions" required />
-                    <FieldSelect id="priority" label="Priorité principale" v-model="form.priority" :options="priorityOptions" required />
-                    <FieldSelect id="geography" label="Zone d'hébergement" v-model="form.geography" :options="geographyOptions" required />
+                    <FieldSelect id="dataSensitivity" label="Quel niveau de confidentialité devez-vous préserver ?" v-model="form.dataSensitivity" :options="sensitivityOptions" required help="Ce choix influence les scénarios d’hébergement proposés. Il ne constitue pas une qualification juridique des données." />
+                    <FieldSelect id="priority" label="Quel critère doit guider la décision ?" v-model="form.priority" :options="priorityOptions" required />
+                    <FieldSelect id="geography" label="Quelles sont vos contraintes d’hébergement ?" v-model="form.geography" :options="geographyOptions" required help="Cette préférence est utilisée pour filtrer les scénarios compatibles." />
                   </div>
                 </section>
 
                 <section class="rounded-2xl border border-indigo-100 bg-indigo-50/40 p-5">
                   <div class="mb-5">
-                    <div class="text-lg font-bold text-gray-800"><span class="text-indigo-500">4.</span> Critères avancés optionnels</div>
-                    <p class="text-sm text-gray-500 mt-1">Ces paramètres améliorent la précision du pré-assessment mais ne sont pas obligatoires.</p>
+                    <div class="text-lg font-bold text-gray-800"><span class="text-indigo-500">4.</span> Préciser les hypothèses — optionnel</div>
+                    <p class="text-sm text-gray-500 mt-1">Si vous connaissez déjà ces paramètres, ils permettront d’affiner l’estimation. Sinon, laissez-les vides : le pré-assessment utilisera des hypothèses explicites.</p>
                   </div>
                   <div class="space-y-4">
                     <div class="text-xs font-semibold uppercase tracking-wide text-gray-400">Paramètres techniques</div>
-                    <FieldInput id="peakConcurrency" label="Concurrency au pic" v-model="form.peakConcurrency" help="Optionnel. Sinon estimée depuis le trafic." />
-                    <FieldInput id="contextLength" label="Context length" v-model="form.contextLength" help="Optionnel. Valeur par défaut selon la classe modèle." />
-                    <FieldSelect id="precision" label="Precision / quantization" v-model="form.precision" :options="precisionOptions" />
-                    <FieldSelect id="ttftTarget" label="TTFT cible" v-model="form.ttftTarget" :options="ttftOptions" />
-                    <FieldSelect id="generationSpeedTarget" label="Vitesse de génération cible" v-model="form.generationSpeedTarget" :options="generationOptions" />
-                    <FieldSelect id="availabilityTarget" label="Disponibilité cible" v-model="form.availabilityTarget" :options="availabilityOptions" />
+                    <FieldInput id="peakConcurrency" label="Concurrence au pic" v-model="form.peakConcurrency" help="Nombre maximal d’utilisateurs ou traitements simultanés à absorber." />
+                    <FieldInput id="contextLength" label="Longueur de contexte" v-model="form.contextLength" help="Volume maximal d’information qu’une requête peut mobiliser." />
+                    <FieldSelect id="precision" label="Précision / quantification" v-model="form.precision" :options="precisionOptions" help="À préciser uniquement si ce choix technique est déjà arrêté." />
+                    <FieldSelect id="ttftTarget" label="Temps de première réponse cible" v-model="form.ttftTarget" :options="ttftOptions" help="À préciser si la réactivité utilisateur est critique. Également appelé TTFT." />
+                    <FieldSelect id="generationSpeedTarget" label="Vitesse de génération cible" v-model="form.generationSpeedTarget" :options="generationOptions" help="À préciser si vous avez un objectif de débit particulier." />
+                    <FieldSelect id="availabilityTarget" label="Disponibilité souhaitée" v-model="form.availabilityTarget" :options="availabilityOptions" />
 
                     <div v-if="form.useCase === 'rag'" class="space-y-4 border-t border-indigo-100 pt-5">
                       <div class="text-xs font-semibold uppercase tracking-wide text-gray-400">Options RAG</div>
@@ -89,7 +89,8 @@
                   </div>
                 </section>
 
-                <button class="btn-sm w-full justify-center text-white bg-gray-900 hover:bg-gray-800 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70" type="submit" :disabled="isLoading">{{ isLoading ? 'Calcul en cours' : 'Calculer mon scénario' }}</button>
+                <button class="btn-sm w-full justify-center text-white bg-gray-900 hover:bg-gray-800 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70" type="submit" :disabled="isLoading">{{ isLoading ? 'Analyse en cours' : 'Analyser mon scénario' }}</button>
+                <p class="-mt-6 text-center text-xs text-gray-500">Architecture, dimensionnement et recommandations en quelques secondes.</p>
               </form>
             </div>
           </div>
@@ -107,9 +108,9 @@
               <div v-if="isLoading" class="p-5 bg-white border border-indigo-100 rounded-2xl shadow-sm">
                 <div class="flex items-center gap-3">
                   <div class="h-3 w-3 animate-pulse rounded-full bg-indigo-500"></div>
-                  <div class="font-bold text-gray-900">Appel de l’API estimateur en cours</div>
+                  <div class="font-bold text-gray-900">Analyse du scénario en cours</div>
                 </div>
-                <p class="text-sm text-gray-500 mt-2">Le simulateur interroge le service dynamique Wenovat et prépare l’analyse.</p>
+                <p class="text-sm text-gray-500 mt-2">Wenovat prépare un premier cadre de décision à partir de votre contexte.</p>
               </div>
               <div v-if="errorMessage" class="p-4 bg-amber-50 border border-amber-200 rounded-xl transition duration-150 ease-in-out">
                 <div class="font-bold text-amber-900">Analyse indisponible</div>
@@ -117,16 +118,16 @@
                 <button class="btn-sm mt-4 text-white bg-gray-900 hover:bg-gray-800" :disabled="isLoading" @click="analyzeWorkload">{{ isLoading ? 'Nouvel essai' : 'Réessayer' }}</button>
               </div>
               <div class="p-4 bg-sky-50 border border-sky-200 rounded-xl opacity-40 transition duration-150 ease-in-out">
-                <div class="font-bold text-gray-900">Pré-assessment infrastructure IA</div>
-                <p class="text-sm text-gray-500 mt-1">Vos résultats apparaîtront ici après calcul.</p>
+                <div class="font-bold text-gray-900">Pré-assessment infrastructure</div>
+                <p class="text-sm text-gray-500 mt-1">Vos résultats apparaîtront ici après analyse.</p>
               </div>
               <div class="p-4 bg-sky-50 border border-sky-200 rounded-xl transition duration-150 ease-in-out">
                 <div class="font-bold text-gray-900">API · Cloud GPU · On-Prem</div>
-                <p class="text-sm text-gray-500 mt-1">Le simulateur utilise le contrat de réponse API dynamique.</p>
+                <p class="text-sm text-gray-500 mt-1">Les scénarios seront mis en regard de votre contexte et de vos contraintes.</p>
               </div>
               <div class="p-4 bg-sky-50 border border-sky-200 rounded-xl opacity-40 transition duration-150 ease-in-out">
                 <div class="font-bold text-gray-900">Benchmark requis</div>
-                <p class="text-sm text-gray-500 mt-1">La latence et le sizing final nécessitent une validation sur workload réel.</p>
+                <p class="text-sm text-gray-500 mt-1">La latence et le dimensionnement final nécessitent une validation sur workload réel.</p>
               </div>
             </div>
 
@@ -469,17 +470,18 @@ const useCaseOptions = [
   { value: 'rag', label: 'RAG / recherche documentaire' },
   { value: 'agent', label: 'Agentique' },
   { value: 'batch', label: 'Batch' },
-  { value: 'code_assistant', label: 'Code' },
+  { value: 'code_assistant', label: 'Code / copilots développeurs' },
 ]
-const modelOptions = modelProfiles.map((item) => ({ value: item.id, label: item.label }))
+const modelLabelById = { lt_10b: '< 10B', '10_30b': '10–30B', '30_70b': '30–70B', '70b_plus': '70B+' }
+const modelOptions = modelProfiles.map((item) => ({ value: item.id, label: modelLabelById[item.id] || item.label }))
 const precisionOptions = Object.entries(precisionProfiles).map(([value, profile]) => ({ value, label: profile.label }))
-const peakOptions = [{ value: 'continuous', label: 'Continu 24/7' }, { value: 'business_stable', label: 'Journée de travail — stable' }, { value: 'business_peak_3x', label: 'Journée de travail — pics x3' }, { value: 'bursty_5x', label: 'Fortement variable — pics x5' }]
-const sensitivityOptions = [{ value: 'public', label: 'Public' }, { value: 'internal', label: 'Interne' }, { value: 'sensitive', label: 'Sensible' }, { value: 'highly_sensitive', label: 'Très sensible / contraintes fortes' }]
-const priorityOptions = [{ value: 'cost', label: 'Réduire les coûts' }, { value: 'latency', label: 'Minimiser la latence' }, { value: 'simplicity', label: 'Réduire la complexité opérationnelle' }, { value: 'control', label: 'Maximiser le contrôle / souveraineté' }]
-const geographyOptions = [{ value: 'france', label: 'France uniquement' }, { value: 'eu', label: 'Union européenne' }, { value: 'europe', label: 'Europe' }, { value: 'unrestricted', label: 'Pas de contrainte' }]
+const peakOptions = [{ value: 'continuous', label: 'Continue — 24/7' }, { value: 'business_stable', label: 'Journée de travail — plutôt stable' }, { value: 'business_peak_3x', label: 'Journée de travail — pics importants' }, { value: 'bursty_5x', label: 'Très irrégulière / événementielle' }]
+const sensitivityOptions = [{ value: 'public', label: 'Données publiques' }, { value: 'internal', label: 'Données internes' }, { value: 'sensitive', label: 'Données sensibles' }, { value: 'highly_sensitive', label: 'Données très sensibles' }]
+const priorityOptions = [{ value: 'cost', label: 'Maîtriser les coûts' }, { value: 'latency', label: 'Privilégier la performance' }, { value: 'simplicity', label: 'Simplifier l’exploitation' }, { value: 'control', label: 'Garder davantage de contrôle' }]
+const geographyOptions = [{ value: 'france', label: 'France' }, { value: 'eu', label: 'Union européenne' }, { value: 'europe', label: 'Europe' }, { value: 'unrestricted', label: 'Sans contrainte particulière' }]
 const ttftOptions = [{ value: 'none', label: 'Pas de contrainte' }, { value: '500', label: '< 500 ms' }, { value: '1000', label: '< 1 seconde' }, { value: '2000', label: '< 2 secondes' }]
 const generationOptions = [{ value: 'none', label: 'Je ne sais pas' }, { value: '20', label: '20 tok/s' }, { value: '40', label: '40 tok/s' }, { value: '80', label: '80 tok/s' }]
-const availabilityOptions = [{ value: 'best_effort', label: 'Best effort' }, { value: '99.5', label: '99.5%' }, { value: '99.9', label: '99.9%' }, { value: '99.95', label: '99.95%' }]
+const availabilityOptions = [{ value: 'best_effort', label: 'Best effort / sans SLA' }, { value: '99.5', label: '99.5%' }, { value: '99.9', label: '99.9%' }, { value: '99.95', label: '99.95%' }]
 const batchWindowOptions = [{ value: 'none', label: 'Je ne sais pas' }, { value: '1', label: '1 heure' }, { value: '4', label: '4 heures' }, { value: '8', label: '8 heures' }, { value: '12', label: '12 heures' }, { value: '24', label: '24 heures' }]
 
 const form = ref({ useCase: 'chat', modelProfileId: '70b_plus', requestsPerDay: '', avgInputTokens: '', avgOutputTokens: '', peakFactor: 'business_peak_3x', dataSensitivity: 'internal', priority: 'cost', geography: 'france', peakConcurrency: '', contextLength: '', precision: 'unknown', ttftTarget: 'none', generationSpeedTarget: 'none', availabilityTarget: 'best_effort', ragMonthlyIndexedTokens: '', agentModelCallsPerTask: '', batchProcessingWindowHours: 'none', codeRepoAware: false })
@@ -494,6 +496,12 @@ const shareSuccessRecipient = ref('')
 const shareForm = ref({ recipientEmail: '', recipientName: '', recipientRole: '', website: '' })
 const recipientRoleOptions = ['Architecte', 'Responsable infrastructure', 'CTO / Directeur technique', 'DSI', 'Responsable cloud', 'Responsable data / IA', 'Product owner', 'Décideur métier', 'Acheteur IT', 'Consultant']
 
+const requestsPerDayHelp = computed(() => {
+  if (form.value.useCase === 'agent') return 'Nombre de tâches déclenchées par jour. Les appels modèle supplémentaires sont pris en compte séparément.'
+  if (form.value.useCase === 'batch') return 'Nombre approximatif de traitements à réaliser chaque jour.'
+  return 'Une estimation suffit. Nombre approximatif de requêtes par jour.'
+})
+
 function resetShareForm() {
   shareForm.value = { recipientEmail: '', recipientName: '', recipientRole: '', website: '' }
   shareStatus.value = 'idle'
@@ -503,7 +511,7 @@ function resetShareForm() {
 
 function openShareDialog() {
   if (!hasShareableStudy.value) {
-    shareErrorMessage.value = 'Calculez d’abord votre pré-assessment avant de le partager.'
+    shareErrorMessage.value = 'Lancez d’abord votre pré-assessment avant de le partager.'
     shareStatus.value = 'error'
   }
   showShareModal.value = true
@@ -529,7 +537,7 @@ function shareErrorLabel(error) {
 async function submitShareStudy() {
   if (!hasShareableStudy.value) {
     shareStatus.value = 'error'
-    shareErrorMessage.value = 'Calculez d’abord votre pré-assessment avant de le partager.'
+    shareErrorMessage.value = 'Lancez d’abord votre pré-assessment avant de le partager.'
     return
   }
 
@@ -573,7 +581,7 @@ async function analyzeWorkload() {
 }
 
 const selectedUseCaseLabel = computed(() => useCases.find((item) => item.id === form.value.useCase)?.label || 'Workload')
-const slides = [{ key: 'summary', eyebrow: '1 / 4', title: 'Votre architecture IA', description: 'Les composants et points d’attention identifiés à partir de votre workload.' }, { key: 'technical', eyebrow: '2 / 4', title: 'Dimensionnement technique', description: 'Estimation de la charge, de l’empreinte mémoire et de la capacité GPU nécessaire.' }, { key: 'economics', eyebrow: '3 / 4', title: 'Options d’hébergement & coûts', description: 'Configurations compatibles avec votre sizing et ordre de grandeur des coûts d’infrastructure.' }, { key: 'advisory', eyebrow: '4 / 4', title: 'Recommandations & validation', description: 'Les principaux points à confirmer avant de retenir une architecture de production.' }]
+const slides = [{ key: 'summary', eyebrow: '1 / 4', title: 'Votre architecture', description: 'Les composants et points d’attention identifiés à partir de votre contexte.' }, { key: 'technical', eyebrow: '2 / 4', title: 'Dimensionnement technique', description: 'Estimation de la charge, de l’empreinte mémoire et de la capacité GPU nécessaire.' }, { key: 'economics', eyebrow: '3 / 4', title: 'Options d’hébergement & coûts', description: 'Configurations compatibles avec votre dimensionnement et ordre de grandeur des coûts d’infrastructure.' }, { key: 'advisory', eyebrow: '4 / 4', title: 'Points à valider', description: 'Les principaux points à confirmer avant de retenir une architecture de production.' }]
 const currentSlide = computed(() => slides[activeSlide.value])
 const hasShareableStudy = computed(() => Boolean(result.value && result.value.status !== 'api_unavailable'))
 function nextSlide() { activeSlide.value = (activeSlide.value + 1) % slides.length }
@@ -851,7 +859,7 @@ const selectedProviderLabel = computed(() => scenarioSelection.value.status === 
 
 const FieldInput = { props: ['id', 'label', 'modelValue', 'help', 'required', 'min', 'placeholder'], emits: ['update:modelValue'], setup(props, { emit }) { return () => h('div', [h('label', { class: 'block text-sm font-medium mb-1', for: props.id }, [props.label, props.required ? h('span', { class: 'ml-1 text-red-500' }, '*') : null]), h('input', { id: props.id, class: 'form-input w-full', type: 'number', min: props.min ?? '0', placeholder: props.placeholder, required: Boolean(props.required), value: props.modelValue, onInput: (event) => emit('update:modelValue', event.target.value) }), props.help ? h('p', { class: 'mt-1 text-xs text-gray-500' }, props.help) : null]) } }
 const FieldText = { props: ['name', 'label', 'modelValue', 'type', 'required', 'placeholder'], emits: ['update:modelValue'], setup(props, { emit }) { return () => h('div', [h('label', { class: 'block text-sm font-medium mb-1' }, [props.label, props.required ? h('span', { class: 'ml-1 text-red-500' }, '*') : null]), h('input', { name: props.name, class: 'form-input w-full', type: props.type || 'text', required: Boolean(props.required), placeholder: props.placeholder, value: props.modelValue, onInput: (event) => emit('update:modelValue', event.target.value) })]) } }
-const FieldSelect = { props: ['id', 'label', 'modelValue', 'options', 'required'], emits: ['update:modelValue'], setup(props, { emit }) { return () => h('div', [h('label', { class: 'block text-sm font-medium mb-1', for: props.id }, [props.label, props.required ? h('span', { class: 'ml-1 text-red-500' }, '*') : null]), h('select', { id: props.id, class: 'form-select w-full text-sm', required: Boolean(props.required), value: props.modelValue, onChange: (event) => emit('update:modelValue', event.target.value) }, props.options.map((option) => h('option', { key: option.value, value: option.value }, option.label)))]) } }
+const FieldSelect = { props: ['id', 'label', 'modelValue', 'options', 'required', 'help'], emits: ['update:modelValue'], setup(props, { emit }) { return () => h('div', [h('label', { class: 'block text-sm font-medium mb-1', for: props.id }, [props.label, props.required ? h('span', { class: 'ml-1 text-red-500' }, '*') : null]), h('select', { id: props.id, class: 'form-select w-full text-sm', required: Boolean(props.required), value: props.modelValue, onChange: (event) => emit('update:modelValue', event.target.value) }, props.options.map((option) => h('option', { key: option.value, value: option.value }, option.label))), props.help ? h('p', { class: 'mt-1 text-xs text-gray-500' }, props.help) : null]) } }
 const ResultRow = { props: ['label', 'value'], setup(props) { return () => h('div', { class: 'flex flex-col justify-between gap-1 rounded-2xl bg-gray-50 p-4' }, [h('span', { class: 'text-xs text-gray-500' }, props.label), h('span', { class: 'font-cabinet-grotesk text-lg font-bold text-gray-900' }, props.value)]) } }
 const ArchitectureComponentCard = { props: ['card'], setup(props) { return () => h('div', { class: ['min-w-0 overflow-hidden rounded-2xl border bg-white p-4 shadow-sm', props.card.borderClass] }, [h('span', { class: ['inline-flex max-w-full rounded-full px-2.5 py-1 text-[11px] font-bold break-words', props.card.badgeClass] }, props.card.badge), h('div', { class: 'mt-3 min-w-0 text-sm font-bold text-gray-900 break-words' }, props.card.title), h('div', { class: 'mt-1 min-w-0 font-cabinet-grotesk text-lg sm:text-xl font-bold text-gray-900 break-words' }, props.card.value), props.card.sublabel ? h('div', { class: 'mt-1 min-w-0 text-xs leading-snug text-gray-500 break-words' }, props.card.sublabel) : null]) } }
 const TechnicalKpiCard = { props: ['item'], setup(props) { return () => h('div', { class: 'min-w-0 rounded-2xl bg-gray-50 p-4' }, [h('div', { class: ['flex h-9 w-9 items-center justify-center rounded-full', props.item.iconBg] }, [h('span', { class: ['text-sm font-bold', props.item.iconColor] }, props.item.icon)]), h('div', { class: 'mt-3 text-xs font-medium text-gray-500' }, props.item.title), h('div', { class: 'mt-1 break-words font-cabinet-grotesk text-xl font-bold text-gray-900' }, props.item.value), h('div', { class: 'mt-1 text-xs text-gray-500' }, props.item.sublabel)]) } }
