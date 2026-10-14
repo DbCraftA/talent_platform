@@ -28,18 +28,18 @@
 
       <section class="bg-white pt-20 pb-12 md:pt-28 md:pb-16" aria-label="Évolution conceptuelle de la charge et du seuil de capacité">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="mx-auto max-w-4xl pb-12 text-center md:pb-16">
+            <h2 class="h3 font-cabinet-grotesk mb-6 text-zinc-900">Une architecture adaptée aux premiers usages peut <span class="text-indigo-500">atteindre ses limites</span> à mesure que la charge augmente</h2>
+          </div>
           <div class="mx-auto max-w-5xl px-0 sm:px-2 md:px-4">
             <WorkloadEvolutionChart />
           </div>
+          <p class="mx-auto mt-10 max-w-3xl text-center text-xl leading-relaxed text-gray-500 md:text-2xl">Le bon scénario dépend du volume, des performances attendues, de la sensibilité des données, du coût d’exploitation et des compétences disponibles en interne.</p>
         </div>
       </section>
 
-      <section class="bg-linear-to-b from-white to-indigo-50/70 pt-8 pb-16 md:pt-12 md:pb-24">
+      <section class="bg-linear-to-b from-white to-indigo-50/70 pb-16 ">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <div class="mx-auto max-w-3xl pb-14 text-center md:pb-16">
-            <h2 class="h3 font-cabinet-grotesk mb-8">Une architecture adaptée aux premiers usages peut atteindre ses limites à mesure que la charge augmente</h2>
-            <p class="mx-auto max-w-2xl text-lg leading-relaxed text-gray-500">Le bon scénario dépend du volume, des performances attendues, de la sensibilité des données, du niveau de contrôle recherché, du coût d’exploitation et des compétences disponibles en interne.</p>
-          </div>
           <div class="grid gap-6 lg:grid-cols-2">
             <article v-for="item in difficultyCards" :key="item.title" class="relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-[24px] border border-zinc-700/80 bg-linear-to-b from-zinc-700 to-zinc-900 p-7 shadow-lg md:p-8">
               <div class="mb-8 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-lg text-white/80 ring-1 ring-white/10">{{ item.icon }}</div>

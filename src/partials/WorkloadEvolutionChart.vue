@@ -27,6 +27,7 @@ let chart = null
 const chartDescription = 'Illustration montrant une charge qui augmente du prototype à la montée en charge et finit par dépasser un seuil de capacité.'
 
 const labels = [
+  '',
   'Prototype',
   '',
   '',
@@ -34,7 +35,6 @@ const labels = [
   '',
   '',
   'Montée en charge',
-  '',
   '',
 ]
 
