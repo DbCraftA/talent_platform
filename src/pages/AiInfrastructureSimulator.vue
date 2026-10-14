@@ -12,7 +12,7 @@
 
           <div class="px-4 py-8">
             <div class="max-w-md mx-auto">
-              <h1 class="text-3xl text-gray-800 font-bold mb-3">Pré-assessment d’infrastructure</h1>
+              <h1 class="text-3xl text-gray-800 font-bold mb-3">Analyse de scénario infrastructure IA</h1>
               <p class="text-gray-500 mb-8">Décrivez votre contexte et vos contraintes. Les paramètres avancés sont optionnels : une estimation suffit pour obtenir un premier cadre de décision.</p>
 
               <form class="mb-12 space-y-8" @submit.prevent="analyzeWorkload">

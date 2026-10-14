@@ -28,8 +28,8 @@
               <div class="invisible absolute left-1/2 top-full z-40 w-72 -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
                 <div class="rounded-2xl border border-indigo-100 bg-white p-3 shadow-xl">
                 <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/ai-infrastructure">
-                  <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">AI Infrastructure Assessment</span>
-                  <span class="mt-1 block text-xs text-gray-500">Cadrer API, Cloud GPU et On-Prem.</span>
+                  <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">AI Infrastructure Advisory</span>
+                  <span class="mt-1 block text-xs text-gray-500">Cadrer et arbitrer entre API, Cloud GPU et On-Prem.</span>
                 </router-link>
                 </div>
               </div>

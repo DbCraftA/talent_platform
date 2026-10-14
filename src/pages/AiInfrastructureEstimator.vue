@@ -7,10 +7,10 @@
           <img src="../images/hero-illustration.svg" class="max-w-none" width="1440" height="749" alt="Hero Illustration" />
         </div>
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <div class="pt-28 pb-14 md:pt-36 md:pb-20">
+          <div class="grid gap-10 pt-28 pb-14 md:pt-36 md:pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(380px,0.9fr)] lg:items-center">
             <div class="max-w-4xl">
-              <div class="mb-5 inline-flex rounded-full border border-indigo-200 bg-white/80 px-4 py-2 text-sm font-bold text-indigo-500 shadow-sm">AI Infrastructure Estimator</div>
-              <h1 class="h2 font-cabinet-grotesk mb-6">Faites le bon choix d’infrastructure avant de vous engager</h1>
+              <div class="mb-5 inline-flex rounded-full border border-indigo-200 bg-white/80 px-4 py-2 text-sm font-bold text-indigo-500 shadow-sm">AI Infrastructure Architecture Review</div>
+              <h1 class="h2 font-cabinet-grotesk mb-6">De l’expérimentation à l’échelle</h1>
               <p class="max-w-3xl text-lg text-gray-500 mb-3">API, Cloud GPU ou infrastructure dédiée : Wenovat vous aide à comparer les options, cadrer les compromis et identifier le scénario le plus adapté à vos contraintes.</p>
               <p class="max-w-3xl text-base font-medium text-gray-600 mb-8">Architecture, dimensionnement, options d’hébergement et points à valider avant production.</p>
               <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -18,14 +18,26 @@
                 <span class="text-sm font-medium text-gray-500">Gratuit · Quelques minutes · Première estimation</span>
               </div>
             </div>
+            <div class="relative hidden lg:block" aria-hidden="true">
+              <div class="absolute inset-10 rounded-full bg-indigo-300/30 blur-3xl"></div>
+              <img src="../images/gpu.png" class="relative ml-auto w-full max-w-[560px] drop-shadow-2xl" width="1600" height="1200" alt="" />
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="bg-linear-to-b from-white to-indigo-50/70 py-12 md:py-20">
+      <section class="bg-white pt-16 pb-8 md:pt-24 md:pb-10" aria-label="Évolution conceptuelle de la charge et du seuil de capacité">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <div class="max-w-3xl pb-10">
-            <h2 class="h2 font-cabinet-grotesk mb-4">Une décision qui dépasse le simple choix d’un GPU</h2>
+          <div class="mx-auto max-w-5xl px-0 sm:px-2 md:px-4">
+            <WorkloadEvolutionChart />
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-linear-to-b from-white to-indigo-50/70 pt-4 pb-12 md:pt-6 md:pb-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="mx-auto max-w-3xl pb-10 text-center">
+            <h2 class="h3 font-cabinet-grotesk mb-8">Une architecture adaptée aux premiers usages peut atteindre ses limites à mesure que la charge augmente</h2>
             <p class="text-lg text-gray-500">Le bon scénario dépend du volume, des performances attendues, de la sensibilité des données, du niveau de contrôle recherché, du coût d’exploitation et des compétences disponibles en interne.</p>
           </div>
           <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -85,6 +97,7 @@
 <script setup>
 import Header from '../partials/Header.vue'
 import Footer from '../partials/Footer.vue'
+import WorkloadEvolutionChart from '../partials/WorkloadEvolutionChart.vue'
 
 const difficultyCards = [
   { title: 'Budget & trajectoire de coût', icon: '€', text: 'Comparer le coût apparent ne suffit pas : volume, taux d’utilisation et exploitation peuvent fortement faire évoluer l’équation.' },
