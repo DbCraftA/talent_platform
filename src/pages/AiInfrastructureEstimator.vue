@@ -26,7 +26,7 @@
         </div>
       </section>
 
-      <section class="bg-white pt-16 pb-8 md:pt-24 md:pb-10" aria-label="Évolution conceptuelle de la charge et du seuil de capacité">
+      <section class="bg-white pt-20 pb-12 md:pt-28 md:pb-16" aria-label="Évolution conceptuelle de la charge et du seuil de capacité">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
           <div class="mx-auto max-w-5xl px-0 sm:px-2 md:px-4">
             <WorkloadEvolutionChart />
@@ -34,35 +34,43 @@
         </div>
       </section>
 
-      <section class="bg-linear-to-b from-white to-indigo-50/70 pt-4 pb-12 md:pt-6 md:pb-20">
+      <section class="bg-linear-to-b from-white to-indigo-50/70 pt-8 pb-16 md:pt-12 md:pb-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <div class="mx-auto max-w-3xl pb-10 text-center">
+          <div class="mx-auto max-w-3xl pb-14 text-center md:pb-16">
             <h2 class="h3 font-cabinet-grotesk mb-8">Une architecture adaptée aux premiers usages peut atteindre ses limites à mesure que la charge augmente</h2>
-            <p class="text-lg text-gray-500">Le bon scénario dépend du volume, des performances attendues, de la sensibilité des données, du niveau de contrôle recherché, du coût d’exploitation et des compétences disponibles en interne.</p>
+            <p class="mx-auto max-w-2xl text-lg leading-relaxed text-gray-500">Le bon scénario dépend du volume, des performances attendues, de la sensibilité des données, du niveau de contrôle recherché, du coût d’exploitation et des compétences disponibles en interne.</p>
           </div>
-          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            <article v-for="item in difficultyCards" :key="item.title" class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-              <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-50 text-lg">{{ item.icon }}</div>
-              <h3 class="font-cabinet-grotesk text-xl font-bold text-gray-900 mb-2">{{ item.title }}</h3>
-              <p class="text-sm text-gray-500">{{ item.text }}</p>
+          <div class="grid gap-6 lg:grid-cols-2">
+            <article v-for="item in difficultyCards" :key="item.title" class="relative flex min-h-[220px] flex-col justify-between overflow-hidden rounded-[24px] border border-zinc-700/80 bg-linear-to-b from-zinc-700 to-zinc-900 p-7 shadow-lg md:p-8">
+              <div class="mb-8 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-lg text-white/80 ring-1 ring-white/10">{{ item.icon }}</div>
+              <div>
+                <h3 class="font-cabinet-grotesk text-xl font-semibold leading-snug tracking-tight text-white md:text-2xl">{{ item.title }}</h3>
+                <p class="mt-5 max-w-xl text-base leading-relaxed text-zinc-300">{{ item.text }}</p>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="bg-linear-to-b from-indigo-50/70 to-white py-12 md:py-20">
+      <section class="bg-linear-to-b from-indigo-50/70 to-white py-16 md:py-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
+          <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
+            <div class="max-w-xl">
               <h2 class="h2 font-cabinet-grotesk mb-4">Un premier cadre de décision</h2>
-              <p class="text-lg text-gray-500 mb-6">Le pré-assessment transforme votre contexte et vos contraintes en hypothèses explicites : capacité nécessaire, options d’hébergement, compromis économiques et points à valider avant de décider.</p>
+              <p class="text-lg leading-relaxed text-gray-500 mb-8">Le pré-assessment transforme votre contexte et vos contraintes en hypothèses explicites : capacité nécessaire, options d’hébergement, compromis économiques et points à valider avant de décider.</p>
               <router-link class="btn-sm inline-flex text-white bg-gray-900 hover:bg-gray-800" to="/ai-infrastructure/simulateur">Analyser mon scénario</router-link>
             </div>
-            <div class="grid gap-4 sm:grid-cols-2">
-              <article v-for="item in simulatorHighlights" :key="item.title" class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
-                <h3 class="font-bold text-gray-900 mb-2">{{ item.title }}</h3>
-                <p class="text-sm text-gray-500">{{ item.text }}</p>
-              </article>
+            <div class="relative">
+              <div class="absolute left-4 top-4 bottom-4 hidden w-px bg-linear-to-b from-indigo-200 via-zinc-200 to-transparent sm:block" aria-hidden="true"></div>
+              <div class="space-y-7">
+                <article v-for="(item, index) in simulatorHighlights" :key="item.title" class="relative flex gap-5 sm:pl-12">
+                  <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-900 text-sm font-bold text-white shadow-sm sm:absolute sm:left-0">{{ index + 1 }}</div>
+                  <div>
+                    <h3 class="font-cabinet-grotesk text-xl font-bold text-gray-900 mb-2">{{ item.title }}</h3>
+                    <p class="text-base leading-relaxed text-gray-500">{{ item.text }}</p>
+                  </div>
+                </article>
+              </div>
             </div>
           </div>
         </div>
@@ -81,10 +89,19 @@
         </div>
       </section>
 
-      <section class="bg-linear-to-b from-indigo-50/70 to-white py-12 md:py-20">
+      <section class="bg-linear-to-b from-indigo-50/70 to-white py-16 md:py-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <h2 class="h2 font-cabinet-grotesk mb-8">Pour quels workloads ?</h2>
-          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-5"><article v-for="item in useCaseCards" :key="item.t" class="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm"><h3 class="font-bold text-gray-900 mb-2">{{ item.t }}</h3><p class="text-sm text-gray-500">{{ item.d }}</p></article></div>
+          <div class="mx-auto max-w-3xl text-center pb-12 md:pb-16">
+            <h2 class="h2 font-cabinet-grotesk mb-4">Pour quels workloads ?</h2>
+            <p class="text-lg leading-relaxed text-gray-500">Des situations d’usage différentes, mais une même nécessité : rendre explicites les hypothèses de charge, de performance et d’exploitation.</p>
+          </div>
+          <div class="mx-auto grid max-w-sm gap-10 sm:max-w-none sm:grid-cols-2 md:gap-x-12 md:gap-y-14 lg:grid-cols-5">
+            <article v-for="item in useCaseCards" :key="item.t" class="text-center sm:text-left">
+              <div class="mb-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-indigo-50 text-sm font-bold text-indigo-500">○</div>
+              <h3 class="font-cabinet-grotesk text-lg font-bold leading-snug text-gray-900 mb-2">{{ item.t }}</h3>
+              <p class="text-sm leading-relaxed text-gray-500">{{ item.d }}</p>
+            </article>
+          </div>
         </div>
       </section>
 
