@@ -424,6 +424,10 @@
                 <option v-for="role in recipientRoleOptions" :key="role" :value="role">{{ role }}</option>
               </select>
             </div>
+            <div>
+              <label class="block text-sm font-medium mb-1" for="share-comment">Commentaire</label>
+              <textarea id="share-comment" class="form-textarea w-full text-sm" rows="4" v-model="shareForm.comment" placeholder="Une question, une contrainte ou un contexte particulier ?" :disabled="shareStatus === 'submitting'"></textarea>
+            </div>
             <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
               <label for="share-website">Website</label>
               <input id="share-website" name="website" type="text" v-model="shareForm.website" tabindex="-1" autocomplete="off" />
@@ -493,7 +497,7 @@ const errorMessage = ref('')
 const shareStatus = ref('idle')
 const shareErrorMessage = ref('')
 const shareSuccessRecipient = ref('')
-const shareForm = ref({ recipientEmail: '', recipientName: '', recipientRole: '', website: '' })
+const shareForm = ref({ recipientEmail: '', recipientName: '', recipientRole: '', comment: '', website: '' })
 const recipientRoleOptions = ['Architecte', 'Responsable infrastructure', 'CTO / Directeur technique', 'DSI', 'Responsable cloud', 'Responsable data / IA', 'Product owner', 'Décideur métier', 'Acheteur IT', 'Consultant']
 
 const requestsPerDayHelp = computed(() => {
@@ -503,7 +507,7 @@ const requestsPerDayHelp = computed(() => {
 })
 
 function resetShareForm() {
-  shareForm.value = { recipientEmail: '', recipientName: '', recipientRole: '', website: '' }
+  shareForm.value = { recipientEmail: '', recipientName: '', recipientRole: '', comment: '', website: '' }
   shareStatus.value = 'idle'
   shareErrorMessage.value = ''
   shareSuccessRecipient.value = ''
@@ -550,8 +554,9 @@ async function submitShareStudy() {
       recipient: {
         email: recipientEmail,
         name: optionalString(shareForm.value.recipientName),
+        role: optionalString(shareForm.value.recipientRole),
       },
-      message: optionalString(shareForm.value.recipientRole ? `Rôle du destinataire : ${shareForm.value.recipientRole}` : ''),
+      comment: optionalString(shareForm.value.comment),
       website: shareForm.value.website || '',
       study: result.value,
     }
@@ -779,7 +784,7 @@ const patternContext = computed(() => {
   return { title: 'SLO interactif', rows: [{ icon: 'T', iconBg: 'bg-sky-100', iconColor: 'text-sky-600', label: 'TTFT cible', value: performance.ttft_target_ms ? `< ${formatNumber(performance.ttft_target_ms)} ms` : 'À préciser' }, { icon: 'S', iconBg: 'bg-sky-100', iconColor: 'text-sky-600', label: 'Vitesse cible', value: performance.generation_speed_target_tps ? `${formatNumber(performance.generation_speed_target_tps)} tok/s` : 'À préciser' }, { icon: 'C', iconBg: 'bg-sky-500', iconColor: 'text-white', label: 'Concurrency', value: safeNumber(performance.peak_concurrency) === null ? 'À préciser' : formatNumber(performance.peak_concurrency) }], message: 'Pour un workload conversationnel, le benchmark doit privilégier TTFT, streaming et P95/P99 sous concurrence.' }
 })
 const cloudComparison = computed(() => result.value?.cloud_comparison || {})
-const visibleCloudCandidates = computed(() => Array.isArray(cloudComparison.value.candidates) ? cloudComparison.value.candidates.slice(0, 3) : [])
+const visibleCloudCandidates = computed(() => Array.isArray(cloudComparison.value.candidates) ? cloudComparison.value.candidates : [])
 const cloudComparisonState = computed(() => {
   const status = cloudComparison.value.status
   if (status === 'unavailable') return { title: 'Catalogue Cloud temporairement indisponible', message: 'Le sizing technique a bien été calculé mais les configurations et prix Cloud n’ont pas pu être chargés.', retry: true }
@@ -856,6 +861,12 @@ const keyRecommendations = computed(() => {
 const validationChecklist = computed(() => (result.value?.next_validation || []).map(cleanText).filter(Boolean).slice(0, 5))
 const hasValidationContent = computed(() => Boolean(result.value?.confidence || keyRecommendations.value.length || validationChecklist.value.length))
 const selectedProviderLabel = computed(() => scenarioSelection.value.status === 'ok' ? cleanText(scenarioSelection.value.selected_candidate?.provider) : '')
+const providerLabelMap = { aws: 'AWS', azure: 'Microsoft Azure', gcp: 'Google Cloud', ovh: 'OVHcloud', ovhcloud: 'OVHcloud', scaleway: 'Scaleway' }
+const providerLabel = (provider) => {
+  const raw = cleanText(provider)
+  if (!raw) return 'Provider'
+  return providerLabelMap[raw.toLowerCase()] || raw
+}
 
 const FieldInput = { props: ['id', 'label', 'modelValue', 'help', 'required', 'min', 'placeholder'], emits: ['update:modelValue'], setup(props, { emit }) { return () => h('div', [h('label', { class: 'block text-sm font-medium mb-1', for: props.id }, [props.label, props.required ? h('span', { class: 'ml-1 text-red-500' }, '*') : null]), h('input', { id: props.id, class: 'form-input w-full', type: 'number', min: props.min ?? '0', placeholder: props.placeholder, required: Boolean(props.required), value: props.modelValue, onInput: (event) => emit('update:modelValue', event.target.value) }), props.help ? h('p', { class: 'mt-1 text-xs text-gray-500' }, props.help) : null]) } }
 const FieldText = { props: ['name', 'label', 'modelValue', 'type', 'required', 'placeholder'], emits: ['update:modelValue'], setup(props, { emit }) { return () => h('div', [h('label', { class: 'block text-sm font-medium mb-1' }, [props.label, props.required ? h('span', { class: 'ml-1 text-red-500' }, '*') : null]), h('input', { name: props.name, class: 'form-input w-full', type: props.type || 'text', required: Boolean(props.required), placeholder: props.placeholder, value: props.modelValue, onInput: (event) => emit('update:modelValue', event.target.value) })]) } }
@@ -865,7 +876,7 @@ const ArchitectureComponentCard = { props: ['card'], setup(props) { return () =>
 const TechnicalKpiCard = { props: ['item'], setup(props) { return () => h('div', { class: 'min-w-0 rounded-2xl bg-gray-50 p-4' }, [h('div', { class: ['flex h-9 w-9 items-center justify-center rounded-full', props.item.iconBg] }, [h('span', { class: ['text-sm font-bold', props.item.iconColor] }, props.item.icon)]), h('div', { class: 'mt-3 text-xs font-medium text-gray-500' }, props.item.title), h('div', { class: 'mt-1 break-words font-cabinet-grotesk text-xl font-bold text-gray-900' }, props.item.value), h('div', { class: 'mt-1 text-xs text-gray-500' }, props.item.sublabel)]) } }
 const MetricLine = { props: ['item'], setup(props) { return () => h('div', { class: 'flex items-center gap-3 rounded-2xl bg-gray-50 p-3 text-sm' }, [h('div', { class: ['flex h-9 w-9 shrink-0 items-center justify-center rounded-full', props.item.iconBg] }, [h('span', { class: ['text-sm font-bold', props.item.iconColor] }, props.item.icon)]), h('div', { class: 'min-w-0 grow' }, [h('div', { class: 'font-medium text-gray-800' }, props.item.label), props.item.description ? h('div', { class: 'text-xs text-gray-500' }, props.item.description) : null]), h('div', { class: 'shrink-0 text-right font-bold text-gray-900' }, props.item.value)]) } }
 const GpuMiniCard = { props: ['item'], setup(props) { return () => h('div', { class: 'rounded-2xl bg-gray-50 p-4' }, [h('div', { class: 'text-xs text-gray-500' }, props.item.label), h('div', { class: 'mt-1 break-words font-bold text-gray-900' }, props.item.value)]) } }
-const CloudCandidateCard = { props: ['candidate', 'isFirst'], setup(props) { return () => h('div', { class: 'min-w-0 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm' }, [h('div', { class: 'flex items-center justify-between gap-3' }, [h('div', { class: 'flex min-w-0 items-center gap-3' }, [h('div', { class: 'flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-100 text-xs font-bold text-sky-600' }, 'C'), h('div', { class: 'min-w-0' }, [h('div', { class: 'truncate font-bold text-gray-900' }, props.candidate.provider || 'Provider'), h('div', { class: 'truncate text-xs text-gray-500' }, props.candidate.region || 'Région à préciser')])]), props.candidate.estimated_spot_monthly_730h != null ? h('span', { class: 'shrink-0 rounded-full bg-amber-50 px-2 py-1 text-[11px] font-bold text-amber-700' }, 'Spot') : null]), h('div', { class: 'mt-4 text-base font-bold text-gray-900' }, `${props.candidate.accelerator_name || 'GPU'}${props.candidate.total_gpu_count ? ` × ${props.candidate.total_gpu_count}` : ''}`), props.candidate.estimated_monthly_730h != null ? h('div', { class: 'mt-2 font-cabinet-grotesk text-2xl font-bold text-gray-900' }, `${formatCurrencyAmount(props.candidate.estimated_monthly_730h, props.candidate.currency)} / mois`) : h('div', { class: 'mt-2 text-sm font-bold text-gray-900' }, 'Coût à préciser'), props.candidate.estimated_peak_utilization != null ? h('div', { class: 'mt-2 text-xs text-gray-500' }, `${formatPercent(props.candidate.estimated_peak_utilization)} utilisation estimée`) : null]) } }
+const CloudCandidateCard = { props: ['candidate', 'isFirst'], setup(props) { return () => h('div', { class: 'min-w-0 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm' }, [h('div', { class: 'flex items-center justify-between gap-3' }, [h('div', { class: 'flex min-w-0 items-center gap-3' }, [h('div', { class: 'flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-100 text-xs font-bold text-sky-600' }, 'C'), h('div', { class: 'min-w-0' }, [h('div', { class: 'truncate font-bold text-gray-900' }, providerLabel(props.candidate.provider)), h('div', { class: 'truncate text-xs text-gray-500' }, props.candidate.region || 'Région à préciser')])]), props.candidate.estimated_spot_monthly_730h != null ? h('span', { class: 'shrink-0 rounded-full bg-amber-50 px-2 py-1 text-[11px] font-bold text-amber-700' }, 'Spot') : null]), h('div', { class: 'mt-4 text-base font-bold text-gray-900' }, `${props.candidate.accelerator_name || 'GPU'}${props.candidate.total_gpu_count ? ` × ${props.candidate.total_gpu_count}` : ''}`), props.candidate.estimated_monthly_730h != null ? h('div', { class: 'mt-2 font-cabinet-grotesk text-2xl font-bold text-gray-900' }, `${formatCurrencyAmount(props.candidate.estimated_monthly_730h, props.candidate.currency)} / mois`) : h('div', { class: 'mt-2 text-sm font-bold text-gray-900' }, 'Coût à préciser'), props.candidate.estimated_peak_utilization != null ? h('div', { class: 'mt-2 text-xs text-gray-500' }, `${formatPercent(props.candidate.estimated_peak_utilization)} utilisation estimée`) : null]) } }
 const ConfidenceIndicator = { props: ['item'], setup(props) { return () => h('div', { class: 'rounded-2xl bg-gray-50 p-4 text-sm' }, [h('div', { class: 'flex h-8 w-8 items-center justify-center rounded-full bg-indigo-50 text-xs font-bold text-indigo-500' }, props.item.icon), h('div', { class: 'mt-3 font-bold text-gray-900' }, props.item.label), h('div', { class: 'mt-1 font-bold tracking-widest text-indigo-500' }, props.item.dots), h('div', { class: 'mt-1 text-xs text-gray-500' }, props.item.value)]) } }
 const RecommendationCard = { props: ['item'], setup(props) { return () => h('div', { class: 'min-w-0 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm' }, [h('div', { class: 'flex items-center gap-2' }, [h('span', { class: ['flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold', props.item.badgeClass] }, props.item.icon), h('span', { class: 'text-xs font-bold uppercase tracking-wide text-gray-400' }, props.item.label)]), h('p', { class: 'mt-4 text-sm font-medium leading-snug text-gray-800' }, props.item.text)]) } }
 </script>
