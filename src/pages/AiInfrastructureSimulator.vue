@@ -15,7 +15,7 @@
               <h1 class="text-3xl text-gray-800 font-bold mb-3">Analyse de scénario infrastructure IA</h1>
               <p class="text-gray-500 mb-8">Décrivez votre contexte et vos contraintes. Les paramètres avancés sont optionnels : une estimation suffit pour obtenir un premier cadre de décision.</p>
 
-              <form class="mb-12 space-y-8" @submit.prevent="analyzeWorkload">
+              <form class="mb-12 space-y-8" @submit.prevent="analyzeWorkload" @input="trackCalculatorStart" @change="trackCalculatorStart">
                 <section>
                   <div class="text-lg font-bold text-gray-800 mb-5"><span class="text-indigo-500">1.</span> Votre contexte</div>
                   <div class="space-y-4">
@@ -137,7 +137,7 @@
                   <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-gray-200" aria-hidden="true"></div>
                   <ul class="relative flex justify-between w-full">
                     <li v-for="(slide, index) in slides" :key="slide.key">
-                      <button class="flex items-center justify-center w-7 h-7 rounded-full text-xs font-semibold" :class="activeSlide === index ? 'bg-indigo-500 text-white' : 'bg-white text-gray-500 shadow-sm'" @click="activeSlide = index">{{ index + 1 }}</button>
+                      <button class="flex items-center justify-center w-7 h-7 rounded-full text-xs font-semibold" :class="activeSlide === index ? 'bg-indigo-500 text-white' : 'bg-white text-gray-500 shadow-sm'" @click="selectSlide(index)">{{ index + 1 }}</button>
                     </li>
                   </ul>
                 </div>
@@ -413,7 +413,7 @@
                         <section class="rounded-2xl bg-indigo-50 p-5 text-sm text-gray-700">
                           <h3 class="font-semibold text-gray-900">Toutes les recommandations sont détaillées dans l'étude.</h3>
                           <p class="mt-2">Recevez l'étude complète avec les recommandations classées, leur contexte et les points à valider pour votre architecture.</p>
-                          <button class="btn-sm mt-4 text-white bg-indigo-500 hover:bg-indigo-600 disabled:cursor-not-allowed disabled:opacity-50" type="button" :disabled="!hasShareableStudy" @click="openShareDialog">Recevoir l'étude complète</button>
+                          <button class="btn-sm mt-4 text-white bg-indigo-500 hover:bg-indigo-600 disabled:cursor-not-allowed disabled:opacity-50" type="button" :disabled="!hasShareableStudy" @click="openShareDialog('results_advisory')">Recevoir l'étude complète</button>
                         </section>
 
                         <section class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
@@ -438,7 +438,7 @@
                             <li class="flex gap-2"><span class="text-indigo-300">-</span><span>identifier les risques de gouvernance, souveraineté et exploitation</span></li>
                           </ul>
                           <p class="mt-4 text-xs text-zinc-400">Scénario actuellement étudié : {{ selectedProviderLabel || 'à confirmer' }}</p>
-                          <router-link class="btn-sm mt-5 inline-flex text-white bg-indigo-500 hover:bg-indigo-600" to="/nous-contacter">Demander l’avis de Wenovat</router-link>
+                          <router-link class="btn-sm mt-5 inline-flex text-white bg-indigo-500 hover:bg-indigo-600" to="/nous-contacter" @click="trackEvent('infra_consulting_cta_clicked', { cta_location: 'results_advisory', destination: 'contact' })">Demander l’avis de Wenovat</router-link>
                         </section>
                       </template>
                     </div>
@@ -449,7 +449,7 @@
               <div class="mt-4 shrink-0 flex items-center justify-between border-t border-gray-100 pt-4">
                 <button class="btn-sm bg-white text-gray-700 shadow-sm" @click="previousSlide">Précédent</button>
                 <div class="flex items-center gap-3">
-                  <button class="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 disabled:cursor-not-allowed disabled:opacity-50" type="button" :disabled="!hasShareableStudy" @click.stop="openShareDialog">
+                  <button class="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 disabled:cursor-not-allowed disabled:opacity-50" type="button" :disabled="!hasShareableStudy" @click.stop="openShareDialog('results_navigation')">
                     <svg class="mr-2 h-4 w-4 fill-current" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 10.25c-.77 0-1.45.37-1.88.95L5.7 8.99a2.33 2.33 0 0 0 0-1.98l4.42-2.21A2.33 2.33 0 1 0 9.5 3.2L5.08 5.41a2.33 2.33 0 1 0 0 5.18l4.42 2.21A2.33 2.33 0 1 0 12 10.25Z" /></svg>
                     Envoyer l'étude
                   </button>
@@ -531,6 +531,7 @@ import { computed, h, ref } from 'vue'
 import { formatNumber } from '../lib/inference/estimator.js'
 import { buildInferencePayload } from '../lib/inference/apiPayload.js'
 import { callInferenceApi, shareStudy } from '../lib/inference/inferenceApi.js'
+import { trackEvent } from '../lib/analytics.js'
 import { useCases, modelProfiles } from '../config/modelProfiles.js'
 import { precisionProfiles } from '../config/inferenceAssumptions.js'
 
@@ -564,6 +565,14 @@ const shareErrorMessage = ref('')
 const shareSuccessRecipient = ref('')
 const shareForm = ref({ recipientEmail: '', recipientName: '', recipientRole: '', comment: '', website: '' })
 const recipientRoleOptions = ['Architecte', 'Responsable infrastructure', 'CTO / Directeur technique', 'DSI', 'Responsable cloud', 'Responsable data / IA', 'Product owner', 'Décideur métier', 'Acheteur IT', 'Consultant']
+let calculatorStarted = false
+let viewedScreens = new Set()
+
+function trackCalculatorStart() {
+  if (calculatorStarted) return
+  calculatorStarted = true
+  trackEvent('infra_calculator_started')
+}
 
 const requestsPerDayHelp = computed(() => {
   if (form.value.useCase === 'agent') return 'Nombre de tâches déclenchées par jour. Les appels modèle supplémentaires sont pris en compte séparément.'
@@ -578,10 +587,13 @@ function resetShareForm() {
   shareSuccessRecipient.value = ''
 }
 
-function openShareDialog() {
+function openShareDialog(ctaLocation) {
   if (!hasShareableStudy.value) {
     shareErrorMessage.value = 'Lancez d’abord votre pré-assessment avant de le partager.'
     shareStatus.value = 'error'
+  }
+  if (!showShareModal.value && hasShareableStudy.value) {
+    trackEvent('infra_study_form_opened', { cta_location: ctaLocation })
   }
   showShareModal.value = true
 }
@@ -628,6 +640,7 @@ async function submitShareStudy() {
     const response = await shareStudy(payload)
     shareSuccessRecipient.value = response?.recipient || recipientEmail
     shareStatus.value = 'success'
+    trackEvent('infra_study_lead_submitted')
   } catch (error) {
     shareStatus.value = 'error'
     shareErrorMessage.value = shareErrorLabel(error)
@@ -635,12 +648,20 @@ async function submitShareStudy() {
 }
 
 async function analyzeWorkload() {
+  if (isLoading.value) return
   const payload = buildInferencePayload(form.value)
+  const eventParams = assessmentEventParams(payload)
   isLoading.value = true
   errorMessage.value = ''
   activeSlide.value = 0
+  viewedScreens = new Set()
   try {
+    trackEvent('infra_assessment_submitted', eventParams)
     result.value = await callInferenceApi(payload)
+    if (Number(result.value?.summary?.monthly_tokens) > 0) {
+      trackEvent('infra_assessment_succeeded', eventParams)
+      trackResultScreen(0)
+    }
   } catch (error) {
     console.error('Inference API unavailable', error)
     errorMessage.value = 'Le moteur de pré-assessment n’a pas pu calculer ce scénario. Réessayez dans quelques instants.'
@@ -654,8 +675,21 @@ const selectedUseCaseLabel = computed(() => useCases.find((item) => item.id === 
 const slides = [{ key: 'summary', eyebrow: '1 / 4', title: 'Votre architecture', description: 'Les composants et points d’attention identifiés à partir de votre contexte.' }, { key: 'technical', eyebrow: '2 / 4', title: 'Dimensionnement technique', description: 'Estimation de la charge, de l’empreinte mémoire et de la capacité GPU nécessaire.' }, { key: 'economics', eyebrow: '3 / 4', title: 'Options d’hébergement & coûts', description: 'Configurations compatibles avec votre dimensionnement et ordre de grandeur des coûts d’infrastructure.' }, { key: 'advisory', eyebrow: '4 / 4', title: 'Points à valider', description: 'Les principaux points à confirmer avant de retenir une architecture de production.' }]
 const currentSlide = computed(() => slides[activeSlide.value])
 const hasShareableStudy = computed(() => Boolean(result.value && result.value.status !== 'api_unavailable'))
-function nextSlide() { activeSlide.value = (activeSlide.value + 1) % slides.length }
-function previousSlide() { activeSlide.value = (activeSlide.value - 1 + slides.length) % slides.length }
+function assessmentEventParams(payload = buildInferencePayload(form.value)) {
+  return { use_case: payload.use_case, model_class: payload.model_class, geography: payload.geography, priority: payload.priority, traffic_profile: payload.traffic_profile }
+}
+function trackResultScreen(index) {
+  if (!(Number(result.value?.summary?.monthly_tokens) > 0) || viewedScreens.has(index)) return
+  viewedScreens.add(index)
+  trackEvent('infra_result_screen_viewed', { result_screen: slides[index].key })
+}
+function selectSlide(index) {
+  if (activeSlide.value === index) return
+  activeSlide.value = index
+  trackResultScreen(index)
+}
+function nextSlide() { selectSlide((activeSlide.value + 1) % slides.length) }
+function previousSlide() { selectSlide((activeSlide.value - 1 + slides.length) % slides.length) }
 const rangeValue = (range, suffix = '') => range ? `${formatNumber(range.min)}–${formatNumber(range.max)}${suffix}` : 'n/a'
 const formatPercent = (value) => Number.isFinite(Number(value)) ? `${formatNumber(Number(value) * 100)}%` : 'n/a'
 const formatCurrencyValue = (value, currency = 'USD', maximumFractionDigits = 0) => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: currency || 'USD', maximumFractionDigits }).format(Number.isFinite(Number(value)) ? Number(value) : 0)

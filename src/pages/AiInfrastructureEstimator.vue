@@ -14,7 +14,7 @@
               <p class="max-w-3xl text-lg text-gray-500 mb-3">API, Cloud GPU ou infrastructure dédiée : Wenovat vous aide à comparer les options, cadrer les compromis et identifier le scénario le plus adapté à vos contraintes.</p>
               <p class="max-w-3xl text-base font-medium text-gray-600 mb-8">Architecture, dimensionnement, options d’hébergement et points à valider avant production.</p>
               <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <router-link class="btn text-white bg-gray-900 hover:bg-gray-800 shadow-sm" to="/ai-infrastructure/simulateur">Analyser mon scénario</router-link>
+                <router-link class="btn text-white bg-gray-900 hover:bg-gray-800 shadow-sm" to="/ai-infrastructure/simulateur" @click="trackEvent('nav_click', { destination: 'simulator', nav_location: 'estimator' })">Analyser mon scénario</router-link>
                 <span class="text-sm font-medium text-gray-500">Gratuit · Quelques minutes · Première estimation</span>
               </div>
             </div>
@@ -58,7 +58,7 @@
             <div class="max-w-xl">
               <h2 class="h2 font-cabinet-grotesk mb-4">Un premier cadre de décision</h2>
               <p class="text-lg leading-relaxed text-gray-500 mb-8">Le pré-assessment transforme votre contexte et vos contraintes en hypothèses explicites : capacité nécessaire, options d’hébergement, compromis économiques et points à valider avant de décider.</p>
-              <router-link class="btn-sm inline-flex text-white bg-gray-900 hover:bg-gray-800" to="/ai-infrastructure/simulateur">Analyser mon scénario</router-link>
+              <router-link class="btn-sm inline-flex text-white bg-gray-900 hover:bg-gray-800" to="/ai-infrastructure/simulateur" @click="trackEvent('nav_click', { destination: 'simulator', nav_location: 'estimator' })">Analyser mon scénario</router-link>
             </div>
             <div class="relative">
               <div class="absolute left-4 top-4 bottom-4 hidden w-px bg-linear-to-b from-indigo-200 via-zinc-200 to-transparent sm:block" aria-hidden="true"></div>
@@ -82,7 +82,7 @@
             <div>
               <h2 class="h2 font-cabinet-grotesk mb-4">Passer du pré-assessment à une décision engageable</h2>
               <p class="text-zinc-400">Le simulateur fournit un premier cadre. Wenovat peut ensuite challenger les hypothèses, comparer les options et sécuriser la décision avant le passage en production.</p>
-              <a class="btn-sm mt-6 inline-flex text-white bg-indigo-500 hover:bg-indigo-600" href="/nous-contacter">Échanger sur mon scénario</a>
+              <a class="btn-sm mt-6 inline-flex text-white bg-indigo-500 hover:bg-indigo-600" href="/nous-contacter" @click="trackEvent('infra_consulting_cta_clicked', { cta_location: 'estimator_consulting', destination: 'contact' })">Échanger sur mon scénario</a>
             </div>
             <div class="grid gap-3 sm:grid-cols-2"><div v-for="item in offerItems" :key="item" class="rounded-2xl bg-white/10 p-4 text-sm font-bold">{{ item }}</div></div>
           </div>
@@ -105,7 +105,7 @@
         </div>
       </section>
 
-       <section class="bg-linear-to-b from-white to-white py-12 md:py-20"><div class="max-w-3xl mx-auto px-4 sm:px-6 text-center"><div class="mb-8 inline-flex h-20 w-20 items-center justify-center rounded-xl bg-white shadow-md"><span class="text-3xl">◈</span></div><h2 class="font-cabinet-grotesk text-3xl md:text-4xl font-bold text-zinc-900 mb-4">Vous préparez un workload pour la production ?</h2><p class="mb-6 text-lg text-gray-500">Obtenez un premier scénario d’architecture et identifiez les points à valider avant d’engager votre infrastructure.</p><router-link class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 shadow-sm" to="/ai-infrastructure/simulateur">Analyser mon scénario</router-link></div></section>
+       <section class="bg-linear-to-b from-white to-white py-12 md:py-20"><div class="max-w-3xl mx-auto px-4 sm:px-6 text-center"><div class="mb-8 inline-flex h-20 w-20 items-center justify-center rounded-xl bg-white shadow-md"><span class="text-3xl">◈</span></div><h2 class="font-cabinet-grotesk text-3xl md:text-4xl font-bold text-zinc-900 mb-4">Vous préparez un workload pour la production ?</h2><p class="mb-6 text-lg text-gray-500">Obtenez un premier scénario d’architecture et identifiez les points à valider avant d’engager votre infrastructure.</p><router-link class="btn text-zinc-100 bg-zinc-900 hover:bg-zinc-800 shadow-sm" to="/ai-infrastructure/simulateur" @click="trackEvent('nav_click', { destination: 'simulator', nav_location: 'estimator' })">Analyser mon scénario</router-link></div></section>
     </main>
     <Footer />
   </div>
@@ -115,6 +115,7 @@
 import Header from '../partials/Header.vue'
 import Footer from '../partials/Footer.vue'
 import WorkloadEvolutionChart from '../partials/WorkloadEvolutionChart.vue'
+import { trackEvent } from '../lib/analytics.js'
 
 const difficultyCards = [
   { title: 'Budget & trajectoire de coût', icon: '€', text: 'Comparer le coût apparent ne suffit pas : volume, taux d’utilisation et exploitation peuvent fortement faire évoluer l’équation.' },

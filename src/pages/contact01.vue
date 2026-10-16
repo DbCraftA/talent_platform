@@ -55,7 +55,7 @@
               <form>
                 <div class="space-y-3 mb-8">
                   <label class="relative block cursor-pointer">
-                    <input type="radio"    value="company" v-model="form.type" name="radio-buttons" class="peer sr-only" checked />
+                    <input type="radio"    value="company" v-model="form.type" name="radio-buttons" class="peer sr-only" checked @change="trackContactStart('company')" />
                     <div class="flex items-center bg-white text-sm font-medium text-gray-800  p-4 rounded-lg  border border-gray-200  hover:border-gray-300  shadow-xs transition">
                       <svg class="w-6 h-6 shrink-0 fill-current mr-4" viewBox="0 0 24 24">
                         <path class="text-violet-500" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
@@ -67,7 +67,7 @@
                     <div class="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-500 border-gray-200  rounded-lg pointer-events-none" aria-hidden="true"></div>
                   </label>
                   <label class="relative block cursor-pointer">
-                    <input type="radio"   value="free" v-model="form.type" name="radio-buttons" class="peer sr-only" />
+                    <input type="radio"   value="free" v-model="form.type" name="radio-buttons" class="peer sr-only" @change="trackContactStart('freelance')" />
                     <div class="flex items-center bg-white text-sm font-medium text-gray-800  p-4 rounded-lg  border border-gray-200  hover:border-gray-300  shadow-xs transition">
                       <svg class="w-6 h-6 shrink-0 fill-current mr-4" viewBox="0 0 24 24">
                         <path class="text-violet-500" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
@@ -78,7 +78,7 @@
                     <div class="absolute inset-0 border-2 border-transparent peer-checked:border-indigo-500  rounded-lg pointer-events-none" aria-hidden="true"></div>
                   </label>
                   <label class="relative block cursor-pointer">
-                    <input type="radio"   value="any" v-model="form.type" name="radio-buttons" class="peer sr-only" />
+                    <input type="radio"   value="any" v-model="form.type" name="radio-buttons" class="peer sr-only" @change="trackContactStart('general')" />
                     <div class="flex items-center bg-white text-sm font-medium text-gray-800  p-4 rounded-lg  border border-gray-200  hover:border-gray-300  shadow-xs transition">
                       <svg class="w-6 h-6 shrink-0 fill-current mr-4" viewBox="0 0 24 24">
                         <path class="text-violet-500" d="m12 10.856 9-5-8.514-4.73a1 1 0 0 0-.972 0L3 5.856l9 5Z" />
@@ -89,7 +89,7 @@
                   </label>
                 </div>
                 <div class="flex items-center justify-between" v-if="form.type === 'free'">
-                  <router-link class="btn-sm inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" to="/c-02-f">
+                  <router-link class="btn-sm inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" to="/c-02-f" @click="trackContactStart('freelance')">
                     Suivant
                     <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                     <svg class="fill-indigo-500" xmlns="http://www.w3.org/2000/svg" width="16" height="8">
@@ -99,7 +99,7 @@
                   </router-link>
                 </div>
                 <div class="flex items-center justify-between" v-else-if="form.type === 'any'">
-                  <router-link class="btn-sm inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" to="/c-02-a">
+                  <router-link class="btn-sm inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" to="/c-02-a" @click="trackContactStart('general')">
                     Suivant
                     <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                     <svg class="fill-indigo-500" xmlns="http://www.w3.org/2000/svg" width="16" height="8">
@@ -109,7 +109,7 @@
                   </router-link>
                 </div>
                 <div class="flex items-center justify-between" v-else-if="form.type === 'company'">
-                  <router-link class="btn-sm inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" to="/c-02-c">
+                  <router-link class="btn-sm inline-flex items-center ml-auto text-white bg-gray-900 hover:bg-gray-800 group" to="/c-02-c" @click="trackContactStart('company')">
                     Suivant
                     <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                     <svg class="fill-indigo-500" xmlns="http://www.w3.org/2000/svg" width="16" height="8">
@@ -212,14 +212,14 @@
 <script setup>
 
 import { useFormStore } from '../stores/formContacterNous.js'
-import { computed } from 'vue'
+import { trackEvent } from '../lib/analytics.js'
 
 const form = useFormStore()
+let contactStarted = false
 
-
-
-
-
+function trackContactStart(contactType) {
+  if (contactStarted) return
+  contactStarted = true
+  trackEvent('contact_form_started', { contact_type: contactType })
+}
 </script>
-
-

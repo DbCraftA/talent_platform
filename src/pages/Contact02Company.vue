@@ -406,6 +406,7 @@ import { useRouter } from 'vue-router'
 import emailjs from '@emailjs/browser'
 import { ref } from 'vue'
 import { SERVICE_ID, TEMPLATE_B2B_ID, USER_ID } from '../utils/constantes.js'
+import { trackEvent } from '../lib/analytics.js'
 
 const form = useFormStore()
 const router = useRouter()
@@ -418,13 +419,16 @@ const tab = ref('1')
 
 
 const sendEmail = () => {
+  if (isLoading.value) return
   isLoading.value = true
+  trackEvent('contact_form_submitted', { contact_type: 'company' })
   emailjs
       .sendForm(SERVICE_ID, TEMPLATE_B2B_ID, emailField.value,  USER_ID)
       .then(
           () => {
             isLoading.value = false
             console.log('SUCCESS!');
+            trackEvent('contact_lead_submitted', { contact_type: 'company' })
             form.resetForm()
             router.push('/c-03')
           },

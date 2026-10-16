@@ -6,7 +6,7 @@
         <!-- Site branding -->
         <div>
           <!-- Logo -->
-          <router-link to="/" aria-label="Wenovat" @click="mobileMenuOpen = false">
+          <router-link to="/" aria-label="Wenovat" @click="mobileMenuOpen = false; trackNav('home', 'header')">
             <img src="../images/logo.png" class="max-w-none" width="120" height="60" alt="Wenovat" />
           </router-link>
         </div>
@@ -15,10 +15,10 @@
         <nav class="hidden md:flex grow">
           <ul class="flex grow justify-end flex-wrap items-center">
             <li>
-              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/methode">Notre méthode</router-link>
+              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/methode" @click="trackNav('method', 'header')">Notre méthode</router-link>
             </li>
             <li class="ml-6">
-              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/rejoindre-la-communaute">Rejoindre la communauté</router-link>
+              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/rejoindre-la-communaute" @click="trackNav('community', 'header')">Rejoindre la communauté</router-link>
             </li>
             <li class="ml-6 relative group">
               <button class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex gap-1 h-10" type="button">
@@ -27,7 +27,7 @@
               </button>
               <div class="invisible absolute left-1/2 top-full z-40 w-72 -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
                 <div class="rounded-2xl border border-indigo-100 bg-white p-3 shadow-xl">
-                <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/ai-infrastructure">
+                <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/ai-infrastructure" @click="trackNav('estimator', 'header')">
                   <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">AI Infrastructure Advisory</span>
                   <span class="mt-1 block text-xs text-gray-500">Cadrer et arbitrer entre API, Cloud GPU et On-Prem.</span>
                 </router-link>
@@ -41,7 +41,7 @@
               </button>
               <div class="invisible absolute left-1/2 top-full z-40 w-72 -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
                 <div class="rounded-2xl border border-indigo-100 bg-white p-3 shadow-xl">
-                <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/ai-infrastructure/simulateur">
+                <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/ai-infrastructure/simulateur" @click="trackNav('simulator', 'header')">
                   <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">Calculateur infrastructure IA</span>
                   <span class="mt-1 block text-xs text-gray-500">Estimer coût, mémoire et seuils GPU.</span>
                 </router-link>
@@ -49,10 +49,10 @@
               </div>
             </li>
             <li class="ml-6">
-              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/blog">Blog</router-link>
+              <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/blog" @click="trackNav('blog', 'header')">Blog</router-link>
             </li>
             <li class="ml-6">
-              <router-link class="btn-sm inline-flex items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter">
+              <router-link class="btn-sm inline-flex items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter" @click="trackNav('contact', 'header')">
                 Nous contacter
                 <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
                   <svg class="fill-indigo-500" xmlns="http://www.w3.org/2000/svg" width="16" height="8">
@@ -95,24 +95,24 @@
           >
             <ul class="space-y-1">
               <li>
-                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/methode" @click="mobileMenuOpen = false">Notre méthode</router-link>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/methode" @click="mobileMenuOpen = false; trackNav('method', 'mobile_menu')">Notre méthode</router-link>
               </li>
               <li>
-                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/rejoindre-la-communaute" @click="mobileMenuOpen = false">Rejoindre la communauté</router-link>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/rejoindre-la-communaute" @click="mobileMenuOpen = false; trackNav('community', 'mobile_menu')">Rejoindre la communauté</router-link>
               </li>
               <li class="px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wide text-gray-400">Offres</li>
               <li>
-                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/ai-infrastructure" @click="mobileMenuOpen = false">AI Infrastructure Assessment</router-link>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/ai-infrastructure" @click="mobileMenuOpen = false; trackNav('estimator', 'mobile_menu')">AI Infrastructure Assessment</router-link>
               </li>
               <li class="px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wide text-gray-400">Tools</li>
               <li>
-                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/ai-infrastructure/simulateur" @click="mobileMenuOpen = false">Calculateur infrastructure IA</router-link>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/ai-infrastructure/simulateur" @click="mobileMenuOpen = false; trackNav('simulator', 'mobile_menu')">Calculateur infrastructure IA</router-link>
               </li>
               <li>
-                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/blog" @click="mobileMenuOpen = false">Blog</router-link>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/blog" @click="mobileMenuOpen = false; trackNav('blog', 'mobile_menu')">Blog</router-link>
               </li>
               <li>
-                <router-link class="block rounded-xl  px-4 py-3 font-cabinet-grotesk items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter" @click="mobileMenuOpen = false">
+                <router-link class="block rounded-xl  px-4 py-3 font-cabinet-grotesk items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter" @click="mobileMenuOpen = false; trackNav('contact', 'mobile_menu')">
                   Nous contacter
                   <span class="tracking-normal text-blue-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
 
@@ -129,6 +129,8 @@
 
 <script setup>
 import { ref } from 'vue'
+import { trackEvent } from '../lib/analytics.js'
 
 const mobileMenuOpen = ref(false)
+const trackNav = (destination, navLocation) => trackEvent('nav_click', { destination, nav_location: navLocation })
 </script>

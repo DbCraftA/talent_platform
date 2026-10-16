@@ -9,7 +9,7 @@
         <div class="sm:col-span-6 md:col-span-3 lg:col-span-6 max-sm:order-1 flex flex-col">
           <div class="mb-1" >
             <!-- Logo -->
-            <router-link  to="/" aria-label="Cruip">
+            <router-link  to="/" aria-label="Cruip" @click="trackNav('home')">
               <img src="../images/logo.png" class="max-w-none" width="100" height="40" alt="Hero Illustration" />
             </router-link>
           </div>
@@ -46,7 +46,7 @@
           <h6 class="text-sm text-zinc-800 font-medium mb-2">Légal</h6>
           <ul class="text-sm space-y-2">
             <li>
-              <router-link class="block group" to="/mentions" aria-label="Cruip">
+              <router-link class="block group" to="/mentions" aria-label="Cruip" @click="trackNav('legal')">
                 <a class="text-zinc-500 hover:text-zinc-900 transition" href="/mentions">Mentions légales</a>
               </router-link>
             </li>
@@ -59,12 +59,12 @@
           <h6 class="text-sm text-zinc-800 font-medium mb-2">Entreprise</h6>
           <ul class="text-sm space-y-2">
             <li>
-              <router-link class="block group" to="/a-propos" aria-label="Cruip">
+              <router-link class="block group" to="/a-propos" aria-label="Cruip" @click="trackNav('about')">
                 <a class="text-zinc-500 hover:text-zinc-900 transition" href="/a-propos">À propos de nous</a>
               </router-link>
             </li>
             <li>
-              <router-link class="block group" to="/methode" aria-label="Cruip">
+              <router-link class="block group" to="/methode" aria-label="Cruip" @click="trackNav('method')">
                 <a class="text-zinc-500 hover:text-zinc-900 transition" href="/methode">Notre méthode</a>
               </router-link>
             </li>
@@ -77,4 +77,7 @@
   </footer>
 </template>
 <script setup lang="ts">
+import { trackEvent } from '../lib/analytics.js'
+
+const trackNav = (destination: string) => trackEvent('nav_click', { destination, nav_location: 'footer' })
 </script>
