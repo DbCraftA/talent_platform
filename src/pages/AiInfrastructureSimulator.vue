@@ -175,20 +175,20 @@
                           </div>
                         </section>
 
-                        <section v-if="attentionPoints.length" class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
+                        <section v-if="primaryRecommendations.length" class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
                           <header class="border-b border-gray-100 px-5 py-4">
-                            <h3 class="font-semibold text-gray-800">Points d'attention</h3>
+                            <h3 class="font-semibold text-gray-800">Priorités pour votre scénario</h3>
                           </header>
                           <div class="p-3">
                             <ul class="my-1">
-                              <li v-for="(point, index) in attentionPoints" :key="point.key" class="flex px-2">
+                              <li v-for="(recommendation, index) in primaryRecommendations" :key="recommendation.id" class="flex px-2">
                                 <div class="my-2 mr-3 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-500">
-                                  <span class="text-sm font-bold text-white">{{ index + 1 }}</span>
+                                  <span class="text-sm font-bold text-white">{{ recommendation.rank }}</span>
                                 </div>
-                                <div class="flex grow items-center border-gray-100 py-2 text-sm" :class="index === attentionPoints.length - 1 ? '' : 'border-b'">
+                                <div class="flex grow items-center border-gray-100 py-2 text-sm" :class="index === primaryRecommendations.length - 1 ? '' : 'border-b'">
                                   <div>
-                                    <div class="font-medium text-gray-800">{{ point.title }}</div>
-                                    <div v-if="point.description" class="text-gray-500">{{ point.description }}</div>
+                                    <div class="font-medium text-gray-800">{{ recommendation.title }}</div>
+                                    <div class="text-gray-500">{{ recommendation.web_message }}</div>
                                   </div>
                                 </div>
                               </li>
@@ -228,19 +228,47 @@
 
                         <section class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
                           <header class="border-b border-gray-100 px-5 py-4"><h3 class="font-semibold text-gray-800">Empreinte mémoire</h3></header>
-                          <div v-if="memoryRows.length" class="p-5">
-                            <div class="space-y-3">
+                          <div v-if="memoryResult" class="space-y-5 p-5">
+                            <div v-if="memoryResult.model_reference" class="rounded-2xl bg-gray-50 p-4 text-sm">
+                              <div class="grid gap-3 min-[420px]:grid-cols-2">
+                                <div v-if="memoryResult.model_reference.class_label"><div class="text-xs text-gray-500">Classe de modèle</div><div class="mt-1 font-bold text-gray-900">{{ memoryResult.model_reference.class_label }}</div></div>
+                                <div v-if="memoryResult.model_reference.example_model"><div class="text-xs text-gray-500">Modèle de référence</div><div class="mt-1 font-bold text-gray-900">{{ memoryResult.model_reference.example_model }}</div></div>
+                              </div>
+                              <p class="mt-2 text-xs text-gray-500">Utilisé pour illustrer le pré-dimensionnement de cette classe.</p>
+                            </div>
+                            <div v-if="memoryRows.length" class="space-y-3">
                               <MetricLine v-for="row in memoryRows" :key="row.label" :item="row" />
                             </div>
-                            <div class="my-4 border-t border-gray-100"></div>
-                            <div class="rounded-2xl bg-violet-50 p-4">
+                            <div v-if="estimatedVramLabel" class="rounded-2xl bg-violet-50 p-4">
                               <div class="text-sm font-bold text-violet-600">VRAM estimée</div>
                               <div class="mt-1 font-cabinet-grotesk text-3xl font-bold text-gray-900">{{ estimatedVramLabel }}</div>
                             </div>
-                            <div class="mt-4 flex flex-wrap gap-2 text-xs">
+                            <div class="flex flex-wrap gap-2 text-xs">
                               <span v-if="memoryPrecisionLabel" class="rounded-full bg-gray-50 px-3 py-1 font-bold text-gray-600">{{ memoryPrecisionLabel }}</span>
                               <span v-if="memoryContextLabel" class="rounded-full bg-gray-50 px-3 py-1 font-bold text-gray-600">{{ memoryContextLabel }}</span>
                               <span v-if="memoryConfidenceLabel" class="rounded-full bg-indigo-50 px-3 py-1 font-bold text-indigo-500">Confiance : {{ memoryConfidenceLabel }}</span>
+                            </div>
+                            <div v-if="precisionScenarios.length" class="border-t border-gray-100 pt-4">
+                              <h4 class="font-semibold text-gray-800">Impact de la précision</h4>
+                              <div class="mt-3 grid grid-cols-2 gap-2 min-[420px]:grid-cols-3">
+                                <div v-for="(scenario, index) in precisionScenarios" :key="scenario.precision || index" class="rounded-2xl bg-gray-50 p-3 text-sm">
+                                  <div class="font-bold text-gray-900">{{ scenario.label || scenario.precision?.toUpperCase() }}</div>
+                                  <div v-if="scenario.estimated_vram_gb != null" class="mt-1 font-cabinet-grotesk text-lg font-bold text-indigo-600">{{ formatGpuGB(scenario.estimated_vram_gb) }}</div>
+                                  <div v-if="scenario.precision === 'bf16'" class="mt-1 text-xs text-gray-500">Référence</div>
+                                  <div v-else-if="scenario.memory_saving_vs_bf16_percent != null" class="mt-1 text-xs text-gray-500">-{{ formatNumber(scenario.memory_saving_vs_bf16_percent) }} % vs BF16</div>
+                                </div>
+                              </div>
+                              <p v-if="memoryResult.quantization_note" class="mt-3 text-xs text-gray-500">{{ memoryResult.quantization_note }}</p>
+                            </div>
+                            <div v-if="memoryResult.traffic_memory_impact" class="border-t border-gray-100 pt-4">
+                              <h4 class="font-semibold text-gray-800">Impact du trafic</h4>
+                              <div class="mt-3 grid grid-cols-1 gap-2 min-[420px]:grid-cols-2">
+                                <div v-if="memoryResult.traffic_memory_impact.peak_concurrency != null" class="rounded-2xl bg-gray-50 p-3 text-sm"><div class="text-xs text-gray-500">Concurrence au pic</div><div class="mt-1 font-bold text-gray-900">{{ formatNumber(memoryResult.traffic_memory_impact.peak_concurrency) }} requêtes actives</div><div v-if="memoryResult.traffic_memory_impact.peak_concurrency_estimated" class="mt-1 text-xs text-gray-500">Concurrence estimée</div></div>
+                                <div v-if="memoryResult.traffic_memory_impact.kv_cache_at_peak_gb != null" class="rounded-2xl bg-gray-50 p-3 text-sm"><div class="text-xs text-gray-500">KV cache au pic</div><div class="mt-1 font-bold text-gray-900">{{ formatGpuGB(memoryResult.traffic_memory_impact.kv_cache_at_peak_gb) }}</div></div>
+                                <div v-if="memoryResult.traffic_memory_impact.additional_kv_cache_due_to_concurrency_gb > 0" class="rounded-2xl bg-gray-50 p-3 text-sm"><div class="text-xs text-gray-500">Surcoût lié à la concurrence</div><div class="mt-1 font-bold text-gray-900">+{{ formatGpuGB(memoryResult.traffic_memory_impact.additional_kv_cache_due_to_concurrency_gb) }}</div></div>
+                              </div>
+                              <p v-if="memoryResult.traffic_memory_impact.note" class="mt-3 text-xs text-gray-500">{{ memoryResult.traffic_memory_impact.note }}</p>
+                              <p v-else class="mt-3 text-xs text-gray-500">Le trafic ne change pas les poids du modèle, mais peut augmenter le KV cache et la capacité de serving nécessaire.</p>
                             </div>
                           </div>
                           <div v-else class="p-5 text-sm text-gray-500">Estimation mémoire non disponible.</div>
@@ -248,21 +276,43 @@
 
                         <section class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
                           <header class="border-b border-gray-100 px-5 py-4"><h3 class="font-semibold text-gray-800">Capacité GPU</h3></header>
-                          <div v-if="capacityCandidate" class="p-5">
-                            <div class="grid grid-cols-2 gap-3 text-sm">
-                              <GpuMiniCard v-for="item in gpuCapacityRows" :key="item.label" :item="item" />
+                          <div v-if="capacityCandidate" class="space-y-4 p-5">
+                            <div class="rounded-2xl bg-emerald-50 p-5">
+                              <div class="text-sm font-bold text-emerald-600">Configuration de référence</div>
+                              <div v-if="capacityCandidate.gpu_count != null && (capacityCandidate.accelerator || capacityCandidate.label)" class="mt-1 font-cabinet-grotesk text-3xl font-bold text-gray-900">{{ capacityCandidate.gpu_count }} × {{ capacityCandidate.accelerator || capacityCandidate.label }}</div>
+                              <div v-else-if="capacityCandidate.accelerator || capacityCandidate.label" class="mt-1 font-cabinet-grotesk text-2xl font-bold text-gray-900">{{ capacityCandidate.accelerator || capacityCandidate.label }}</div>
+                              <div v-else class="mt-1 text-sm text-gray-600">Configuration à préciser.</div>
+                              <div v-if="capacityCandidate.deployment_topology" class="mt-2 text-sm text-gray-600">{{ topologyLabel(capacityCandidate.deployment_topology) }}</div>
                             </div>
-                            <div class="mt-4 rounded-2xl bg-emerald-50 p-5">
-                              <div class="text-sm font-bold text-emerald-600">Capacité cible</div>
-                              <div class="mt-1 font-cabinet-grotesk text-4xl font-bold text-gray-900">{{ targetGpuCapacity }}</div>
-                              <div class="mt-1 text-sm text-gray-600">Configuration de production estimée</div>
-                              <div v-if="capacityCandidate.label" class="mt-2 text-xs text-gray-500">Classe de référence : {{ capacityCandidate.label }}</div>
+                            <div v-if="referenceGpuRows.length" class="grid grid-cols-1 gap-2 text-sm min-[420px]:grid-cols-2">
+                              <GpuMiniCard v-for="item in referenceGpuRows" :key="item.label" :item="item" />
                             </div>
-                            <div v-if="capacityUtilizationLabel" class="mt-4">
-                              <div class="flex items-center justify-between text-xs text-gray-500"><span>Utilisation au pic estimée</span><span class="font-bold text-gray-700">{{ capacityUtilizationLabel }}</span></div>
-                              <div class="mt-2 h-2 overflow-hidden rounded-full bg-gray-100"><div class="h-full rounded-full bg-emerald-500" :style="{ width: capacityUtilizationWidth }"></div></div>
+                            <div v-if="capacityCandidate.memory_fit != null || capacityCandidate.throughput_fit != null" class="flex flex-wrap gap-2 text-xs">
+                              <span v-if="capacityCandidate.memory_fit != null" class="rounded-full px-3 py-1 font-bold" :class="capacityCandidate.memory_fit ? 'bg-emerald-50 text-emerald-700' : 'bg-amber-50 text-amber-700'">{{ capacityCandidate.memory_fit ? '✓ Mémoire compatible' : 'Mémoire à valider' }}</span>
+                              <span v-if="capacityCandidate.throughput_fit != null" class="rounded-full px-3 py-1 font-bold" :class="capacityCandidate.throughput_fit ? 'bg-emerald-50 text-emerald-700' : 'bg-amber-50 text-amber-700'">{{ capacityCandidate.throughput_fit ? '✓ Débit compatible' : 'Débit à valider' }}</span>
                             </div>
-                            <p class="mt-4 rounded-2xl bg-gray-50 p-4 text-xs text-gray-600">Le sizing throughput repose sur des performances de référence. Un benchmark du modèle, du runtime et du GPU retenus est nécessaire avant engagement.</p>
+                            <div v-if="capacityCandidate.model_distribution === 'single_node_model_sharding'" class="rounded-2xl bg-amber-50 p-4 text-xs text-amber-900">Le modèle doit être réparti sur plusieurs GPU du même serveur. Les performances dépendent notamment de l'interconnexion GPU et du runtime.</div>
+                            <div v-if="isMultiNodeCandidate(capacityCandidate)" class="rounded-2xl bg-amber-50 p-4 text-xs text-amber-900">Cette configuration répartit le modèle sur plusieurs machines. Les échanges réseau peuvent augmenter la latence et la complexité d'exploitation.<span v-if="capacityCandidate.network_cost_status === 'not_quantified'" class="mt-1 block font-semibold">Coût réseau non quantifié.</span></div>
+                            <div v-if="capacityCandidates.length" class="border-t border-gray-100 pt-4">
+                              <h4 class="font-semibold text-gray-800">Alternatives</h4>
+                              <div class="mt-3 space-y-2">
+                                <div v-for="(candidate, index) in capacityCandidates" :key="candidate.accelerator || candidate.gpu_class || index" class="rounded-2xl bg-gray-50 p-3 text-sm">
+                                  <div class="flex flex-wrap items-center gap-2"><span class="font-bold text-gray-900">{{ candidate.accelerator || candidate.label || candidate.gpu_class || 'GPU' }}</span><span v-if="candidate.recommended" class="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-700">Référence</span></div>
+                                  <div class="mt-1 text-xs text-gray-600"><span v-if="candidate.gpu_count != null">{{ candidate.gpu_count }} GPU</span><span v-if="candidate.available_vram_gb != null"> · {{ formatGpuGB(candidate.available_vram_gb) }} disponibles</span><span v-if="candidate.deployment_topology"> · {{ topologyLabel(candidate.deployment_topology) }}</span></div>
+                                  <p v-if="candidate.model_distribution === 'single_node_model_sharding'" class="mt-2 text-xs text-amber-800">Modèle réparti sur plusieurs GPU du même serveur : interconnexion et runtime à valider.</p>
+                                  <p v-if="isMultiNodeCandidate(candidate)" class="mt-2 text-xs text-amber-800">Modèle réparti sur plusieurs machines : impact réseau et latence à valider.<span v-if="candidate.network_cost_status === 'not_quantified'" class="block font-semibold">Coût réseau non quantifié.</span></p>
+                                </div>
+                              </div>
+                            </div>
+                            <div v-if="distributedCloudCandidates.length" class="border-t border-gray-100 pt-4">
+                              <h4 class="font-semibold text-gray-800">Alternatives distribuées à valider</h4>
+                              <div v-for="(candidate, index) in distributedCloudCandidates" :key="candidate.instance_type || index" class="mt-3 rounded-2xl bg-amber-50 p-4 text-sm">
+                                <div class="font-bold text-gray-900">{{ candidate.instances_required != null ? `${candidate.instances_required} × ` : '' }}{{ candidate.accelerator_name || candidate.accelerator || 'GPU' }} sur plusieurs instances</div>
+                                <p class="mt-2 text-xs text-amber-900">Modèle distribué entre plusieurs machines : impact réseau à benchmarker et complexité d'exploitation supérieure.</p>
+                                <p v-if="candidate.network_cost_status === 'not_quantified'" class="mt-1 text-xs font-semibold text-amber-900">Coût réseau non quantifié.</p>
+                              </div>
+                            </div>
+                            <p class="rounded-2xl bg-gray-50 p-4 text-xs text-gray-600">Le dimensionnement repose sur des performances de référence. Un benchmark du modèle, du runtime et du GPU retenus est nécessaire avant engagement.</p>
                           </div>
                           <div v-else class="p-5 text-sm text-gray-500">Capacité GPU à valider.</div>
                         </section>
@@ -301,7 +351,7 @@
                         <header class="border-b border-gray-100 px-5 py-4"><h3 class="font-semibold text-gray-800">{{ selectedScenarioTitle }}</h3></header>
                         <div class="p-5">
                           <div v-if="selectedScenarioAvailable" class="rounded-2xl bg-sky-50 p-5">
-                            <div class="flex items-start gap-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-500 text-sm font-bold text-white">C</div><div class="min-w-0"><div class="font-bold text-gray-900">{{ selectedScenarioCandidate.provider || 'Provider à préciser' }}</div><div class="mt-1 text-sm text-gray-600">{{ selectedScenarioGpuLine }}</div><div class="mt-1 text-sm text-gray-600">{{ selectedScenarioCandidate.region || 'Région à préciser' }}</div></div></div>
+                            <div class="flex items-start gap-3"><div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-500 text-sm font-bold text-white">C</div><div class="min-w-0"><div class="font-bold text-gray-900">{{ selectedScenarioCandidate.provider || 'Provider à préciser' }}</div><div class="mt-1 text-sm text-gray-600">{{ selectedScenarioGpuLine }}</div><div v-if="selectedScenarioCandidate.instance_type" class="mt-1 text-sm text-gray-600">Instance : {{ selectedScenarioCandidate.instance_type }}</div><div class="mt-1 text-sm text-gray-600">{{ selectedScenarioCandidate.region || 'Région à préciser' }}</div></div></div>
                             <div class="mt-4 flex flex-wrap gap-2 text-xs"><span v-if="selectedStrategyLabel" class="rounded-full bg-indigo-50 px-3 py-1 font-bold text-indigo-500">{{ selectedStrategyLabel }}</span><span v-if="selectedScenarioIsLowest" class="rounded-full bg-emerald-50 px-3 py-1 font-bold text-emerald-600">Également le coût estimé le plus bas</span></div>
                             <div v-if="selectedScenarioEconomics?.monthly_cost != null" class="mt-4 font-cabinet-grotesk text-3xl font-bold text-gray-900">{{ formatCurrencyAmount(selectedScenarioEconomics.monthly_cost, selectedScenarioEconomics.currency) }} / mois</div>
                             <div v-if="selectedScenarioEconomics?.cost_per_million_tokens != null" class="mt-2 text-sm text-gray-700">{{ formatCurrencyAmount(selectedScenarioEconomics.cost_per_million_tokens, selectedScenarioEconomics.currency, 2) }} / million tokens</div>
@@ -319,7 +369,7 @@
                         <div class="p-5 space-y-4">
                           <div v-if="scopeIncluded.length"><div class="text-xs font-semibold uppercase tracking-wide text-gray-400">Inclus</div><ul class="mt-2 space-y-2 text-sm"><li v-for="item in scopeIncluded" :key="item" class="flex gap-2"><span class="font-bold text-emerald-600">✓</span><span class="text-gray-700">{{ item }}</span></li></ul></div>
                           <div v-if="scopeExcluded.length"><div class="text-xs font-semibold uppercase tracking-wide text-gray-400">À compléter</div><ul class="mt-2 space-y-2 text-sm"><li v-for="item in scopeExcluded" :key="item" class="flex gap-2"><span class="font-bold text-gray-400">○</span><span class="text-gray-700">{{ item }}</span></li></ul></div>
-                          <div class="rounded-2xl bg-indigo-50 p-4 text-sm text-gray-700"><div class="font-bold text-gray-900">Il ne s’agit pas encore d’un TCO complet.</div><p class="mt-1">Le coût affiché couvre actuellement l’infrastructure Cloud GPU du modèle principal.</p><p v-if="result.economics_scope?.note" class="mt-2 text-xs text-gray-600">{{ result.economics_scope.note }}</p></div>
+                          <div class="rounded-2xl bg-indigo-50 p-4 text-sm text-gray-700"><div class="font-bold text-gray-900">Il ne s’agit pas encore d’un TCO complet.</div><p class="mt-1">Le coût affiché couvre actuellement l’infrastructure Cloud GPU du modèle principal.</p></div>
                         </div>
                       </section>
 
@@ -333,7 +383,7 @@
                     <div v-else class="space-y-5">
                       <div v-if="!hasValidationContent" class="rounded-2xl border border-amber-200 bg-amber-50 p-5">
                         <div class="font-bold text-amber-900">Validation indisponible</div>
-                        <p class="mt-2 text-sm text-amber-700">Le pré-assessment n’a pas pu produire les recommandations de ce scénario.</p>
+                        <p class="mt-2 text-sm text-amber-700">Le pré-assessment n’a pas pu produire les informations de validation de ce scénario.</p>
                         <button class="btn-sm mt-4 text-white bg-gray-900 hover:bg-gray-800" :disabled="isLoading" @click="analyzeWorkload">{{ isLoading ? 'Nouvel essai' : 'Réessayer' }}</button>
                       </div>
                       <template v-else>
@@ -344,11 +394,26 @@
                           </div>
                         </section>
 
-                        <section v-if="keyRecommendations.length" class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
-                          <header class="border-b border-gray-100 px-5 py-4"><h3 class="font-semibold text-gray-800">Recommandations clés</h3></header>
-                          <div class="grid grid-cols-1 gap-3 p-5 min-[420px]:grid-cols-2">
-                            <RecommendationCard v-for="item in keyRecommendations" :key="item.key" :item="item" />
+                        <section v-if="finalRecommendations.length" class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
+                          <header class="border-b border-gray-100 px-5 py-4"><h3 class="font-semibold text-gray-800">Recommandations prioritaires</h3></header>
+                          <div class="space-y-3 p-5">
+                            <div v-for="recommendation in finalRecommendations" :key="recommendation.id" class="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+                              <div class="flex items-start gap-3">
+                                <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-xs font-bold text-indigo-500">{{ recommendation.rank }}</span>
+                                <div class="min-w-0">
+                                  <h4 class="font-semibold text-gray-800">{{ recommendation.title }}</h4>
+                                  <p class="mt-1 text-sm text-gray-600">{{ recommendation.web_message }}</p>
+                                  <p v-if="recommendation.reason" class="mt-2 text-xs text-gray-500">Pourquoi ici : {{ recommendation.reason }}</p>
+                                </div>
+                              </div>
+                            </div>
                           </div>
+                        </section>
+
+                        <section class="rounded-2xl bg-indigo-50 p-5 text-sm text-gray-700">
+                          <h3 class="font-semibold text-gray-900">Toutes les recommandations sont détaillées dans l'étude.</h3>
+                          <p class="mt-2">Recevez l'étude complète avec les recommandations classées, leur contexte et les points à valider pour votre architecture.</p>
+                          <button class="btn-sm mt-4 text-white bg-indigo-500 hover:bg-indigo-600 disabled:cursor-not-allowed disabled:opacity-50" type="button" :disabled="!hasShareableStudy" @click="openShareDialog">Recevoir l'étude complète</button>
                         </section>
 
                         <section class="overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-gray-100">
@@ -367,10 +432,10 @@
                           <p class="mt-3 text-sm text-zinc-300">Wenovat peut vous aider à challenger ce scénario, comparer les alternatives et identifier l’architecture la plus adaptée à votre workload.</p>
                           <div class="mt-4 text-sm font-bold text-zinc-100">Nous pouvons notamment vous aider à :</div>
                           <ul class="mt-3 space-y-2 text-sm text-zinc-300">
-                            <li class="flex gap-2"><span class="text-indigo-300">-</span><span>valider le sizing sur un benchmark représentatif ;</span></li>
-                            <li class="flex gap-2"><span class="text-indigo-300">-</span><span>comparer Cloud GPU, API managée et On-Prem ;</span></li>
-                            <li class="flex gap-2"><span class="text-indigo-300">-</span><span>confirmer les hypothèses de coût et de capacité ;</span></li>
-                            <li class="flex gap-2"><span class="text-indigo-300">-</span><span>identifier les risques de gouvernance, souveraineté et exploitation.</span></li>
+                            <li class="flex gap-2"><span class="text-indigo-300">-</span><span>valider le sizing sur un benchmark représentatif</span></li>
+                            <li class="flex gap-2"><span class="text-indigo-300">-</span><span>comparer Cloud GPU, API managée et On-Prem</span></li>
+                            <li class="flex gap-2"><span class="text-indigo-300">-</span><span>confirmer les hypothèses de coût et de capacité</span></li>
+                            <li class="flex gap-2"><span class="text-indigo-300">-</span><span>identifier les risques de gouvernance, souveraineté et exploitation</span></li>
                           </ul>
                           <p class="mt-4 text-xs text-zinc-400">Scénario actuellement étudié : {{ selectedProviderLabel || 'à confirmer' }}</p>
                           <router-link class="btn-sm mt-5 inline-flex text-white bg-indigo-500 hover:bg-indigo-600" to="/nous-contacter">Demander l’avis de Wenovat</router-link>
@@ -401,8 +466,8 @@
       <div class="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl sm:p-7">
         <div v-if="shareStatus !== 'success'" class="flex items-start justify-between gap-4 mb-5">
           <div>
-            <h2 id="share-study-modal-title" class="text-2xl font-bold text-gray-900">Partager cette étude</h2>
-            <p class="mt-2 text-sm text-gray-500">Envoyez cette synthèse à un collègue, un responsable infrastructure ou un décideur.</p>
+            <h2 id="share-study-modal-title" class="text-2xl font-bold text-gray-900">Recevoir l'étude complète</h2>
+            <p class="mt-2 text-sm text-gray-500">Recevez les recommandations classées, leur contexte et les points à valider pour votre architecture.</p>
           </div>
           <button class="rounded-full p-1 text-gray-500 hover:bg-gray-100" type="button" aria-label="Fermer" :disabled="shareStatus === 'submitting'" @click="closeShareDialog">✕</button>
         </div>
@@ -453,7 +518,7 @@
             <path class="text-green-700" d="M37.22 26.375a1 1 0 1 1 1.56 1.25l-8 10a1 1 0 0 1-1.487.082l-4-4a1 1 0 0 1 1.414-1.414l3.21 3.21 7.302-9.128Z" />
           </svg>
           <h2 id="share-study-modal-title" class="text-2xl font-bold text-gray-900">Étude envoyée</h2>
-          <p class="mt-3 text-sm text-gray-500">La synthèse a été envoyée à<br><span class="font-bold text-gray-900">{{ shareSuccessRecipient }}</span>.</p>
+          <p class="mt-3 text-sm text-gray-500">L'étude a été envoyée à<br><span class="font-bold text-gray-900">{{ shareSuccessRecipient }}</span>.</p>
           <button class="btn-sm mt-6 text-white bg-gray-900 hover:bg-gray-800" type="button" @click="closeShareDialog">Fermer</button>
         </div>
       </div>
@@ -488,7 +553,7 @@ const generationOptions = [{ value: 'none', label: 'Je ne sais pas' }, { value: 
 const availabilityOptions = [{ value: 'best_effort', label: 'Best effort / sans SLA' }, { value: '99.5', label: '99.5%' }, { value: '99.9', label: '99.9%' }, { value: '99.95', label: '99.95%' }]
 const batchWindowOptions = [{ value: 'none', label: 'Je ne sais pas' }, { value: '1', label: '1 heure' }, { value: '4', label: '4 heures' }, { value: '8', label: '8 heures' }, { value: '12', label: '12 heures' }, { value: '24', label: '24 heures' }]
 
-const form = ref({ useCase: 'chat', modelProfileId: '70b_plus', requestsPerDay: '', avgInputTokens: '', avgOutputTokens: '', peakFactor: 'business_peak_3x', dataSensitivity: 'internal', priority: 'cost', geography: 'france', peakConcurrency: '', contextLength: '', precision: 'unknown', ttftTarget: 'none', generationSpeedTarget: 'none', availabilityTarget: 'best_effort', ragMonthlyIndexedTokens: '', agentModelCallsPerTask: '', batchProcessingWindowHours: 'none', codeRepoAware: false })
+const form = ref({ useCase: 'chat', modelProfileId: '70b_plus', requestsPerDay: '100', avgInputTokens: '15', avgOutputTokens: '200', peakFactor: 'business_peak_3x', dataSensitivity: 'internal', priority: 'cost', geography: 'france', peakConcurrency: '', contextLength: '', precision: 'unknown', ttftTarget: 'none', generationSpeedTarget: 'none', availabilityTarget: 'best_effort', ragMonthlyIndexedTokens: '', agentModelCallsPerTask: '', batchProcessingWindowHours: 'none', codeRepoAware: false })
 const result = ref(null)
 const activeSlide = ref(0)
 const showShareModal = ref(false)
@@ -603,6 +668,17 @@ const formatRangeGB = (range) => {
   if (min === null || max === null || (min <= 0 && max <= 0)) return 'À préciser'
   return `~${formatNumber(min)}–${formatNumber(max)} GB`
 }
+const formatGpuGB = (value) => safeNumber(value) === null ? 'À préciser' : `~${formatNumber(value)} Go`
+const formatMemoryGB = (value) => safeNumber(value) !== null ? formatGpuGB(value) : value?.point != null ? formatGpuGB(value.point) : formatRangeGB(value)
+const topologyLabels = {
+  single_gpu: 'Un seul GPU',
+  single_node_multi_gpu: 'Plusieurs GPU dans un même serveur',
+  multi_node: 'Plusieurs serveurs',
+  multi_node_replicated: 'Plusieurs instances / réplication',
+  multi_node_sharded: 'Modèle distribué sur plusieurs serveurs',
+}
+const topologyLabel = (value) => topologyLabels[value] || value
+const isMultiNodeCandidate = (candidate) => candidate?.inter_node_model_communication === true || candidate?.model_distribution === 'multi_node_model_sharding'
 const formatContextLength = (value) => {
   const number = safeNumber(value)
   if (number === null || number <= 0) return 'À préciser'
@@ -641,11 +717,6 @@ const formatModel = (value) => {
   return model.replaceAll('_', ' ').replace(/\b[a-z]/g, (letter) => letter.toUpperCase())
 }
 const cleanText = (value) => String(value || '').trim()
-const splitRecommendation = (value, key) => {
-  const text = cleanText(value)
-  const [title, ...rest] = text.split(/[:.]/)
-  return { key, title: cleanText(title || text), description: cleanText(rest.join('.').trim()) }
-}
 const patternResult = computed(() => result.value?.pattern || {})
 const patternComponents = computed(() => Array.isArray(patternResult.value.components) ? patternResult.value.components : [])
 const hasComputedSummary = computed(() => Number(result.value?.summary?.monthly_tokens) > 0)
@@ -691,19 +762,10 @@ const architectureComponentCards = computed(() => patternComponents.value.map((c
   const accent = componentAccentByKind[card.accent] || componentAccentByKind.default
   return { key: component.id, ...card, ...accent }
 }))
-const attentionPoints = computed(() => {
-  const recommendations = patternResult.value.recommendations || {}
-  const decisionSignals = result.value?.decision_signals || {}
-  const rows = []
-  ;['governance', 'architecture'].forEach((category) => (recommendations[category] || []).forEach((text, index) => rows.push(splitRecommendation(text, `${category}-${index}`))))
-  ;['economics', 'operations'].forEach((key) => {
-    const signal = decisionSignals[key]
-    if (signal?.label || signal?.explanation) rows.push({ key: `signal-${key}`, title: cleanText(signal.label), description: cleanText(signal.explanation) })
-  })
-  ;(recommendations.security || []).forEach((text, index) => rows.push(splitRecommendation(text, `security-${index}`)))
-  return rows.filter((row) => row.title).slice(0, 3)
-})
-const capacityCandidates = computed(() => result.value?.technical?.capacity?.candidates || [])
+const primaryRecommendations = computed(() => result.value?.recommendations?.slice(0, 3) ?? [])
+const finalRecommendations = computed(() => result.value?.recommendations?.slice(0, 4) ?? [])
+const capacityCandidates = computed(() => Array.isArray(result.value?.technical?.capacity?.candidates) ? result.value.technical.capacity.candidates : [])
+const distributedCloudCandidates = computed(() => Array.isArray(result.value?.cloud_comparison?.conditional_candidates) ? result.value.cloud_comparison.conditional_candidates.filter((candidate) => candidate?.candidate_status === 'conditional_distributed' && candidate.eligible_for_selection === false).slice(0, 2) : [])
 const cloudCandidates = computed(() => result.value?.cloud_comparison?.candidates || [])
 const confidenceRows = computed(() => Object.entries(result.value?.confidence || {}).map(([label, value]) => ({ label, value })))
 const performanceResult = computed(() => result.value?.technical?.performance || null)
@@ -745,25 +807,26 @@ const technicalCallout = computed(() => {
 const memoryRows = computed(() => {
   const memory = memoryResult.value
   if (!memory) return []
-  return [{ icon: 'M', iconBg: 'bg-violet-500', iconColor: 'text-white', label: 'Poids du modèle', value: formatRangeGB(memory.model_weights_gb) }, { icon: 'K', iconBg: 'bg-violet-100', iconColor: 'text-violet-600', label: 'KV cache', value: formatRangeGB(memory.kv_cache_gb) }, { icon: 'R', iconBg: 'bg-violet-100', iconColor: 'text-violet-600', label: 'Runtime + marge', value: formatRangeGB(memory.runtime_overhead_gb) }]
+  return [
+    memory.model_weights_gb != null ? { icon: 'M', iconBg: 'bg-violet-500', iconColor: 'text-white', label: `Poids du modèle${memory.effective_precision ? ` — ${String(memory.effective_precision).toUpperCase()}` : ''}`, value: formatMemoryGB(memory.model_weights_gb) } : null,
+    memory.kv_cache_gb != null ? { icon: 'K', iconBg: 'bg-violet-100', iconColor: 'text-violet-600', label: 'KV cache / contexte / concurrence', value: formatMemoryGB(memory.kv_cache_gb) } : null,
+    memory.runtime_overhead_gb != null ? { icon: 'R', iconBg: 'bg-violet-100', iconColor: 'text-violet-600', label: memory.memory_headroom_percent != null ? 'Runtime et overhead' : 'Runtime + marge', value: formatMemoryGB(memory.runtime_overhead_gb) } : null,
+    memory.memory_headroom_percent != null ? { icon: '%', iconBg: 'bg-violet-100', iconColor: 'text-violet-600', label: 'Marge mémoire', value: `${formatNumber(memory.memory_headroom_percent)} %` } : null,
+  ].filter(Boolean)
 })
-const estimatedVramLabel = computed(() => formatRangeGB(memoryResult.value?.estimated_vram_gb))
-const memoryPrecisionLabel = computed(() => memoryResult.value?.effective_precision ? `Precision ${String(memoryResult.value.effective_precision).toUpperCase()}${memoryResult.value.precision_estimated ? ' estimée' : ''}` : '')
+const estimatedVramLabel = computed(() => memoryResult.value?.estimated_vram_point_gb != null ? formatGpuGB(memoryResult.value.estimated_vram_point_gb) : memoryResult.value?.estimated_vram_gb != null ? formatMemoryGB(memoryResult.value.estimated_vram_gb) : '')
+const memoryPrecisionLabel = computed(() => memoryResult.value?.effective_precision ? `${memoryResult.value.precision_estimated ? 'Hypothèse de référence' : 'Précision utilisée'} : ${String(memoryResult.value.effective_precision).toUpperCase()}` : '')
 const memoryContextLabel = computed(() => memoryResult.value?.context_length ? `Context ${formatContextLength(memoryResult.value.context_length)}${memoryResult.value.context_estimated ? ' estimé' : ''}` : '')
 const memoryConfidenceLabel = computed(() => confidenceLabel(memoryResult.value?.confidence))
-const gpuCapacityRows = computed(() => {
+const precisionScenarios = computed(() => Array.isArray(memoryResult.value?.precision_scenarios) ? memoryResult.value.precision_scenarios : [])
+const referenceGpuRows = computed(() => {
   const candidate = capacityCandidate.value || {}
-  return [{ label: 'Mémoire', value: safeNumber(candidate.memory_gpu_count) === null ? 'À préciser' : `${formatNumber(candidate.memory_gpu_count)} GPU minimum` }, { label: 'Throughput', value: safeNumber(candidate.throughput_gpu_count) === null ? 'À préciser' : `${formatNumber(candidate.throughput_gpu_count)} GPU minimum` }, { label: 'Production', value: safeNumber(candidate.production_gpu_count) === null ? 'À préciser' : `${formatNumber(candidate.production_gpu_count)} GPU` }, { label: 'HA', value: safeNumber(candidate.ha_gpu_count) === null ? 'À préciser' : `${formatNumber(candidate.ha_gpu_count)} GPU` }]
+  return [
+    candidate.available_vram_gb != null ? { label: 'VRAM disponible', value: formatGpuGB(candidate.available_vram_gb) } : null,
+    candidate.required_vram_gb != null ? { label: 'VRAM estimée', value: formatGpuGB(candidate.required_vram_gb) } : null,
+    candidate.deployment_topology ? { label: 'Topologie', value: topologyLabel(candidate.deployment_topology) } : null,
+  ].filter(Boolean)
 })
-const targetGpuCapacity = computed(() => {
-  const candidate = capacityCandidate.value || {}
-  const ha = safeNumber(candidate.ha_gpu_count)
-  const production = safeNumber(candidate.production_gpu_count)
-  const target = ha !== null && production !== null && ha > production ? ha : production ?? ha
-  return target === null ? 'À préciser' : `~${formatNumber(target)} GPU`
-})
-const capacityUtilizationLabel = computed(() => capacityCandidate.value?.estimated_peak_utilization !== undefined ? formatPercent(capacityCandidate.value.estimated_peak_utilization) : '')
-const capacityUtilizationWidth = computed(() => `${Math.min(100, Math.max(0, (safeNumber(capacityCandidate.value?.estimated_peak_utilization) || 0) * 100))}%`)
 const componentById = (id) => patternComponents.value.find((component) => component.id === id)
 const embeddingVolumeLabel = (component) => component?.workload?.monthly_requests ? `~${formatLargeNumber(component.workload.monthly_requests)} embeddings/mois` : component?.workload?.monthly_indexed_tokens ? `~${formatLargeNumber(component.workload.monthly_indexed_tokens)} tokens/mois` : ''
 const patternContext = computed(() => {
@@ -842,24 +905,8 @@ const validationConfidenceRows = computed(() => {
     { icon: 'P', label: 'Performance', dots: confidenceDots(confidence.latency), value: validationConfidenceLabel('latency', confidence.latency) },
   ]
 })
-const recommendationCategoryMeta = {
-  architecture: { label: 'Architecture', icon: 'A', badgeClass: 'bg-violet-50 text-violet-600' },
-  governance: { label: 'Gouvernance', icon: 'G', badgeClass: 'bg-indigo-50 text-indigo-500' },
-  security: { label: 'Sécurité', icon: 'S', badgeClass: 'bg-amber-50 text-amber-700' },
-  optimization: { label: 'Optimisation', icon: 'O', badgeClass: 'bg-sky-50 text-sky-600' },
-}
-const keyRecommendations = computed(() => {
-  const recommendations = patternResult.value.recommendations || {}
-  const rows = []
-  ;['architecture', 'governance', 'security', 'optimization'].forEach((category) => {
-    if (rows.length >= 3) return
-    const text = cleanText(recommendations[category]?.[0])
-    if (text) rows.push({ key: category, text, ...recommendationCategoryMeta[category] })
-  })
-  return rows
-})
 const validationChecklist = computed(() => (result.value?.next_validation || []).map(cleanText).filter(Boolean).slice(0, 5))
-const hasValidationContent = computed(() => Boolean(result.value?.confidence || keyRecommendations.value.length || validationChecklist.value.length))
+const hasValidationContent = computed(() => Boolean(result.value?.confidence || finalRecommendations.value.length || validationChecklist.value.length))
 const selectedProviderLabel = computed(() => scenarioSelection.value.status === 'ok' ? cleanText(scenarioSelection.value.selected_candidate?.provider) : '')
 const providerLabelMap = { aws: 'AWS', azure: 'Microsoft Azure', gcp: 'Google Cloud', ovh: 'OVHcloud', ovhcloud: 'OVHcloud', scaleway: 'Scaleway' }
 const providerLabel = (provider) => {
@@ -876,9 +923,8 @@ const ArchitectureComponentCard = { props: ['card'], setup(props) { return () =>
 const TechnicalKpiCard = { props: ['item'], setup(props) { return () => h('div', { class: 'min-w-0 rounded-2xl bg-gray-50 p-4' }, [h('div', { class: ['flex h-9 w-9 items-center justify-center rounded-full', props.item.iconBg] }, [h('span', { class: ['text-sm font-bold', props.item.iconColor] }, props.item.icon)]), h('div', { class: 'mt-3 text-xs font-medium text-gray-500' }, props.item.title), h('div', { class: 'mt-1 break-words font-cabinet-grotesk text-xl font-bold text-gray-900' }, props.item.value), h('div', { class: 'mt-1 text-xs text-gray-500' }, props.item.sublabel)]) } }
 const MetricLine = { props: ['item'], setup(props) { return () => h('div', { class: 'flex items-center gap-3 rounded-2xl bg-gray-50 p-3 text-sm' }, [h('div', { class: ['flex h-9 w-9 shrink-0 items-center justify-center rounded-full', props.item.iconBg] }, [h('span', { class: ['text-sm font-bold', props.item.iconColor] }, props.item.icon)]), h('div', { class: 'min-w-0 grow' }, [h('div', { class: 'font-medium text-gray-800' }, props.item.label), props.item.description ? h('div', { class: 'text-xs text-gray-500' }, props.item.description) : null]), h('div', { class: 'shrink-0 text-right font-bold text-gray-900' }, props.item.value)]) } }
 const GpuMiniCard = { props: ['item'], setup(props) { return () => h('div', { class: 'rounded-2xl bg-gray-50 p-4' }, [h('div', { class: 'text-xs text-gray-500' }, props.item.label), h('div', { class: 'mt-1 break-words font-bold text-gray-900' }, props.item.value)]) } }
-const CloudCandidateCard = { props: ['candidate', 'isFirst'], setup(props) { return () => h('div', { class: 'min-w-0 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm' }, [h('div', { class: 'flex items-center justify-between gap-3' }, [h('div', { class: 'flex min-w-0 items-center gap-3' }, [h('div', { class: 'flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-100 text-xs font-bold text-sky-600' }, 'C'), h('div', { class: 'min-w-0' }, [h('div', { class: 'truncate font-bold text-gray-900' }, providerLabel(props.candidate.provider)), h('div', { class: 'truncate text-xs text-gray-500' }, props.candidate.region || 'Région à préciser')])]), props.candidate.estimated_spot_monthly_730h != null ? h('span', { class: 'shrink-0 rounded-full bg-amber-50 px-2 py-1 text-[11px] font-bold text-amber-700' }, 'Spot') : null]), h('div', { class: 'mt-4 text-base font-bold text-gray-900' }, `${props.candidate.accelerator_name || 'GPU'}${props.candidate.total_gpu_count ? ` × ${props.candidate.total_gpu_count}` : ''}`), props.candidate.estimated_monthly_730h != null ? h('div', { class: 'mt-2 font-cabinet-grotesk text-2xl font-bold text-gray-900' }, `${formatCurrencyAmount(props.candidate.estimated_monthly_730h, props.candidate.currency)} / mois`) : h('div', { class: 'mt-2 text-sm font-bold text-gray-900' }, 'Coût à préciser'), props.candidate.estimated_peak_utilization != null ? h('div', { class: 'mt-2 text-xs text-gray-500' }, `${formatPercent(props.candidate.estimated_peak_utilization)} utilisation estimée`) : null]) } }
+const CloudCandidateCard = { props: ['candidate', 'isFirst'], setup(props) { return () => h('div', { class: 'min-w-0 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm' }, [h('div', { class: 'flex items-center justify-between gap-3' }, [h('div', { class: 'flex min-w-0 items-center gap-3' }, [h('div', { class: 'flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-sky-100 text-xs font-bold text-sky-600' }, 'C'), h('div', { class: 'min-w-0' }, [h('div', { class: 'truncate font-bold text-gray-900' }, providerLabel(props.candidate.provider)), h('div', { class: 'truncate text-xs text-gray-500' }, props.candidate.region || 'Région à préciser')])]), props.candidate.estimated_spot_monthly_730h != null ? h('span', { class: 'shrink-0 rounded-full bg-amber-50 px-2 py-1 text-[11px] font-bold text-amber-700' }, 'Spot') : null]), h('div', { class: 'mt-4 text-base font-bold text-gray-900' }, `${props.candidate.accelerator_name || 'GPU'}${props.candidate.total_gpu_count ? ` × ${props.candidate.total_gpu_count}` : ''}`), props.candidate.instance_type ? h('div', { class: 'mt-1 break-words text-xs text-gray-500' }, `Instance : ${props.candidate.instance_type}`) : null, props.candidate.estimated_monthly_730h != null ? h('div', { class: 'mt-2 font-cabinet-grotesk text-2xl font-bold text-gray-900' }, `${formatCurrencyAmount(props.candidate.estimated_monthly_730h, props.candidate.currency)} / mois`) : h('div', { class: 'mt-2 text-sm font-bold text-gray-900' }, 'Coût à préciser'), props.candidate.estimated_peak_utilization != null ? h('div', { class: 'mt-2 text-xs text-gray-500' }, `${formatPercent(props.candidate.estimated_peak_utilization)} utilisation estimée`) : null]) } }
 const ConfidenceIndicator = { props: ['item'], setup(props) { return () => h('div', { class: 'rounded-2xl bg-gray-50 p-4 text-sm' }, [h('div', { class: 'flex h-8 w-8 items-center justify-center rounded-full bg-indigo-50 text-xs font-bold text-indigo-500' }, props.item.icon), h('div', { class: 'mt-3 font-bold text-gray-900' }, props.item.label), h('div', { class: 'mt-1 font-bold tracking-widest text-indigo-500' }, props.item.dots), h('div', { class: 'mt-1 text-xs text-gray-500' }, props.item.value)]) } }
-const RecommendationCard = { props: ['item'], setup(props) { return () => h('div', { class: 'min-w-0 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm' }, [h('div', { class: 'flex items-center gap-2' }, [h('span', { class: ['flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold', props.item.badgeClass] }, props.item.icon), h('span', { class: 'text-xs font-bold uppercase tracking-wide text-gray-400' }, props.item.label)]), h('p', { class: 'mt-4 text-sm font-medium leading-snug text-gray-800' }, props.item.text)]) } }
 </script>
 
 <style scoped>
