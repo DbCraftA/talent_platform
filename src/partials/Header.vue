@@ -45,6 +45,10 @@
                   <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">Calculateur infrastructure IA</span>
                   <span class="mt-1 block text-xs text-gray-500">Estimer coût, mémoire et seuils GPU.</span>
                 </router-link>
+                <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/developpement-assiste-ia/simulateur" @click="trackNav('development_ai_simulator', 'header')">
+                  <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">Développement assisté par IA</span>
+                  <span class="mt-1 block text-xs text-gray-500">Cadrer les pratiques et les étapes d'adoption de l'IA.</span>
+                </router-link>
                 </div>
               </div>
             </li>
@@ -107,6 +111,9 @@
               <li class="px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wide text-gray-400">Tools</li>
               <li>
                 <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/ai-infrastructure/simulateur" @click="mobileMenuOpen = false; trackNav('simulator', 'mobile_menu')">Calculateur infrastructure IA</router-link>
+              </li>
+              <li>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/developpement-assiste-ia/simulateur" @click="mobileMenuOpen = false; trackNav('development_ai_simulator', 'mobile_menu')">Développement assisté par IA</router-link>
               </li>
               <li>
                 <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/blog" @click="mobileMenuOpen = false; trackNav('blog', 'mobile_menu')">Blog</router-link>
