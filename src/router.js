@@ -14,6 +14,7 @@ import ClientFeedback02 from './pages/ClientFeedback02.vue'
 import ClientFeedback03 from './pages/ClientFeedback03.vue'
 import AiInfrastructureEstimator from './pages/AiInfrastructureEstimator.vue'
 import AiInfrastructureSimulator from './pages/AiInfrastructureSimulator.vue'
+import AiDevelopmentOffer from './pages/AiDevelopmentOffer.vue'
 import AiDevelopmentSimulator from './pages/AiDevelopmentSimulator.vue'
 import { useFormStore } from './stores/formContacterNous.js'
 import { pinia } from './main'
@@ -96,6 +97,10 @@ const router = createRouter({
     {
       path: '/ai-infrastructure/simulateur',
       component: AiInfrastructureSimulator
+    },
+    {
+      path: '/developpement-assiste-ia',
+      component: AiDevelopmentOffer
     },
     {
       path: '/developpement-assiste-ia/simulateur',

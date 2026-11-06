@@ -59,7 +59,7 @@ const testimonials02 = [
     <div class="py-12 md:py-20">
       <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-          <h2 class="font-inter-tight text-3xl md:text-4xl font-bold text-zinc-200">Des experts et des clients qui nous choisissent</h2>
+          <h2 class="font-cabinet-grotesk text-3xl leading-tight font-bold text-zinc-200 md:text-4xl">Des experts et des clients qui nous choisissent</h2>
         </div>
       </div>
       <div class="max-w-[94rem] mx-auto space-y-6">

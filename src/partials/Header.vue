@@ -25,11 +25,15 @@
                 Offres
                 <svg class="h-3 w-3 fill-current" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 8.825 1.175 4 2.05 3.125 6 7.075l3.95-3.95.875.875L6 8.825Z" /></svg>
               </button>
-              <div class="invisible absolute left-1/2 top-full z-40 w-72 -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
+              <div class="invisible absolute right-0 top-full z-40 w-72 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 lg:left-1/2 lg:right-auto lg:-translate-x-1/2">
                 <div class="rounded-2xl border border-indigo-100 bg-white p-3 shadow-xl">
                 <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/ai-infrastructure" @click="trackNav('estimator', 'header')">
                   <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">AI Infrastructure Advisory</span>
                   <span class="mt-1 block text-xs text-gray-500">Cadrer et arbitrer entre API, Cloud GPU et On-Prem.</span>
+                </router-link>
+                <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/developpement-assiste-ia" @click="trackNav('development_ai_offer', 'header')">
+                  <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">Développement assisté par IA</span>
+                  <span class="mt-1 block text-xs text-gray-500">Structurer l’adoption de l’IA dans le cycle logiciel.</span>
                 </router-link>
                 </div>
               </div>
@@ -39,7 +43,7 @@
                 Tools
                 <svg class="h-3 w-3 fill-current" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 8.825 1.175 4 2.05 3.125 6 7.075l3.95-3.95.875.875L6 8.825Z" /></svg>
               </button>
-              <div class="invisible absolute left-1/2 top-full z-40 w-72 -translate-x-1/2 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100">
+              <div class="invisible absolute right-0 top-full z-40 w-72 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 lg:left-1/2 lg:right-auto lg:-translate-x-1/2">
                 <div class="rounded-2xl border border-indigo-100 bg-white p-3 shadow-xl">
                 <router-link class="block rounded-xl px-4 py-3 text-left hover:bg-indigo-50" to="/ai-infrastructure/simulateur" @click="trackNav('simulator', 'header')">
                   <span class="block font-cabinet-grotesk text-sm font-bold text-gray-900">Calculateur infrastructure IA</span>
@@ -107,6 +111,9 @@
               <li class="px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wide text-gray-400">Offres</li>
               <li>
                 <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/ai-infrastructure" @click="mobileMenuOpen = false; trackNav('estimator', 'mobile_menu')">AI Infrastructure Assessment</router-link>
+              </li>
+              <li>
+                <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/developpement-assiste-ia" @click="mobileMenuOpen = false; trackNav('development_ai_offer', 'mobile_menu')">Développement assisté par IA</router-link>
               </li>
               <li class="px-4 pt-3 pb-1 text-xs font-bold uppercase tracking-wide text-gray-400">Tools</li>
               <li>

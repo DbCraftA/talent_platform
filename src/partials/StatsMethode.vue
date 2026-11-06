@@ -1,43 +1,21 @@
 <script setup>
-import { ref } from 'vue'
 import Counter from './Counter.vue'
 
-const stats = ref([
-  {
-    number: 95,
-    suffix: '%',
-    text: 'Des missions lancées trouvent un profil adapté en moins de 10 jours.',
-  },
-  {
-    number: 150,
-    suffix: '+',
-    text: 'Architectes et experts techniques déjà qualifiés dans notre réseau.',
-  },
-  {
-    number: 3,
-    suffix: 'x',
-    text: 'Un time-to-market réduit par rapport à une approche classique.',
-  },
-  {
-    number: 100,
-    suffix: '%',
-    text: 'des talents évalués passent par un screening rigoureux.',
-  },
-])
+const stats = [
+  { number: 95, suffix: '%', text: 'Des missions lancées trouvent un profil adapté en moins de 10 jours.' },
+  { number: 150, suffix: '+', text: 'Architectes et experts techniques déjà qualifiés dans notre réseau.' },
+  { number: 3, suffix: 'x', text: 'Un time-to-market réduit par rapport à une approche classique.' },
+  { number: 100, suffix: '%', text: 'des talents évalués passent par un screening rigoureux.' },
+]
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto px-10 pt-20 pb-10">
-    <div class="max-w-sm mx-auto grid gap-12 sm:grid-cols-2 md:grid-cols-4 md:-mx-5 md:gap-0 items-start md:max-w-none">
-
-      <template v-for="stat in stats">
-        <div class="relative text-center md:px-5 after:hidden md:after:block after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:w-px after:h-8 after:border-l after:border-zinc-300 after:border-dashed last:after:hidden">
-          <h4 class="font-inter-tight text-2xl md:text-3xl font-bold tabular-nums mb-2"><Counter :number="stat.number" />{{ stat.suffix }}</h4>
-          <p class="text-sm text-zinc-500">{{ stat.text }}</p>
-        </div>
-      </template>
-
+  <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 md:-mb-16">
+    <div class="grid gap-y-6 rounded-3xl border border-[#eceaf6] bg-white px-6 py-7 shadow-[0_20px_55px_rgba(28,23,83,0.1)] sm:grid-cols-2 sm:gap-y-8 md:grid-cols-4 md:px-4 md:py-9">
+      <div v-for="(stat, index) in stats" :key="stat.text" class="text-center sm:px-5 sm:odd:border-r sm:odd:border-[#e6e5ed] md:border-r md:border-[#e6e5ed] md:last:border-r-0" data-aos="fade-up" :data-aos-delay="index * 75">
+        <p class="font-cabinet-grotesk text-3xl font-bold tabular-nums text-[#5638f5] sm:text-4xl"><Counter :number="stat.number" />{{ stat.suffix }}</p>
+        <p class="mx-auto mt-2 max-w-52 text-sm leading-relaxed text-[#565d7c]">{{ stat.text }}</p>
+      </div>
     </div>
-
   </div>
 </template>

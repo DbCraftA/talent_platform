@@ -13,47 +13,45 @@ const tab = ref('1')
         <div class="lg:flex space-y-12 lg:space-y-0 lg:space-x-12 xl:space-x-24">
 
           <!-- Content -->
-          <div class="lg:max-w-none lg:min-w-[524px]">
+          <div class="lg:w-[524px] lg:shrink-0 xl:w-[540px]">
             <div class="mb-8">
-              <div class="inline-flex text-sm font-medium text-zinc-400 px-4 py-0.5 border border-transparent [background:linear-gradient(var(--color-zinc-800),var(--color-zinc-800))_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box] rounded-full mb-4">Packs Cloud & IA du collectif Wenovat</div>
-              <h3 class="font-inter-tight text-3xl font-bold text-zinc-200 mb-4">Des packs Cloud & IA conçus par des architectes qui accompagnent le terrain</h3>
-              <p class="text-lg text-zinc-500">Chaque pack formalise des pratiques éprouvées par le collectif Wenovat pour cadrer, sécuriser et accélérer vos projets Cloud, Data et IA.
-                Deux formules claires et actionnables, pensées pour vous donner de la visibilité sur les coûts, la roadmap et les résultats.</p>
+              <div class="inline-flex text-sm font-medium text-zinc-400 px-4 py-0.5 border border-transparent [background:linear-gradient(var(--color-zinc-800),var(--color-zinc-800))_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box] rounded-full mb-4">Deux offres IA du collectif Wenovat</div>
+              <h3 class="font-inter-tight text-3xl font-bold text-zinc-200 mb-4">Une infrastructure adaptée et un développement assisté par l’IA</h3>
+              <p class="text-lg text-zinc-500">Wenovat vous accompagne dans le cadrage de votre infrastructure IA et dans l’adoption de l’IA tout au long du cycle de développement logiciel, selon vos usages et vos contraintes.</p>
             </div>
             <!-- Tabs buttons -->
-            <div class="mb-8 md:mb-0 space-y-2">
+            <div class="space-y-2">
               <button
                 :class="tab !== '1' ? '' : '[background:linear-gradient(#2E2E32,#2E2E32)_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box]'"
-                class="text-left flex items-center px-6 py-4 rounded-sm border border-transparent"
-                @click.prevent="tab = '1'"
+                class="w-full text-left flex items-center px-6 py-4 rounded-sm border border-transparent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-200"
+                type="button"
+                :aria-pressed="tab === '1'"
+                @click="tab = '1'"
               >
-
-
-                <img class="shrink-0 fill-zinc-400 mr-3"  src="../images/cloud.png" width="24" height="24" alt="Icon 03">
-
-
+                <img class="shrink-0 fill-zinc-400 mr-3" src="../images/cloud.png" width="24" height="24" alt="" aria-hidden="true">
                 <div>
-                  <div class="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Pack Cloud Foundation</div>
-                  <div class="text-zinc-500">Un audit de votre infrastructure et une architecture cible avec roadmap claire. Un expert cloud vous accompagne pour structurer et sécuriser la mise en œuvre, avec un prix prévisible et des résultats garantis.</div>
+                  <div class="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Infrastructure IA</div>
+                  <div class="text-zinc-400">Cadrez vos usages, l’architecture, le dimensionnement, les coûts et la sécurité de votre infrastructure IA.</div>
                 </div>
               </button>
               <button
                 :class="tab !== '2' ? '' : '[background:linear-gradient(#2E2E32,#2E2E32)_padding-box,linear-gradient(120deg,var(--color-zinc-700),--theme(--color-zinc-700/0),var(--color-zinc-700))_border-box]'"
-                class="text-left flex items-center px-6 py-4 rounded-sm border border-transparent"
-                @click.prevent="tab = '2'"
+                class="w-full text-left flex items-center px-6 py-4 rounded-sm border border-transparent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-200"
+                type="button"
+                :aria-pressed="tab === '2'"
+                @click="tab = '2'"
               >
-                <img class="shrink-0 fill-zinc-400 mr-3" src="../images/ia.png" width="24" height="24" alt="Icon 02">
-
+                <img class="shrink-0 fill-zinc-400 mr-3" src="../images/ia.png" width="24" height="24" alt="" aria-hidden="true">
                 <div>
-                  <div class="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Pack Data & IA Accelerator</div>
-                  <div class="text-zinc-500">Évaluez vos cas d’usage IA, testez un POC rapide et déployez une architecture Data & MLOps adaptée. Vous accélérez vos projets IA et maîtrisez le passage du POC à la production.</div>
+                  <div class="font-inter-tight text-lg font-semibold text-zinc-200 mb-1">Développement assisté par l’IA</div>
+                  <div class="text-zinc-400">Intégrez l’IA dans votre cycle logiciel, des spécifications aux tests et à la mise en production, avec des validations humaines.</div>
                 </div>
               </button>
             </div>
           </div>
 
           <!-- Tabs items -->
-          <div class="relative lg:max-w-none">
+          <div class="relative min-w-0 lg:flex-1">
             <div class="relative flex flex-col">
               <!-- Item 1 -->
               <transition
@@ -65,9 +63,13 @@ const tab = ref('1')
                 leave-to-class="opacity-0 -translate-x-8"
               >              
                 <div class="w-full" v-show="tab === '1'">
-                  <div>
-                    <img class="lg:max-w-none mx-auto rounded-lg shadow-2xl" src="../images/cloud-ia.png" width="830" height="300" alt="Carousel 03" />
-
+                  <div class="flex min-h-72 flex-col justify-center py-6 lg:min-h-[380px] lg:py-8">
+                    <div class="mb-7 h-0.5 w-12 bg-indigo-400" aria-hidden="true"></div>
+                    <h3 class="max-w-lg font-inter-tight text-3xl font-semibold leading-tight text-zinc-100 sm:text-4xl">Votre infrastructure suivra-t-elle vos ambitions IA ?</h3>
+                    <p class="mt-5 max-w-md text-base leading-relaxed text-zinc-400">Explorez les choix d’architecture, de sécurité et de coûts à considérer selon vos usages.</p>
+                    <router-link class="mt-7 inline-flex min-h-11 w-fit items-center gap-3 text-sm font-semibold text-indigo-300 transition-colors hover:text-indigo-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" to="/ai-infrastructure">
+                      Découvrir l’approche <span aria-hidden="true">→</span>
+                    </router-link>
                   </div>
                 </div>
               </transition>
@@ -81,8 +83,13 @@ const tab = ref('1')
                 leave-to-class="opacity-0 -translate-x-8"
               >              
                 <div class="w-full" v-show="tab === '2'">
-                  <div>
-                    <img class="lg:max-w-none mx-auto rounded-lg shadow-2xl" src="../images/boliviainteligente.jpg" width="900" height="620" alt="Carousel 01" />
+                  <div class="flex min-h-72 flex-col justify-center py-6 lg:min-h-[380px] lg:py-8">
+                    <div class="mb-7 h-0.5 w-12 bg-indigo-400" aria-hidden="true"></div>
+                    <h3 class="max-w-lg font-inter-tight text-3xl font-semibold leading-tight text-zinc-100 sm:text-4xl">Et si l’IA profitait à toute votre équipe, pas seulement à quelques développeurs ?</h3>
+                    <p class="mt-5 max-w-md text-base leading-relaxed text-zinc-400">Découvrez comment relier les pratiques, de la spécification à la production, tout en gardant les validations humaines.</p>
+                    <router-link class="mt-7 inline-flex min-h-11 w-fit items-center gap-3 text-sm font-semibold text-indigo-300 transition-colors hover:text-indigo-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-300" to="/developpement-assiste-ia">
+                      Découvrir l’approche <span aria-hidden="true">→</span>
+                    </router-link>
                   </div>
                 </div>
               </transition>
@@ -133,7 +140,7 @@ const tab = ref('1')
               </svg>
               <h3 class="font-inter-tight font-semibold text-zinc-200">Roadmap stratégique</h3>
             </div>
-            <p class="text-sm text-zinc-500">Une trajectoire pragmatique et jalonnée pour guider votre migration Cloud.</p>
+            <p class="text-sm text-zinc-500">Une trajectoire pragmatique pour guider le déploiement de votre infrastructure IA.</p>
           </div>
           <!-- Block #4 -->
           <div>
@@ -160,7 +167,7 @@ const tab = ref('1')
 
               <h3 class="font-inter-tight font-semibold text-zinc-200">Expert dédié </h3>
             </div>
-            <p class="text-sm text-zinc-500">Mise à disposition d’un architecte cloud pour piloter la mise en œuvre.</p>
+            <p class="text-sm text-zinc-500">Un accompagnement pour choisir une architecture adaptée à vos contraintes.</p>
           </div>
           <!-- Block #6 -->
           <div>
@@ -172,9 +179,9 @@ const tab = ref('1')
                 <path d="M11.03 5.97a.75.75 0 0 1 0 1.06L7.75 10.3a.75.75 0 0 1-1.06 0L5 8.62a.75.75 0 0 1 1.06-1.06l1.16 1.16 2.75-2.75a.75.75 0 0 1 1.06 0Z" fill="white"/>
               </svg>
 
-              <h3 class="font-inter-tight font-semibold text-zinc-200">Résultats garantis</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Sécurité et gouvernance</h3>
             </div>
-            <p class="text-sm text-zinc-500">Un cadre complet, prix prévisible et résultats mesurables dès la phase projet.</p>
+            <p class="text-sm text-zinc-500">Prise en compte des accès, de la conformité et de la supervision dès le cadrage.</p>
           </div>
         </div>
       </div>
@@ -187,9 +194,9 @@ const tab = ref('1')
               <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                 <path d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7ZM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5Zm8.707 12.293a.999.999 0 1 1-1.414 1.414L11.9 13.314a8.019 8.019 0 0 0 1.414-1.414l2.393 2.393Z" />
               </svg>
-              <h3 class="font-inter-tight font-semibold text-zinc-200">Évaluation des usages</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Évaluation des pratiques</h3>
             </div>
-            <p class="text-sm text-zinc-500">Identification des cas d’application IA les plus pertinents pour votre contexte.</p>
+            <p class="text-sm text-zinc-500">Identification des pratiques de développement à accompagner selon votre contexte.</p>
           </div>
           <!-- Block #2 -->
           <div>
@@ -197,9 +204,9 @@ const tab = ref('1')
               <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                 <path d="M15 9a1 1 0 0 1 0 2c-.441 0-1.243.92-1.89 1.716.319 1.005.529 1.284.89 1.284a1 1 0 0 1 0 2 2.524 2.524 0 0 1-2.339-1.545A3.841 3.841 0 0 1 9 16a1 1 0 0 1 0-2c.441 0 1.243-.92 1.89-1.716C10.57 11.279 10.361 11 10 11a1 1 0 0 1 0-2 2.524 2.524 0 0 1 2.339 1.545A3.841 3.841 0 0 1 15 9Zm-5-1H7.51l-.02.142C6.964 11.825 6.367 16 3 16a3 3 0 0 1-3-3 1 1 0 0 1 2 0 1 1 0 0 0 1 1c1.49 0 1.984-2.48 2.49-6H3a1 1 0 1 1 0-2h2.793c.52-3.1 1.4-6 4.207-6a3 3 0 0 1 3 3 1 1 0 0 1-2 0 1 1 0 0 0-1-1C8.808 2 8.257 3.579 7.825 6H10a1 1 0 0 1 0 2Z" />
               </svg>
-              <h3 class="font-inter-tight font-semibold text-zinc-200">POC</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Spécifications</h3>
             </div>
-            <p class="text-sm text-zinc-500">Mise en place d’un prototype fonctionnel pour valider la faisabilité et l’impact.</p>
+            <p class="text-sm text-zinc-500">Formalisation d’exigences vérifiables pour partager le besoin avec l’équipe.</p>
           </div>
           <!-- Block #3 -->
           <div>
@@ -213,9 +220,9 @@ const tab = ref('1')
                 <path d="M4.5 7 11 4.5M4.5 9 11 11.5" stroke="currentColor" stroke-width="1.2" fill="none"/>
               </svg>
 
-              <h3 class="font-inter-tight font-semibold text-zinc-200">Architecture Data & IA</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Architecture logicielle</h3>
             </div>
-            <p class="text-sm text-zinc-500">Conception d’une base solide pour exploiter et gouverner vos données.</p>
+            <p class="text-sm text-zinc-500">Comparaison des choix techniques avant de lancer le développement.</p>
           </div>
           <!-- Block #4 -->
           <div>
@@ -223,9 +230,9 @@ const tab = ref('1')
               <svg class="fill-zinc-400 mr-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" aria-hidden="true">
                 <path d="M6.9 1.5h2.2l.4 1.3c.3.1.6.3.9.5l1.2-.5 1.6 1.6-.5 1.2c.2.3.4.6.5.9l1.3.4v2.2l-1.3.4c-.1.3-.3.6-.5.9l.5 1.2-1.6 1.6-1.2-.5c-.3.2-.6.4-.9.5l-.4 1.3H6.9l-.4-1.3a3.9 3.9 0 0 1-.9-.5l-1.2.5-1.6-1.6.5-1.2a3.9 3.9 0 0 1-.5-.9L1.5 9.1V6.9l1.3-.4c.1-.3.3-.6.5-.9l-.5-1.2L4.4 2.8l1.2.5c.3-.2.6-.4.9-.5l.4-1.3ZM8 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/>
               </svg>
-              <h3 class="font-inter-tight font-semibold text-zinc-200">MLOps & industrialisation</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Tests et revue</h3>
             </div>
-            <p class="text-sm text-zinc-500">Mise en production fluide des modèles grâce à des pipelines robustes.</p>
+            <p class="text-sm text-zinc-500">Contrôles et validations humaines des changements assistés par l’IA.</p>
           </div>
           <!-- Block #5 -->
           <div>
@@ -240,7 +247,7 @@ const tab = ref('1')
               </svg>
               <h3 class="font-inter-tight font-semibold text-zinc-200">Accompagnement expert</h3>
             </div>
-            <p class="text-sm text-zinc-500">Des spécialistes IA et Data pour guider vos équipes à chaque étape.</p>
+            <p class="text-sm text-zinc-500">Un accompagnement pour intégrer l’IA aux méthodes et outils de vos équipes.</p>
           </div>
           <!-- Block #6 -->
           <div>
@@ -252,9 +259,9 @@ const tab = ref('1')
                 <path d="M6 10V6h4V4l4 4-4 4V10H6Z"/>
               </svg>
 
-              <h3 class="font-inter-tight font-semibold text-zinc-200">Accélération mesurable</h3>
+              <h3 class="font-inter-tight font-semibold text-zinc-200">Cycle de livraison cohérent</h3>
             </div>
-            <p class="text-sm text-zinc-500">Un passage du POC à la production maîtrisé, avec valeur business rapide.</p>
+            <p class="text-sm text-zinc-500">Des pratiques reliées, des spécifications à la mise en production.</p>
           </div>
         </div>
       </div>
