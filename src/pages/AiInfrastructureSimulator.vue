@@ -133,14 +133,7 @@
 
             <div v-else class="flex max-h-[calc(100dvh-4rem)] flex-col rounded-3xl bg-white/95 p-5 shadow-2xl backdrop-blur lg:max-h-[calc(100dvh-4rem)]">
               <div class="shrink-0 px-1 pb-6">
-                <div class="relative">
-                  <div class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-gray-200" aria-hidden="true"></div>
-                  <ul class="relative flex justify-between w-full">
-                    <li v-for="(slide, index) in slides" :key="slide.key">
-                      <button class="flex items-center justify-center w-7 h-7 rounded-full text-xs font-semibold" :class="activeSlide === index ? 'bg-indigo-500 text-white' : 'bg-white text-gray-500 shadow-sm'" @click="selectSlide(index)">{{ index + 1 }}</button>
-                    </li>
-                  </ul>
-                </div>
+                <ResultNavigation :slides="slides" :active-index="activeSlide" @select="selectSlide" />
               </div>
 
               <transition name="fade" mode="out-in">
@@ -462,67 +455,17 @@
       </div>
     </div>
 
-    <div v-if="showShareModal" class="fixed inset-0 z-50 flex items-center justify-center bg-zinc-900/60 px-4" role="dialog" aria-modal="true" aria-labelledby="share-study-modal-title" @click.self="closeShareDialog">
-      <div class="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl sm:p-7">
-        <div v-if="shareStatus !== 'success'" class="flex items-start justify-between gap-4 mb-5">
-          <div>
-            <h2 id="share-study-modal-title" class="text-2xl font-bold text-gray-900">Recevoir l'étude complète</h2>
-            <p class="mt-2 text-sm text-gray-500">Recevez les recommandations classées, leur contexte et les points à valider pour votre architecture.</p>
-          </div>
-          <button class="rounded-full p-1 text-gray-500 hover:bg-gray-100" type="button" aria-label="Fermer" :disabled="shareStatus === 'submitting'" @click="closeShareDialog">✕</button>
-        </div>
-
-        <form v-if="shareStatus !== 'success'" class="space-y-5" @submit.prevent="submitShareStudy">
-          <div class="space-y-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-            <div>
-              <label class="block text-sm font-medium mb-1" for="share-recipient-email">Email du destinataire <span class="text-red-500">*</span></label>
-              <input id="share-recipient-email" class="form-input w-full" type="email" v-model="shareForm.recipientEmail" placeholder="prenom@entreprise.fr" required :disabled="shareStatus === 'submitting'" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1" for="share-recipient-name">Nom du destinataire <span class="text-red-500">*</span></label>
-              <input id="share-recipient-name" class="form-input w-full" type="text" v-model="shareForm.recipientName" placeholder="Pierre" required :disabled="shareStatus === 'submitting'" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1" for="share-recipient-role">Rôle</label>
-              <select id="share-recipient-role" class="form-select w-full text-sm" v-model="shareForm.recipientRole" :disabled="shareStatus === 'submitting'">
-                <option value="">Sélectionner un rôle</option>
-                <option v-for="role in recipientRoleOptions" :key="role" :value="role">{{ role }}</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-1" for="share-comment">Commentaire</label>
-              <textarea id="share-comment" class="form-textarea w-full text-sm" rows="4" v-model="shareForm.comment" placeholder="Une question, une contrainte ou un contexte particulier ?" :disabled="shareStatus === 'submitting'"></textarea>
-            </div>
-            <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
-              <label for="share-website">Website</label>
-              <input id="share-website" name="website" type="text" v-model="shareForm.website" tabindex="-1" autocomplete="off" />
-            </div>
-          </div>
-
-          <div v-if="shareErrorMessage" class="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800" role="alert">
-            {{ shareErrorMessage }}
-          </div>
-
-          <div class="flex flex-col-reverse gap-3 pt-1 sm:flex-row sm:justify-end">
-            <button class="btn-sm bg-white text-gray-700 shadow-sm" type="button" :disabled="shareStatus === 'submitting'" @click="closeShareDialog">Annuler</button>
-            <button class="btn-sm text-white bg-gray-900 hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-70" type="submit" :disabled="shareStatus === 'submitting'">
-              <svg v-if="shareStatus === 'submitting'" class="mr-2 h-4 w-4 animate-spin fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-              {{ shareStatus === 'submitting' ? 'Envoi en cours…' : "Envoyer l'étude" }}
-            </button>
-          </div>
-        </form>
-
-        <div v-else class="py-3 text-center">
-          <svg class="mx-auto mb-6 h-16 w-16 fill-current" viewBox="0 0 64 64" aria-hidden="true">
-            <circle class="text-green-500/20" cx="32" cy="32" r="32" />
-            <path class="text-green-700" d="M37.22 26.375a1 1 0 1 1 1.56 1.25l-8 10a1 1 0 0 1-1.487.082l-4-4a1 1 0 0 1 1.414-1.414l3.21 3.21 7.302-9.128Z" />
-          </svg>
-          <h2 id="share-study-modal-title" class="text-2xl font-bold text-gray-900">Étude envoyée</h2>
-          <p class="mt-3 text-sm text-gray-500">L'étude a été envoyée à<br><span class="font-bold text-gray-900">{{ shareSuccessRecipient }}</span>.</p>
-          <button class="btn-sm mt-6 text-white bg-gray-900 hover:bg-gray-800" type="button" @click="closeShareDialog">Fermer</button>
-        </div>
-      </div>
-    </div>
+    <StudyShareDialog
+      id="share-study-modal"
+      :open="showShareModal"
+      :status="shareStatus"
+      :role-options="recipientRoleOptions"
+      :error-message="shareErrorMessage"
+      :success-recipient="shareSuccessRecipient"
+      description="Recevez les recommandations classées, leur contexte et les points à valider pour votre architecture."
+      @close="closeShareDialog"
+      @submit="submitShareStudy"
+    />
   </main>
 </template>
 
@@ -532,6 +475,9 @@ import { formatNumber } from '../lib/inference/estimator.js'
 import { buildInferencePayload } from '../lib/inference/apiPayload.js'
 import { callInferenceApi, shareStudy } from '../lib/inference/inferenceApi.js'
 import { trackEvent } from '../lib/analytics.js'
+import ResultNavigation from '../components/simulator/ResultNavigation.vue'
+import StudyShareDialog from '../components/simulator/StudyShareDialog.vue'
+import FieldSelect from '../components/simulator/FieldSelect.vue'
 import { useCases, modelProfiles } from '../config/modelProfiles.js'
 import { precisionProfiles } from '../config/inferenceAssumptions.js'
 
@@ -563,7 +509,6 @@ const errorMessage = ref('')
 const shareStatus = ref('idle')
 const shareErrorMessage = ref('')
 const shareSuccessRecipient = ref('')
-const shareForm = ref({ recipientEmail: '', recipientName: '', recipientRole: '', comment: '', website: '' })
 const recipientRoleOptions = ['Architecte', 'Responsable infrastructure', 'CTO / Directeur technique', 'DSI', 'Responsable cloud', 'Responsable data / IA', 'Product owner', 'Décideur métier', 'Acheteur IT', 'Consultant']
 let calculatorStarted = false
 let viewedScreens = new Set()
@@ -581,7 +526,6 @@ const requestsPerDayHelp = computed(() => {
 })
 
 function resetShareForm() {
-  shareForm.value = { recipientEmail: '', recipientName: '', recipientRole: '', comment: '', website: '' }
   shareStatus.value = 'idle'
   shareErrorMessage.value = ''
   shareSuccessRecipient.value = ''
@@ -615,14 +559,14 @@ function shareErrorLabel(error) {
   return "Impossible de contacter le service d'envoi. Vérifiez votre connexion et réessayez."
 }
 
-async function submitShareStudy() {
+async function submitShareStudy(shareForm) {
   if (!hasShareableStudy.value) {
     shareStatus.value = 'error'
     shareErrorMessage.value = 'Lancez d’abord votre pré-assessment avant de le partager.'
     return
   }
 
-  const recipientEmail = cleanText(shareForm.value.recipientEmail)
+  const recipientEmail = cleanText(shareForm.recipientEmail)
   shareStatus.value = 'submitting'
   shareErrorMessage.value = ''
 
@@ -630,11 +574,11 @@ async function submitShareStudy() {
     const payload = {
       recipient: {
         email: recipientEmail,
-        name: optionalString(shareForm.value.recipientName),
-        role: optionalString(shareForm.value.recipientRole),
+        name: optionalString(shareForm.recipientName),
+        role: optionalString(shareForm.recipientRole),
       },
-      comment: optionalString(shareForm.value.comment),
-      website: shareForm.value.website || '',
+      comment: optionalString(shareForm.comment),
+      website: shareForm.website || '',
       study: result.value,
     }
     const response = await shareStudy(payload)
@@ -951,7 +895,6 @@ const providerLabel = (provider) => {
 
 const FieldInput = { props: ['id', 'label', 'modelValue', 'help', 'required', 'min', 'placeholder'], emits: ['update:modelValue'], setup(props, { emit }) { return () => h('div', [h('label', { class: 'block text-sm font-medium mb-1', for: props.id }, [props.label, props.required ? h('span', { class: 'ml-1 text-red-500' }, '*') : null]), h('input', { id: props.id, class: 'form-input w-full', type: 'number', min: props.min ?? '0', placeholder: props.placeholder, required: Boolean(props.required), value: props.modelValue, onInput: (event) => emit('update:modelValue', event.target.value) }), props.help ? h('p', { class: 'mt-1 text-xs text-gray-500' }, props.help) : null]) } }
 const FieldText = { props: ['name', 'label', 'modelValue', 'type', 'required', 'placeholder'], emits: ['update:modelValue'], setup(props, { emit }) { return () => h('div', [h('label', { class: 'block text-sm font-medium mb-1' }, [props.label, props.required ? h('span', { class: 'ml-1 text-red-500' }, '*') : null]), h('input', { name: props.name, class: 'form-input w-full', type: props.type || 'text', required: Boolean(props.required), placeholder: props.placeholder, value: props.modelValue, onInput: (event) => emit('update:modelValue', event.target.value) })]) } }
-const FieldSelect = { props: ['id', 'label', 'modelValue', 'options', 'required', 'help'], emits: ['update:modelValue'], setup(props, { emit }) { return () => h('div', [h('label', { class: 'block text-sm font-medium mb-1', for: props.id }, [props.label, props.required ? h('span', { class: 'ml-1 text-red-500' }, '*') : null]), h('select', { id: props.id, class: 'form-select w-full text-sm', required: Boolean(props.required), value: props.modelValue, onChange: (event) => emit('update:modelValue', event.target.value) }, props.options.map((option) => h('option', { key: option.value, value: option.value }, option.label))), props.help ? h('p', { class: 'mt-1 text-xs text-gray-500' }, props.help) : null]) } }
 const ResultRow = { props: ['label', 'value'], setup(props) { return () => h('div', { class: 'flex flex-col justify-between gap-1 rounded-2xl bg-gray-50 p-4' }, [h('span', { class: 'text-xs text-gray-500' }, props.label), h('span', { class: 'font-cabinet-grotesk text-lg font-bold text-gray-900' }, props.value)]) } }
 const ArchitectureComponentCard = { props: ['card'], setup(props) { return () => h('div', { class: ['min-w-0 overflow-hidden rounded-2xl border bg-white p-4 shadow-sm', props.card.borderClass] }, [h('span', { class: ['inline-flex max-w-full rounded-full px-2.5 py-1 text-[11px] font-bold break-words', props.card.badgeClass] }, props.card.badge), h('div', { class: 'mt-3 min-w-0 text-sm font-bold text-gray-900 break-words' }, props.card.title), h('div', { class: 'mt-1 min-w-0 font-cabinet-grotesk text-lg sm:text-xl font-bold text-gray-900 break-words' }, props.card.value), props.card.sublabel ? h('div', { class: 'mt-1 min-w-0 text-xs leading-snug text-gray-500 break-words' }, props.card.sublabel) : null]) } }
 const TechnicalKpiCard = { props: ['item'], setup(props) { return () => h('div', { class: 'min-w-0 rounded-2xl bg-gray-50 p-4' }, [h('div', { class: ['flex h-9 w-9 items-center justify-center rounded-full', props.item.iconBg] }, [h('span', { class: ['text-sm font-bold', props.item.iconColor] }, props.item.icon)]), h('div', { class: 'mt-3 text-xs font-medium text-gray-500' }, props.item.title), h('div', { class: 'mt-1 break-words font-cabinet-grotesk text-xl font-bold text-gray-900' }, props.item.value), h('div', { class: 'mt-1 text-xs text-gray-500' }, props.item.sublabel)]) } }

@@ -1,5 +1,5 @@
 <template>
-  <div class="workload-chart" aria-label="Illustration conceptuelle de l'évolution de la charge dans le temps">
+  <div class="workload-chart">
     <div class="workload-chart__canvas" role="img" :aria-label="chartDescription">
       <canvas ref="canvasRef"></canvas>
     </div>
@@ -80,10 +80,8 @@ const chartAreaGradient = (ctx, chartArea, colorStops) => {
 const colors = () => ({
   violet: getCssVariable('--color-indigo-500', '#6366f1'),
   red: getCssVariable('--color-red-500', '#ef4444'),
-  gray50: getCssVariable('--color-gray-50', '#f9fafb'),
   gray100: getCssVariable('--color-gray-100', '#f3f4f6'),
   gray200: getCssVariable('--color-gray-200', '#e5e7eb'),
-  gray400: getCssVariable('--color-gray-400', '#9ca3af'),
   gray500: getCssVariable('--color-gray-500', '#6b7280'),
   white: getCssVariable('--color-white', '#ffffff'),
 })
@@ -96,7 +94,7 @@ const phaseBackgroundPlugin = {
 
     if (!chartArea || !xScale) return
 
-    const zoneColor = adjustColorOpacity(colors().gray100, 0.45)
+    const zoneColor = adjustColorOpacity(colors().gray100, 0.75)
     const phases = [
       { start: -0.5, end: 2.5, color: zoneColor },
       { start: 2.5, end: 5.5, color: 'transparent' },
@@ -125,13 +123,14 @@ const quotaLabelPlugin = {
 
     const c = colors()
     const y = yScale.getPixelForValue(65)
+    const label = 'Seuil / limite de capacité'
 
     ctx.save()
     ctx.fillStyle = c.red
-    ctx.font = '600 12px Inter, sans-serif'
-    ctx.textAlign = 'left'
-    ctx.textBaseline = 'middle'
-    ctx.fillText('Quotas', chartArea.right + 10, y)
+    ctx.font = '600 11px Aspekta, sans-serif'
+    ctx.textAlign = 'right'
+    ctx.textBaseline = 'bottom'
+    ctx.fillText(label, chartArea.right - 8, y - 5, chartArea.width - 16)
     ctx.restore()
   },
 }
@@ -191,10 +190,10 @@ onMounted(() => {
       maintainAspectRatio: false,
       layout: {
         padding: {
-          top: 12,
-          right: 56,
-          bottom: 4,
-          left: 8,
+          top: 8,
+          right: 2,
+          bottom: 0,
+          left: 2,
         },
       },
       scales: {
@@ -209,7 +208,7 @@ onMounted(() => {
             maxTicksLimit: 5,
           },
           grid: {
-            color: adjustColorOpacity(c.gray200, 0.55),
+            color: adjustColorOpacity(c.gray200, 0.4),
             drawTicks: false,
           },
         },
@@ -227,7 +226,7 @@ onMounted(() => {
             minRotation: 0,
             color: c.gray500,
             font: {
-              size: 12,
+              size: 11,
               weight: 600,
             },
             callback: (_value, index) => labels[index],
@@ -236,20 +235,7 @@ onMounted(() => {
       },
       plugins: {
         legend: {
-          display: true,
-          align: 'center',
-          labels: {
-            boxWidth: 10,
-            boxHeight: 10,
-            usePointStyle: true,
-            pointStyle: 'line',
-            color: c.gray500,
-            padding: 20,
-            font: {
-              size: 12,
-              weight: 600,
-            },
-          },
+          display: false,
         },
         tooltip: {
           displayColors: false,
@@ -287,13 +273,13 @@ onUnmounted(() => {
 
 <style scoped>
 .workload-chart__canvas {
-  height: 260px;
+  height: 220px;
   width: 100%;
 }
 
 @media (min-width: 768px) {
   .workload-chart__canvas {
-    height: 360px;
+    height: 300px;
   }
 }
 </style>

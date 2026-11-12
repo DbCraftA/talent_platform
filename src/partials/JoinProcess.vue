@@ -1,37 +1,24 @@
 <template>
-  <section id="join-process" class="bg-linear-to-tr from-indigo-100 via-white to-indigo-100">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12 md:py-20 border-t [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1]">
-      <div class="mx-auto max-w-3xl pb-12 text-center md:pb-20">
-        <h2 class="font-nacelle text-black/80 pb-4 text-3xl font-semibold md:text-4xl">
+  <section id="join-process" class="bg-white">
+    <div class="mx-auto max-w-6xl border-t border-indigo-100 px-4 py-16 sm:px-6 md:py-20">
+      <div class="mx-auto max-w-3xl pb-10 text-center md:pb-12">
+        <p class="text-xs font-bold uppercase tracking-wider text-indigo-600">Comment nous rejoindre</p>
+        <h2 class="mt-2 font-cabinet-grotesk text-3xl leading-tight font-bold text-slate-950 md:text-4xl">
           Un processus simple, transparent et humain
         </h2>
-        <p class="text-lg text-gray-500">
+        <p class="mt-4 text-base leading-relaxed text-slate-900">
           L’objectif n’est pas d’empiler des profils, mais de construire une communauté de confiance avec des architectes qui partagent le même niveau d’exigence.
         </p>
       </div>
 
-      <div class="-my-4 mx-auto max-w-3xl md:-my-6" data-aos-id-join-process>
-        <div v-for="(step, index) in steps" :key="step.title" class="relative py-4 pl-24 md:py-6" data-aos="fade-up" :data-aos-delay="index * 200" data-aos-anchor="[data-aos-id-join-process]">
-          <div class="pl-2">
-            <div class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-2">
-              {{ step.eyebrow }}
-            </div>
-            <div class="mb-2 flex items-center">
-              <div class="absolute left-6 inline-flex px-2.5 py-0.5 text-sm font-semibold">
-                {{ index + 1 }}
-              </div>
-              <div v-if="index < steps.length - 1" class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-5 transform self-start bg-gray-800 px-px" aria-hidden="true"></div>
-              <div class="absolute left-0 ml-20 box-content h-2 w-2 -translate-x-1/2 transform rounded-full border-4 border-gray-950 bg-indigo-500" aria-hidden="true"></div>
-              <h4 class="font-nacelle text-xl font-semibold text-black">
-                {{ step.title }}
-              </h4>
-            </div>
-            <p class="text-[1rem] text-gray-500/75">
-              {{ step.description }}
-            </p>
-          </div>
-        </div>
-      </div>
+      <ol class="grid gap-8 md:grid-cols-3 md:gap-6" data-aos-id-join-process>
+        <li v-for="(step, index) in steps" :key="step.title" class="relative flex flex-col rounded-2xl border border-indigo-100 bg-indigo-50/50 p-6 shadow-sm after:absolute after:top-full after:left-1/2 after:h-8 after:w-px after:bg-indigo-300 last:after:hidden md:after:top-1/2 md:after:left-full md:after:h-px md:after:w-6" data-aos="fade-up" :data-aos-delay="index * 200" data-aos-anchor="[data-aos-id-join-process]">
+          <span class="relative mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-indigo-600 font-cabinet-grotesk text-lg font-bold text-white">{{ index + 1 }}</span>
+          <p class="text-xs font-bold uppercase tracking-wider text-indigo-600">{{ step.eyebrow }}</p>
+          <h3 class="mt-2 font-cabinet-grotesk text-xl font-bold text-slate-950">{{ step.title }}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-900">{{ step.description }}</p>
+        </li>
+      </ol>
     </div>
   </section>
 </template>

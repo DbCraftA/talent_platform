@@ -1,22 +1,23 @@
 <template>
-  <section class="bg-linear-to-b from-indigo-100 to-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 border-t [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1]">
-      <div class="py-12 md:py-20 border-b border-gray-100">
-        <div class="pb-12 md:pb-20 text-center">
-          <h2 class="h2 font-cabinet-grotesk">Questions fréquentes</h2>
+  <section class="bg-white">
+    <div class="mx-auto max-w-6xl border-t border-indigo-100 px-4 sm:px-6">
+      <div class="py-16 md:py-20">
+        <div class="pb-10 text-center md:pb-12">
+          <p class="text-xs font-bold uppercase tracking-wider text-indigo-600">Pour aller plus loin</p>
+          <h2 class="mt-2 font-cabinet-grotesk text-3xl leading-tight font-bold text-slate-950 md:text-4xl">Questions fréquentes</h2>
         </div>
 
-        <div class="md:flex md:space-x-12 space-y-8 md:space-y-0">
-          <div class="w-full md:w-1/2 space-y-8">
-            <div v-for="item in leftQuestions" :key="item.question" class="space-y-2">
-              <h4 class="text-xl font-cabinet-grotesk font-bold">{{ item.question }}</h4>
-              <p class="text-gray-500">{{ item.answer }}</p>
+        <div class="grid gap-5 md:grid-cols-2">
+          <div class="grid gap-5">
+            <div v-for="item in leftQuestions" :key="item.question" class="rounded-2xl border border-indigo-100 bg-indigo-50/40 p-6">
+              <h3 class="font-cabinet-grotesk text-lg font-bold text-slate-950">{{ item.question }}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-900">{{ item.answer }}</p>
             </div>
           </div>
-          <div class="w-full md:w-1/2 space-y-8">
-            <div v-for="item in rightQuestions" :key="item.question" class="space-y-2">
-              <h4 class="text-xl font-cabinet-grotesk font-bold">{{ item.question }}</h4>
-              <p class="text-gray-500">{{ item.answer }}</p>
+          <div class="grid gap-5">
+            <div v-for="item in rightQuestions" :key="item.question" class="rounded-2xl border border-indigo-100 bg-indigo-50/40 p-6">
+              <h3 class="font-cabinet-grotesk text-lg font-bold text-slate-950">{{ item.question }}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-slate-900">{{ item.answer }}</p>
             </div>
           </div>
         </div>

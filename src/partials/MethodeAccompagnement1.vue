@@ -1,235 +1,37 @@
+<script setup>
+const steps = [
+  { title: 'Diagnostic', icon: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 4v5l3 2', text: 'Écouter vos objectifs business, cartographier l’existant technique et les compétences internes pour comprendre vos enjeux.' },
+  { title: 'Analyse & cadrage', icon: 'M5 3h11l3 3v15H5V3Zm11 0v4h3M8 11h8M8 15h8M8 19h5', text: 'Identifier expertises, contraintes et priorités ; définir les résultats attendus et les indicateurs de succès.' },
+  { title: 'Proposition sur mesure', icon: 'M12 3v6m0 0-6 5m6-5 6 5M3 17l3-3 3 3m6 0 3-3 3 3', text: 'Choisir ensemble l’approche adaptée à votre maturité et valider les options, profils, objectifs et modalités d’intervention.' },
+  { title: 'Exécution & suivi', icon: 'M3 20V12m6 8V7m6 13v-5m6 5V4M2 21h20', text: 'Intégrer les experts, piloter les avancées, mesurer la performance et transférer les compétences pour pérenniser les acquis.' },
+]
+</script>
+
 <template>
-  <section id="section2" class="bg-linear-to-b from-indigo-200 to-white pb-10 pt-20">
+  <section id="section2" class="scroll-mt-16 py-15 text-[#11142e] " aria-labelledby="accompaniment-title">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <!-- Section header -->
-      <div class="mx-auto max-w-3xl pb-12 text-center md:pb-20">
-        <h2
-            class="font-nacelle animate-[gradient_6s_linear_infinite] text-black/80 bg-[length:200%_auto] pb-4 text-3xl font-semibold md:text-4xl"
-        >
-          Notre méthode d'accompagnement
-        </h2>
-        <p class="text-lg text-gray-500">
-          Chaque client a des besoins uniques. Selon le contexte, nous
-          intervenons soit en accompagnement stratégique pour cadrer et
-          orienter le projet, soit en mise à disposition rapide des meilleurs
-          profils experts. Notre méthode garantit agilité et pertinence à
-          chaque étape.
-        </p>
-      </div>
-      <!-- Items -->
-      <div class="-my-4 mx-auto max-w-8xl md:-my-6" data-aos-id-timeline-1>
-        <!-- 1st item -->
-        <div
-            class="relative py-4 pl-24 md:py-6"
-            data-aos="fade-up"
-            data-aos-anchor="[data-aos-id-timeline-1]"
-        >
-          <div class="pl-2">
-            <div
-                class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
-            >
-              Diagnostic Initial et Analyse Approfondie
-            </div>
-            <div class="mb-2 flex items-center">
-              <div
-                  class="absolute left-6 inline-flex  px-2.5 py-0.5 text-sm font-semibold "
-              >
-                1
-              </div>
-              <div
-                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-6  max-[376px]:translate-y-9.5  transform self-start bg-gray-800 px-px"
-                  aria-hidden="true"
-              ></div>
-              <div
-                  class="absolute left-0 ml-20 box-content h-2 w-2 -translate-x-1/2 transform rounded-full border-4 border-gray-950 bg-indigo-500"
-                  aria-hidden="true"
-              ></div>
-              <h4 class="font-nacelle text-xl font-semibold text-black">
-                Comprendre pour mieux vous accompagner
-              </h4>
-            </div>
-            <p class="text-[1rem] text-gray-500/75 mb-4">
-              Nous commençons toujours par une phase d'écoute et d'analyse pour saisir l'essence de votre besoin :
-            </p>
-            <ul class="text-gray-600 list-disc pl-4 space-y-1">
-              <li><strong>Exploration des objectifs business :</strong> identification des résultats attendus et des indicateurs de succès</li>
-              <li><strong>Cartographie du périmètre technique :</strong> évaluation de l'existant et des contraintes techniques</li>
-              <li><strong>Analyse des compétences internes :</strong> identification des forces et des besoins en renfort</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 2nd item -->
-        <div
-            class="relative py-4 pl-24 md:py-6"
-            data-aos="fade-up"
-            data-aos-delay="200"
-            data-aos-anchor="[data-aos-id-timeline-1]"
-        >
-          <div class="pl-2">
-            <div
-                class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
-            >
-              Proposition d’accompagnement Dual
-            </div>
-            <div class="mb-2 flex items-center">
-              <div
-                  class="absolute left-6 inline-flex  px-2.5 py-0.5 text-sm font-semibold "
-              >
-                2
-              </div>
-              <div
-                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-6 max-[321px]:translate-y-9.5 max-[376px]:translate-y-10 transform self-start bg-gray-800 px-px"
-                  aria-hidden="true"
-              ></div>
-              <div
-                  class="absolute left-0 ml-20 box-content h-2 w-2 -translate-x-1/2 transform rounded-full border-4 border-gray-950 bg-indigo-500"
-                  aria-hidden="true"
-              ></div>
-              <h4 class="font-nacelle text-xl font-semibold text-black">
-                La bonne approche au bon moment
-              </h4>
-            </div>
-            <p class="text-[1rem] text-gray-500/75 mb-4">
-              Selon votre maturité et vos priorités, nous proposons deux approches complémentaires — conseil stratégique ou mise à disposition d'experts.
-            </p>
-            <div class="  grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-              <!-- Branch 1 - Strategy -->
-              <div class="pl-6 md:pl-0">
-                <div class="text-md text-indigo-500 mb-2">a - Voie Stratégique : Conseil & Cadrage</div>
-                <h4 class="text-xl font-semibold text-black mb-2">Cadrage stratégique</h4>
-                <p class="text-gray-600 mb-3">Pour structurer votre vision et définir la feuille de route.</p>
-                <ul class="text-gray-600 list-disc pl-4 space-y-1">
-                  <li><strong>Assessment technologique :</strong> évaluation de votre maturité et identification des opportunités</li>
-                  <li><strong>Architecture cible :</strong> conception de solutions pérennes et évolutives</li>
-                  <li><strong>Roadmap d'implémentation :</strong> planification des étapes clés et des ressources nécessaires</li>
-                  <li><strong>Gouvernance & bonnes pratiques :</strong> définition des standards et méthodologies</li>
-                </ul>
-              </div>
-
-              <!-- Branch 2 - Experts -->
-              <div class="pl-6 md:pl-0">
-                <div class="text-md text-indigo-500 mb-2">b - Voie Opérationnelle : Experts & Exécution</div>
-                <h4 class="text-xl font-semibold text-black mb-2">Mise à disposition d’experts</h4>
-                <p class="text-gray-600 mb-3">Pour accélérer vos projets avec les meilleurs talents.</p>
-                <ul class="text-gray-600 list-disc pl-4 space-y-1">
-                  <li><strong>Mise à disposition d'experts :</strong> architectes qualifiés</li>
-                  <li><strong>Renfort d'équipes :</strong> intégration harmonieuse dans vos structures</li>
-                  <li><strong>Leadership technique :</strong> mentoring et montée en compétences</li>
-                  <li><strong>Delivery opérationnel :</strong> réalisation concrète des objectifs définis</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3rd item -->
-        <div
-            class="relative py-4 pl-24 md:py-6"
-            data-aos="fade-up"
-            data-aos-delay="400"
-            data-aos-anchor="[data-aos-id-timeline-1]"
-        >
-          <div class="pl-2">
-            <div
-                class="inline-flex bg-linear-to-r text-indigo-500 bg-clip-text pb-2 "
-            >
-              Sélection et Validation collaborative
-            </div>
-            <div class="mb-2 flex items-center">
-              <div
-                  class="absolute left-6 inline-flex  px-2.5 py-0.5 text-sm font-semibold "
-              >
-                3
-              </div>
-              <div
-                  class="absolute left-0 ml-20 h-full -translate-x-1/2 sm:translate-y-3 translate-y-8 max-[321px]:translate-y-13 transform self-start bg-gray-800 px-px"
-                  aria-hidden="true"
-              ></div>
-              <div
-                  class="absolute left-0 ml-20 box-content h-2 w-2 -translate-x-1/2 transform rounded-full border-4 border-gray-950 bg-indigo-500"
-                  aria-hidden="true"
-              ></div>
-              <h4 class="font-nacelle text-xl font-semibold text-black">
-                Transparence et confiance dans le choix des solutions
-              </h4>
-            </div>
-            <p class="text-[1rem] text-gray-500/75 mb-4">
-              Nous vous impliquons pleinement dans le processus de sélection pour garantir une adhésion totale :
-            </p>
-            <ul class="text-gray-600 list-disc pl-4 space-y-1">
-              <li><strong>Présentation d'options ciblées :</strong> shortlist de 2–3 solutions ou profils soigneusement présélectionnés</li>
-              <li><strong>Entretiens de validation :</strong> rencontres directes avec les experts proposés</li>
-              <li><strong>Démonstration d'expertise :</strong> cas pratiques ou présentations techniques adaptés à votre contexte</li>
-              <li><strong>Engagement contractuel clair :</strong> objectifs, livrables et modalités d'intervention définis sans ambiguïté</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- 4th item -->
-        <div
-            class="relative py-4 pl-24 md:py-6"
-            data-aos="fade-up"
-            data-aos-delay="600"
-            data-aos-anchor="[data-aos-id-timeline-1]"
-        >
-          <div class="pl-2">
-            <div
-                class="inline-flex bg-linear-to-r  bg-clip-text pb-2 text-indigo-500"
-            >
-              Accompagnement et Suivi d’impact
-            </div>
-            <div class="mb-2 flex items-center">
-              <div
-                  class="absolute left-6 inline-flex  px-2.5 py-0.5 text-sm font-semibold "
-              >
-                4
-              </div>
-              <div
-                  class="absolute left-0 ml-20 box-content h-2 w-2 -translate-x-1/2 transform rounded-full border-4 border-gray-950 bg-indigo-500"
-                  aria-hidden="true"
-              ></div>
-              <h4 class="font-nacelle text-xl font-semibold text-black">
-                Au-delà de l'intervention, la garantie de résultats
-              </h4>
-            </div>
-            <p class="text-[1rem] text-gray-500/75 mb-4">
-              Notre engagement ne s'arrête pas au démarrage de la mission, nous assurons un suivi rigoureux :
-            </p>
-            <ul class="text-gray-600 list-disc pl-4 space-y-1">
-              <li><strong>Onboarding structuré :</strong> intégration efficace dans votre environnement et vos équipes</li>
-              <li><strong>Points de pilotage réguliers :</strong> suivi des avancées et ajustements si nécessaire</li>
-              <li><strong>Mesure continue de la performance :</strong> évaluation des résultats selon les KPIs définis ensemble</li>
-              <li><strong>Transfert de compétences :</strong> formation de vos équipes pour pérenniser les acquis</li>
-              <li><strong>Bilan de fin de mission :</strong> capitalisation sur l'expérience et recommandations pour la suite</li>
-            </ul>
-          </div>
-        </div>
+      <div class="mx-auto max-w-3xl text-center" data-aos="fade-up">
+        <p class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#5638f5]">À vos côtés, à chaque étape</p>
+        <h2 id="accompaniment-title" class="font-cabinet-grotesk text-3xl font-bold leading-tight md:text-4xl">Notre méthode d'accompagnement</h2>
+        <p class="mt-5 leading-relaxed text-[#565d7c]">Chaque client a des besoins uniques. Selon le contexte, nous intervenons soit en accompagnement stratégique pour cadrer et orienter le projet, soit en mise à disposition rapide des meilleurs profils experts. Notre méthode garantit agilité et pertinence à chaque étape.</p>
       </div>
 
-
-
-      <!-- Section footer -->
-      <div class="mx-auto max-w-3xl pt-12  text-center text-black md:pt-25">
-          <p
-              class="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text  text-2xl font-semibold text-gray-500"
-          >
-          Nous nous engageons à allier innovation, pragmatisme, agilité, transparence et excellence pour des résultats concrets et de qualité à chaque étape.
-        </p>
-      </div>
+      <ol class="mx-auto mt-12 max-w-2xl" aria-label="Étapes d'accompagnement">
+        <li v-for="(step, index) in steps" :key="step.title">
+          <article class="rounded-xl border px-5 py-5 text-center sm:px-8" :class="index % 2 === 0 ? 'border-[#e6e5ed] bg-white/75' : 'border-[#bdb3ff] bg-[#f5f3ff]'" data-aos="fade-up" :data-aos-delay="(index % 2) * 100">
+            <p class="text-xs font-bold uppercase tracking-wider" :class="index % 2 === 0 ? 'text-[#68708e]' : 'text-[#5638f5]'">Étape 0{{ index + 1 }}</p>
+            <svg class="mx-auto mt-3 h-7 w-7 text-[#5638f5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path :d="step.icon" /></svg>
+            <h3 class="mt-2 font-cabinet-grotesk text-xl font-bold">{{ step.title }}</h3>
+            <p class="mx-auto mt-1 max-w-md text-sm leading-relaxed text-[#68708e]">{{ step.text }}</p>
+            <div v-if="index === 2" class="mt-4 flex flex-wrap justify-center gap-2 text-xs font-bold text-[#5638f5]" aria-label="Deux voies d'accompagnement">
+              <span class="rounded-lg bg-[#f1efff] px-3 py-2">Conseil & cadrage</span>
+              <span class="rounded-lg bg-[#f1efff] px-3 py-2">Experts & exécution</span>
+            </div>
+          </article>
+          <div v-if="index < steps.length - 1" class="flex flex-col items-center text-[#5638f5]" aria-hidden="true"><span class="h-4 w-px bg-[#bdb3ff]"></span><span class="flex h-7 w-7 items-center justify-center rounded-full bg-[#eeeaff]">↓</span><span class="h-4 w-px bg-[#bdb3ff]"></span></div>
+        </li>
+      </ol>
+      <p class="mx-auto mt-9 max-w-3xl text-center text-sm leading-relaxed text-[#565d7c]" data-aos="fade-up">Nous allions innovation, pragmatisme, agilité, transparence et excellence pour des résultats concrets et de qualité à chaque étape.</p>
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-
-</script>
-
-<style scoped>
-/* Ajustements mineurs pour harmoniser l'apparence SVG / texte */
-svg { display: block; }
-@media (max-width: 767px) {
-  /* sur mobile, on empile SVG puis textes */
-  section .grid { align-items: flex-start; }
-}
-</style>
