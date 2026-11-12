@@ -6,8 +6,8 @@ import architectIcon from '../images/architecte.png'
 import cloudIcon from '../images/cloud.png'
 
 const offers = [
-  { title: 'Infrastructure IA', description: 'Choisir, dimensionner et industrialiser une infrastructure adaptée à vos usages, vos performances et vos contraintes de coûts.', image: infrastructureImage, alt: 'Infrastructure de serveurs', icon: 'layers', link: '/ai-infrastructure' },
-  { title: 'Développement assisté par l’IA', description: 'Structurer et industrialiser l’utilisation de l’IA dans le cycle de développement logiciel, des spécifications à la production.', image: developmentImage, alt: 'Ordinateur utilisé pour le développement assisté par IA', icon: 'code', link: '/developpement-assiste-ia' },
+  { title: 'Infrastructure IA', description: 'Choisir, dimensionner et industrialiser une infrastructure adaptée à vos usages, vos performances et vos contraintes de coûts.', image: infrastructureImage, alt: 'Infrastructure de serveurs', icon: 'layers', link: '/ai-infrastructure', simulatorLink: '/ai-infrastructure/simulateur' },
+  { title: 'Développement assisté par l’IA', description: 'Structurer et industrialiser l’utilisation de l’IA dans le cycle de développement logiciel, des spécifications à la production.', image: developmentImage, alt: 'Ordinateur utilisé pour le développement assisté par IA', icon: 'code', link: '/developpement-assiste-ia', simulatorLink: '/developpement-assiste-ia/simulateur' },
 ]
 const services = [
   { title: 'Assessment & Stratégie', description: 'Cadrage, diagnostic et feuille de route.', icon: strategyIcon },
@@ -39,19 +39,22 @@ const services = [
             </span>
             <h3 class="mt-1 pl-11 font-cabinet-grotesk text-xl font-bold text-slate-950">{{ offer.title }}</h3>
             <p class="mt-3 text-sm leading-relaxed text-slate-900">{{ offer.description }}</p>
-            <router-link class="mt-auto inline-flex w-fit items-center gap-2 pt-3 text-sm font-bold text-indigo-700 hover:text-indigo-900" :to="offer.link">Découvrir l’offre <span aria-hidden="true">→</span></router-link>
+            <div class="mt-auto flex flex-wrap gap-2 pt-5">
+              <router-link class="inline-flex min-h-10 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-indigo-600 px-3 py-2 text-sm font-bold text-white transition-colors hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" :to="offer.link">Découvrir l’offre <span aria-hidden="true">→</span></router-link>
+              <router-link class="inline-flex min-h-10 flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-indigo-600 bg-white px-3 py-2 text-sm font-bold text-indigo-700 transition-colors hover:bg-indigo-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" :to="offer.simulatorLink">Tester le simulateur <span aria-hidden="true">→</span></router-link>
+            </div>
           </div>
         </article>
 
         <div class="flex flex-col rounded-2xl bg-indigo-50 p-4 md:p-5" data-aos="fade-up" data-aos-delay="200">
           <h3 class="mb-4 font-cabinet-grotesk text-xl leading-tight font-bold text-slate-950">Et aussi, des accompagnements sur mesure</h3>
-          <div class="space-y-2">
+          <div class="space-y-2 lg:my-auto">
             <div v-for="service in services" :key="service.title" class="flex items-center gap-3 rounded-xl bg-white/80 p-3">
               <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-indigo-50" aria-hidden="true"><img class="h-6 w-6 object-contain" :src="service.icon" alt="" /></span>
               <div><h4 class="font-cabinet-grotesk text-sm font-bold text-slate-950">{{ service.title }}</h4><p class="text-xs leading-snug text-slate-900">{{ service.description }}</p></div>
             </div>
           </div>
-          <router-link class="btn mt-4 inline-flex w-full items-center justify-center rounded-xl border border-indigo-600 bg-white/80 text-indigo-700 hover:bg-indigo-50" to="/methode">Découvrir notre méthode</router-link>
+          <router-link class="btn  inline-flex w-full items-center justify-center rounded-xl border border-indigo-600 bg-white/80 text-indigo-700 hover:bg-indigo-50" to="/methode">Découvrir notre méthode</router-link>
         </div>
       </div>
     </div>
