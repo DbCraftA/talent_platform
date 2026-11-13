@@ -54,7 +54,7 @@ const services = [
               <div><h4 class="font-cabinet-grotesk text-sm font-bold text-slate-950">{{ service.title }}</h4><p class="text-xs leading-snug text-slate-900">{{ service.description }}</p></div>
             </div>
           </div>
-          <router-link class="btn  inline-flex w-full items-center justify-center rounded-xl border border-indigo-600 bg-white/80 text-indigo-700 hover:bg-indigo-50" to="/methode">Découvrir notre méthode</router-link>
+          <router-link class="btn  mt-4 sm:mt-1 inline-flex w-full items-center justify-center rounded-xl border border-indigo-600 bg-white/80 text-indigo-700 hover:bg-indigo-50" to="/methode">Découvrir notre méthode</router-link>
         </div>
       </div>
     </div>
