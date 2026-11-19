@@ -12,7 +12,7 @@
         </div>
 
         <!-- Desktop navigation -->
-        <nav class="hidden md:flex grow">
+        <nav class="hidden lg:flex grow">
           <ul class="flex grow justify-end flex-wrap items-center">
             <li>
               <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/methode" @click="trackNav('method', 'header')">Notre méthode</router-link>
@@ -59,6 +59,7 @@
             <li class="ml-6">
               <router-link class="font-cabinet-grotesk text-sm font-bold hover:no-underline items-center sm:flex" to="/blog" @click="trackNav('blog', 'header')">Blog</router-link>
             </li>
+
             <li class="ml-6">
               <router-link class="btn-sm inline-flex items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter" @click="trackNav('contact', 'header')">
                 Nous contacter
@@ -69,12 +70,15 @@
                 </span>
               </router-link>
             </li>
+            <li class="ml-2">
+              <router-link class="btn-sm border border-indigo-500 bg-indigo-50 text-indigo-800 hover:bg-indigo-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" to="/connexion" @click="trackNav('member_space', 'header')">Espace membre</router-link>
+            </li>
           </ul>
         </nav>
 
         <!-- Mobile menu button -->
         <button
-          class="md:hidden inline-flex min-w-28 items-center justify-center gap-2 rounded-full border border-indigo-500 bg-white/80 px-5 py-1.5 text-sm font-cabinet-grotesk font-bold text-gray-900 shadow-sm backdrop-blur hover:bg-white"
+          class="lg:hidden inline-flex min-w-28 items-center justify-center gap-2 rounded-full border border-indigo-500 bg-white/80 px-5 py-1.5 text-sm font-cabinet-grotesk font-bold text-gray-900 shadow-sm backdrop-blur hover:bg-white"
           type="button"
           :aria-expanded="mobileMenuOpen"
           aria-controls="mobile-menu"
@@ -99,7 +103,7 @@
           <nav
             v-show="mobileMenuOpen"
             id="mobile-menu"
-            class="md:hidden absolute top-full left-0 right-0 mt-2 rounded-2xl border border-indigo-100 bg-white/95 p-3 shadow-xl backdrop-blur"
+            class="lg:hidden absolute top-full left-0 right-0 mt-2 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl border border-indigo-100 bg-white/95 p-3 shadow-xl backdrop-blur"
           >
             <ul class="space-y-1">
               <li>
@@ -124,6 +128,9 @@
               </li>
               <li>
                 <router-link class="block rounded-xl px-4 py-3 font-cabinet-grotesk text-sm font-bold text-gray-900 hover:bg-indigo-50" to="/blog" @click="mobileMenuOpen = false; trackNav('blog', 'mobile_menu')">Blog</router-link>
+              </li>
+              <li>
+                <router-link class="block rounded-xl border border-indigo-500 bg-indigo-50 px-4 py-3 font-cabinet-grotesk text-sm font-bold text-indigo-800 hover:bg-indigo-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" to="/connexion" @click="mobileMenuOpen = false; trackNav('member_space', 'mobile_menu')">Espace membre</router-link>
               </li>
               <li>
                 <router-link class="block rounded-xl  px-4 py-3 font-cabinet-grotesk items-center border-1 border-indigo-500 text-white bg-gray-900 hover:bg-gray-800 group" to="/nous-contacter" @click="mobileMenuOpen = false; trackNav('contact', 'mobile_menu')">
