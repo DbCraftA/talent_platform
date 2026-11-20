@@ -30,9 +30,12 @@ import AdminTalentDetail from './pages/AdminTalentDetail.vue'
 import AdminTalentNew from './pages/AdminTalentNew.vue'
 import AdminMissions from './pages/AdminMissions.vue'
 import AdminMissionDetail from './pages/AdminMissionDetail.vue'
+import AdminEntreprises from './pages/AdminEntreprises.vue'
+import AdminEntrepriseDetail from './pages/AdminEntrepriseDetail.vue'
+import AdminEntrepriseNew from './pages/AdminEntrepriseNew.vue'
+import AdminPrestations from './pages/AdminPrestations.vue'
 import PortalLayout from './layouts/PortalLayout.vue'
 import AdminLayout from './layouts/AdminLayout.vue'
-import PortalPlaceholder from './pages/PortalPlaceholder.vue'
 import { getMockSession } from './services/authService.js'
 import { useFormStore } from './stores/formContacterNous.js'
 import { pinia } from './main'
@@ -94,8 +97,10 @@ const router = createRouter({
         { path: 'talents/:id', component: AdminTalentDetail, meta: { title: 'Détail talent' } },
         { path: 'missions', component: AdminMissions, meta: { title: 'Missions' } },
         { path: 'missions/:id', component: AdminMissionDetail, meta: { title: 'Détail mission' } },
-        { path: 'entreprises', component: PortalPlaceholder, meta: { title: 'Entreprises' } },
-        { path: 'prestations', component: PortalPlaceholder, meta: { title: 'Prestations & revenus' } },
+        { path: 'entreprises', component: AdminEntreprises, meta: { title: 'Entreprises' } },
+        { path: 'entreprises/nouveau', component: AdminEntrepriseNew, meta: { title: 'Ajouter une entreprise' } },
+        { path: 'entreprises/:id', component: AdminEntrepriseDetail, meta: { title: 'Détail entreprise' } },
+        { path: 'prestations', component: AdminPrestations, meta: { title: 'Prestations & commissions' } },
       ]
     },
     {

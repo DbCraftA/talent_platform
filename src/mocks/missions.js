@@ -123,12 +123,12 @@ export const demoMissions = [
 
 // Admin-only metadata is deliberately separate from the freelance-facing missions.
 export const adminMissionExamples = [
-  { id: 'exemple-cloud', organization: 'ESN fictive Horizon', source: 'ESN', owner: 'Camille Martin', receivedAt: '2026-11-12' },
-  { id: 'exemple-data', organization: 'Client direct fictif Atlas', source: 'DIRECT_CLIENT', owner: 'Nora Bernard', receivedAt: '2026-11-11' },
-  { id: 'exemple-ia', organization: 'ESN fictive Latitude', source: 'ESN', owner: 'Alex Petit', receivedAt: '2026-11-10' },
-  { id: 'exemple-cyber-invitation', organization: 'Client direct fictif Rivage', source: 'DIRECT_CLIENT', owner: 'Louise Moreau', receivedAt: '2026-11-09' },
-  { id: 'exemple-architecture-strategique', organization: 'ESN fictive Horizon', source: 'ESN', owner: 'Camille Martin', receivedAt: '2026-11-08' },
-  { id: 'exemple-cloud-premium-invitation', organization: 'Client direct fictif Atlas', source: 'DIRECT_CLIENT', owner: 'Nora Bernard', receivedAt: '2026-11-07' },
+  { id: 'exemple-cloud', organizationId: 'org-horizon', organization: 'ESN fictive Horizon', source: 'ESN', owner: 'Camille Martin', receivedAt: '2026-11-12' },
+  { id: 'exemple-data', organizationId: 'org-atlas', organization: 'Client direct fictif Atlas', source: 'DIRECT_CLIENT', owner: 'Nora Bernard', receivedAt: '2026-11-11' },
+  { id: 'exemple-ia', organizationId: 'org-latitude', organization: 'ESN fictive Latitude', source: 'ESN', owner: 'Alex Petit', receivedAt: '2026-11-10' },
+  { id: 'exemple-cyber-invitation', organizationId: 'org-rivage', organization: 'Client direct fictif Rivage', source: 'DIRECT_CLIENT', owner: 'Louise Moreau', receivedAt: '2026-11-09' },
+  { id: 'exemple-architecture-strategique', organizationId: 'org-horizon', organization: 'ESN fictive Horizon', source: 'ESN', owner: 'Camille Martin', receivedAt: '2026-11-08' },
+  { id: 'exemple-cloud-premium-invitation', organizationId: 'org-atlas', organization: 'Client direct fictif Atlas', source: 'DIRECT_CLIENT', owner: 'Nora Bernard', receivedAt: '2026-11-07' },
 ]
 
 export const adminPendingMissionExamples = [
@@ -140,7 +140,7 @@ export const adminPendingMissionExamples = [
     context: 'Une organisation fictive évalue son architecture cloud.',
     objectives: ['Définir une architecture cible.'], expectedSkills: ['Architecture Azure', 'Infrastructure as code'],
     access: 'STANDARD', visibility: 'CATALOG', status: 'PENDING_REVIEW',
-    organization: 'ESN fictive Latitude', source: 'ESN', owner: 'Alex Petit', receivedAt: '2026-11-17',
+    organizationId: 'org-latitude', organization: 'ESN fictive Latitude', source: 'ESN', owner: 'Alex Petit', receivedAt: '2026-11-17',
   },
   {
     id: 'exemple-besoin-cyber', title: 'Gouvernance des identités', expertise: 'CYBER',
@@ -150,7 +150,7 @@ export const adminPendingMissionExamples = [
     context: 'Un client fictif souhaite cadrer ses accès.',
     objectives: ['Définir les principes de gouvernance IAM.'], expectedSkills: ['Architecture IAM'],
     access: 'PREMIUM', visibility: 'INVITE_ONLY', status: 'APPROVED',
-    organization: 'Client direct fictif Rivage', source: 'DIRECT_CLIENT', owner: 'Louise Moreau', receivedAt: '2026-11-16',
+    organizationId: 'org-rivage', organization: 'Client direct fictif Rivage', source: 'DIRECT_CLIENT', owner: 'Louise Moreau', receivedAt: '2026-11-16',
   },
   {
     id: 'exemple-besoin-data', title: 'Architecture de flux Data', expertise: 'DATA',
@@ -160,7 +160,7 @@ export const adminPendingMissionExamples = [
     context: 'Une organisation fictive prépare une plateforme de données.',
     objectives: ['Cartographier les flux.'], expectedSkills: ['Architecture Data'],
     access: 'STANDARD', visibility: 'CATALOG', status: 'MATCHING',
-    organization: 'ESN fictive Horizon', source: 'ESN', owner: 'Camille Martin', receivedAt: '2026-11-06',
+    organizationId: 'org-horizon', organization: 'ESN fictive Horizon', source: 'ESN', owner: 'Camille Martin', receivedAt: '2026-11-06',
   },
   {
     id: 'exemple-besoin-architecture', title: 'Cartographie SI', expertise: 'ENTERPRISE_ARCHITECTURE',
@@ -170,6 +170,6 @@ export const adminPendingMissionExamples = [
     context: 'Un client fictif étudie son architecture d’entreprise.',
     objectives: ['Documenter une cartographie applicative.'], expectedSkills: ['Architecture d’entreprise'],
     access: 'STANDARD', visibility: 'INVITE_ONLY', status: 'CLOSED',
-    organization: 'Client direct fictif Atlas', source: 'DIRECT_CLIENT', owner: 'Nora Bernard', receivedAt: '2026-11-05',
+    organizationId: 'org-atlas', organization: 'Client direct fictif Atlas', source: 'DIRECT_CLIENT', owner: 'Nora Bernard', receivedAt: '2026-11-05',
   },
 ]
